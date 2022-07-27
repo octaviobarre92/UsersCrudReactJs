@@ -36,23 +36,49 @@ const TableData = ({ validationService = () => { }, setvalidationService = () =>
     }, 500);
   }, [users])
   async function initialPagination() {
-    setloadingValidate(true)
-    await service.getUsersPagination(skip, 5).then(resp => {
-      setdataUsers(resp)
-      setloadingValidate(false)
+    try {
+      setloadingValidate(true)
+      await service.getUsersPagination(skip, 5).then(resp => {
+        setdataUsers(resp)
+        setloadingValidate(false)
 
-    }).catch(err => {
+      }).catch(err => {
+        setloadingValidate(false)
+      })
+    } catch {
       setloadingValidate(false)
-    })
+    }
   }
   async function changuePage(pageNumber) {
-    setloadingValidate(true)
-    await service.getUsersPagination(pageNumber == 1 ? 0 : (pageNumber * limit - limit), limit).then(resp => {
-      setdataUsers(resp)
+    try {
+      setloadingValidate(true)
+      await service.getUsersPagination(pageNumber == 1 ? 0 : (pageNumber * limit - limit), limit).then(resp => {
+        setdataUsers(resp)
+        setloadingValidate(false)
+      }).catch(err => {
+        setloadingValidate(false)
+      })
+    } catch {
       setloadingValidate(false)
-    }).catch(err => {
-      setloadingValidate(false)
-    })
+    }
+  }
+  async function deleteUser(user) {
+    try {
+      setvalidationService(false)
+      await service.deleteUsers(user._id).then(response => {
+        if (response == true) {
+          toast.success(`Exito al eliminar al usuario ${user.name} ${user.lastName ?? ''}`);
+          setTimeout(() => {
+            setvalidationService(true)
+            return false
+          }, 500);
+        } else {
+          toast.error(`Oops!, ha ocurrido un error en la respuesta del servicio.`);
+        }
+      })
+    } catch (err) {
+      console.log(err);
+    }
   }
   return (
     <>
@@ -108,22 +134,7 @@ const TableData = ({ validationService = () => { }, setvalidationService = () =>
                     <EditIcon />
                   </Fab>
                   <Fab onClick={async (e) => {
-                    try {
-                      setvalidationService(false)
-                      await service.deleteUsers(user._id).then(response => {
-                        if (response == true) {
-                          toast.success(`Exito al eliminar al usuario ${user.name} ${user.lastName ?? ''}`);
-                          setTimeout(() => {
-                            setvalidationService(true)
-                            return false
-                          }, 500);
-                        } else {
-                          toast.error(`Oops!, ha ocurrido un error en la respuesta del servicio.`);
-                        }
-                      })
-                    } catch (err) {
-                      console.log(err);
-                    }
+                    deleteUser(user);
                   }} size="small" color="error" aria-label="delete">
                     <DeleteIcon />
                   </Fab>
