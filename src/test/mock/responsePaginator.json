@@ -1,0 +1,92 @@
+[
+    {
+        "_id": "62df668d791860600e8185eb",
+        "name": "Rosario",
+        "lastName": "Gómez",
+        "email": "rosari111o@ingesa.com",
+        "phoneNumber": "+539992637761",
+        "cc": 1715029938,
+        "__v": 0
+    },
+    {
+        "_id": "62df74bc791860600e818656",
+        "name": "Octavio Andres Barreto Zambrano",
+        "lastName": "Barreto",
+        "email": "oct@22gmail.com",
+        "phoneNumber": "546546",
+        "cc": 213123123,
+        "__v": 0
+    },
+    {
+        "_id": "62e02eb448e2cc4e74b9cf5e",
+        "name": "Andres101",
+        "lastName": "Esquivel101",
+        "email": "santiago.sanchez@gmail.com",
+        "phoneNumber": "1800 fybeca",
+        "cc": 12313143124,
+        "__v": 0
+    },
+    {
+        "_id": "62e02edb48e2cc4e74b9cf62",
+        "name": "Andres",
+        "lastName": "Esquivel",
+        "email": "santiago.sanchez@gmail.com",
+        "phoneNumber": "0992637761",
+        "cc": 12313143124,
+        "__v": 0
+    },
+    {
+        "_id": "62e043996fe8efe9e018e3b2",
+        "name": "Fernando Guerrero0",
+        "lastName": "234",
+        "email": "oct@gmail.com",
+        "phoneNumber": "234234",
+        "cc": 324234,
+        "__v": 0
+    },
+    {
+        "_id": "62e083407fe439f6f4ff0c87",
+        "name": "sd",
+        "lastName": "fdgfdg",
+        "email": "obatre@hotmail.com",
+        "phoneNumber": "2323",
+        "cc": 255448,
+        "__v": 0
+    },
+    {
+        "_id": "62e094b17fe439f6f4ff0cc5",
+        "name": "Rosario",
+        "lastName": "fdgdfg",
+        "email": "tes@gmail.com",
+        "phoneNumber": "234234",
+        "cc": 234234,
+        "__v": 0
+    },
+    {
+        "_id": "62e094be7fe439f6f4ff0ccc",
+        "name": "Rosario",
+        "lastName": "werw",
+        "email": "tes@gmail.com",
+        "phoneNumber": "34534",
+        "cc": 5435,
+        "__v": 0
+    },
+    {
+        "_id": "62e094c97fe439f6f4ff0cd1",
+        "name": "sdfsdfssada",
+        "lastName": "fgdgdgdfg",
+        "email": "tes@gmail.com",
+        "phoneNumber": "2323545",
+        "cc": 546456456,
+        "__v": 0
+    },
+    {
+        "_id": "62e094d67fe439f6f4ff0cd6",
+        "name": "sdfsdfsdf",
+        "lastName": "ghfhfghfg",
+        "email": "tes@gmail.com",
+        "phoneNumber": "2342",
+        "cc": 34234234,
+        "__v": 0
+    }
+]
