@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ConsultarCarnet/ConsultarCarnet" name="ConsultarCarnet-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="ConsultarCarnet.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ConsultarCarnet/ConsultarCarnet"/>
+    <wsdl:binding name="ConsultarCarnet_ptt-binding" type="con:ConsultarCarnet_ptt" xmlns:con="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ConsultarCarnet/ConsultarCarnet">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="ConsultarCarnet">
+            <soap:operation soapAction="ConsultarCarnet"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

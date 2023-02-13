@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-af03c9a.N5c149e1f.0.1790ff3fd3b.N7ffc">
+        <con:pipeline type="request" name="request-af03c9a.N5c149e1f.0.1790ff3fd3b.N8000">
+            <con:stage id="_StageId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eb6" name="IniciacionVariables">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="componenteError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eb5</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">"Dat_ConsultarCarnetInsis"</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="origenError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eb4</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'ConsultarCarnet'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eb3</con2:id>
+                        <con1:script>process.codigoOperacion = process.body.CABECERA.CODIGO_OPERACION
+process.fechaProcesamiento = process.body.CABECERA.FECHA_PROCESAMIENTO
+process.fechaTransaccion = process.body.CABECERA.FECHA_TRANSACCION
+process.idTransaccion = process.body.CABECERA.ID_TRANSACCION_OSB
+process.sistemaDestino = process.body.CABECERA.SISTEMA_DESTINO
+process.sistemaOrigen = process.body.CABECERA.SISTEMA_ORIGEN
+if((process.body.IDENTIFICACION != null) &amp;&amp; (process.body.IDENTIFICACION != ""))
+{process.idCliente = process.body.IDENTIFICACION}
+if((process.body.NUMERO_DE_POLIZA != null) &amp;&amp; (process.body.NUMERO_DE_POLIZA != ""))
+{process.poliza = process.body.NUMERO_DE_POLIZA}</con1:script>
+                    </con1:javaScript>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eb2" name="ConsultarCarnet">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eaf</con2:id>
+                        <con1:service ref="Dat_ConsultarCarnet/Resources/BDAdapter/ConsultarCarnet" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>ConsultarCarnet</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="false">RqConsultarCarnet</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="false">RsConsultarCarnet</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="RqConsultarCarnet">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7eac</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="Dat_ConsultarCarnet/Resources/xslt/TIN_Dat_to_BD"/>
+                                        <con2:param name="numero_identificacion">
+                                            <con2:path>$idCliente</con2:path>
+                                        </con2:param>
+                                        <con2:param name="numero_poliza">
+                                            <con2:path>$poliza</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:assign varName="carnetxml">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7ea9</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="Dat_ConsultarCarnet/Resources/xslt/TIN_BD_to_Dat"/>
+                                        <con2:param name="listaCarnets">
+                                            <con2:path>$RsConsultarCarnet</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:nxsdTranslation>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7ea6</con2:id>
+                                <con1:type>XML-To-Native</con1:type>
+                                <con1:sourceExpr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$carnetxml</con2:xqueryText>
+                                </con1:sourceExpr>
+                                <con1:nxsd ref="Dat_ConsultarCarnet/Resources/xsd/Carnet_Insis"/>
+                                <con1:schemaElement xmlns:con2="http://pa.sura.insis.com/consultarcarnet">con2:RespuestaCarnets</con1:schemaElement>
+                                <con1:replace-body-content/>
+                            </con1:nxsdTranslation>
+                            <con1:assign varName="binaryContent">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7e72</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/ctx:binary-content</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:javaCallout varName="rqTransformText">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7e3c</con2:id>
+                                <con1:archive ref="Dat_ConsultarCarnet/Resources/lib/castbinary"/>
+                                <con1:className>castbinarytojson.Binary</con1:className>
+                                <con1:method>public static java.lang.String getBinaryContentAsString(java.lang.Object)</con1:method>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$binaryContent</con2:xqueryText>
+                                </con1:expr>
+                                <con1:return-param-as-ref>false</con1:return-param-as-ref>
+                            </con1:javaCallout>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7dcc</con2:id>
+                        <con1:service ref="TrasformTextToJson/TransformTextToJson" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:request>
+                            <con1:payload wrapped="false">rqTransformText</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">rsTransformText</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="origenError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7dcb</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'OSB'</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:assign varName="componenteError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7dca</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'TransformarMensajeTextToJson'</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7dc9</con2:id>
+                                <con1:header-set>outbound-request</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.4c4089b7.0.1791a23462f.N7e3b</con2:id>
+                        <con1:script><![CDATA[process.body = process.rsTransformText
+process.carnets = new Array()
+process.exito = true
+var i = 0
+var numpoliza = ""
+var idpoliza = ""
+var contratante = ""
+var core = ""
+var identificacion = ""
+var asegurado = ""
+var idsegurado = ""
+var idseguradopi = ""
+var sexo = ""
+var edad = ""
+var plan = ""
+var red = ""
+var cobertura = ""
+var codrelacion = ""
+var relacion = ""
+var codigoservicio = ""
+var nombservicio = ""
+var copago = 0
+var coaseguro = 0
+var deducible = 0
+var nombre = ""
+var apellido = ""
+var segundoapellido = ""
+var fecha_nacimiento = ""
+
+
+for (i = 0; i < process.body.CARNETS.length; i++) 
+{
+	if(idsegurado != process.body.CARNETS[i].IDENTIFICACION.trim())
+	{
+		process.servicios = new Array()
+		if(process.body.CARNETS[i].IDENTIFICACION != null  && process.body.CARNETS[i].IDENTIFICACION!="")
+			idsegurado = process.body.CARNETS[i].IDENTIFICACION.trim()	
+		if(process.body.CARNETS[i].NUMERO_DE_POLIZA != null  && process.body.CARNETS[i].NUMERO_DE_POLIZA!="")
+			numpoliza = process.body.CARNETS[i].NUMERO_DE_POLIZA.trim()	
+		if(process.body.CARNETS[i].NOMBRE_COMPLETO_CONTRATANTE != null  && process.body.CARNETS[i].NOMBRE_COMPLETO_CONTRATANTE!="")
+			contratante = process.body.CARNETS[i].NOMBRE_COMPLETO_CONTRATANTE.trim()	
+		if(process.body.CARNETS[i].IDENTIFICACION_CONTRATANTE != null  && process.body.CARNETS[i].IDENTIFICACION_CONTRATANTE!="")
+			identificacion = process.body.CARNETS[i].IDENTIFICACION_CONTRATANTE.trim()		
+		if(process.body.CARNETS[i].NOMBRE_COMPLETO != null  && process.body.CARNETS[i].NOMBRE_COMPLETO!="")
+			asegurado = process.body.CARNETS[i].NOMBRE_COMPLETO.trim()	
+		if(process.body.CARNETS[i].NOMBRE != null  && process.body.CARNETS[i].NOMBRE!="")
+			nombre = process.body.CARNETS[i].NOMBRE.trim()	
+		if(process.body.CARNETS[i].APELLIDO != null  && process.body.CARNETS[i].APELLIDO!="")
+			apellido = process.body.CARNETS[i].APELLIDO.trim()	
+		if(process.body.CARNETS[i].SEGUNDO_APELLIDO != null  && process.body.CARNETS[i].SEGUNDO_APELLIDO!="")
+			segundoapellido = process.body.CARNETS[i].SEGUNDO_APELLIDO.trim()	
+		if(process.body.CARNETS[i].FECHA_NACIMIENTO != null  && process.body.CARNETS[i].FECHA_NACIMIENTO!="")
+			fecha_nacimiento = process.body.CARNETS[i].FECHA_NACIMIENTO.trim()		
+		if(process.body.CARNETS[i].SEXO != null  && process.body.CARNETS[i].SEXO!="")
+			sexo = process.body.CARNETS[i].SEXO.trim()	
+		if(process.body.CARNETS[i].EDAD != null  && process.body.CARNETS[i].EDAD!="")
+			edad = process.body.CARNETS[i].EDAD.trim()	
+		if(process.body.CARNETS[i].PLAN != null  && process.body.CARNETS[i].PLAN!="")
+			plan = process.body.CARNETS[i].PLAN.trim()	
+		if(process.body.CARNETS[i].RED_MEDICA != null  && process.body.CARNETS[i].RED_MEDICA!="")
+			red = process.body.CARNETS[i].RED_MEDICA.trim()	
+		if(process.body.CARNETS[i].COBERTURA != null  && process.body.CARNETS[i].COBERTURA!="")
+			cobertura = process.body.CARNETS[i].COBERTURA.trim()	
+		if(process.body.CARNETS[i].TIPO_RELACION != null  && process.body.CARNETS[i].TIPO_RELACION!="")
+			codrelacion = process.body.CARNETS[i].TIPO_RELACION.trim()	
+		if(process.body.CARNETS[i].RELACION != null  && process.body.CARNETS[i].RELACION!="")
+			relacion = process.body.CARNETS[i].RELACION.trim()	
+		for (k = 0; k < process.body.CARNETS.length; k++)
+		{		
+			copago = 0
+			coaseguro = 0
+			deducible = 0
+			if(process.body.CARNETS[k].IDENTIFICACION.trim() == idsegurado)
+			{				
+				if(process.body.CARNETS[k].SERVICIO_MEDICO[0].CODIGO_SERVICIO != null  && process.body.CARNETS[k].SERVICIO_MEDICO[0].CODIGO_SERVICIO!="")
+					codigoservicio = process.body.CARNETS[k].SERVICIO_MEDICO[0].CODIGO_SERVICIO	
+				if(process.body.CARNETS[k].SERVICIO_MEDICO[0].NOMBRE_SERVICIO != null  && process.body.CARNETS[k].SERVICIO_MEDICO[0].NOMBRE_SERVICIO!="")
+					nombservicio = process.body.CARNETS[k].SERVICIO_MEDICO[0].NOMBRE_SERVICIO
+				if(process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COPAGO != null  && process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COPAGO!="")
+					copago = process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COPAGO	
+				if(process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COASEGURO != null  && process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COASEGURO!="")
+					coaseguro = process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_COASEGURO	
+				if(process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_DEDUCIBLE != null  && process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_DEDUCIBLE!="")
+					deducible = process.body.CARNETS[k].SERVICIO_MEDICO[0].MONTO_DEDUCIBLE
+
+				process.SERVICIO = {
+				"CODIGO_SERVICIO":codigoservicio,
+				"NOMBRE_SERVICIO":nombservicio,
+				"MONTO_COPAGO":copago,
+				"MONTO_COASEGURO":coaseguro,
+				"MONTO_DEDUCIBLE":deducible
+				}
+				process.servicios.push(process.SERVICIO)
+			}			
+		}
+		process.CARNET = {
+			 "RED_MEDICA": red,
+			 "EDAD": edad,
+			 "NUMERO_DE_POLIZA": numpoliza,
+			 "IDENTIFICACION": idsegurado,
+			 "NOMBRE_COMPLETO": contratante,
+			 "TIPO_RELACION": codrelacion,
+			 "PLAN": plan,
+			 "NOMBRE_COMPLETO_CONTRATANTE": asegurado,
+			 "FECHA_NACIMIENTO": fecha_nacimiento,
+			 "NOMBRE": nombre,
+			 "APELLIDO": apellido,
+			 "SEGUNDO_APELLIDO": segundoapellido,
+			 "SEXO": sexo,
+			 "SERVICIO_MEDICO": process.servicios,
+			 "COBERTURA": cobertura,
+			 "IDENTIFICACION_CONTRATANTE": identificacion,
+			 "RELACION": relacion		
+		}		
+		process.carnets.push(process.CARNET)
+	}	
+}]]></con1:script>
+                    </con1:javaScript>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-af03c9a.N5c149e1f.0.1790ff3fd3b.N7fff">
+            <con:stage id="_StageId-N3f57fe6d.4c4089b7.0.1791a23462f.N7f67" name="Respuesta">
+                <con:context/>
+                <con:actions>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.4c4089b7.0.1791a23462f.N7f66</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+var status = "200"
+if(process.carnets.length &lt;= 0)
+{
+	status = "204"
+}
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": status,
+"COMPONENTE": process.componenteError,
+"DETALLE": "Transaccion exitosa",
+"ORIGEN": process.origenError
+},
+"CARNETS": process.carnets
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:transport-headers xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.4c4089b7.0.1791a23462f.N7f65</con2:id>
+                        <con1:header-set>inbound-response</con1:header-set>
+                        <con1:header value="expression" name="Content-Type">
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                        </con1:header>
+                    </con1:transport-headers>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-af03c9a.N5c149e1f.0.1790ff3fd3b.N7ffc">
+            <con:stage id="_StageId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f58" name="Stage_Error">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="mensajeError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f57</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:concat($fault/ctx:reason/text(), " / ", $fault/*:details/*:ReceivedFaultDetail/*:detail[1]/*:jca-runtime-fault-detail/*:eis-error-message/text())</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="codigoError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f56</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:errorCode/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f55</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"INSIS",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f54</con2:id>
+                        <con1:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform/>
+                    </con1:route>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-af03c9a.N5c149e1f.0.1790ff3fd3b.N7f53</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-af03c9a.N5c149e1f.0.1790ff3fd3b.N8000</con:request>
+                <con:response>response-af03c9a.N5c149e1f.0.1790ff3fd3b.N7fff</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

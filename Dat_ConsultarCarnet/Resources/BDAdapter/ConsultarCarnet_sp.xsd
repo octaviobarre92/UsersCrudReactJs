@@ -1,0 +1,74 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarCarnet" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarCarnet" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_IDPART" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_POLICY" type="decimal" db:index="2" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PO_CTRL_REC" type="db:PO_CTRL_REC_RowSet" db:index="3" db:type="RowSet" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="PO_CTRL_REC_RowSet">
+      <sequence>
+         <element name="PO_CTRL_REC_Row" minOccurs="0" maxOccurs="unbounded">
+            <complexType>
+               <sequence>
+                  <element name="POLICY_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="POLICY_NO" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="CONTRATANTE_NOM" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="IDENTIFICACION" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="ASEGURADO" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="NOMBRE" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="APELLIDO" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SEGUNDO_APELLIDO" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="ID_ASEG" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="GENERO" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="EDAD" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="FECHA_NACIMIENTO" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+                  <element name="COD_PLAN" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="RED" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="COBERTURA" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SERVICIOS_TYPE" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="COASEGURO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="CO_PAGO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="DEDUCIBLE" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="COD_RELACION" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="RELACION" type="db:string200" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="DES_SERVICIOS_TYPE" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <simpleType name="string50">
+      <restriction base="string">
+         <maxLength value="50"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string250">
+      <restriction base="string">
+         <maxLength value="250"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string10">
+      <restriction base="string">
+         <maxLength value="10"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string200">
+      <restriction base="string">
+         <maxLength value="200"/>
+      </restriction>
+   </simpleType>
+</schema>

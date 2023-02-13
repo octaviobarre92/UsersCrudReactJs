@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarClienteInsis" targetNamespace="http://www.sura.com/ConsultarClienteInsis" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="OBJETO_CLIENTES">
+      <xsd:complexType>
+         <xsd:sequence>
+                     <xsd:element name="CLIENTE" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NOMBRE_COMPLETO" type="xsd:string"/>
+                              <xsd:element name="APELLIDO" type="xsd:string"/>
+                              <xsd:element name="NOMBRE" type="xsd:string"/>
+                              <xsd:element name="TIPO" type="xsd:string"/>
+                              <xsd:element name="IDENTIFICACION" type="xsd:string"/>
+                              <xsd:element name="EDAD" type="xsd:string"/>
+                              <xsd:element name="SEXO" type="xsd:string"/>
+                              <xsd:element name="FECHA_DE_NACIMIENTO" type="xsd:string"/>
+                              <xsd:element name="ESTADO_CIVIL" type="xsd:string"/>
+                              <xsd:element name="TELEFONO" type="xsd:string"/>
+                              <xsd:element name="CELULAR" type="xsd:string"/>
+                              <xsd:element name="EMAIL" type="xsd:string"/>                              
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/consultarcarnet"
+            targetNamespace="http://pa.sura.insis.com/consultarcarnet" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+   <xsd:element name="RespuestaCarnets">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CARNETS" type="tns:CARNETS" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="CARNETS">
+    <xsd:sequence>
+        <xsd:element name="IDENTIFICACION" type="xsd:string"/>
+        <xsd:element name="NOMBRE_COMPLETO" type="xsd:string"/>
+        <xsd:element name="EDAD" type="xsd:string"/>
+        <xsd:element name="SEXO" type="xsd:string"/>
+        <xsd:element name="TIPO_RELACION" type="xsd:string"/>
+        <xsd:element name="RELACION" type="xsd:string"/>
+        <xsd:element name="IDENTIFICACION_CONTRATANTE" type="xsd:string"/>
+        <xsd:element name="NOMBRE_COMPLETO_CONTRATANTE" type="xsd:string"/>                      
+        <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+        <xsd:element name="PLAN" type="xsd:string"/>
+        <xsd:element name="RED_MEDICA" type="xsd:string"/>
+        <xsd:element name="COBERTURA" type="xsd:string"/>
+        <xsd:element name="SERVICIO_MEDICO" type="tns:SERVICIO" maxOccurs="unbounded"/> 
+        <xsd:element name="NOMBRE" type="xsd:string"/>
+        <xsd:element name="APELLIDO" type="xsd:string"/>
+        <xsd:element name="SEGUNDO_APELLIDO" type="xsd:string"/>
+        <xsd:element name="FECHA_NACIMIENTO" type="xsd:string"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="SERVICIO">
+    <xsd:sequence>
+	  <xsd:element name="CODIGO_SERVICIO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="NOMBRE_SERVICIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_COPAGO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_COASEGURO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_DEDUCIBLE" type="xsd:string" minOccurs="0"/>	  
+    </xsd:sequence>
+  </xsd:complexType>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>
