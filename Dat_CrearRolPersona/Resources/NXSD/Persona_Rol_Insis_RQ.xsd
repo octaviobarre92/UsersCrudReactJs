@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/crearrolpersona"
+            targetNamespace="http://pa.sura.insis.com/crearrolpersona" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+  <xsd:element name="DatosBasicos">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="IDENTIFICACION_INSIS" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ROL" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>  
+ <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

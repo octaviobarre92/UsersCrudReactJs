@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_EmitirPolizaAP/EmitirPolizaAP" name="EmitirPolizaAP-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="EmitirPolizaAP.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_EmitirPolizaAP/EmitirPolizaAP"/>
+    <wsdl:binding name="EmitirPolizaAP_ptt-binding" type="emit:EmitirPolizaAP_ptt" xmlns:emit="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_EmitirPolizaAP/EmitirPolizaAP">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="EmitirPolizaAP">
+            <soap:operation soapAction="EmitirPolizaAP"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

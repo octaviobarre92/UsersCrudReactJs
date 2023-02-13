@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.hlt.pa.sura.insis.com/"
+            targetNamespace="http://ws.hlt.pa.sura.insis.com/" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="RegisterClaimHltRs">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ClaimID" type="xsd:string" maxOccurs="1"></xsd:element>
+        <xsd:element name="ClaimNo" type="xsd:string" maxOccurs="1"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>  
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

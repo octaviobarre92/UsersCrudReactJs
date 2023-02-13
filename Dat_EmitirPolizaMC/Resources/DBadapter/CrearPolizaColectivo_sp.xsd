@@ -1,0 +1,101 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/CrearPolizaColectivo" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/CrearPolizaColectivo" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_PLAN" type="decimal" db:index="1" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="P_ASEGURADO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DESDE" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_HASTA" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_OBSERVACION" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DESCRIPCION_UNIDAD" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_OBSERVACION_UNIDAD" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_ASEGURADOS" type="db:SEGUROS.ASEGURADOS_T" db:index="8" db:type="Array" minOccurs="0" nillable="true"/>
+            <element name="P_BENEFICIARIOS" type="db:SEGUROS.BENEFICIARIOS_T" db:index="9" db:type="Array" minOccurs="0" nillable="true"/>
+            <element name="P_SUMA_ASEGURADA" type="decimal" db:index="10" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="P_CLASE" type="string" db:index="11" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DURACION" type="string" db:index="12" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CONDUCTO" type="string" db:index="13" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FORMA_DE_PAGO" type="string" db:index="14" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CONTRATANTE" type="string" db:index="15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_NOMBRE_CONTRATANTE" type="string" db:index="16" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DIRECCION_CONTRATANTE" type="string" db:index="17" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_TELEFONO_CONTRATANTE" type="string" db:index="18" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_EMAIL_CONTRATANTE" type="string" db:index="19" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_USUARIO" type="string" db:index="20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_OK" type="string" db:index="21" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_MENSAJE" type="string" db:index="22" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_NUMERO_DE_POLIZA" type="string" db:index="23" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_NUMERO_DE_CARATULA" type="string" db:index="24" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="SEGUROS.ASEGURADOS_T">
+      <sequence>
+         <element name="P_ASEGURADOS_ITEM" type="db:SEGUROS.ASEGURADOS_R" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="SEGUROS.BENEFICIARIOS_R">
+      <sequence>
+         <element name="P_NOMBRE_BENE" type="db:string40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_APELLIDO_BENE" type="db:string40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_IDENTIFICACION_BENE" type="db:string25" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_PARENTESCO_BENE" type="db:string15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_TIPO_DE_PERSONA_BENE" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_FECHA_DE_NACIMIENTO_BENE" type="db:string11" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_SEXO_BENE" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_ADMINISTRADOR_FIDUCIARIO" type="db:string100" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_JERARQUIA" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_PORCENTAJE_BENE" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="SEGUROS.ASEGURADOS_R">
+      <sequence>
+         <element name="P_NOMBRE_ASEGURADO" type="db:string40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_APELLIDO_ASEGURADO" type="db:string40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_IDENTIFICACION_ASEGURADO" type="db:string25" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_FECHA_NACIMIENTO_ASEGURADO" type="db:string11" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="P_SEXO_ASEGURADO" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="SEGUROS.BENEFICIARIOS_T">
+      <sequence>
+         <element name="P_BENEFICIARIOS_ITEM" type="db:SEGUROS.BENEFICIARIOS_R" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string40">
+      <restriction base="string">
+         <maxLength value="40"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string25">
+      <restriction base="string">
+         <maxLength value="25"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string11">
+      <restriction base="string">
+         <maxLength value="11"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string1">
+      <restriction base="string">
+         <maxLength value="1"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string15">
+      <restriction base="string">
+         <maxLength value="15"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string100">
+      <restriction base="string">
+         <maxLength value="100"/>
+      </restriction>
+   </simpleType>
+</schema>

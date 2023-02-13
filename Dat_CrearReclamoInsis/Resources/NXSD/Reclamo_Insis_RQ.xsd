@@ -1,0 +1,224 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/crearreclamo"
+            targetNamespace="http://pa.sura.insis.com/crearreclamo" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+  <xsd:element name="RegistrarReclamo">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RECLAMO" type="tns:RECLAMO" minOccurs="0" maxOccurs="1"></xsd:element>	
+        <xsd:element name="DIRECCION_SINIESTRO" type="tns:DIRECCION" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="PARTICIPANTES" type="tns:PARTICIPANTE" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="SOLICITUDES" type="tns:SOLICITUD" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="RECLAMO">
+    <xsd:sequence>
+	  <xsd:element name="ID_TARJETA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_TARJETA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NUMERO_POLIZA" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="NO_RECLAMO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_PRODUCTO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_REGISTRO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_RECLAMO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CAUSA_RECLAMO" type="xsd:decimal" minOccurs="0"/>
+	  <xsd:element name="TIPO_EVENTO" type="xsd:decimal" minOccurs="0"/>
+	  <xsd:element name="FECHA_EVENTO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="HORA_EVENTO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CONCEPTO_RECLAMO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_PAIS_EVENTO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="LUGAR_EVENTO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="INFORMACION_ASEGURADORA" type="xsd:decimal" minOccurs="0"/>
+	  <xsd:element name="NO_RECLAMO_ASEGURADORA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_MUERTE" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="COMENTARIO_RECLAMO" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PARTICIPANTE">
+    <xsd:sequence>
+	   <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	   <xsd:element name="RELACION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+	   <xsd:element name="DATOS_BANCARIOS_RECLAMO" type="tns:DATO_BANCARIO" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	   <xsd:element name="FECHA_OPERACION" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="NUMERO_REPORTE" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="FECHA_REPORTE" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="PORCENTAJE_REPORTE" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="PERSONA_ROL" type="xsd:string" minOccurs="0"/>	  
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CULPABLE">
+    <xsd:sequence>
+	   <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	   <xsd:element name="NUMERO_POLIZA_CULPABLE" type="xsd:string" minOccurs="0"/>	
+	   <xsd:element name="RAZON_CULPABLE" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="ASEGURADORA_CULPABLE" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CONDUCTOR">
+    <xsd:sequence>
+	   <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	   <xsd:element name="NRO_LICENCIA" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="EXPERIENCIA" type="xsd:string" minOccurs="0"/>
+	   <xsd:element name="EDAD" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA">
+    <xsd:sequence>
+	  <xsd:element name="PERSONA_NATURAL" type="tns:PERSONA_NATURAL" minOccurs="0"/>
+          <xsd:element name="PERSONA_JURIDICA" type="tns:PERSONA_JURIDICA" minOccurs="0"/>
+	  <xsd:element name="TIPO_PERSONA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NACIONALIDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="INDUSTRIA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="SUBINDUSTRIA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_REGISTRO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="PREGUNTAS" type="tns:PREGUNTA" minOccurs="0" maxOccurs="unbounded"/>
+	  <xsd:element name="DIGITO_VERIFICADOR" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_VENCIMIENTO_ID" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="DIRECCIONES" type="tns:DIRECCION" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	  <xsd:element name="CONTACTOS" type="tns:CONTACTO" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	  <xsd:element name="DATOS_BANCARIOS" type="tns:DATO_BANCARIO" minOccurs="0" maxOccurs="unbounded"></xsd:element>	 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA_NATURAL">
+    <xsd:sequence>
+      <xsd:element name="NOMBRE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PRIMER_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEGUNDO_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEXO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_DE_NACIMIENTO" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="IDIOMA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PAIS_RESIDENCIA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA_JURIDICA">
+    <xsd:sequence>
+      <xsd:element name="RAZONSOCIAL" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ID_CLIENTE" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="PERIODO_FISCAL" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="TIPO_PERSONA_JURIDICA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PREGUNTA">
+    <xsd:sequence>
+	  <xsd:element name="CODIGO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="RESPUESTA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="IDENTIFICADOR" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DIRECCION">
+    <xsd:sequence>
+      <xsd:element name="NOMBRE_PAIS" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_PAIS" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_REGION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_REGION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_CIUDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_CIUDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="BARRIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CALLE_AVENIDA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CALLE_AVENIDA_NRO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="EDIFICIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="PISO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ENTRADA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="APTO_CASA" type="xsd:string" minOccurs="0"/>	    
+	  <xsd:element name="DIRECCION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_DIRECCION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_CORRESPONDENCIA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_FACTURACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TELEFONO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FAX" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="EMAIL" type="xsd:string" minOccurs="0"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="CONTACTO">
+    <xsd:sequence>
+      <xsd:element name="TIPO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="VALOR" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>	  
+	  <xsd:element name="IDIOMA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="DATO_BANCARIO">
+    <xsd:sequence>
+      <xsd:element name="NUMERO_CUENTA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="BANCO_NOMBRE" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="IDENTIFICADOR_BANCO" type="xsd:string" minOccurs="0"/>	
+	  <xsd:element name="IDENTIFICADOR_CUENTA" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--xsd:complexType name="RELACION_PERSONAL">
+    <xsd:sequence>
+      <xsd:element name="IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_PERSONA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_RELACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_RELACION" type="xsd:string" minOccurs="0"/>	
+	  <xsd:element name="FECHA_INICIO" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="HORA_INICIO" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="FECHA_FIN" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="HORA_FIN" type="xsd:string" minOccurs="0"/>	
+    </xsd:sequence>
+  </xsd:complexType-->
+    <xsd:complexType name="SOLICITUD">
+    <xsd:sequence>
+	  <xsd:element name="SOLICITANTE" type="tns:PERSONA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+	  <xsd:element name="FECHA_SOLICITUD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_SOLICITUD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONEDA_SOLICITUD" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="TIPO_SOLICITUD" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="OBJETO" type="tns:OBJETO_SOLICITUD" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+          <xsd:element name="DIRECCION_SOLICITUD" type="tns:DIRECCION" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+          <xsd:element name="PARTICIPANTES" type="tns:PARTICIPANTE" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+          <xsd:element name="PREGUNTAS" type="tns:PREGUNTA" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="CULPABLE" type="tns:CULPABLE" minOccurs="0" maxOccurs="1"></xsd:element>
+          <xsd:element name="BENEFICIARIOS" type="tns:BENEFICIARIO" minOccurs="0" maxOccurs="1"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OBJETO_SOLICITUD">
+    <xsd:sequence>
+	  <xsd:element name="SECUENCIA_OBJETO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_OBJETO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_OBJETO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONEDA_OBJETO" type="xsd:string" minOccurs="0"/>      
+	  <xsd:element name="CONDUCTOR" type="tns:CONDUCTOR" minOccurs="0" maxOccurs="1"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BENEFICIARIO">
+    <xsd:sequence>
+      <xsd:element name="IDENTIFICACION_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_PERSONA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="TIPO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ESTADO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONTO_SOLICITUD_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="PLAZO_PAGO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_INICIO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="DURACION_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="EDAD_BENEFICIARIO" type="xsd:string" minOccurs="0"/> 
+	  <xsd:element name="SEXO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_MUERTE_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIEMPO_GARANTIA_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="DIA_PAGO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MODO_PAGO_BENEFICIARIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_INICIO" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="HORA_INICIO" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="FECHA_FIN" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="HORA_FIN" type="xsd:string" minOccurs="0"/>	
+    </xsd:sequence>
+  </xsd:complexType>
+ <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>
