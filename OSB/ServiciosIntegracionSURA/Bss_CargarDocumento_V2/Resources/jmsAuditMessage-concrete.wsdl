@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_CargarDocumento_V2/jmsAuditMessage" name="jmsAuditMessage-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="jmsAuditMessage.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_CargarDocumento_V2/jmsAuditMessage"/>
+    <wsdl:binding name="Audit_Message_ptt-binding" type="jms:Audit_Message_ptt" xmlns:jms="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_CargarDocumento_V2/jmsAuditMessage">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="Audit_Message">
+            <soap:operation soapAction="Audit_Message"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

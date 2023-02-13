@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/CargarPolizaNatural" targetNamespace="http://TargetNamespace.com/CargarPolizaNatural" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="RqCargarPolizaNaturalRenovada">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="respuesta">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="codigo" type="xsd:string"/>
+                     <xsd:element name="componente" type="xsd:string"/>
+                     <xsd:element name="mensaje" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="informacion_poliza_renovada" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="T_POL_RAMO" type="xsd:string"/>
+                     <xsd:element name="T_POL_SUBRAMO" type="xsd:string"/>
+                     <xsd:element name="T_POL_REN_ANT" type="xsd:string"/>
+                     <xsd:element name="T_POL_REN_NVA" type="xsd:string"/>
+                     <xsd:element name="T_POL_TIPO" type="xsd:string"/>
+                     <xsd:element name="T_POL_ID_CONTR" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>
