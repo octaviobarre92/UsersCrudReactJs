@@ -1,0 +1,56 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_actualiza_poliza_integracion" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_actualiza_poliza_integracion" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_RAMO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_SUB_RAMO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_POLIZA" type="decimal" db:index="3" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_SECUENCIA" type="decimal" db:index="4" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_TIPO_DE_COBERTURA" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_TIPO_PROCESO" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_ID_VOUCHER" type="decimal" db:index="7" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_ESTADO_VOUCHER" type="decimal" db:index="8" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_DE_APERTURA_VOUCHER" type="dateTime" db:index="9" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PV_TIPO_DE_DISPOSITIVO" type="string" db:index="10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_DE_ASIGNACION" type="dateTime" db:index="11" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_DE_ACTIVACION" type="dateTime" db:index="12" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_DE_DEVOLUCION" type="dateTime" db:index="13" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_ACTUALIZACION_VOUCHER" type="dateTime" db:index="14" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PV_IMEI" type="string" db:index="15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_SENDER_ID" type="decimal" db:index="16" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_DIRECCION_EXTRA" type="string" db:index="17" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_ID_AGENTE" type="decimal" db:index="18" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_ID_CLIENTE" type="decimal" db:index="19" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_ESTADO_OCTO" type="decimal" db:index="20" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_ESTADO_DISPOSITIVO_OCTO" type="decimal" db:index="21" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_TARIFA_BASE" type="decimal" db:index="22" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_VALOR_KM" type="decimal" db:index="23" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_DEDUCIBLE" type="decimal" db:index="24" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_DANIO_RESPONSABILIDAD_CIVIL" type="decimal" db:index="25" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_KM_MES_ANTERIOR" type="decimal" db:index="26" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_KM_ULTIMOS_SEIS_MESES" type="decimal" db:index="27" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_VEHICULO_REEMPLAZO" type="decimal" db:index="28" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_REPARACION_EN_TALLER" type="string" db:index="29" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_CICLO_FACTURACION" type="decimal" db:index="30" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_ULTIMA_COMUNICACION" type="dateTime" db:index="31" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="PV_TIPO" type="string" db:index="32" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_ULTIMO_VIAJE" type="string" db:index="33" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_TIPO_OPERACION" type="decimal" db:index="34" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_CANAL" type="string" db:index="35" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_ID_VOUCHER_ANTERIOR" type="decimal" db:index="36" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_INDICADOR_PROCESADO" type="string" db:index="37" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_CANTIDAD_REINTENTOS" type="decimal" db:index="38" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PV_UUID" type="string" db:index="39" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_MENSAJE" type="string" db:index="40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_MENSAJE_PREMIUM" type="string" db:index="41" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_BAND" type="string" db:index="42" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+</schema>

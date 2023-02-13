@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_GestionarTransaccionPremium/sp_actualiza_poliza_integracion" name="sp_actualiza_poliza_integracion-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="sp_actualiza_poliza_integracion.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_GestionarTransaccionPremium/sp_actualiza_poliza_integracion"/>
+    <wsdl:binding name="sp_actualiza_poliza_integracion_ptt-binding" type="sp:sp_actualiza_poliza_integracion_ptt" xmlns:sp="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_GestionarTransaccionPremium/sp_actualiza_poliza_integracion">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="sp_actualiza_poliza_integracion">
+            <soap:operation soapAction="sp_actualiza_poliza_integracion"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-af03c52.14d1ae5b.0.17a0bfcc883.N7ffc">
+        <con:pipeline type="request" name="request-af03c52.14d1ae5b.0.17a0bfcc883.N8000">
+            <con:stage id="_StageId-af03c52.14d1ae5b.0.17a0bfcc883.N7e85" name="IniciacionVariables">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="auditar" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e4e</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">dvm:lookup("DVM_Project/Constantes_DVM.dvm", "Atributo", "auditar", "Valor", "FALSE")</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="componenteError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e84</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">"Dat_GestionarCatalogoPremium"</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="origenError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e83</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'Catalogos'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e82</con2:id>
+                        <con1:script>process.codigoOperacion = process.body.CABECERA.CODIGO_OPERACION
+process.fechaProcesamiento = process.body.CABECERA.FECHA_PROCESAMIENTO
+process.fechaTransaccion = process.body.CABECERA.FECHA_TRANSACCION
+process.idTransaccion = process.body.CABECERA.ID_TRANSACCION_OSB
+process.sistemaDestino = process.body.CABECERA.SISTEMA_DESTINO
+process.sistemaOrigen = process.body.CABECERA.SISTEMA_ORIGEN
+if((process.body.TABLA != null) &amp;&amp; (process.body.TABLA != ""))
+{process.tabla = process.body.TABLA}
+if((process.body.PARAMETRO != null) &amp;&amp; (process.body.PARAMETRO != ""))
+{process.parametro = process.body.PARAMETRO}</con1:script>
+                    </con1:javaScript>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-af03c52.14d1ae5b.0.17a0bfcc883.N7e4d" name="GestionarCatalogo">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e4a</con2:id>
+                        <con1:service ref="Dat_GestionarCatalogoPremium/Resources/DBAdapter/GestionarCatalogoPremium" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>GestionarCatalogoPremium</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="false">rqGestionarCatalogo</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="false">rsGestionarCatalogo</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="rqGestionarCatalogo">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7e47</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="Dat_GestionarCatalogoPremium/Resources/xslt/TIN_Dat_to_BD"/>
+                                        <con2:param name="parametro">
+                                            <con2:path>$parametro</con2:path>
+                                        </con2:param>
+                                        <con2:param name="tabla">
+                                            <con2:path>$tabla</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:assign varName="status">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7dac</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$rsGestionarCatalogo/*:P_OK/text()</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:assign varName="mensajeError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ddf</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$rsGestionarCatalogo/*:P_MENSAJE/text()</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:assign varName="catalogosxml">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7da9</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="Dat_GestionarCatalogoPremium/Resources/xslt/TOUT_BD_to_Dat"/>
+                                        <con2:param name="Catalogos_Premium">
+                                            <con2:path>$rsGestionarCatalogo</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                    <con1:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf5</con2:id>
+                        <con1:case id="_BranchId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf4">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($status, "S")=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con2:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                    <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf3</con3:id>
+                                    <con2:case id="_BranchId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf2">
+                                        <con2:condition>
+                                            <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">fn:compare($auditar, "true")=0</con3:xqueryText>
+                                        </con2:condition>
+                                        <con2:actions>
+                                            <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf1</con3:id>
+                                                <con1:script>var today = new Date()
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();     
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var horas =today.getHours();
+var minutos;
+var segundos;
+if(today.getMinutes() &lt; 10){
+ minutos = '0' + today.getMinutes();
+}else{
+ minutos =today.getMinutes();
+}
+if(today.getSeconds() &lt; 10){
+ segundos =  "0" + today.getSeconds();
+}else{
+ segundos =   today.getSeconds();
+}
+time=horas +":"+minutos+":"+segundos;
+var date= dateIn+" "+time;
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"PREMIUM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": 200,
+"COMPONENTE": process.componenteError,
+"DETALLE": "Transaccion exitosa",
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                                            </con1:javaScript>
+                                            <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config">
+                                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cf0</con4:id>
+                                                <con3:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                <con3:outboundTransform/>
+                                            </con3:route>
+                                        </con2:actions>
+                                    </con2:case>
+                                    <con2:default/>
+                                </con2:ifThenElse>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cef</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$catalogosxml</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="Dat_GestionarCatalogoPremium/Resources/xsd/Catalogo_Premium"/>
+                                    <con1:schemaElement xmlns:con2="http://www.sura.com/ConsultarPrestamoPremium">con2:OBJETO_CATALOGO</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                                <con1:assign varName="binaryContent">
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cee</con2:id>
+                                    <con1:expr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/ctx:binary-content</con2:xqueryText>
+                                    </con1:expr>
+                                </con1:assign>
+                                <con1:javaCallout varName="rqTransformText">
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ced</con2:id>
+                                    <con1:archive ref="Dat_GestionarCatalogoPremium/Resources/lib/castbinary"/>
+                                    <con1:className>castbinarytojson.Binary</con1:className>
+                                    <con1:method>public static java.lang.String getBinaryContentAsString(java.lang.Object)</con1:method>
+                                    <con1:expr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$binaryContent</con2:xqueryText>
+                                    </con1:expr>
+                                    <con1:return-param-as-ref>false</con1:return-param-as-ref>
+                                </con1:javaCallout>
+                                <con1:wsCallout>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cec</con2:id>
+                                    <con1:service ref="TrasformTextToJson/TransformTextToJson" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                    <con1:request>
+                                        <con1:payload wrapped="false">rqTransformText</con1:payload>
+                                    </con1:request>
+                                    <con1:response>
+                                        <con1:payload wrapped="false">rsTransformText</con1:payload>
+                                    </con1:response>
+                                    <con1:requestTransform>
+                                        <con1:assign varName="origenError">
+                                            <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ceb</con2:id>
+                                            <con1:expr>
+                                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'OSB'</con2:xqueryText>
+                                            </con1:expr>
+                                        </con1:assign>
+                                        <con1:assign varName="componenteError">
+                                            <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7cea</con2:id>
+                                            <con1:expr>
+                                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'TransformarMensajeTextToJson'</con2:xqueryText>
+                                            </con1:expr>
+                                        </con1:assign>
+                                        <con1:transport-headers>
+                                            <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ce9</con2:id>
+                                            <con1:header-set>outbound-request</con1:header-set>
+                                            <con1:header value="expression" name="Content-Type">
+                                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                            </con1:header>
+                                        </con1:transport-headers>
+                                    </con1:requestTransform>
+                                    <con1:responseTransform/>
+                                </con1:wsCallout>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default>
+                            <con1:assign varName="codigoError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57bb92.N6d875901.0.17a167571f1.N7fcd</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">dvm:lookup("DVM_Project/Constantes_DVM.dvm", "Atributo", "codigoGenericoValidacion", "Valor", "FALSE")</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ce6</con2:id>
+                                <con1:script>var today = new Date()
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();     
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var horas =today.getHours();
+var minutos;
+var segundos;
+if(today.getMinutes() &lt; 10){
+ minutos = '0' + today.getMinutes();
+}else{
+ minutos =today.getMinutes();
+}
+if(today.getSeconds() &lt; 10){
+ segundos =  "0" + today.getSeconds();
+}else{
+ segundos =   today.getSeconds();
+}
+time=horas +":"+minutos+":"+segundos;
+var date= dateIn+" "+time;
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"PREMIUM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                            </con1:javaScript>
+                            <con2:route xmlns:con2="http://www.bea.com/wli/sb/stages/publish/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ce5</con3:id>
+                                <con2:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con2:outboundTransform/>
+                            </con2:route>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ce4</con2:id>
+                                <con1:header-set>inbound-response</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                            <con2:reply xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:id>_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ce3</con2:id>
+                            </con2:reply>
+                        </con1:default>
+                    </con1:ifThenElse>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-af03c52.14d1ae5b.0.17a0bfcc883.N7fff">
+            <con:stage id="_StageId-af03c52.14d1ae5b.0.17a0bfcc883.N7c64" name="Respuesta">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="componenteError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7c63</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'ConsultarCatalogosPremium'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7c62</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": 200,
+"COMPONENTE": process.componenteError,
+"DETALLE": "Transaccion exitosa",
+"ORIGEN": process.origenError
+},
+"CATALOGOS": process.rsTransformText
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:transport-headers xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7c61</con2:id>
+                        <con1:header-set>inbound-response</con1:header-set>
+                        <con1:header value="expression" name="Content-Type">
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                        </con1:header>
+                    </con1:transport-headers>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-af03c52.14d1ae5b.0.17a0bfcc883.N7ffc">
+            <con:stage id="_StageId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef6" name="Stage_Error">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="mensajeError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef5</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:concat($fault/ctx:reason/text(), " / ", $fault/ctx:details[1]/*:ErrorResponseDetail/*:detail/text())</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="codigoError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef4</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:errorCode/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef3</con2:id>
+                        <con1:script>var today = new Date()
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();     
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var horas =today.getHours();
+var minutos;
+var segundos;
+if(today.getMinutes() &lt; 10){
+ minutos = '0' + today.getMinutes();
+}else{
+ minutos =today.getMinutes();
+}
+if(today.getSeconds() &lt; 10){
+ segundos =  "0" + today.getSeconds();
+}else{
+ segundos =   today.getSeconds();
+}
+time=horas +":"+minutos+":"+segundos;
+var date= dateIn+" "+time;
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"PREMIUM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef2</con2:id>
+                        <con1:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform/>
+                    </con1:route>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-af03c52.14d1ae5b.0.17a0bfcc883.N7ef1</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-af03c52.14d1ae5b.0.17a0bfcc883.N8000</con:request>
+                <con:response>response-af03c52.14d1ae5b.0.17a0bfcc883.N7fff</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

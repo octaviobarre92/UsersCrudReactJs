@@ -1,0 +1,65 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GestionarCliente" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GestionarCliente" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_ASEGURADO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_TIPO_DE_ID" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_NOMBRE" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SEGUNDO_NOMBRE" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_APELLIDO" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_APELLIDO_MATERNO" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_JURIDICO" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SEXO" type="string" db:index="8" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_ESTADO_CIVIL" type="string" db:index="9" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FECHA_DE_NACIMIENTO" type="string" db:index="10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PAIS_NACIMIENTO" type="string" db:index="11" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PAIS_NACIONALIDAD" type="string" db:index="12" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_HIJOS" type="string" db:index="13" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CELULAR" type="string" db:index="14" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_TELEFONO" type="string" db:index="15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_EMAIL" type="string" db:index="16" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PAIS_RESIDENCIA" type="string" db:index="17" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PROV_RESIDENCIA" type="string" db:index="18" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_DIST_RESIDENCIA" type="string" db:index="19" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_CORR_RESIDENCIA" type="string" db:index="20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_BARRIO_RESIDENCIA" type="string" db:index="21" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CALLE" type="string" db:index="22" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_URBANIZACION" type="string" db:index="23" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CASA" type="string" db:index="24" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DIRECCION" type="string" db:index="25" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PAIS_TRABAJO" type="string" db:index="26" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PROV_TRABAJO" type="string" db:index="27" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_DIST_TRABAJO" type="string" db:index="28" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_CORR_TRABAJO" type="string" db:index="29" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_BARRIO_TRABAJO" type="string" db:index="30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CALLE_TRABAJO" type="string" db:index="31" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_URBANIZACION_TRABAJO" type="string" db:index="32" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CASA_TRABAJO" type="string" db:index="33" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_DIRECCION_TRABAJO" type="string" db:index="34" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_TELEFONO_TRABAJO" type="string" db:index="35" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_EXTENSION_2" type="string" db:index="36" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_LUGAR_DE_TRABAJO" type="string" db:index="37" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_EMAIL_TRABAJO" type="string" db:index="38" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_ACTIVIDAD_ECONOMICA" type="string" db:index="39" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_ACTIVIDAD" type="string" db:index="40" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CARGO_PUBLICO" type="string" db:index="41" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_CARGO_OCUPADO" type="string" db:index="42" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FECHA_INICIO_PEP" type="string" db:index="43" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_PEP_ACTUAL" type="string" db:index="44" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FECHA_FINAL_PEP" type="string" db:index="45" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_INGRESO_ANUAL" type="string" db:index="46" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_INGRESO_OTRO" type="string" db:index="47" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_COD_PAIS_RESIDENCIA_FISCAL" type="string" db:index="48" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_ACCION" type="string" db:index="49" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_OK" type="int" db:index="50" db:type="INTEGER" minOccurs="0" nillable="true"/>
+            <element name="P_MENSAJE" type="string" db:index="51" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+</schema>

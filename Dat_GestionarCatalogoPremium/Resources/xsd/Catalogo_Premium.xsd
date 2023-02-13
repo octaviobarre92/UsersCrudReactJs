@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarPrestamoPremium" targetNamespace="http://www.sura.com/ConsultarPrestamoPremium" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="OBJETO_CATALOGO">
+      <xsd:complexType>
+         <xsd:sequence>
+             <xsd:element name="CATALOGOS" maxOccurs="unbounded">
+                <xsd:complexType>
+                   <xsd:sequence>
+                      <xsd:element name="CODIGO" type="xsd:string"/>
+                      <xsd:element name="DESCRIPCION" type="xsd:string"/>
+                   </xsd:sequence>
+                </xsd:complexType>
+             </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>
