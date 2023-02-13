@@ -1,0 +1,1520 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer
+
+  Created: Tue Dec 22 09:41:56 COT 2020
+  Author:  davidsotillo
+  Type: BPEL 2.0 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPEL_GestionarVoucher"
+               targetNamespace="http://xmlns.oracle.com/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/BPEL_GestionarVoucher"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/BPEL_GestionarVoucher"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns1="json"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns4="http://www.sura.com.pa/RqCrearVoucher"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://www.sura.com.pa/Exp_RqCrearVoucher"
+         xmlns:ns6="http://www.sura.com.pa/RsCrearVoucher"
+         xmlns:ns7="http://xmlns.oracle.com/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/Exp_GestionarTransaccionBD"
+         xmlns:ns9="http://www.sura.com.pa/ObjectResponse"
+         xmlns:ns10="http://xmlns.oracle.com/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/Exp_GestionarTransaccionPremium"
+         xmlns:ns11="http://www.sura.com.pa/GestionarTransaccionPremium"
+         xmlns:ns12="http://TargetNamespace.com/EnviarAuditoria"
+         xmlns:ns13="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/jmsEnviarAuditoria"
+         xmlns:ns14="http://www.sura.com.pa/GestionarTransaccionBD">
+
+  <!--
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC
+     Set of activities coordinating the flow of messages across the
+     services integrated within this business process
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://www.sura.com.pa/GestionarTransaccionBD" location="../Schemas/RqGestionarTransaccionBD.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://TargetNamespace.com/EnviarAuditoria" location="../Schemas/EnviarAuditoria.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.sura.com.pa/ObjectResponse" location="../Schemas/ResponseObject.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.sura.com.pa/RsCrearVoucher" location="../Schemas/RsCrearVoucher.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.sura.com.pa/Exp_RqCrearVoucher" location="../Schemas/ExpRqCrearVoucher.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.sura.com.pa/RqCrearVoucher" location="../Schemas/RqCrearVoucher.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+          location="../WSDLs/sp_consultar_polizas_x_proceso.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <partnerLink name="Bpel_GestionarVoucher" bpelx:wadl="yes"/>
+    <partnerLink name="sp_consultar_polizas_x_proceso" partnerLinkType="ns2:sp_consultar_polizas_x_proceso_plt"
+                 partnerRole="sp_consultar_polizas_x_proceso_role"/>
+    <partnerLink name="Exp_CrearVoucherOSB" bpelx:wadl="yes"/>
+    <partnerLink name="Exp_ModificarVoucher" bpelx:wadl="yes"/>
+    <partnerLink name="Exp_GestionarTransaccionPremiumV2" bpelx:wadl="yes"/>
+    <partnerLink name="ExpGestionarTransaccionBDV2" bpelx:wadl="yes"/>
+    <partnerLink name="jmsEnviarAuditoria" partnerLinkType="ns13:Produce_Message_plt"
+                 partnerRole="Produce_Message_role"/>
+  </partnerLinks>
+  <variables>
+    <variable name="GestionarVoucherMsgReq" bpelx:json="string"/>
+    <variable name="GestionarVoucherMsgRes" bpelx:json="string"/>
+    <variable name="ConsultarPolizas_sp_consultar_polizas_x_proceso_InputVariable" messageType="ns2:args_in_msg"/>
+    <variable name="ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable" messageType="ns2:args_out_msg"/>
+    <variable name="CrearVoucheMsgRq" bpelx:json="string"/>
+    <variable name="CrearVoucherMsgResp" bpelx:json="string"/>
+    <variable name="RqCrearVoucherXML" element="ns4:OBJETO_VOUCHER"/>
+    <variable name="Exp_CrearVoucher" element="ns5:OBJETO_EXP_VOUCHER"/>
+    <variable name="Translate1_OutputVar_1" type="xsd:string"/>
+    <variable name="ExpGestionarTransaccionBDRq" element="ns14:OBJETO_TRANSACCION_BD"/>
+    <variable name="RqGestionarTransaccionPremium"
+              element="ns11:OBJETO_TRANSACCION"/>
+    <variable name="RqGestionarTrnPremiumJson" bpelx:json="string"/>
+    <variable name="RsGestionarTrnPremiumJson" bpelx:json="string"/>
+    <variable name="Translate1_OutputVar_2" type="xsd:string"/>
+    <variable name="Translate1_OutputVar_3" type="xsd:string"/>
+    <variable name="RqGestionarTrnBDJson" bpelx:json="string"/>
+    <variable name="RsGestionarTrnBDJson" bpelx:json="string"/>
+    <variable name="EnviarAuditoriaRq" element="ns12:RqEnviarAuditoria"/>
+    <variable name="auditar" type="xsd:string"/>
+  </variables>
+  <faultHandlers>
+    <catchAll>
+      <sequence name="SequenceResponse">
+        <invoke name="EnviarAuditoria" partnerLink="jmsEnviarAuditoria"
+                portType="ns13:Produce_Message_ptt" operation="Produce_Message" inputVariable="EnviarAuditoriaRq"
+                bpelx:invokeAsDetail="no"/><extensionActivity xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <bpelx:js name="JS_Response" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+         
+      <![CDATA[var today = new Date();   
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();   
+process.GestionarVoucherMsgRes=   
+{   
+"CABECERA":{   
+"FECHA_PROCESAMIENTO":date,   
+"FECHA_TRANSACCION":date,   
+},   
+"STATUS":{   
+"CODIGO": 503,   
+"COMPONENTE":"GestionarVoucher",   
+"DETALLE": "Transaccion Fallida",   
+"ORIGEN": "SOA"   
+}   
+}]]></bpelx:js>
+   </extensionActivity>
+        <reply name="Reply_Exception" partnerLink="Bpel_GestionarVoucher" variable="GestionarVoucherMsgRes"
+               bpelx:method="GestionarVoucher"/>
+      </sequence>
+    </catchAll>
+  </faultHandlers>
+  <sequence name="main">
+    <receive name="Receive" partnerLink="Bpel_GestionarVoucher" variable="GestionarVoucherMsgReq"
+             bpelx:method="GestionarVoucher" createInstance="yes"/>
+    <assign name="TIN_to_SP">
+      <copy>
+        <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.GESTION</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ConsultarPolizas_sp_consultar_polizas_x_proceso_InputVariable.InputParameters/ns3:PV_TIPO_DE_PROCESO</to>
+      </copy>
+      <copy>
+        <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_PROCESAMIENTO</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</to>
+      </copy>
+      <copy>
+        <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_PROCESAMIENTO</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</to>
+      </copy>
+      <copy>
+        <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_DESTINO</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</to>
+      </copy>
+      <copy>
+        <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_ORIGEN</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</to>
+      </copy>
+    </assign>
+    <invoke name="ConsultarPolizas" partnerLink="sp_consultar_polizas_x_proceso"
+            portType="ns2:sp_consultar_polizas_x_proceso_ptt" operation="sp_consultar_polizas_x_proceso"
+            inputVariable="ConsultarPolizas_sp_consultar_polizas_x_proceso_InputVariable"
+            outputVariable="ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable" bpelx:invokeAsDetail="no"/>
+    <assign name="ConsultarPolizasXProceso">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/Transformation1_1.xsl", $ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable.OutputParameters)</from>
+        <to variable="RqCrearVoucherXML"/>
+      </copy>
+    </assign>
+    <if name="If_PolizaRespuesta">
+      <documentation>
+        <![CDATA[Exito]]>
+      </documentation>
+      <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">count($ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable.OutputParameters/ns3:RFC_POLIZAS/ns3:Row)&gt;0</condition>
+      <sequence name="ForEachPolizas">
+        <if name="IfAuditar">
+          <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+          <sequence name="AuditoriaConsultarPolizasPremium">
+            <assign name="MappingVarAudit">
+              <copy>
+                <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+              </copy>
+              <copy>
+                <from>$ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable.OutputParameters/ns3:PV_MENSAJE_PREMIUM</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:DETALLE</to>
+              </copy>
+              <copy>
+                <from>'200'</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:CODIGO</to>
+              </copy>
+              <copy>
+                <from>'BpelGestionarVoucher'</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:COMPONENTE</to>
+              </copy>
+              <copy>
+                <from>'OSB'</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:ORIGEN</to>
+              </copy>
+              <copy>
+                <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+              </copy>
+              <copy>
+                <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:ID_TRANSACCION_OSB</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:ID_TRANSACCION_OSB</to>
+              </copy>
+              <copy>
+                <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+              </copy>
+              <copy>
+                <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+              </copy>
+              <copy>
+                <from>'B82'</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+              </copy>
+            </assign>
+            <invoke name="EnviarAuditoria" partnerLink="jmsEnviarAuditoria"
+                    portType="ns13:Produce_Message_ptt" operation="Produce_Message" inputVariable="EnviarAuditoriaRq"
+                    bpelx:invokeAsDetail="no"/>
+          </sequence>
+          <else>
+            <empty name="NoAudit"/>
+          </else>
+        </if>
+        <forEach parallel="no" counterName="ForEachCounter" name="ForEachPolizas">
+          <startCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">1</startCounterValue>
+          <finalCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">count($ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable.OutputParameters/ns3:RFC_POLIZAS/ns3:Row)</finalCounterValue>
+          <scope name="Scope1">
+            <sequence name="CreacionVoucher">
+              <assign name="Assign_Exp_CrearVoucher">
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NUMERO_DE_POLIZA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:NUMERO_DE_POLIZA</to>
+                </copy>
+                <copy>
+                  <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_DESTINO</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:CABECERA/ns5:SISTEMA_DESTINO</to>
+                </copy>
+                <copy>
+                  <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_ORIGEN</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:CABECERA/ns5:SISTEMA_ORIGEN</to>
+                </copy>
+                <copy>
+                  <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:CABECERA/ns5:FECHA_TRANSACCION</to>
+                </copy>
+                <copy>
+                  <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:CABECERA/ns5:FECHA_PROCESAMIENTO</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ACTIVATION_DATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ACTIVATION_DATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:AGENT_ID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:AGENT_ID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ANIO</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ANIO</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:APELLIDO</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:APELLIDO</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ASSOCIATION_DATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ASSOCIATION_DATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BASE_RATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:BASE_RATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BILLING_CYCLE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:BILLING_CYCLE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHANNEL</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:CHANNEL</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHASIS</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:CHASIS</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CIUDAD</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:CIUDAD</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CLIENT_ID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:CLIENT_ID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:COLOR</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:COLOR</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEDUCTIBLE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:DEDUCTIBLE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEVICE_TYPE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:DEVICE_TYPE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:DIRECCION</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION_EXTRA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:DIRECCION_EXTRA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:EMAIL</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL_COMPANIA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:EMAIL_COMPANIA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ES_COMPAÑIA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ES_COMPAÑIA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:FROM_PREVIOUS_VOUCHER_ID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:FROM_PREVIOUS_VOUCHER_ID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:GARAGE_REPAIR</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:GARAGE_REPAIR</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IDENTIFICACION</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:IDENTIFICACION</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IMEI</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:IMEI</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:KM_RATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:KM_RATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_COMMUNICATION</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:LAST_COMMUNICATION</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_MODIFIED</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:LAST_MODIFIED</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_TRIP</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:LAST_TRIP</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MARCA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:MARCA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MODELO</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:MODELO</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NOMBRE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:NOMBRE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_DEVICE_STATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:OCTO_DEVICE_STATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_STATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:OCTO_STATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OPEN_DATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:OPEN_DATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OPERATION_TYPE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:OPERATION_TYPE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PAIS</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:PAIS</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PLACA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:PLACA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PREV_MONTH_TRAVELED_KM</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:PREV_MONTH_TRAVELED_KM</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PROVINCIA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:PROVINCIA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:REPLACE_VEHICLE_TIME</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:REPLACE_VEHICLE_TIME</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:RESPONSABILITY_DAMAGE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:RESPONSABILITY_DAMAGE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SEMESTER_TRAVELED_KM</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:SEMESTER_TRAVELED_KM</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SENDER_ID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:SENDER_ID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:STATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:STATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TELEFONO</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:TELEFONO</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TERMINAL_RETURN_DATE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:TERMINAL_RETURN_DATE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TIPO_DE_COBERTURA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:TIPO_DE_COBERTURA</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TYPE</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:TYPE</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:UUID</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:UUID</to>
+                </copy>
+                <copy ignoreMissingFromData="yes">
+                  <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ZONA_POSTAL</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Exp_CrearVoucher/ns5:VOUCHER/ns5:ZONA_POSTAL</to>
+                </copy>
+              </assign>
+              <assign name="Translate_to_String">
+                <bpelx:annotation>
+                  <bpelx:pattern>translate</bpelx:pattern>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doTranslateToNative($Exp_CrearVoucher, 'Schemas/ExpRqCrearVoucher.xsd', 'OBJETO_EXP_VOUCHER', 'STRING')</from>
+                  <to>$Translate1_OutputVar_1</to>
+                </copy>
+              </assign>
+              <extensionActivity>
+                <bpelx:js name="Convert_to_JSON">
+                  <![CDATA[process.CrearVoucheMsgRq= JSON.parse(process.Translate1_OutputVar_1)]]>
+                </bpelx:js>
+              </extensionActivity><if name="If_Proceso"
+                                      xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                <documentation>
+                  <![CDATA[EMISION]]>
+                </documentation>
+                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($ConsultarPolizas_sp_consultar_polizas_x_proceso_InputVariable.InputParameters/ns3:PV_TIPO_DE_PROCESO,'E')=0</condition>
+                <sequence name="InvokeCrearVoucher">
+                  <invoke name="Exp_CrearVoucher" partnerLink="Exp_CrearVoucherOSB" inputVariable="CrearVoucheMsgRq"
+                          outputVariable="CrearVoucherMsgResp" bpelx:method="CrearVoucher" bpelx:invokeAsDetail="no"/>
+                </sequence>
+                <else>
+                  <documentation>
+                    <![CDATA[ACTUALIZACION]]>
+                  </documentation>
+                  <invoke name="Exp_ModificarVoucher" partnerLink="Exp_ModificarVoucher"
+                          inputVariable="CrearVoucheMsgRq" bpelx:method="ModificarVoucher"
+                          outputVariable="CrearVoucherMsgResp" bpelx:invokeAsDetail="no"/>
+                </else>
+   </if>
+              <if name="If_RespuestaServicio">
+                <documentation>
+                  <![CDATA[Exito]]>
+                </documentation>
+                <condition expressionLanguage="javascript">process.CrearVoucherMsgResp.STATUS.CODIGO == '200'</condition>
+                <sequence name="Exp_GestionarTransaccionBD">
+                  <assign name="TIN_to_ExpPremium">
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NUMERO_DE_POLIZA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:NUMERO_DE_POLIZA</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.CrearVoucherMsgResp.VOUCHER.ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ID</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.CrearVoucherMsgResp.VOUCHER.UUID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:UUID</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.CrearVoucherMsgResp.VOUCHER.STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:STATE</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.CrearVoucherMsgResp.VOUCHER.OPEN_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OPEN_DATE</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">'TRANSACCION EXITOSA'</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MENSAJE</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.CrearVoucherMsgResp.VOUCHER.LAST_MODIFIED</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_MODIFIED</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.GESTION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TIPO_PROCESO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:VIGENCIA_INICIAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:VIGENCIA_INICIAL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:VIGENCIA_FINAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:VIGENCIA_FINAL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:REINTENTO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:REINTENTO</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_DESTINO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_DESTINO</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">'S'</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PROCESADO</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_ORIGEN</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_ORIGEN</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:FECHA_TRANSACCION</to>
+                    </copy>
+                    <copy>
+                      <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:FECHA_PROCESAMIENTO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ACTIVATION_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ACTIVATION_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:AGENT_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:AGENT_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ANIO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ANIO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:APELLIDO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:APELLIDO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ASSOCIATION_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ASSOCIATION_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BASE_RATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:BASE_RATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BILLING_CYCLE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:BILLING_CYCLE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHANNEL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CHANNEL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHASIS</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CHASIS</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CIUDAD</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CIUDAD</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CLIENT_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CLIENT_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:COLOR</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:COLOR</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEDUCTIBLE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DEDUCTIBLE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEVICE_TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DEVICE_TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DIRECCION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION_EXTRA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DIRECCION_EXTRA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:EMAIL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL_COMPANIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:EMAIL_COMPANIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ES_COMPAÑIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ES_COMPAÑIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:FROM_PREVIOUS_VOUCHER_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:FROM_PREVIOUS_VOUCHER_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:GARAGE_REPAIR</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:GARAGE_REPAIR</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IDENTIFICACION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:IDENTIFICACION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IMEI</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:IMEI</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:KM_RATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:KM_RATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_COMMUNICATION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_COMMUNICATION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_TRIP</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_TRIP</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MARCA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MARCA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MODELO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MODELO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NOMBRE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:NOMBRE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_DEVICE_STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OCTO_DEVICE_STATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OCTO_STATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OPERATION_TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OPERATION_TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PAIS</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PAIS</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PLACA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PLACA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PREV_MONTH_TRAVELED_KM</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PREV_MONTH_TRAVELED_KM</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PROVINCIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PROVINCIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:REPLACE_VEHICLE_TIME</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:REPLACE_VEHICLE_TIME</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:RESPONSABILITY_DAMAGE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:RESPONSABILITY_DAMAGE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SEMESTER_TRAVELED_KM</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:SEMESTER_TRAVELED_KM</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SENDER_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:SENDER_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TELEFONO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TELEFONO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TERMINAL_RETURN_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TERMINAL_RETURN_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TIPO_DE_COBERTURA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TIPO_DE_COBERTURA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ZONA_POSTAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ZONA_POSTAL</to>
+                    </copy>
+                  </assign>
+                  <if name="If_Auditar">
+                    <documentation>
+                      <![CDATA[AditoriaTrue]]>
+                    </documentation>
+                    <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                    <sequence name="EnviarAuditoriaRed">
+                      <assign name="MappingVarAudit" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <copy>
+         <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+      </copy>
+      <copy>
+         <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+      </copy>
+      <copy>
+         <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:ID_TRANSACCION_OSB</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:ID_TRANSACCION_OSB</to>
+      </copy>
+      <copy>
+         <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+      </copy>
+      <copy>
+         <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+      </copy>
+      <copy>
+         <from>'B82'</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+      </copy>
+   </assign>
+                      <invoke name="EnviarAuditoriaRed" bpelx:invokeAsDetail="no" partnerLink="jmsEnviarAuditoria"
+                              portType="ns13:Produce_Message_ptt" operation="Produce_Message"
+                              inputVariable="EnviarAuditoriaRq"/>
+                    </sequence>
+                    <else>
+                      <documentation>
+                        <![CDATA[AditoriaFalse]]>
+                      </documentation>
+                      <empty name="NoAudit"/>
+                    </else>
+                  </if>
+                </sequence>
+                <else>
+                  <documentation>
+                    <![CDATA[Fallido]]>
+                  </documentation>
+                  <sequence name="Exp_GestionarTransaccionBdError"><assign name="TIN_to_ExpPremium"
+                                                                           xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   <copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NUMERO_DE_POLIZA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:NUMERO_DE_POLIZA</to>
+      </copy><copy ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                        <from>'null'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ID</to>
+                      </copy><copy ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                        <from>'null'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:UUID</to>
+                      </copy><copy ignoreMissingFromData="yes" bpelx:insertMissingToData="yes" keepSrcElementName="no">
+                        <from>'null'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:STATE</to>
+                      </copy><copy>
+         <from expressionLanguage="javascript">process.CrearVoucherMsgResp.STATUS.DETALLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MENSAJE</to>
+      </copy><copy ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                        <from>'null'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OPEN_DATE</to>
+                      </copy><copy>
+         <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.GESTION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TIPO_PROCESO</to>
+      </copy><copy ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                        <from>'null'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_MODIFIED</to>
+                      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:VIGENCIA_INICIAL</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:VIGENCIA_INICIAL</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:VIGENCIA_FINAL</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:VIGENCIA_FINAL</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>string(number($RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:REINTENTO) + 1)</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:REINTENTO</to>
+      </copy><copy>
+         <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_DESTINO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_DESTINO</to>
+      </copy><copy>
+         <from expressionLanguage="javascript">'N'</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PROCESADO</to>
+      </copy><copy>
+         <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.SISTEMA_ORIGEN</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_ORIGEN</to>
+      </copy><copy>
+         <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:FECHA_TRANSACCION</to>
+      </copy><copy>
+         <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:FECHA_PROCESAMIENTO</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ACTIVATION_DATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ACTIVATION_DATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:AGENT_ID</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:AGENT_ID</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ANIO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ANIO</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:APELLIDO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:APELLIDO</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ASSOCIATION_DATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ASSOCIATION_DATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BASE_RATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:BASE_RATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:BILLING_CYCLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:BILLING_CYCLE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHANNEL</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CHANNEL</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CHASIS</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CHASIS</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CIUDAD</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CIUDAD</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:CLIENT_ID</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:CLIENT_ID</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:COLOR</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:COLOR</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEDUCTIBLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DEDUCTIBLE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DEVICE_TYPE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DEVICE_TYPE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DIRECCION</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:DIRECCION_EXTRA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:DIRECCION_EXTRA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:EMAIL</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:EMAIL_COMPANIA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:EMAIL_COMPANIA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ES_COMPAÑIA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ES_COMPAÑIA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:FROM_PREVIOUS_VOUCHER_ID</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:FROM_PREVIOUS_VOUCHER_ID</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:GARAGE_REPAIR</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:GARAGE_REPAIR</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IDENTIFICACION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:IDENTIFICACION</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:IMEI</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:IMEI</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:KM_RATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:KM_RATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_COMMUNICATION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_COMMUNICATION</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:LAST_TRIP</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:LAST_TRIP</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MARCA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MARCA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:MODELO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:MODELO</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:NOMBRE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:NOMBRE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_DEVICE_STATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OCTO_DEVICE_STATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OCTO_STATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OCTO_STATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:OPERATION_TYPE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:OPERATION_TYPE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PAIS</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PAIS</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PLACA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PLACA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PREV_MONTH_TRAVELED_KM</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PREV_MONTH_TRAVELED_KM</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:PROVINCIA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:PROVINCIA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:REPLACE_VEHICLE_TIME</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:REPLACE_VEHICLE_TIME</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:RESPONSABILITY_DAMAGE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:RESPONSABILITY_DAMAGE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SEMESTER_TRAVELED_KM</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:SEMESTER_TRAVELED_KM</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:SENDER_ID</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:SENDER_ID</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TELEFONO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TELEFONO</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TERMINAL_RETURN_DATE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TERMINAL_RETURN_DATE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TIPO_DE_COBERTURA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TIPO_DE_COBERTURA</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:TYPE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:TYPE</to>
+      </copy><copy ignoreMissingFromData="yes">
+         <from>$RqCrearVoucherXML/ns4:VOUCHER[$ForEachCounter]/ns4:ZONA_POSTAL</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqGestionarTransaccionPremium/ns11:ZONA_POSTAL</to>
+      </copy></assign></sequence></else>
+              </if>
+              <assign name="T_IN_Premium">
+                <bpelx:annotation>
+                  <bpelx:pattern>translate</bpelx:pattern>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doTranslateToNative($RqGestionarTransaccionPremium, 'Schemas/RqGestionarTransaccionPremium.xsd', 'OBJETO_TRANSACCION', 'STRING')</from>
+                  <to>$Translate1_OutputVar_2</to>
+                </copy>
+              </assign>
+              <extensionActivity>
+                <bpelx:js name="Convert_To_Json_Premium">
+                  <![CDATA[process.RqGestionarTrnPremiumJson= JSON.parse(process.Translate1_OutputVar_2)]]>
+                </bpelx:js>
+              </extensionActivity>
+              <invoke name="PremiumTransactionV2"
+                      partnerLink="Exp_GestionarTransaccionPremiumV2" inputVariable="RqGestionarTrnPremiumJson"
+                      outputVariable="RsGestionarTrnPremiumJson" bpelx:method="GestionarTransaccionPremium"
+                      bpelx:invokeAsDetail="no"/>
+              <if name="IfRespuestaTrx">
+                <documentation>
+                  <![CDATA[ExitoTransaccionPremium]]>
+                </documentation>
+                <condition expressionLanguage="javascript">process.RsGestionarTrnPremiumJson.STATUS.CODIGO == '200'</condition>
+                <sequence name="Exp_GestionarTransaccionPremium">
+                  <if name="If_AuditarBD">
+                    <documentation>
+                      <![CDATA[AuditarTrue]]>
+                    </documentation>
+                    <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                    <sequence name="EnviarAuditoriaPremium">
+                      <assign name="MappingVarAudit" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                        <copy ignoreMissingFromData="yes">
+                          <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+                        </copy>
+                        <copy>
+                          <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+                        </copy>
+                        <copy ignoreMissingFromData="yes">
+                          <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:ID_TRANSACCION_OSB</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:ID_TRANSACCION_OSB</to>
+                        </copy>
+                        <copy ignoreMissingFromData="yes">
+                          <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+                        </copy>
+                        <copy ignoreMissingFromData="yes">
+                          <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+                        </copy>
+                        <copy ignoreMissingFromData="yes">
+                          <from>'B82'</from>
+                          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+                        </copy>
+                      </assign>
+                      <invoke name="EnviarAuditoriaBD" partnerLink="jmsEnviarAuditoria"
+                              portType="ns13:Produce_Message_ptt" operation="Produce_Message"
+                              inputVariable="EnviarAuditoriaRq" bpelx:invokeAsDetail="no"/>
+                    </sequence>
+                    <else>
+                      <documentation>
+                        <![CDATA[AuditarFalse]]>
+                      </documentation>
+                      <empty name="NoAudit"/>
+                    </else>
+                  </if>
+                  <assign name="TIN_BD">
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:FECHA_TRANSACCION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CABECERA/ns14:FECHA_TRANSACCION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_DESTINO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CABECERA/ns14:SISTEMA_DESTINO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CABECERA/ns11:SISTEMA_ORIGEN</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CABECERA/ns14:SISTEMA_ORIGEN</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:NUMERO_DE_POLIZA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:NUMERO_DE_POLIZA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:VIGENCIA_INICIAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:VIGENCIA_INICIAL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:VIGENCIA_FINAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:VIGENCIA_FINAL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:TIPO_DE_COBERTURA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:TIPO_DE_COBERTURA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:IDENTIFICACION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:IDENTIFICACION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:NOMBRE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:NOMBRE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:APELLIDO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:APELLIDO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ES_COMPAÑIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ES_COMPAÑIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:TELEFONO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:TELEFONO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:DIRECCION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:DIRECCION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:EMAIL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:EMAIL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CIUDAD</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CIUDAD</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:PROVINCIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:PROVINCIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:PAIS</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:PAIS</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ZONA_POSTAL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ZONA_POSTAL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:PLACA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:PLACA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:MARCA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:MARCA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:MODELO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:MODELO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CHASIS</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CHASIS</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:COLOR</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:COLOR</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ANIO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ANIO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:EMAIL_COMPANIA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:EMAIL_COMPANIA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:TIPO_PROCESO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:TIPO_PROCESO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:UUID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:UUID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:STATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:OPEN_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:OPEN_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:DEVICE_TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:DEVICE_TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ASSOCIATION_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ASSOCIATION_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:ACTIVATION_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:ACTIVATION_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:TERMINAL_RETURN_DATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:TERMINAL_RETURN_DATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:LAST_MODIFIED</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:LAST_MODIFIED</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:IMEI</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:IMEI</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:SENDER_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:SENDER_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:DIRECCION_EXTRA</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:DIRECCION_EXTRA</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:AGENT_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:AGENT_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CLIENT_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CLIENT_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:OCTO_STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:OCTO_STATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:OCTO_DEVICE_STATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:OCTO_DEVICE_STATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:BASE_RATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:BASE_RATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:KM_RATE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:KM_RATE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:DEDUCTIBLE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:DEDUCTIBLE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:RESPONSABILITY_DAMAGE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:RESPONSABILITY_DAMAGE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:PREV_MONTH_TRAVELED_KM</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:PREV_MONTH_TRAVELED_KM</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:SEMESTER_TRAVELED_KM</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:SEMESTER_TRAVELED_KM</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:REPLACE_VEHICLE_TIME</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:REPLACE_VEHICLE_TIME</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:GARAGE_REPAIR</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:GARAGE_REPAIR</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:BILLING_CYCLE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:BILLING_CYCLE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:LAST_COMMUNICATION</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:LAST_COMMUNICATION</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:OPERATION_TYPE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:OPERATION_TYPE</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:LAST_TRIP</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:LAST_TRIP</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:CHANNEL</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:CHANNEL</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:FROM_PREVIOUS_VOUCHER_ID</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:FROM_PREVIOUS_VOUCHER_ID</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:REINTENTO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:REINTENTO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:PROCESADO</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:PROCESADO</to>
+                    </copy>
+                    <copy ignoreMissingFromData="yes">
+                      <from>$RqGestionarTransaccionPremium/ns11:MENSAJE</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ExpGestionarTransaccionBDRq/ns14:MENSAJE</to>
+                    </copy>
+                  </assign>
+                  <assign name="TR_IN_BD">
+                    <bpelx:annotation>
+                      <bpelx:pattern>translate</bpelx:pattern>
+                    </bpelx:annotation>
+                    <copy>
+                      <from>ora:doTranslateToNative($ExpGestionarTransaccionBDRq, 'Schemas/RqGestionarTransaccionBD.xsd', 'OBJETO_TRANSACCION_BD', 'STRING')</from>
+                      <to>$Translate1_OutputVar_3</to>
+                    </copy>
+                  </assign>
+                  <extensionActivity>
+                    <bpelx:js name="Conver_to_Json">
+                      <![CDATA[process.RqGestionarTrnBDJson= JSON.parse(process.Translate1_OutputVar_3)]]>
+                    </bpelx:js>
+                  </extensionActivity>
+                  <invoke name="Exp_TransaccionBD" partnerLink="ExpGestionarTransaccionBDV2"
+                          inputVariable="RqGestionarTrnBDJson" outputVariable="RsGestionarTrnBDJson"
+                          bpelx:method="GestionarTransaccionBD" bpelx:invokeAsDetail="no"/>
+                  <if name="IfServicioExito">
+                    <condition expressionLanguage="javascript">process.RsGestionarTrnBDJson.STATUS.CODIGO == '200'</condition>
+                    <if name="IfEnviarAuditoria">
+                      <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                      <sequence name="AuditoriaBD">
+                        <assign name="MappingVarAudit" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                          <copy ignoreMissingFromData="yes">
+                            <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+                          </copy>
+                          <copy ignoreMissingFromData="yes">
+                            <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+                          </copy>
+                          <copy ignoreMissingFromData="yes">
+                            <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:ID_TRANSACCION_OSB</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:ID_TRANSACCION_OSB</to>
+                          </copy>
+                          <copy ignoreMissingFromData="yes">
+                            <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+                          </copy>
+                          <copy ignoreMissingFromData="yes">
+                            <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+                          </copy>
+                          <copy ignoreMissingFromData="yes">
+                            <from>'B82'</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+                          </copy>
+                        </assign>
+                        <invoke name="EnviarAuditoriaBD" partnerLink="jmsEnviarAuditoria"
+                                portType="ns13:Produce_Message_ptt" operation="Produce_Message"
+                                inputVariable="EnviarAuditoriaRq" bpelx:invokeAsDetail="no"/>
+                      </sequence>
+                      <else>
+                        <empty name="NoAudit"/>
+                      </else>
+                    </if>
+                    <else>
+                      <empty name="Fallido"/>
+                    </else>
+                  </if>
+                </sequence>
+                <else>
+                  <sequence name="RespuestaError"><assign name="MappingVarAudit"
+                                                          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                      <copy ignoreMissingFromData="yes">
+                        <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_PROCESAMIENTO</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>'BpelGestionarVoucher'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:COMPONENTE</to>
+                      </copy>
+                      <copy>
+                        <from expressionLanguage="javascript">process.RsGestionarTrnPremiumJson.STATUS.DETALLE</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:DETALLE</to>
+                      </copy>
+                      <copy>
+                        <from expressionLanguage="javascript">process.RsGestionarTrnPremiumJson.STATUS.CODIGO</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:CODIGO</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>'OSB'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:ORIGEN</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:FECHA_TRANSACCION</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:ID_TRANSACCION_OSB</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:ID_TRANSACCION_OSB</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_DESTINO</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>$RqCrearVoucherXML/ns4:CABECERA/ns4:SISTEMA_ORIGEN</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+                      </copy>
+                      <copy ignoreMissingFromData="yes">
+                        <from>'B82'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+                      </copy>
+                    </assign>
+                  </sequence>
+                </else>
+              </if>
+            </sequence>
+          </scope>
+        </forEach>
+      </sequence>
+      <else>
+        <documentation>
+          <![CDATA[Error]]>
+        </documentation>
+        <sequence><assign name="MappingVarAudit" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+            <copy>
+              <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_PROCESAMIENTO</to>
+            </copy>
+            <copy>
+              <from>$ConsultarPolizas_sp_consultar_polizas_x_proceso_OutputVariable.OutputParameters/ns3:PV_MENSAJE_PREMIUM</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:DETALLE</to>
+            </copy>
+            <copy>
+              <from>'200'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:CODIGO</to>
+            </copy>
+            <copy>
+              <from>'BpelGestionarVoucher'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:COMPONENTE</to>
+            </copy>
+            <copy>
+              <from>'OSB'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:STATUS/ns12:ORIGEN</to>
+            </copy>
+            <copy>
+              <from>'B82'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:CODIGO_OPERACION</to>
+            </copy>
+            <copy>
+              <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.CABECERA.FECHA_TRANSACCION</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:FECHA_TRANSACCION</to>
+            </copy>
+            <copy>
+              <from expressionLanguage="javascript">'OSB'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_DESTINO</to>
+            </copy>
+            <copy>
+              <from expressionLanguage="javascript">'Redd'</from>
+              <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarAuditoriaRq/ns12:CABECERA/ns12:SISTEMA_ORIGEN</to>
+            </copy>
+          </assign>
+          <throw name="ThrowConsultarPolizas" faultName="bpelx:assertFailure"/>
+        </sequence>
+      </else>
+    </if>
+    <extensionActivity>
+      <bpelx:js name="JS_Response">
+        <![CDATA[var today = new Date();  
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();  
+process.GestionarVoucherMsgRes=  
+{  
+"CABECERA":{  
+"FECHA_PROCESAMIENTO":date,  
+"FECHA_TRANSACCION":date,  
+},  
+"STATUS":{  
+"CODIGO": 200,  
+"COMPONENTE":"GestionarVoucher",  
+"DETALLE": "Transaccion exitosa",  
+"ORIGEN": "SOA"  
+}  
+}]]>
+      </bpelx:js>
+    </extensionActivity>
+    <reply name="Reply" partnerLink="Bpel_GestionarVoucher" variable="GestionarVoucherMsgRes"
+           bpelx:method="GestionarVoucher"/>
+  </sequence>
+</process>

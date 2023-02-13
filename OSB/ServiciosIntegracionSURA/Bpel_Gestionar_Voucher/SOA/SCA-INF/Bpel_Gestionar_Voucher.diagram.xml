@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="Bpel_GestionarVoucher">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="285" width="137" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="278" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="Bpel_GestionarVoucher" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Bpel_GestionarVoucher.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>GestionarVoucher</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gReference name="sp_consultar_polizas_x_proceso">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="26" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="19" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="sp_consultar_polizas_x_proceso" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso#wsdl.interface(sp_consultar_polizas_x_proceso_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>sp_consultar_polizas_x_proceso</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_CrearVoucherOSB">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="144" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="137" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_CrearVoucherOSB" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_CrearVoucherOSB.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>CrearVoucher</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_ModificarVoucher">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="262" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="255" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_ModificarVoucher" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_ModificarVoucher.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>ModificarVoucher</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_GestionarTransaccionPremiumV2">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="380" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="373" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_GestionarTransaccionPremiumV2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_GestionarTransaccionPremiumV2.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>GestionarTransaccionPremium</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="ExpGestionarTransaccionBDV2">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="498" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="491" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="ExpGestionarTransaccionBDV2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ExpGestionarTransaccionBDV2.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>GestionarTransaccionBD</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="jmsEnviarAuditoria">
+        <dgm:body borderWidth="2" arcRad="20" X="822" Y="616" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="812" Y="609" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsEnviarAuditoria" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/jmsEnviarAuditoria#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>Produce_Message</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gComponent name="BPEL_GestionarVoucher">
+        <dgm:body borderWidth="2" arcRad="20" X="425" Y="270" width="130" height="186">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="415" Y="263" width="150" height="202">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Bpel_GestionarVoucher" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Bpel_GestionarVoucher.wadl"/>
+        <dgm:outputPort name="sp_consultar_polizas_x_proceso" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso#wsdl.interface(sp_consultar_polizas_x_proceso_ptt)"/>
+        <dgm:outputPort name="Exp_CrearVoucherOSB" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_CrearVoucherOSB.wadl"/>
+        <dgm:outputPort name="Exp_ModificarVoucher" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_ModificarVoucher.wadl"/>
+        <dgm:outputPort name="Exp_GestionarTransaccionPremiumV2" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/Exp_GestionarTransaccionPremiumV2.wadl"/>
+        <dgm:outputPort name="ExpGestionarTransaccionBDV2" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ExpGestionarTransaccionBDV2.wadl"/>
+        <dgm:outputPort name="jmsEnviarAuditoria" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/jmsEnviarAuditoria#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="Bpel_GestionarVoucher" target="BPEL_GestionarVoucher/Bpel_GestionarVoucher" width="2">
+        <dgm:gSegment X1="168" Y1="295" X2="415" Y2="295"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/sp_consultar_polizas_x_proceso" target="sp_consultar_polizas_x_proceso" width="2">
+        <dgm:gSegment X1="565" Y1="295" X2="589" Y2="295"/>
+        <dgm:gSegment X1="589" Y1="295" X2="589" Y2="36"/>
+        <dgm:gSegment X1="589" Y1="36" X2="812" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/Exp_CrearVoucherOSB" target="Exp_CrearVoucherOSB" width="2">
+        <dgm:gSegment X1="565" Y1="320" X2="604" Y2="320"/>
+        <dgm:gSegment X1="604" Y1="320" X2="604" Y2="154"/>
+        <dgm:gSegment X1="604" Y1="154" X2="812" Y2="154"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/Exp_ModificarVoucher" target="Exp_ModificarVoucher" width="2">
+        <dgm:gSegment X1="565" Y1="345" X2="619" Y2="345"/>
+        <dgm:gSegment X1="619" Y1="345" X2="619" Y2="272"/>
+        <dgm:gSegment X1="619" Y1="272" X2="812" Y2="272"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/Exp_GestionarTransaccionPremiumV2" target="Exp_GestionarTransaccionPremiumV2" width="2">
+        <dgm:gSegment X1="565" Y1="370" X2="619" Y2="370"/>
+        <dgm:gSegment X1="619" Y1="370" X2="619" Y2="390"/>
+        <dgm:gSegment X1="619" Y1="390" X2="812" Y2="390"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/ExpGestionarTransaccionBDV2" target="ExpGestionarTransaccionBDV2" width="2">
+        <dgm:gSegment X1="565" Y1="395" X2="604" Y2="395"/>
+        <dgm:gSegment X1="604" Y1="395" X2="604" Y2="508"/>
+        <dgm:gSegment X1="604" Y1="508" X2="812" Y2="508"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPEL_GestionarVoucher/jmsEnviarAuditoria" target="jmsEnviarAuditoria" width="2">
+        <dgm:gSegment X1="565" Y1="420" X2="589" Y2="420"/>
+        <dgm:gSegment X1="589" Y1="420" X2="589" Y2="626"/>
+        <dgm:gSegment X1="589" Y1="626" X2="812" Y2="626"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>
