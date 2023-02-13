@@ -1,0 +1,29 @@
+<wsdl:definitions
+     name="jmsProcesarPago"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:pc="http://xmlns.oracle.com/pcbpel/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:imp1="http://TargetNamespace.com/jmsProcesarPago"
+    >
+  <plt:partnerLinkType name="ConsumirMensajeProcesarPago_plt" >
+    <plt:role name="ConsumirMensajeProcesarPago_role" >
+      <plt:portType name="tns:ConsumirMensajeProcesarPago_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://TargetNamespace.com/jmsProcesarPago" schemaLocation="../Schemas/ProcesarPagoRq.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="ConsumirMensajeProcesarPago_msg">
+        <wsdl:part name="body" element="imp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:portType name="ConsumirMensajeProcesarPago_ptt">
+        <wsdl:operation name="ConsumirMensajeProcesarPago">
+            <wsdl:input message="tns:ConsumirMensajeProcesarPago_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

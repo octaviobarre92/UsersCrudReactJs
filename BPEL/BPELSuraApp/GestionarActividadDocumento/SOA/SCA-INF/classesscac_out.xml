@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='ExpCrearActividadGAD']</loc>
+      <line>85</line>
+      <col>17</col>
+      <file>C:\Delete\Desarrollo\BPEL\BPELSuraApp\GestionarActividadDocumento\SOA\composite.xml</file>
+      <name>C:\Delete\Desarrollo\BPEL\BPELSuraApp\GestionarActividadDocumento\SOA\composite.xml</name>
+      <fix/>
+      <msg>Schema validation failed with exception "null"</msg>
+   </Fault>
+</Faults>

@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ConsultarNumeroPC" targetNamespace="http://TargetNamespace.com/ConsultarNumeroPC" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="RsConsultarNumeroPC">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="respuesta">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="codigo" type="xsd:string"/>
+                     <xsd:element name="mensaje" type="xsd:string"/>
+                     <xsd:element name="componente" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="informacion_numeropc">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="ESTADO" type="xsd:string"/>
+                     <xsd:element name="NUMERO_DE_AJUSTE" type="xsd:string"/>
+                     <xsd:element name="FECHA_DE_AJUSTE" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

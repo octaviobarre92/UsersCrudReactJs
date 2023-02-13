@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="enviarNotificacion"
+     targetNamespace="http://sura.com.pa/enviarNotificacion/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:WL5G3N1="http://sura.com.pa/enviarNotificacion/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="EnviarNotificacion">
+        <plnk:role name="EnviarNotificacion" portType="WL5G3N1:EnviarNotificacion"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/enviarNotificacion/" location="http://10.243.13.40:8001/Notificacion/EnviarCorreo?WSDL"/>
+</wsdl:definitions>

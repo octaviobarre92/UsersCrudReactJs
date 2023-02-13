@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="jmsProcesarPago">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="238" width="137" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="231" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="jmsProcesarPago" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago#wsdl.interface(ConsumirMensajeProcesarPago_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>ConsumirMensajeProcesarPago</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gReference name="ConsultarPCPremium">
+        <dgm:body borderWidth="2" arcRad="20" X="662" Y="26" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="652" Y="19" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="ConsultarPCPremium" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ConsultarPCPremium.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>ConsultarPCPremium</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="ConsultarNumeroPC">
+        <dgm:body borderWidth="2" arcRad="20" X="662" Y="144" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="652" Y="137" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="ConsultarNumeroPC" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ConsultarNumeroPC.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>ConsultarNumeroPC</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="SI_CrearDetallePC">
+        <dgm:body borderWidth="2" arcRad="20" X="662" Y="262" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="652" Y="255" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="SI_CrearDetallePC" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/SI_CrearDetallePC.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>CrearDetallePC</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="FinalizarPCPremium">
+        <dgm:body borderWidth="2" arcRad="20" X="662" Y="380" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="652" Y="373" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="FinalizarPCPremium" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/FinalizarPCPremium.wadl"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>FinalizarPC</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="AplicarPagoSAP">
+        <dgm:body borderWidth="2" arcRad="20" X="662" Y="498" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="652" Y="491" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="AplicarPagoSAP" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://suramericana.sapweb.tesoreria.recaudos#wsdl.interface(OUT_CrearDocumentoLegacy)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>S_CrearDocumentoLegacy</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gComponent name="BPELProcesarPago">
+        <dgm:body borderWidth="2" arcRad="20" X="345" Y="223" width="130" height="161">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="335" Y="216" width="150" height="177">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsProcesarPago" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago#wsdl.interface(ConsumirMensajeProcesarPago_ptt)"/>
+        <dgm:outputPort name="ConsultarPCPremium" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ConsultarPCPremium.wadl"/>
+        <dgm:outputPort name="ConsultarNumeroPC" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/ConsultarNumeroPC.wadl"/>
+        <dgm:outputPort name="SI_CrearDetallePC" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/SI_CrearDetallePC.wadl"/>
+        <dgm:outputPort name="FinalizarPCPremium" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="WADLs/FinalizarPCPremium.wadl"/>
+        <dgm:outputPort name="AplicarPagoSAP" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://suramericana.sapweb.tesoreria.recaudos#wsdl.interface(OUT_CrearDocumentoLegacy)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="jmsProcesarPago" target="BPELProcesarPago/jmsProcesarPago" width="2">
+        <dgm:gSegment X1="168" Y1="248" X2="335" Y2="248"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/ConsultarPCPremium" target="ConsultarPCPremium" width="2">
+        <dgm:gSegment X1="485" Y1="248" X2="509" Y2="248"/>
+        <dgm:gSegment X1="509" Y1="248" X2="509" Y2="36"/>
+        <dgm:gSegment X1="509" Y1="36" X2="652" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/ConsultarNumeroPC" target="ConsultarNumeroPC" width="2">
+        <dgm:gSegment X1="485" Y1="273" X2="524" Y2="273"/>
+        <dgm:gSegment X1="524" Y1="273" X2="524" Y2="154"/>
+        <dgm:gSegment X1="524" Y1="154" X2="652" Y2="154"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/SI_CrearDetallePC" target="SI_CrearDetallePC" width="2">
+        <dgm:gSegment X1="485" Y1="298" X2="539" Y2="298"/>
+        <dgm:gSegment X1="539" Y1="298" X2="539" Y2="272"/>
+        <dgm:gSegment X1="539" Y1="272" X2="652" Y2="272"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/FinalizarPCPremium" target="FinalizarPCPremium" width="2">
+        <dgm:gSegment X1="485" Y1="323" X2="524" Y2="323"/>
+        <dgm:gSegment X1="524" Y1="323" X2="524" Y2="390"/>
+        <dgm:gSegment X1="524" Y1="390" X2="652" Y2="390"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/AplicarPagoSAP" target="AplicarPagoSAP" width="2">
+        <dgm:gSegment X1="485" Y1="348" X2="509" Y2="348"/>
+        <dgm:gSegment X1="509" Y1="348" X2="509" Y2="508"/>
+        <dgm:gSegment X1="509" Y1="508" X2="652" Y2="508"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>

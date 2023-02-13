@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+    <composite faultPolicy="policyRemote"/>
+    <component faultPolicy="policyRemote">
+        <name>EnviarNotificacionCorreo</name>
+    </component>
+    <reference faultPolicy="policyRemote">
+        <name>EnviarNotificacion</name>
+    </reference>
+</faultPolicyBindings>

@@ -1,0 +1,80 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer
+
+  Created: Wed Jan 15 22:42:21 COT 2020
+  Author:  dsotillo
+  Type: BPEL 2.0 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="RenovarPoliza"
+               targetNamespace="http://xmlns.oracle.com/BPELSuraApp/RenovarPoliza/RenovarPoliza"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/BPELSuraApp/RenovarPoliza/RenovarPoliza"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/RenovarPoliza/jmsConsumirRenovarPoliza"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer">
+
+  <!--
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC
+     Set of activities coordinating the flow of messages across the
+     services integrated within this business process
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/RenovarPoliza/jmsConsumirRenovarPoliza"
+          location="../WSDLs/jmsConsumirRenovarPoliza.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <partnerLink name="CrearCliente" bpelx:wadl="yes"/>
+    <partnerLink name="jmsConsumirRenovarPoliza" partnerLinkType="ns1:RenovarPoliza_plt" myRole="RenovarPoliza_role"/>
+  </partnerLinks>
+  <variables>
+    <variable name="MsgRqRenovarPoliza" messageType="ns1:RenovarPoliza_msg"/>
+  </variables>
+  <faultHandlers>
+    <catchAll>
+      <exit name="Exit1"/>
+    </catchAll>
+  </faultHandlers>
+  <sequence name="main">
+    <receive name="Receive1" partnerLink="jmsConsumirRenovarPoliza" portType="ns1:RenovarPoliza_ptt"
+             operation="RenovarPoliza" variable="MsgRqRenovarPoliza"/>
+    <scope name="Scope1">
+      <faultHandlers>
+        <catch>
+          <throw name="Throw1"/>
+        </catch>
+      </faultHandlers>
+      <sequence name="Sequence1">
+        <invoke name="CrearCliente"/>
+        <if name="If1">
+          <if name="If2">
+            <else></else>
+          </if>
+          <else></else>
+        </if>
+      </sequence>
+    </scope>
+    <scope name="Scope2">
+      <faultHandlers>
+        <catch>
+          <throw name="Throw2"/>
+        </catch>
+      </faultHandlers>
+      <sequence name="Sequence2">
+        <invoke name="MarcarPoliza"/>
+        <if name="If3">
+          <if name="If4">
+            <else></else>
+          </if>
+          <else></else>
+        </if>
+      </sequence>
+    </scope>
+  </sequence>
+</process>

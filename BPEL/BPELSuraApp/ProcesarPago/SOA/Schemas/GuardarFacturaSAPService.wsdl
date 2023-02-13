@@ -1,0 +1,37 @@
+<wsdl:definitions name="GuardarFacturaSAPService" targetNamespace="http://xmlns.oracle.com/NaturalServSBApp/SBFacturaSAP/GuardarFacturaSAPService" xmlns:tns="http://xmlns.oracle.com/NaturalServSBApp/SBFacturaSAP/GuardarFacturaSAPService" xmlns:inp1="http://sura.com.pa/MT_CausacionDocContableReq" xmlns:inp2="http://TargetNamespace.com/GuardarFacturaSAPService_Operation1_response" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="GuardarFacturaSAPService">
+        <plnk:role name="GuardarFacturaSAPServiceProvider" portType="tns:GuardarFacturaSAPService_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://sura.com.pa/MT_CausacionDocContableReq" schemaLocation="CausacionDocContableReq.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/GuardarFacturaSAPService_Operation1_response" schemaLocation="sap_response.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="guardarFactura_inputMessage">
+        <wsdl:part name="request" element="inp1:MT_CausacionDocContableReq"/>
+    </wsdl:message>
+    <wsdl:message name="guardarFactura_outputMessage">
+        <wsdl:part name="reply" element="inp2:Root-Element"/>
+    </wsdl:message>
+    <wsdl:portType name="GuardarFacturaSAPService_ptt">
+        <wsdl:operation name="guardarFactura">
+            <wsdl:input message="tns:guardarFactura_inputMessage"/>
+            <wsdl:output message="tns:guardarFactura_outputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GuardarFacturaSAPService_ptt-binding" type="tns:GuardarFacturaSAPService_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="guardarFactura">
+            <soap:operation soapAction="guardarFactura"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

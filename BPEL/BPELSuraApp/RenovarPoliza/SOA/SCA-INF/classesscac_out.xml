@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']</loc>
+      <line>19</line>
+      <col/>
+      <file>BPEL/BPELRenovarPoliza.bpel</file>
+      <name>BPEL/BPELRenovarPoliza.bpel</name>
+      <fix>You should place all explicit &lt;bpel:import> statements in a BPEL 2.0 process.</fix>
+      <msg>There are no explicit "import" statements in &lt;bpel:process> "RenovarPoliza" as required by BPEL 2.0 standard.</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']</loc>
+      <line>19</line>
+      <col/>
+      <file>BPEL/BPELRenovarPoliza.bpel</file>
+      <name>BPEL/BPELRenovarPoliza.bpel</name>
+      <fix>A &lt;receive> or &lt;pick> with createInstance set to "true" must be present.</fix>
+      <msg>There is no start activity in process "RenovarPoliza"</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='main']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='receive'][@name='Receive1']</loc>
+      <line>33</line>
+      <col/>
+      <file>BPEL/BPELRenovarPoliza.bpel</file>
+      <name>BPEL/BPELRenovarPoliza.bpel</name>
+      <fix>Make sure that the attribute "partnerLink" is specified.</fix>
+      <msg>Attribute "partnerLink" is not set on this &lt;bpel:receive> activity.</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='main']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='scope'][@name='Scope1']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='invoke'][@name='Invoke1']</loc>
+      <line>35</line>
+      <col/>
+      <file>BPEL/BPELRenovarPoliza.bpel</file>
+      <name>BPEL/BPELRenovarPoliza.bpel</name>
+      <fix>Make sure that the attribute "partnerLink" is specified.</fix>
+      <msg>Attribute "partnerLink" is not set on this &lt;bpel:invoke> activity.</msg>
+   </Fault>
+</Faults>

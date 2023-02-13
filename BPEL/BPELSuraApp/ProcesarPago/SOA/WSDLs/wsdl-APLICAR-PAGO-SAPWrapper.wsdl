@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OUT_CrearDocumentoLegacy"
+     targetNamespace="http://suramericana.sapweb.tesoreria.recaudos"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:p1="http://suramericana.sapweb.tesoreria.recaudos"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="AplicarPagoSAP">
+        <plnk:role name="OUT_CrearDocumentoLegacy" portType="p1:OUT_CrearDocumentoLegacy"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://suramericana.sapweb.tesoreria.recaudos" location="wsdl-APLICAR-PAGO-SAP.wsdl"/>
+</wsdl:definitions>

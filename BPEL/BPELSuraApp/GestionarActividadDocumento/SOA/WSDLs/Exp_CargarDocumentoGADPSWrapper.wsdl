@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="CargarDocumentoGAD"
+     targetNamespace="http://sura.com.pa/CargarDocumentoGAD/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:WL5G3N1="http://sura.com.pa/CargarDocumentoGAD/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="ExpCargarDocumentoGAD">
+        <plnk:role name="CargarDocumentoGAD" portType="WL5G3N1:CargarDocumentoGAD"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/CargarDocumentoGAD/" location="Exp_CargarDocumentoGADPS.wsdl"/>
+</wsdl:definitions>

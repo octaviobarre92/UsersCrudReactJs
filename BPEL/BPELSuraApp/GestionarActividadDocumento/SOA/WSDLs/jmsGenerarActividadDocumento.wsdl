@@ -1,0 +1,36 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="jmsGenerarActividadDocumento"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsGenerarActividadDocumento"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsGenerarActividadDocumento"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:pc="http://xmlns.oracle.com/pcbpel/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:imp1="http://sura.com.pa/GestionarActividadDocumento/"
+     xmlns:ns1="http://sura.com.pa/CargarDocumentoGAD/"
+     xmlns:ns2="http://sura.com.pa/ActividadParam/"
+    >
+    <plt:partnerLinkType name="GenerarActividadDocumento_Consume_Message_plt">
+        <plt:role name="GenerarActividadDocumento_Consume_Message_role">
+            <plt:portType name="tns:GenerarActividadDocumento_Consume_Message_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/CargarDocumentoGAD/" location="Exp_CargarDocumentoGADPS.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://sura.com.pa/GestionarActividadDocumento/" schemaLocation="../Schemas/GenerarActividadDocumentoRq.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://sura.com.pa/ActividadParam/" schemaLocation="../Schemas/ActividadParam.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="GenerarActividadDocumento_Consume_Message_msg">
+        <wsdl:part name="body" element="imp1:GestionarActividadDocumentoReq"/>
+    </wsdl:message>
+    <wsdl:portType name="GenerarActividadDocumento_Consume_Message_ptt">
+        <wsdl:operation name="GenerarActividadDocumento_Consume_Message">
+            <wsdl:input message="tns:GenerarActividadDocumento_Consume_Message_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
