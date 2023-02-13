@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_CerrarCajaPremium/CerrarCajaPremium" name="CerrarCajaPremium-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="CerrarCajaPremium.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_CerrarCajaPremium/CerrarCajaPremium"/>
+    <wsdl:binding name="CerrarCajaPremium_ptt-binding" type="cer:CerrarCajaPremium_ptt" xmlns:cer="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_CerrarCajaPremium/CerrarCajaPremium">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="CerrarCajaPremium">
+            <soap:operation soapAction="CerrarCajaPremium"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

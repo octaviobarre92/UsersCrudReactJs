@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
+    <con:coreEntry>
+        <con:binding type="Any XML"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-ad33703.5de360b8.0.172a6691205.N7fcd"/>
+        <con:pipeline type="response" name="response-ad33703.5de360b8.0.172a6691205.N7fcc">
+            <con:stage id="_StageId-ad33703.5de360b8.0.172a6691205.N7f32" name="Mock" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <con:context>
+                    <con1:userNsDecl prefix="v12" namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v11" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v1" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="RsAuxBody" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.5de360b8.0.172a6691205.N7f31</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<v1:ConsultarArchivoFTPMsjResp>
+         <v1:CabeceraResp>
+            <v11:EstadoGeneral>
+               <v11:Status>OK</v11:Status>
+               <v11:Descripcion>Servicio Ejecutado Exitosamente</v11:Descripcion>
+            </v11:EstadoGeneral>
+         </v1:CabeceraResp>
+         <v1:Documento>
+            <v12:NumeroPaginas>1</v12:NumeroPaginas>
+             <v12:Paginas>
+               <v12:Pagina>
+                  <v12:Contenido>eyJEb2N1bWVudCI6W3siUm91dGluZ0tleSI6IiIsIkNvbnRyb2wiOnsiVXN1YXJpbyI6IiIsIkNhbmFsIjoiQ0FTQyIsIkNvbXVuaWNhY2lvbiI6eyJFbnRyeSI6W3siVGlwb0RvY3VtZW50byI6IkNPVElaQSIsIkNsYXZlRG9jIjoiNjAwMDAzODI3NiIsIkRvY05hbWUiOiJQT0xfMTAwMDAwMDM5MjA5LnBkZiIsIklkRG9jdW1lbnRvIjoicHIxMjMyIiwiVmlhIjp7IkVudHJ5IjpbeyJQcm9waWVkYWQ4IjoiIiwiUHJvcGllZGFkOSI6IiIsIlZpYU5vbWJyZSI6IkVNQUlMIiwiUHJvcGllZGFkMTAiOiIiLCJQcm9waWVkYWQ0IjoiR2VuZXJpY29QcmlvcmlkYWQxLmh0bWwiLCJQcm9waWVkYWQ1IjoiMSIsIlByb3BpZWRhZDYiOiJTIiwiUHJvcGllZGFkMTEiOiIiLCJQcm9waWVkYWQ3Ijoic3RyaW5nIiwiUHJvcGllZGFkMTIiOiIiLCJQcm9waWVkYWQxIjoiQ2FyYXR1bGEgZGUgUG9saXphIiwiUHJvcGllZGFkMiI6InN0cmluZyIsIlByb3BpZWRhZDMiOiIifV19fV19LCJQcm9jZXNvIjoiQ290aXphY2lvbiIsIlNlZ21lbnRvQ3RybDA1IjoiIiwiVGlwb0lEQ2xpZW50ZSI6IiIsIlNlZ21lbnRvQ3RybDAyIjoiIiwiU2VnbWVudG9DdHJsMDEiOiIiLCJJREZvcm1hdG8iOiJ2Y3M6XFxcXFxcXFxQQVxcXFxHRU5cXFxcQ09USVpBQ0lPTlxcXFxGX1BBX0dFTl9DT1RJWkFDSU9ORVMud2ZkIiwiU2VnbWVudG9DdHJsMDQiOiIiLCJTZWdtZW50b0N0cmwwMyI6IiIsIkdlbmVybyI6IiIsIkNvbnRyb2wwMiI6IiIsIkNvbnRyb2wwMSI6IiIsIklEQ29tQVBQIjoiIiwiRGlzcG9zaXRpdm8iOiIiLCJQYWlzIjoiUEEiLCJNb21lbnRvVmlkYSI6IiIsIkNvbXBvcnRhbWllbnRvIjoiIiwiQ29udHJvbDAzIjoiIiwiU2VnbWVudG9WYWxvciI6IiIsIkNpdWRhZCI6IiIsIkNvZGlnb0FQUCI6IjEwMDEiLCJDb2RpZ29BY3RpdmlkYWRFY29ub21pY2EiOiIiLCJDb21wYW5pYSI6IlNFRyIsIkNsYXZlQ29tQVBQIjoiMTAwMS00MTAwNDU3MjQ0MTk3ODAiLCJFc3RyYXRvIjoiIiwiR3J1cG9WYWxvciI6IiIsIlNlZ21lbnRvIjoiIiwiU29sdWNpb24iOiJDQVNDIiwiT2ZpY2luYSI6IiIsIk51bWVyb0lEQ2xpZW50ZSI6IiIsIk9wZXJhY2lvbiI6IiIsIlNlY3RvckVjb25vbWljbyI6IiIsIlRhbWFub0VtcHJlc2EiOiIiLCJDYXBpdGFsU29jaWFsIjoiIn0sIklkQ29tbXVuaWNhdGlvbiI6IiIsIlByb2Nlc3NDb2RlIjoiIiwiRGF0YSI6eyJ1c3VhcmlvRGVjbGluYWNpb24iOiIiLCJudW1lcm9Db3RpemFjaW9uIjoiIiwicmFtbyI6IiIsInByb2Nlc28iOiIiLCJwcm9kdWN0byI6IiIsIlNvbGljaXRhbnRlIjp7InRpcG9QZXJzb25hIjoiUE4iLCJudW1lcm9JZGVudGlmaWNhY2lvbiI6IjYwMDAwMzgyNzYiLCJub21icmVDb21wbGV0byI6IkFuYWJlbGEgR0JQIFNpbHZlcnJyIn0sIkluZm9ybWFjaW9uUmllc2dvIjpbeyJzdW1hQXNlZ3VyYWRhIjoiIiwiVHJhbnNwb3J0ZSI6W3sidGlwb1RyYXllY3RvIjoiIiwidHJheWVjdG9EZXNkZSI6IiIsInRyYXllY3RvSGFzdGEiOiIiLCJsaW1pdGVUcmFzbGFkbyI6IiIsIm1vbnRvTW92aW1pZW50b0FudWFsIjoiIiwiZGVzY3JpcGNpb25NZXJjYW5jaWEiOiIiLCJ0aXBvVHJhbnNwb3J0ZSI6IiIsInRpcG9FbWJhbGFqZSI6IiIsImxpbWl0ZU1heGltb1Jlc3BvbnNhYmlsaWRhZCI6IiIsInRpcG9NZXJjYW5jaWEiOiIifV0sInZpYXNUcmFmZmljUHJvcHMiOnsiY29kaWdvQXBsaWNhY2lvbiI6IiIsImRlc2NyaXBjaW9uQ2xhdmU3IjoiIiwiZGVzY3JpcGNpb25PcGVyYWNpb24iOiIiLCJkZXNjcmlwY2lvbkNsYXZlNiI6IiIsImRlc2NyaXBjaW9uUHJvY2VzbyI6IiIsImRlc2NyaXBjaW9uQ2xhdmU5IjoiIiwiZGVzY3JpcGNpb25DbGF2ZTgiOiIiLCJkZXNjcmlwY2lvblNvbHVjaW9uIjoiKiIsImRlc2NyaXBjaW9uQ2xhdmU1IjoiIiwiZGVzY3JpcGNpb25DbGF2ZTEzIjoiIiwiYXNlc29yIjoiIiwiZGVzY3JpcGNpb25DbGF2ZTE0IjoiIiwiZGVzY3JpcGNpb25DbGF2ZTE1IjoiIiwiZGVzY3JpcGNpb25DbGF2ZTEwIjoiIiwiZGVzY3JpcGNpb25DbGF2ZTExIjoiIiwicG9saXphIjoiIiwiZGVzY3JpcGNpb25DbGF2ZTEyIjoiIiwiZGVzY3JpcGNpb25BcGxpY2FjaW9uIjoiIiwiZGVzY3JpcGNpb25DYW5hbCI6IiIsImlkQ2xpZW50ZSI6IiIsImRlc2NyaXBjaW9uU3ViUmFtbyI6IiIsInN1Y3Vyc2FsIjoiIiwiZGVzY3JpcGNpb25Gb3JtYXRvIjoiIiwicGxhblNvbHVjaW9uIjoiIn0sImRlc2NyaXBjaW9uRmlhbnphIjoiIiwiUmllc2dvc0RpdmVyc29zIjpbeyJ0aXBvVGFyamV0YWhhYmllbnRlIjoiIiwidGFyaWZhIjoiMTAwLjAwMCIsImxpbWl0ZU1heGltb1RhcmpldGEiOiIiLCJudW1lcm9UYXJqZXRhaGFiaWVudGUiOiIiLCJsaW1pdGVNaW5pbW9UYXJqZXRhIjoiIn1dLCJDYXNjbyI6W3sidGlwb1VzbyI6IiIsIm51bWVyb1Bhc2FqZXJvcyI6IiIsImxpbWl0ZUdlb2dyYWZpY28iOiIiLCJ1YmljYWNpb25DYXNjbyI6IiIsIm51bWVyb1RyaXB1bGFudGVzIjoiIiwib2N1cGFjaW9uIjoiIiwiYWVyb3B1ZXJ0b0Jhc2UiOiIiLCJub21icmVFbWJhcmNhY2lvbiI6IiIsIm1vZGVsbyI6IiIsImxpbWl0ZU5hdmVnYWNpb24iOiIiLCJtYXJjYSI6IiIsInRpcG9DYXNjbyI6IiIsImhvcmFzVXRpbGl6YWNpb24iOiIiLCJ1c29VbHRpbW9zTWVzZXMiOiIiLCJtYXRlcmlhbENhc2NvIjoiIiwidmFsb3JBZXJvbmF2ZSI6IiIsInVzb1Byb3hpbW9zTWVzZXMiOiIiLCJmZWNoYUNvbnN0cnVjY2lvbiI6IiJ9XSwiR3J1cG9DIjpbeyJ2YWxvckludmVyc2lvbiI6IiIsInZpZ2VuY2lhQ29uY2VzaW9uIjoiIiwicmVub3ZhY2lvbkF1dG9tYXRpY2EiOiIifV19XSwiSW5mb3JtYWNpb25Db2JlcnR1cmFzIjpbeyJjb2JlcnR1cmEiOiIiLCJ2YWxvckFzZWd1cmFkbyI6IiIsInByaW1hIjoiIiwiZ2FzdG9zQWRtaW5pc3RyYXRpdm9zIjoiIiwic3VidG90YWwiOiIiLCJpbXB1ZXN0b3MiOiIiLCJnYXN0b3NDZXJ0aWZpY2FjaW9uZXMiOiIiLCJ0b3RhbFBhZ28iOiIiLCJ0YXNhIjoiIiwiZGVkdWNpYmxlIjoiIn1dLCJmZWNoYUNvdGl6YWNpb24iOiIiLCJCZW5lZmljaWFyaW9zQWNyZWVkb3JlcyI6W3sibm9tYnJlQ29tcGxldG8iOiIifV0sImNvZGlnb1JhbW8iOiIiLCJub21icmVDb3JyZWRvciI6IkFnZW50IE9uZSIsImlkUHJvZHVjdG8iOiIiLCJjYXVzYURlY2xpbmFjaW9uIjoiIiwiQXNlZ3VyYWRvIjp7InRpcG9QZXJzb25hQWZpYW56YWRhIjoiIiwibm9tYnJlQ29tcGxldG8iOiJBbmFiZWxhIEdCUCBTaWx2ZXJyciJ9LCJ1c3VhcmlvQ290aXphZG9yIjoiIn0sIkNvcnJlbGF0aW9uSUQiOiIiLCJFbmRQb2ludCI6Imh0dHBzOi8vc2NhbGVybGFiLnN1cmFtZXJpY2FuYS5jb206MzA2MDAvcmVzdC9hcGkvc3VibWl0LWpvYi9TZW5kRG9jdW1lbnRDb3RpemFjaW9uZXMiLCJKb2JJZENjbSI6IiJ9XX0=</v12:Contenido>
+               </v12:Pagina>
+            </v12:Paginas>
+         </v1:Documento>
+      </v1:ConsultarArchivoFTPMsjResp>]]></con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.5de360b8.0.172a6691205.N7f30</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$RsAuxBody</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-ad33703.5de360b8.0.172a6691205.N7fcd</con:request>
+                <con:response>response-ad33703.5de360b8.0.172a6691205.N7fcc</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
