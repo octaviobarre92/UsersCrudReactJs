@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerPolizasVehiculos/sp_get_polizas_vehiculos" name="sp_get_polizas_vehiculos-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="sp_get_polizas_vehiculos.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerPolizasVehiculos/sp_get_polizas_vehiculos"/>
+    <wsdl:binding name="sp_get_polizas_vehiculos_ptt-binding" type="sp:sp_get_polizas_vehiculos_ptt" xmlns:sp="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerPolizasVehiculos/sp_get_polizas_vehiculos">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="sp_get_polizas_vehiculos">
+            <soap:operation soapAction="sp_get_polizas_vehiculos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ObtenerPolizaVehiculos" targetNamespace="http://www.sura.com/ObtenerPolizaVehiculos" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="OBJETO_INFO_POLIZA_VEHICULOS">
+      <xsd:complexType>
+         <xsd:sequence>
+                      <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="PAGINACION">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CANTIDAD_DE_PAGINAS" type="xsd:string"/>
+                              <xsd:element name="PAGINA_ACTUAL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="INFO_POLIZA_VEHICULOS" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="ACREEDOR_HIPOTECARIO" type="xsd:string"/>
+                     <xsd:element name="COD_CORREDOR" type="xsd:string"/>
+                     <xsd:element name="ID_ENDOSO" type="xsd:string"/>
+                     <xsd:element name="ID_POLIZA" type="xsd:string"/>
+                     <xsd:element name="IMPUESTO" type="xsd:string"/>
+                     <xsd:element name="NUMERO_POLIZA_INICIAL" type="xsd:string"/>
+                     <xsd:element name="PORCENTAJE_IMPUESTO" type="xsd:string"/>
+                     <xsd:element name="PRIMA_BRUTA" type="xsd:string"/>
+                     <xsd:element name="PRIMA_NETA" type="xsd:string"/>
+                     <xsd:element name="RIESGO_ASEGURADO">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ANO_VEHICULO" type="xsd:string"/>
+                              <xsd:element name="COD_MARCA_MODELO" type="xsd:string"/>
+                              <xsd:element name="COD_TIPO_VEHICULO" type="xsd:string"/>
+                              <xsd:element name="COLOR" type="xsd:string"/>
+                              <xsd:element name="DESC_MARCA_MODELO" type="xsd:string"/>
+                              <xsd:element name="FECHA_ALTA" type="xsd:string"/>
+                              <xsd:element name="NOMBRE_CONDUCTOR" type="xsd:string"/>
+                              <xsd:element name="NRO_CERTIFICADO" type="xsd:string"/>
+                              <xsd:element name="PLACA" type="xsd:string"/>
+                              <xsd:element name="SERIAL_CARROCERIA" type="xsd:string"/>
+                              <xsd:element name="SERIAL_MOTOR" type="xsd:string"/>
+                              <xsd:element name="TIPO_VEHICULO" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="SECUENCIAL_POLIZA" type="xsd:string"/>
+                     <xsd:element name="SUMA_ASEGURADA" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO" type="xsd:string"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

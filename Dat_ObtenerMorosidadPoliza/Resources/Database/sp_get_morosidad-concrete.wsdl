@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerMorosidadPoliza/sp_get_morosidad" name="sp_get_morosidad-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="sp_get_morosidad.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerMorosidadPoliza/sp_get_morosidad"/>
+    <wsdl:binding name="sp_get_morosidad_ptt-binding" type="sp:sp_get_morosidad_ptt" xmlns:sp="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerMorosidadPoliza/sp_get_morosidad">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="sp_get_morosidad">
+            <soap:operation soapAction="sp_get_morosidad"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/ObtenerMorosidad" targetNamespace="http://www.sura.com.pa/ObtenerMorosidad" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="OBJETO_MOROSIDAD">
+      <xsd:complexType>
+         <xsd:sequence>
+                        <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="PAGINACION">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CANTIDAD_DE_PAGINAS" type="xsd:string"/>
+                              <xsd:element name="PAGINA_ACTUAL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:string"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="INFO_MOROSIDAD" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="COD_CORREDOR" type="xsd:string"/>
+                     <xsd:element name="PRIMA_SUSCRITA" type="xsd:string"/>
+                     <xsd:element name="COBRADO" type="xsd:string"/>
+                     <xsd:element name="SALDO" type="xsd:string"/>
+                     <xsd:element name="SALDO_30" type="xsd:string"/>
+                     <xsd:element name="SALDO_60" type="xsd:string"/>
+                     <xsd:element name="SALDO_90" type="xsd:string"/>
+                     <xsd:element name="SALDO_120" type="xsd:string"/>
+                     <xsd:element name="SALDO_MAS_120" type="xsd:string"/>
+                     <xsd:element name="OBJETO_POLIZA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="COD_RAMO" type="xsd:string"/>
+                              <xsd:element name="DESC_RAMO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_DESDE" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_HASTA" type="xsd:string"/>
+                              <xsd:element name="DURACION" type="xsd:string"/>
+                              <xsd:element name="USUARIO" type="xsd:string"/>
+                              <xsd:element name="ID_POLIZA" type="xsd:string"/>
+                              <xsd:element name="NUMERO_POLIZA_INICIAL" type="xsd:string"/>
+                              <xsd:element name="SECUENCIAL_POLIZA" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="CONTRATANTE">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ID_CONTRATANTE" type="xsd:string"/>
+                              <xsd:element name="NOMBRE" type="xsd:string"/>
+                              <xsd:element name="APELLIDO" type="xsd:string"/>
+                              <xsd:element name="RAZON_SOCIAL" type="xsd:string"/>
+                              <xsd:element name="TIPO_PERSONA" type="xsd:string"/>
+                              <xsd:element name="NUMERO_IDENTIFICACION" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="PERSONA_ASEGURADA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ID_ASEGURADO" type="xsd:string"/>
+                              <xsd:element name="RAZON_SOCIAL_ASEGURADO" type="xsd:string"/>
+                              <xsd:element name="ID_TIPO_PERSONA" type="xsd:string"/>
+                              <xsd:element name="NOMBRE" type="xsd:string"/>
+                              <xsd:element name="APELLIDO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_IDENTIFICACION" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

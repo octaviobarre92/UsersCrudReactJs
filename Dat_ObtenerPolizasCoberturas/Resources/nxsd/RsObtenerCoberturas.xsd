@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/RsObtenerCoberturas" targetNamespace="http://www.sura.com.pa/RsObtenerCoberturas" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="INFO_COBERTURAS">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="PAGINACION">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CANTIDAD_DE_PAGINAS" type="xsd:string"/>
+                              <xsd:element name="PAGINA_ACTUAL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+              <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="COBERTURAS" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="COD_CORREDOR" type="xsd:string"/>
+                     <xsd:element name="CODIGO_PRODUCTO" type="xsd:string"/>
+                     <xsd:element name="CODIGO_COBERTURA" type="xsd:string"/>
+                     <xsd:element name="COBERTURA" type="xsd:string"/>
+                     <xsd:element name="SUMA_ASEGURADA" type="xsd:string"/>
+                     <xsd:element name="DEDUCIBLE" type="xsd:string"/>
+                     <xsd:element name="LIMITE_PERSONA" type="xsd:string"/>
+                     <xsd:element name="LIMITE_ACCIDENTE" type="xsd:string"/>
+                     <xsd:element name="PRIMA_BRUTA" type="xsd:string"/>
+                     <xsd:element name="ID_ENDOSO" type="xsd:string"/>
+                     <xsd:element name="FECHA_APLICACION" type="xsd:string"/>
+                     <xsd:element name="OBJETO_POLIZA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="TIPO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="ID_POLIZA" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_DESDE" type="xsd:string"/>
+                              <xsd:element name="DESC_RAMO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_POLIZA_INICIAL" type="xsd:string"/>
+                              <xsd:element name="CODIGO_TIPO_ENDOSO" type="xsd:integer"/>
+                              <xsd:element name="VIGENCIA_HASTA" type="xsd:string"/>
+                              <xsd:element name="ID_TIPO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="TIPO_ENDOSO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="CANTIDAD_LETRAS" type="xsd:string"/>
+                              <xsd:element name="ESTATUS" type="xsd:string"/>
+                              <xsd:element name="ID_ENDOSO" type="xsd:string"/>
+                              <xsd:element name="COD_RAMO" type="xsd:string"/>
+                              <xsd:element name="SECUENCIAL_POLIZA" type="xsd:string"/>
+                              <xsd:element name="ID_ITEM_PADRE" type="xsd:string"/>
+                              <xsd:element name="NUMERO_CERTIFICADO" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>
