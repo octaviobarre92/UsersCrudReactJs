@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="expoRegistrarPagoBitacoraSOAP"
+     targetNamespace="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ccm="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="Exp_RegistrarPagoBitacora">
+        <plnk:role name="expoRegistrarPagoBitacoraSOAP" portType="ccm:expoRegistrarPagoBitacoraSOAP"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/" location="registrarPagoBitacora.wsdl"/>
+</wsdl:definitions>

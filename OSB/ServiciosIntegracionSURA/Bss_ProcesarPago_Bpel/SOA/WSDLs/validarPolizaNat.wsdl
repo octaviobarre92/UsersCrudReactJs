@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ccm="http://sura.com.pa/validarPolizaDanoSOAP/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="validarPolizaDanoSOAP" targetNamespace="http://sura.com.pa/validarPolizaDanoSOAP/">
+ <wsdl:import namespace="http://schemas.oracle.com/bpel/extension"
+                location="RuntimeFault.wsdl"/>
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://sura.com.pa/validarPolizaDanoSOAP/"> 
+     <xsd:element name="consultarPolizaDanoFaultMsg">
+     <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="code" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Codigo Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="summary" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Resumen Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="detail" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Detalle Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+      <xsd:element name="consultarPolizaDano">
+        <xsd:complexType>
+          <xsd:sequence>
+          <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          	<xsd:element name="TIPO_BUSQUEDA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Tipo de busqueda por poliza
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="VALOR" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero de poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarPolizaDanoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:integer"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          	<xsd:element name="POLIZA_VALIDA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="NUMERO_DE_POLIZA_SAP" type="xsd:integer"/>
+                     <xsd:element name="POLIZAVALIDA" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarPolizaDanoRequest">
+    <wsdl:part element="ccm:consultarPolizaDano" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="consultarPolizaDanoResponse">
+    <wsdl:part element="ccm:consultarPolizaDanoResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="consultarPolizaDanoFault">
+    <wsdl:part name="parameters" element="ccm:consultarPolizaDanoFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="validarPolizaDanoSOAP">
+    <wsdl:operation name="consultarPolizaDano">
+      <wsdl:input message="ccm:consultarPolizaDanoRequest"/>
+      <wsdl:output message="ccm:consultarPolizaDanoResponse"/>
+      <wsdl:fault name="consultarPolizaDanoFaultMsg" message="ccm:consultarPolizaDanoFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="consultarPolizaDanoSOAP" type="ccm:validarPolizaDanoSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultarPolizaDano">
+      <soap:operation soapAction="http://sura.com.pa/validarPolizaDanoSOAP/consultarPolizaDano"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="consultarPolizaDanoFaultMsg">
+        <soap:fault name="consultarPolizaDanoFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="validarPolizaDanoSOAP">
+    <wsdl:documentation>Permite consultar si una poliza de dano existe.</wsdl:documentation>
+    <wsdl:port binding="ccm:consultarPolizaDanoSOAP" name="consultarPolizaDanoSOAP">
+      <soap:address location="http://ptyosbdesa.sura.com.pa:17014/sbus/Exp_SI_ValidarPolizaNatural"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

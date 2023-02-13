@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ccm="http://sura.com.pa/expoConsultarPolizaSOAP/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="expoConsultarPolizaSOAP" targetNamespace="http://sura.com.pa/expoConsultarPolizaSOAP/">
+ <wsdl:import namespace="http://schemas.oracle.com/bpel/extension"
+                location="RuntimeFault.wsdl"/>
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://sura.com.pa/expoConsultarPolizaSOAP/"> 
+     <xsd:element name="consultarPolizaFaultMsg">
+     <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="code" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Codigo Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="summary" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Resumen Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="detail" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Detalle Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+      <xsd:element name="consultarPoliza">
+        <xsd:complexType>
+          <xsd:sequence>
+          <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          	<xsd:element name="NUMERO_POLIZA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="TIPO_POLIZA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Tipo poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="CORE" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Core
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarPolizaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:integer"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="POLIZAS">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="POLIZA">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element type="xsd:string" name="CORE"/>
+                                        <xsd:element type="xsd:string" name="NUMERO_POLIZA"/>
+                                        <xsd:element type="xsd:string" name="NUM_POLIZA_CARATULA"/>
+                                        <xsd:element type="xsd:string" name="RAMO"/>
+                                        <xsd:element type="xsd:string" name="SUBRAMO"/>
+                                        <xsd:element type="xsd:string" name="TIPO_POLIZA"/>
+                                        <xsd:element type="xsd:string" name="VIGENCIA_FINAL"/>
+                                        <xsd:element type="xsd:string" name="VIGENCIA_INICIAL"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarPolizaRequest">
+    <wsdl:part element="ccm:consultarPoliza" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="consultarPolizaResponse">
+    <wsdl:part element="ccm:consultarPolizaResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="consultarPolizaFault">
+    <wsdl:part name="parameters" element="ccm:consultarPolizaFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="expoConsultarPolizaSOAP">
+    <wsdl:operation name="consultarPoliza">
+      <wsdl:input message="ccm:consultarPolizaRequest"/>
+      <wsdl:output message="ccm:consultarPolizaResponse"/>
+      <wsdl:fault name="consultarPolizaFaultMsg" message="ccm:consultarPolizaFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="consultarPolizaSOAP" type="ccm:expoConsultarPolizaSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultarPoliza">
+      <soap:operation soapAction="http://sura.com.pa/expoConsultarPolizaSOAP/consultarPoliza"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="consultarPolizaFaultMsg">
+        <soap:fault name="consultarPolizaFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="expoConsultarPolizaSOAP">
+    <wsdl:documentation>Permite consultar una poliza</wsdl:documentation>
+    <wsdl:port binding="ccm:consultarPolizaSOAP" name="consultarPolizaSOAP">
+      <soap:address location="http://ptyosbdesa.sura.com.pa:17014/sbus/Exp_ConsultarPolizaV2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

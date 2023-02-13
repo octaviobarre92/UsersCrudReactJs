@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="expoAplicaPagoNaturalSOAP"
+     targetNamespace="http://sura.com.pa/expoAplicaPagoNaturalSOAP/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ccm="http://sura.com.pa/expoAplicaPagoNaturalSOAP/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="Exp_AplicaPagoNatural">
+        <plnk:role name="expoAplicaPagoNaturalSOAP" portType="ccm:expoAplicaPagoNaturalSOAP"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/expoAplicaPagoNaturalSOAP/" location="aplicarPagoNatural.wsdl"/>
+</wsdl:definitions>

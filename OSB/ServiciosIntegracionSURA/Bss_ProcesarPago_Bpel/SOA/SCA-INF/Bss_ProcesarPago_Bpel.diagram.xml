@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="jmsProcesarPago">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="424" width="137" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="417" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="jmsProcesarPago" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago#wsdl.interface(ConsumirMensajeProcesarPago_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>ConsumirMensajeProcesarPago</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gReference name="jmsEnviarAuditoria">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="26" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="19" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsEnviarAuditoria" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarAuditoria#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>Produce_Message</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="jmsEnviarPagoError">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="144" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="137" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsEnviarPagoError" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarPagoError#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>Produce_Message</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="ExpCrearDetallePC">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="262" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="255" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="ExpCrearDetallePC" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoServiceSOAP/#wsdl.interface(expoServiceSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>crearDetallePC</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_AplicaPagoInsis">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="380" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="373" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_AplicaPagoInsis" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoAplicaPagoInsisSOAP/#wsdl.interface(expoAplicaPagoInsisSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>aplicarPagoInsis</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_RegistrarPagoBitacora">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="498" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="491" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_RegistrarPagoBitacora" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/#wsdl.interface(expoRegistrarPagoBitacoraSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>registrarPagoBitacora</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_ConsultarPolizaV2">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="616" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="609" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_ConsultarPolizaV2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoConsultarPolizaSOAP/#wsdl.interface(expoConsultarPolizaSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>consultarPoliza</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_ValidarPolizaNatural">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="734" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="727" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_ValidarPolizaNatural" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/validarPolizaDanoSOAP/#wsdl.interface(validarPolizaDanoSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>consultarPolizaDano</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Exp_AplicaPagoNatural">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="852" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="845" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Exp_AplicaPagoNatural" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoAplicaPagoNaturalSOAP/#wsdl.interface(expoAplicaPagoNaturalSOAP)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>aplicarPagoNatural</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="jmsLegalizacion">
+        <dgm:body borderWidth="2" arcRad="20" X="964" Y="970" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="954" Y="963" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsLegalizacion" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsLegalizacion#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>Produce_Message</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gComponent name="BPELProcesarPago">
+        <dgm:body borderWidth="2" arcRad="20" X="496" Y="409" width="130" height="261">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="486" Y="402" width="150" height="277">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="jmsProcesarPago" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago#wsdl.interface(ConsumirMensajeProcesarPago_ptt)"/>
+        <dgm:outputPort name="jmsEnviarAuditoria" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarAuditoria#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:outputPort name="jmsEnviarPagoError" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarPagoError#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:outputPort name="ExpCrearDetallePC1" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoServiceSOAP/#wsdl.interface(expoServiceSOAP)"/>
+        <dgm:outputPort name="Exp_AplicaPagoInsis" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoAplicaPagoInsisSOAP/#wsdl.interface(expoAplicaPagoInsisSOAP)"/>
+        <dgm:outputPort name="Exp_RegistrarPagoBitacora" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/#wsdl.interface(expoRegistrarPagoBitacoraSOAP)"/>
+        <dgm:outputPort name="Exp_ConsultarPolizaV2" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoConsultarPolizaSOAP/#wsdl.interface(expoConsultarPolizaSOAP)"/>
+        <dgm:outputPort name="Exp_ValidarPolizaNatural" X="120" Y="165" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/validarPolizaDanoSOAP/#wsdl.interface(validarPolizaDanoSOAP)"/>
+        <dgm:outputPort name="Exp_AplicaPagoNatural" X="120" Y="190" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://sura.com.pa/expoAplicaPagoNaturalSOAP/#wsdl.interface(expoAplicaPagoNaturalSOAP)"/>
+        <dgm:outputPort name="jmsLegalizacion" X="120" Y="215" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsLegalizacion#wsdl.interface(Produce_Message_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="jmsProcesarPago" target="BPELProcesarPago/jmsProcesarPago" width="2">
+        <dgm:gSegment X1="168" Y1="434" X2="486" Y2="434"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/jmsEnviarAuditoria" target="jmsEnviarAuditoria" width="2">
+        <dgm:gSegment X1="636" Y1="434" X2="660" Y2="434"/>
+        <dgm:gSegment X1="660" Y1="434" X2="660" Y2="36"/>
+        <dgm:gSegment X1="660" Y1="36" X2="954" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/jmsEnviarPagoError" target="jmsEnviarPagoError" width="2">
+        <dgm:gSegment X1="636" Y1="459" X2="675" Y2="459"/>
+        <dgm:gSegment X1="675" Y1="459" X2="675" Y2="154"/>
+        <dgm:gSegment X1="675" Y1="154" X2="954" Y2="154"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/ExpCrearDetallePC1" target="ExpCrearDetallePC" width="2">
+        <dgm:gSegment X1="636" Y1="484" X2="690" Y2="484"/>
+        <dgm:gSegment X1="690" Y1="484" X2="690" Y2="272"/>
+        <dgm:gSegment X1="690" Y1="272" X2="954" Y2="272"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/Exp_AplicaPagoInsis" target="Exp_AplicaPagoInsis" width="2">
+        <dgm:gSegment X1="636" Y1="509" X2="705" Y2="509"/>
+        <dgm:gSegment X1="705" Y1="509" X2="705" Y2="390"/>
+        <dgm:gSegment X1="705" Y1="390" X2="954" Y2="390"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/Exp_RegistrarPagoBitacora" target="Exp_RegistrarPagoBitacora" width="2">
+        <dgm:gSegment X1="636" Y1="534" X2="720" Y2="534"/>
+        <dgm:gSegment X1="720" Y1="534" X2="720" Y2="508"/>
+        <dgm:gSegment X1="720" Y1="508" X2="954" Y2="508"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/Exp_ConsultarPolizaV2" target="Exp_ConsultarPolizaV2" width="2">
+        <dgm:gSegment X1="636" Y1="559" X2="705" Y2="559"/>
+        <dgm:gSegment X1="705" Y1="559" X2="705" Y2="626"/>
+        <dgm:gSegment X1="705" Y1="626" X2="954" Y2="626"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/Exp_ValidarPolizaNatural" target="Exp_ValidarPolizaNatural" width="2">
+        <dgm:gSegment X1="636" Y1="584" X2="690" Y2="584"/>
+        <dgm:gSegment X1="690" Y1="584" X2="690" Y2="744"/>
+        <dgm:gSegment X1="690" Y1="744" X2="954" Y2="744"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/Exp_AplicaPagoNatural" target="Exp_AplicaPagoNatural" width="2">
+        <dgm:gSegment X1="636" Y1="609" X2="675" Y2="609"/>
+        <dgm:gSegment X1="675" Y1="609" X2="675" Y2="862"/>
+        <dgm:gSegment X1="675" Y1="862" X2="954" Y2="862"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="BPELProcesarPago/jmsLegalizacion" target="jmsLegalizacion" width="2">
+        <dgm:gSegment X1="636" Y1="634" X2="660" Y2="634"/>
+        <dgm:gSegment X1="660" Y1="634" X2="660" Y2="980"/>
+        <dgm:gSegment X1="660" Y1="980" X2="954" Y2="980"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>

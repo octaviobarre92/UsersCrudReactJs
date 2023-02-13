@@ -1,0 +1,122 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="BPELProcesarPago"
+     targetNamespace="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+     xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium"
+     xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+     xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC"
+     xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+     xmlns:ns6="http://schemas.oracle.com/bpel/extension"
+     xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+     xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis"
+     xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+     xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria"
+     xmlns:ns11="http://sura.com.pa/expoServiceSOAP/"
+     xmlns:ns12="http://sura.com.pa/expoAplicaPagoInsisSOAP/"
+     xmlns:ns13="http://TargetNamespace.com/RespuestaServicio"
+     xmlns:ns14="http://TargetNamespace.com/registrarPagoBitacora"
+     xmlns:ns15="http://sura.com.pa/expoConsultarPolizaSOAP/"
+     xmlns:ns16="http://sura.com.pa/validarPolizaDanoSOAP/"
+     xmlns:ns17="http://sura.com.pa/expoAplicaPagoNaturalSOAP/"
+     xmlns:ns18="http://TargetNamespace.com/legalizarCS"
+    >
+    <wsdl:import namespace="http://schemas.oracle.com/bpel/extension" location="RuntimeFault.wsdl"/>
+    <wsdl:import namespace="http://sura.com.pa/expoServiceSOAP/" location="crearDetallePC.wsdl"/>
+    <wsdl:import namespace="http://sura.com.pa/expoAplicaPagoInsisSOAP/" location="aplicarPagoInsis.wsdl"/>
+    <wsdl:import namespace="http://sura.com.pa/expoConsultarPolizaSOAP/" location="consultarPoliza.wsdl"/>
+    <wsdl:import namespace="http://sura.com.pa/validarPolizaDanoSOAP/" location="validarPolizaNat.wsdl"/>
+    <wsdl:import namespace="http://sura.com.pa/expoAplicaPagoNaturalSOAP/" location="aplicarPagoNatural.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <import namespace="http://TargetNamespace.com/jmsProcesarPago" schemaLocation="../Schemas/ProcesarPagoRq.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/CrearDetallePC" schemaLocation="../Schemas/RqCrearDetallePC.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/CrearDetallePC" schemaLocation="../Schemas/RsCrearDetallePC.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria"/>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/ValidarPolizaNatDano" schemaLocation="../Schemas/RqValidarPolizaNatDano.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/aplicarPagoInsis" schemaLocation="../Schemas/RqAplicaPagoInsis.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/AplicaPagoSAP" schemaLocation="../Schemas/RqAplicaPagoSAP.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+             xmlns:ns1="http://TargetNamespace.com/jmsProcesarPago" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+             xmlns:ns2="http://TargetNamespace.com/ConsultarPcPremium" xmlns:ns3="http://TargetNamespace.com/CrearDetallePC"
+             xmlns:ns4="http://TargetNamespace.com/ConsultarNumeroPC" xmlns:ns5="http://TargetNamespace.com/FinalizarPC"
+             xmlns:ns6="http://schemas.oracle.com/bpel/extension" xmlns:ns7="http://TargetNamespace.com/ValidarPolizaNatDano"
+             xmlns:ns8="http://TargetNamespace.com/aplicarPagoInsis" xmlns:ns9="http://TargetNamespace.com/AplicaPagoSAP"
+             xmlns:ns10="http://TargetNamespace.com/EnviarAuditoria">
+            <xsd:import namespace="http://TargetNamespace.com/EnviarAuditoria" schemaLocation="../Schemas/EnviarAuditoria.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/RespuestaServicio" schemaLocation="../Schemas/RespuestaServicio.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/registrarPagoBitacora" schemaLocation="../Schemas/registrarPagoBitacora.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/legalizarCS" schemaLocation="../Schemas/RqLegalizacion.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+</wsdl:definitions>
