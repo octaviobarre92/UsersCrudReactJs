@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faultPolicies 
+    xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+    xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+    xmlns:bpel1="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+    xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:medns="http://schemas.oracle.com/mediator/faults"
+    xmlns:rjm="http://schemas.oracle.com/sca/rejectedmessages">
+
+    <faultPolicy id="AplicaPagoOSB_Premium">
+        <Conditions>
+            <faultName name="custom:crearDetallePCFaultMsg" xmlns:custom="http://sura.com.pa/expoServiceSOAP/"
+                       path="SOA\WSDLs\crearDetallePC.wsdl">
+                <condition>
+                    <test>$fault.parameters/ccm:crearDetallePCFaultMsg/code=OSB-380000</test>
+                    <action ref="default-retry"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="rethrowfault1">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>600</retryInterval>
+                    <exponentialBackoff/>
+                    <retrySuccessAction ref="abort1"/>
+                    <retryFailureAction ref="queueError"/>
+                </retry>
+            </Action>
+            <Action id="queueError">
+                <enqueue uri="jms://10.240.3.95:17014/jms.AplicarPago_cf/jms.aplicarPagoError"/>
+            </Action>
+            <Action id="abort1">
+                <abort/>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+    <faultPolicy id="AplicaPagoOSB_Insis">
+        <Conditions>
+            <faultName name="custom:aplicarPagoInsisFaultMsg" xmlns:custom="http://sura.com.pa/expoAplicaPagoInsisSOAP/"
+                       path="SOA\WSDLs\aplicarPagoInsis.wsdl">
+                <condition>
+                    <test>$fault.parameters/ccm:aplicarPagoInsisFaultMsg/code=OSB-380000</test>
+                    <action ref="default-retry"/>
+                </condition>
+                <condition>
+                    <action ref="default-retry"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="default-termination">
+                <abort/>
+            </Action>
+            <Action id="default-human">
+                <humanIntervention/>
+            </Action>
+            <Action id="default-java">
+                <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass"
+                            defaultAction="default-termination"/>
+            </Action>
+            <Action id="default-replay">
+                <replayScope/>
+            </Action>
+            <Action id="default-rethrow">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>600</retryInterval>
+                    <exponentialBackoff/>
+                    <retrySuccessAction ref="default-termination"/>
+                    <retryFailureAction ref="queueError"/>
+                </retry>
+            </Action>
+            <Action id="queueError">
+                <enqueue uri="jms://10.240.3.95:17014/jms.AplicarPago_cf/jms.aplicarPagoError"/>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+    <faultPolicy id="AplicaPagoOSB_ConsPoliza">
+        <Conditions>
+            <faultName name="custom:consultarPolizaFaultMsg" xmlns:custom="http://sura.com.pa/expoConsultarPolizaSOAP/"
+                       path="SOA\WSDLs\consultarPoliza.wsdl">
+                <condition>
+                    <test>$fault.parameters/ccm:consultarPolizaFaultMsg/code=OSB-380000</test>
+                    <action ref="default-retry"/>
+                </condition>
+                <condition>
+                    <action ref="default-retry"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="default-termination">
+                <abort/>
+            </Action>
+            <Action id="default-human">
+                <humanIntervention/>
+            </Action>
+            <Action id="default-java">
+                <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass"
+                            defaultAction="default-termination"/>
+            </Action>
+            <Action id="default-replay">
+                <replayScope/>
+            </Action>
+            <Action id="default-rethrow">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>600</retryInterval>
+                    <exponentialBackoff/>
+                    <retrySuccessAction ref="default-termination"/>
+                    <retryFailureAction ref="queueError"/>
+                </retry>
+            </Action>
+            <Action id="queueError">
+                <enqueue uri="jms://10.240.3.95:17014/jms.AplicarPago_cf/jms.aplicarPagoError"/>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+    <faultPolicy id="AplicaPagoOSB_ValidPoliza">
+        <Conditions>
+            <faultName name="custom:consultarPolizaDanoFaultMsg"
+                       xmlns:custom="http://sura.com.pa/validarPolizaDanoSOAP/" path="SOA\WSDLs\validarPolizaNat.wsdl">
+                <condition>
+                    <test>$fault.parameters/ccm:consultarPolizaDanoFaultMsg/code=OSB-380000</test>
+                    <action ref="default-retry"/>
+                </condition>
+                <condition>
+                    <action ref="default-retry"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="default-termination">
+                <abort/>
+            </Action>
+            <Action id="default-human">
+                <humanIntervention/>
+            </Action>
+            <Action id="default-java">
+                <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass"
+                            defaultAction="default-termination"/>
+            </Action>
+            <Action id="default-replay">
+                <replayScope/>
+            </Action>
+            <Action id="default-rethrow">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>600</retryInterval>
+                    <exponentialBackoff/>
+                    <retrySuccessAction ref="default-termination"/>
+                    <retryFailureAction ref="queueError"/>
+                </retry>
+            </Action>
+            <Action id="queueError">
+                <enqueue uri="jms://10.240.3.95:17014/jms.AplicarPago_cf/jms.aplicarPagoError"/>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+    <faultPolicy id="AplicaPagoOSB_Natural">
+        <Conditions>
+            <faultName name="custom:aplicarPagoNaturalFaultMsg"
+                       xmlns:custom="http://sura.com.pa/expoAplicaPagoNaturalSOAP/"
+                       path="SOA\WSDLs\aplicarPagoNatural.wsdl">
+                <condition>
+                    <test>$fault.parameters/ccm:aplicarPagoNaturalFaultMsg/code=OSB-380000</test>
+                    <action ref="default-retry"/>
+                </condition>
+                <condition>
+                    <action ref="default-retry"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="default-termination">
+                <abort/>
+            </Action>
+            <Action id="default-human">
+                <humanIntervention/>
+            </Action>
+            <Action id="default-java">
+                <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass"
+                            defaultAction="default-termination"/>
+            </Action>
+            <Action id="default-replay">
+                <replayScope/>
+            </Action>
+            <Action id="default-rethrow">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>600</retryInterval>
+                    <exponentialBackoff/>
+                    <retrySuccessAction ref="default-termination"/>
+                    <retryFailureAction ref="queueError"/>
+                </retry>
+            </Action>
+            <Action id="queueError">
+                <enqueue uri="jms://10.240.3.95:17014/jms.AplicarPago_cf/jms.aplicarPagoError"/>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+</faultPolicies>

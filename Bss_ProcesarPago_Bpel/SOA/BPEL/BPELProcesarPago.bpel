@@ -1,0 +1,2254 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Jan 09 21:00:39 PST 2020
+  Author:  oracle
+  Purpose: BPEL Process for event subscription
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELProcesarPago"
+         targetNamespace="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:ns1="http://xmlns.oracle.com/e2e-1201-composites/ProcesarPago/EventDefinition1"
+         xmlns:ns2="http://TargetNamespace.com/jmsProcesarPago"
+         xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago"
+         xmlns:ns4="json"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:ns0="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:ns6="http://TargetNamespace.com/CrearDetallePC" 
+         xmlns:ns9="http://suramericana.servicioscompartidos.contabilidad.causcontable"
+         xmlns:ns10="http://suramericana.sapweb.tesoreria.recaudos"
+         xmlns:ns5="http://xmlns.oracle.com/pcbpel/adapter/http/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/httpReference"
+         xmlns:ns7="http://TargetNamespace.com/AplicaPagoInsis"
+         xmlns:ns8="http://TargetNamespace.com/ValidarPolizaNatDano"
+         xmlns:ns11="http://TargetNamespace.com/AplicaPagoSAP"
+         xmlns:ns12="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarAuditoria"
+         xmlns:ns13="http://TargetNamespace.com/EnviarAuditoria"
+         xmlns:ns14="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsEnviarPagoError"
+         xmlns:ns15="http://xmlns.oracle.com/pcbpel/adapter/opaque/" xmlns:ns16="http://sura.com.pa/expoServiceSOAP/"
+         xmlns:ns17="http://sura.com.pa/expoAplicaPagoInsisSOAP/"
+         xmlns:ns18="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/"
+         xmlns:ns19="http://TargetNamespace.com/RespuestaServicio"
+         xmlns:ns20="http://TargetNamespace.com/registrarPagoBitacora"
+         xmlns:ns21="http://sura.com.pa/expoConsultarPolizaSOAP/"
+         xmlns:ns22="http://sura.com.pa/validarPolizaDanoSOAP/"
+         xmlns:ns23="http://sura.com.pa/expoAplicaPagoNaturalSOAP/"
+         xmlns:ns24="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_ProcesarPago_Bpel/jmsLegalizacion"
+         xmlns:ns25="http://TargetNamespace.com/legalizarCS">
+    <import namespace="http://TargetNamespace.com/legalizarCS" location="../Schemas/RqLegalizacion.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://sura.com.pa/expoAplicaPagoNaturalSOAP/" location="../WSDLs/aplicarPagoNatural.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://sura.com.pa/validarPolizaDanoSOAP/" location="../WSDLs/validarPolizaNat.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://sura.com.pa/expoConsultarPolizaSOAP/" location="../WSDLs/consultarPoliza.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://TargetNamespace.com/registrarPagoBitacora" location="../Schemas/registrarPagoBitacora.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/RespuestaServicio" location="../Schemas/RespuestaServicio.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://sura.com.pa/expoAplicaPagoInsisSOAP/" location="../WSDLs/aplicarPagoInsis.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://sura.com.pa/expoServiceSOAP/" location="../WSDLs/crearDetallePC.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://TargetNamespace.com/CrearDetallePC" location="../Schemas/RsCrearDetallePC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/EnviarAuditoria" location="../Schemas/EnviarAuditoria.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/AplicaPagoSAP" location="../Schemas/RqAplicaPagoSAP.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/ValidarPolizaNatDano" location="../Schemas/RqValidarPolizaNatDano.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/aplicarPagoInsis" location="../Schemas/RqAplicaPagoInsis.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/CrearDetallePC" location="../Schemas/RqCrearDetallePC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/jmsProcesarPago" location="../Schemas/ProcesarPagoRq.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://schemas.oracle.com/bpel/extension" location="../WSDLs/RuntimeFault.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+   
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago" location="../WSDLs/BPELProcesarPago.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="jmsProcesarPago" partnerLinkType="ns3:ConsumirMensajeProcesarPago_plt"
+                     myRole="ConsumirMensajeProcesarPago_role"/>
+        <partnerLink name="jmsEnviarAuditoria" partnerLinkType="ns12:Produce_Message_plt"
+                     partnerRole="Produce_Message_role"/>
+        <partnerLink name="jmsEnviarPagoError" partnerLinkType="ns14:Produce_Message_plt"
+                     partnerRole="Produce_Message_role"/>
+        <partnerLink name="ExpCrearDetallePC1" partnerLinkType="ns16:ExpCrearDetallePC1" partnerRole="expoServiceSOAP"/>
+        <partnerLink name="Exp_AplicaPagoInsis" partnerLinkType="ns17:Exp_AplicaPagoInsis"
+                     partnerRole="expoAplicaPagoInsisSOAP"/>
+        <partnerLink name="Exp_RegistrarPagoBitacora" partnerLinkType="ns18:Exp_RegistrarPagoBitacora"
+                     partnerRole="expoRegistrarPagoBitacoraSOAP"/>
+        <partnerLink name="Exp_ConsultarPolizaV2" partnerLinkType="ns21:Exp_ConsultarPolizaV2"
+                     partnerRole="expoConsultarPolizaSOAP"/>
+        <partnerLink name="Exp_ValidarPolizaNatural" partnerLinkType="ns22:Exp_ValidarPolizaNatural"
+                     partnerRole="validarPolizaDanoSOAP"/>
+        <partnerLink name="Exp_AplicaPagoNatural" partnerLinkType="ns23:Exp_AplicaPagoNatural"
+                     partnerRole="expoAplicaPagoNaturalSOAP"/>
+        <partnerLink name="jmsLegalizacion" partnerLinkType="ns24:Produce_Message_plt"
+                     partnerRole="Produce_Message_role"/>
+    </partnerLinks>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="C_ProcesoSap" type="xsd:string">
+            <from><literal>PANAMA_PAGOS_AUTOMAT</literal></from>
+        </variable>
+        <variable name="C_Moneda" type="xsd:string">
+            <from><literal>PAB</literal></from>
+        </variable>
+        <variable name="C_CuentaACH" type="xsd:string">
+            <from><literal>1007400021</literal></from>
+        </variable>
+        <variable name="C_CuentaTDC" type="xsd:string">
+            <from><literal>1007401841</literal></from>
+        </variable>
+       
+        <variable name="C_TextoACH" type="xsd:string">
+            <from><literal>A_PAGOS_SIGMA</literal></from>
+        </variable>
+        <variable name="C_TextoTDC" type="xsd:string">
+            <from><literal>T_PAGOS_SIGMA</literal></from>
+        </variable>
+        <variable name="C_Sociedad" type="xsd:string">
+            <from><literal>3000</literal></from>
+        </variable>
+        <variable name="MsgProcesarPagoRq" element="ns2:MsgAplicaPago"/>
+        <variable name="RqCrearDetallePC" element="ns16:crearDetallePC"/>
+        <variable name="Variable_String" type="xsd:string">
+            <from>'{  "CABECERA" : {    "CODIGO_OPERACION" : "S34",    "FECHA_PROCESAMIENTO" : "2020/10/30",    "FECHA_TRANSACCION" : "2020/10/23",    "ID_TRANSACCION_OSB" : "3ff803a8-cd41-4fb8-ab3a-e815596a1161",    "SISTEMA_DESTINO" : "SIGMA",    "SISTEMA_ORIGEN" : "PREMIUM"  },  "NUMERO_PC" : "0",  "RAMO" : "20",  "SUBRAMO" : "11",  "POLIZA" : "523728",  "SECUENCIA" : "0",  "NUMERO_DE_REFERENCIA" : "117535653",  "FECHA_REFERENCIA" : "2020-10-23",  "FECHA_TRANSACCION" : "2020-10-23",  "MONTO" : "37.59",  "ESTADO_PAGO" : "A",  "TOTAL_REGISTRO" : "21",  "OBSERVACION" : "SIGMA02291623102020"}'</from>
+        </variable>
+        <variable name="VariableJson" bpelx:json="object"/>
+        <variable name="auditar" type="xsd:string">
+            <from><literal>TRUE</literal></from>
+        </variable>
+        <variable name="varAux" type="xsd:string"/>
+        <variable name="RqAplicaPagoInsis" element="ns17:aplicarPagoInsis"/>
+        <variable name="RqValidarPolizaNatDano" element="ns22:consultarPolizaDano"/>
+        <variable name="JsonIn_Audit" messageType="ns12:Produce_Message_msg"/>
+        <variable name="RqAuditoria" element="ns13:RqEnviarAuditoria"/>
+        <variable name="FaultVariable" messageType="bpelx:RuntimeFaultMessage"/>
+        <variable name="RsCrearDetallePCSOAP" messageType="ns16:crearDetallePCResponse"/>
+        <variable name="CrearDetalle_crearDetallePC_OutputVariable"
+                  element="ns16:crearDetallePCResponse"/>
+        <variable name="FaultMsgCrearDetallePC" messageType="ns16:crearDetallePCFault"/>
+        <variable name="RsAplicaPagoInsisSOAP" messageType="ns17:aplicarPagoInsisResponse"/>
+        <variable name="JSONMsgRqPago" type="xsd:string"/>
+        <variable name="JSONMsgRsService" type="xsd:string"/>
+        <variable name="RqRespuestaServicio" element="ns19:RqRespuestaServicio"/>
+        <variable name="RqRegistrarBitacora"
+                  messageType="ns18:registrarPagoBitacoraRequest"/>
+        <variable name="RsRegistrarBitacoraPago" messageType="ns18:registrarPagoBitacoraResponse"/>
+        <variable name="RqConsultarPoliza" element="ns21:consultarPoliza"/>
+        <variable name="RsConsultarPolizaSOAP" messageType="ns21:consultarPolizaResponse"/>
+        <variable name="FaultMsgAplicaPagoInsis" messageType="ns17:aplicarPagoInsisFault"/>
+        <variable name="FaultMsgConsultarPoliza" messageType="ns21:consultarPolizaFault"/>
+        <variable name="RsValidarPolizaSOAP" messageType="ns22:consultarPolizaDanoResponse"/>
+        <variable name="FaultMsgValidarPoliza" messageType="ns22:consultarPolizaDanoFault"/>
+        <variable name="RqAplicaPagoNatural" element="ns23:aplicarPagoNatural"/>
+        <variable name="polizaSAP" type="xsd:string"/>
+        <variable name="ConceptoRecaudo" type="xsd:string">
+            <from><literal>PR</literal></from>
+        </variable>
+        <variable name="TipoRecaudo" type="xsd:string">
+            <from><literal>C</literal></from>
+        </variable>
+        <variable name="usuario" type="xsd:string">
+            <from><literal>SIGMA</literal></from>
+        </variable>
+        <variable name="numCaja" type="xsd:string">
+            <from><literal>01</literal></from>
+        </variable>
+        <variable name="sucursal" type="xsd:string">
+            <from><literal>WEB</literal></from>
+        </variable>
+        <variable name="claseIdentificacion" type="xsd:string">
+            <from><literal>QC</literal></from>
+        </variable>
+        <variable name="RsAplicarPagoNaturalSOAP" messageType="ns23:aplicarPagoNaturalResponse"/>
+        <variable name="FaultAplicarPagoNatural" messageType="ns23:aplicarPagoNaturalFault"/>
+        <variable name="RqLegalizacionCS" element="ns25:RqLegalizacion"/>
+        <variable name="monto" type="xsd:string"/>
+        <variable name="numReferencia" type="xsd:string"/>
+        <variable name="estadoPago" type="xsd:string"/>
+        <variable name="vigenciaDesde" type="xsd:string"/>
+        <variable name="vigenciaHasta" type="xsd:string"/>
+        <variable name="cedula" type="xsd:string"/>
+        <variable name="fechaOperacion" type="xsd:string"/>
+        <variable name="fechaAuditoria" type="xsd:string"/>
+        <variable name="tipoCuenta" type="xsd:string"/>
+    </variables>
+    <faultHandlers>
+        <catch faultName="bpelx:assertFailure" faultVariable="FaultVariable"
+               faultMessageType="bpelx:RuntimeFaultMessage"><sequence name="Sequence15"><assign name="Assign4"
+                                                                                                                         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+      </copy>
+      <copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+      </copy>
+      <copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+      </copy>
+   </assign>
+                <throw name="ThrowCrearDetallePC" faultName="bpelx:assertFailure" faultVariable="FaultVariable"
+                       xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+            </sequence></catch>
+        <catchAll>
+            <sequence name="Sequence14">
+                <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt" partnerLink="jmsEnviarAuditoria"
+                        operation="Produce_Message" inputVariable="RqAuditoria"/>
+                <invoke name="EnviarPagoError" portType="ns14:Produce_Message_ptt" partnerLink="jmsEnviarPagoError"
+                        operation="Produce_Message" inputVariable="MsgProcesarPagoRq"/><assign name="InitRegistroBitacora"
+                                                                                               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                    </copy>
+                    <copy>
+                        <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                    </copy>
+                    <copy>
+                        <from>false()</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                    </copy>
+                    <copy>
+                        <from expressionLanguage="javascript">'OSB-Error Contactar a Administración BUS'</from>
+                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                    </copy>
+                </assign><invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                              partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                              inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                              outputVariable="RsRegistrarBitacoraPago"
+                              xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                              xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/></sequence>
+        </catchAll>
+    </faultHandlers>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in BPELProcesarPago.wsdl) -->
+        <receive name="RecibirMsg" partnerLink="jmsProcesarPago" portType="ns3:ConsumirMensajeProcesarPago_ptt"
+                 operation="ConsumirMensajeProcesarPago" variable="MsgProcesarPagoRq" createInstance="yes"/>
+        <assign name="TranslateMsgRQ">
+         <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <bpelx:pattern>translate</bpelx:pattern>
+         </bpelx:annotation>
+         <copy>
+            <from>ora:doTranslateToNative($MsgProcesarPagoRq, 'Schemas/ProcesarPagoRq.xsd', 'MsgAplicaPago', 'STRING')</from>
+            <to>$JSONMsgRqPago</to>
+         </copy>
+      </assign>
+        <if name="If1">
+            <documentation>
+                <![CDATA[Premium]]>
+            </documentation>
+            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($MsgProcesarPagoRq/ns2:CORE, 'P') = 0</condition>
+            <sequence name="CorePremium">
+                <sequence name="Sequence2">
+                    <assign name="InitVar">
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/FECHA_TRANSAC</to>
+                        </copy>
+                        <copy>
+                            <from expressionLanguage="javascript">var today = new Date() 
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();      
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+var horas =today.getHours(); 
+var minutos; 
+var segundos; 
+if(today.getMinutes() &lt; 10){ 
+ minutos = '0' + today.getMinutes(); 
+}else{ 
+ minutos =today.getMinutes(); 
+} 
+if(today.getSeconds() &lt; 10){ 
+ segundos =  "0" + today.getSeconds(); 
+}else{ 
+ segundos =   today.getSeconds(); 
+} 
+time=horas +":"+minutos+":"+segundos; 
+var date= dateIn+" "+time; 
+ 
+process.fechaAuditoria=date;</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$fechaAuditoria</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/CABECERA/CODIGO_OPERACION</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/CABECERA/FECHA_TRANSACCION</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/CABECERA/ID_TRANSACCION_OSB</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/CABECERA/SISTEMA_DESTINO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/CABECERA/SISTEMA_ORIGEN</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:ESTADO_PAGO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ESTADO_PAGO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:TOTAL_REGISTRO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/TOTAL_REGISTRO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:LOTE</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/OBSERVACION</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/MONTO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/NUMERO_DE_REFERENCIA</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/FECHA_REFERENCIA</to>
+                        </copy>
+                        <copy>
+                            <from>substring($MsgProcesarPagoRq/ns2:NUMERO_POLIZA,14)</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/SECUENCIA</to>
+                        </copy>
+                        <copy>
+                            <from>substring($MsgProcesarPagoRq/ns2:NUMERO_POLIZA,7,6)</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/POLIZA</to>
+                        </copy>
+                        <copy>
+                            <from>substring($MsgProcesarPagoRq/ns2:NUMERO_POLIZA,4,2)</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/SUBRAMO</to>
+                        </copy>
+                        <copy>
+                            <from>substring($MsgProcesarPagoRq/ns2:NUMERO_POLIZA,1,2)</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/RAMO</to>
+                        </copy>
+                    </assign>
+                    <invoke name="CrearDetalle" partnerLink="ExpCrearDetallePC1" inputVariable="RqCrearDetallePC"
+                            outputVariable="RsCrearDetallePCSOAP" portType="ns16:expoServiceSOAP" operation="crearDetallePC"
+                            bpelx:invokeAsDetail="no"/>
+                    <sequence name="VariablesAudit">
+                        <assign name="InitRtaServicio">
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/CODIGO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:CODIGO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/COMPONENTE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:COMPONENTE</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/DETALLE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:DETALLE</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_PROCESAMIENTO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_ORIGEN</to>
+                            </copy>
+                        </assign>
+                        <assign name="TranslateMsgRS">
+                            <bpelx:annotation>
+                                <bpelx:pattern>translate</bpelx:pattern>
+                            </bpelx:annotation>
+                            <copy>
+                                <from>ora:doTranslateToNative($RqRespuestaServicio, 'Schemas/RespuestaServicio.xsd', 'RqRespuestaServicio', 'STRING')</from>
+                                <to>$JSONMsgRsService</to>
+                            </copy>
+                        </assign>
+                        <assign name="InitAudit">
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$JSONMsgRsService</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_RESPONSE</to>
+                            </copy>
+                            <copy>
+                                <from>$JSONMsgRqPago</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_REQUEST</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:NUMPOLIZA</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$fechaAuditoria</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_PROCESAMIENTO</to>
+                            </copy>
+                            <copy>
+                                <from>$fechaAuditoria</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/CODIGO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:CODIGO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/DETALLE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:DETALLE</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'CrearDetallePC'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</to>
+                            </copy>
+                            <copy>
+                                <from>$RsCrearDetallePCSOAP.parameters/STATUS/ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:ORIGEN</to>
+                            </copy>
+                        </assign>
+                    </sequence>
+                    <if name="IfRespuesta">
+                        <documentation>
+                            <![CDATA[exito]]>
+                        </documentation>
+                        <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsCrearDetallePCSOAP.parameters/STATUS/CODIGO=200</condition>
+                        <sequence name="Sequence3">
+                            <assign name="InitRegistroBitacora">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                </copy>
+                                <copy>
+                                    <from>true()</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                </copy>
+                            </assign>
+                            <invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                                    partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                                    inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                                    outputVariable="RsRegistrarBitacoraPago"/>
+                            <if name="IfAudita">
+                                <documentation>
+                                    <![CDATA[auditar]]>
+                                </documentation>
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition><sequence name="Sequence22">
+                                    <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                            partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                            inputVariable="RqAuditoria"/></sequence><else>
+                                    <empty name="NoAudit"/>
+                                </else>
+                            </if>
+                        </sequence>
+                        <else>
+                            <documentation>
+                                <![CDATA[error]]>
+                            </documentation>
+                            <sequence name="Sequence6"><assign name="InitRegistroBitacora"
+                                                               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   <copy>
+         <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CORE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+      </copy><copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+      </copy><copy>
+         <from>false()</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+      </copy></assign><invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                    partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                    inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                    outputVariable="RsRegistrarBitacoraPago" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/><assign name="Fault" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsCrearDetallePCSOAP.parameters/STATUS/CODIGO</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgCrearDetallePC.parameters/code</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsCrearDetallePCSOAP.parameters/STATUS/COMPONENTE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgCrearDetallePC.parameters/summary</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsCrearDetallePCSOAP.parameters/STATUS/DETALLE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgCrearDetallePC.parameters/detail</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                        partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                        inputVariable="RqAuditoria"
+                                        xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                <if name="If2">
+                                    <documentation>
+                                        <![CDATA[503]]>
+                                    </documentation>
+                                    <condition>$RsCrearDetallePCSOAP.parameters/STATUS/CODIGO=503</condition><sequence name="Sequence24"><sequence name="Sequence17"><invoke name="EnviarPagoError"
+                                                                                                                                                                                                                                                       portType="ns14:Produce_Message_ptt"
+                                                                                                                                                                                                                                                       partnerLink="jmsEnviarPagoError"
+                                                                                                                                                                                                                                                       operation="Produce_Message"
+                                                                                                                                                                                                                                                       inputVariable="MsgProcesarPagoRq"
+                                                                                                                                                                                                                                                       xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                        </sequence></sequence><else>
+                                        <documentation>
+                                            <![CDATA[OSB_Error]]>
+                                        </documentation>
+                                        <sequence>
+                                            <throw name="ThrowCrearDetallePC" faultName="bpelx:assertFailure"
+                                                   faultVariable="FaultVariable"/>
+                                        </sequence>
+                                    </else>
+                                </if>
+                            </sequence>
+                        </else>
+                    </if>
+                </sequence>
+            </sequence>
+            <elseif>
+                <documentation>
+                    <![CDATA[Insis]]>
+                </documentation>
+                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($MsgProcesarPagoRq/ns2:CORE, 'I') = 0</condition><sequence name="CoreInsis"><assign name="InitVar"
+                                                                        xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/CABECERA/CODIGO_OPERACION</to>
+                        </copy>
+                        <copy>
+                            <from expressionLanguage="javascript">var today = new Date() 
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();      
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+var horas =today.getHours(); 
+var minutos; 
+var segundos; 
+if(today.getMinutes() &lt; 10){ 
+ minutos = '0' + today.getMinutes(); 
+}else{ 
+ minutos =today.getMinutes(); 
+} 
+if(today.getSeconds() &lt; 10){ 
+ segundos =  "0" + today.getSeconds(); 
+}else{ 
+ segundos =   today.getSeconds(); 
+} 
+time=horas +":"+minutos+":"+segundos; 
+var date= dateIn+" "+time; 
+ 
+process.fechaAuditoria=date;</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$fechaAuditoria</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:TIPO_CUENTA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/DETALLE_PAGO/TIPO_CUENTA</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/NUMREFER</to>
+                        </copy>
+                        <copy>
+                            <from expressionLanguage="javascript">'SIGMA'</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/USUARIO</to>
+                        </copy>
+                        <copy>
+                            <from expressionLanguage="javascript">'WEB'</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/SUCURSAL</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/CABECERA/FECHA_TRANSACCION</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/CABECERA/ID_TRANSACCION_OSB</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/CABECERA/SISTEMA_DESTINO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/CABECERA/SISTEMA_ORIGEN</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:PROCESO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/PROCESO</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/NUMERO_POLIZA</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/IDENTIFICACION_CLIENTE</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/REFERENCIA</to>
+                        </copy>
+                        <copy>
+                            <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoInsis/MONTO</to>
+                        </copy>
+                    </assign>
+                    <invoke name="AplicaPagoInsis" bpelx:invokeAsDetail="no" partnerLink="Exp_AplicaPagoInsis"
+                            portType="ns17:expoAplicaPagoInsisSOAP" operation="aplicarPagoInsis"
+                            inputVariable="RqAplicaPagoInsis" outputVariable="RsAplicaPagoInsisSOAP"/><sequence name="VariablesAudit"
+                                                                                                                xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      <assign name="InitRtaServicio">
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/DETALLE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:DETALLE</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_PROCESAMIENTO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:CODIGO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/COMPONENTE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:COMPONENTE</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_ORIGEN</to>
+                            </copy>
+                        </assign>
+      <assign name="TranslateMsgRS">
+         <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <bpelx:pattern>translate</bpelx:pattern>
+         </bpelx:annotation>
+         <copy>
+            <from>ora:doTranslateToNative($RqRespuestaServicio, 'Schemas/RespuestaServicio.xsd', 'RqRespuestaServicio', 'STRING')</from>
+            <to>$JSONMsgRsService</to>
+         </copy>
+      </assign>
+                        <assign name="InitAudit">
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:NUMPOLIZA</to>
+                            </copy>
+                            <copy>
+                                <from>$JSONMsgRqPago</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_REQUEST</to>
+                            </copy>
+                            <copy>
+                                <from>$JSONMsgRsService</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_RESPONSE</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$fechaAuditoria</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_PROCESAMIENTO</to>
+                            </copy>
+                            <copy>
+                                <from>$fechaAuditoria</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:CODIGO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/DETALLE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:DETALLE</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'AplicarPagoInsis'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</to>
+                            </copy>
+                            <copy>
+                                <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:ORIGEN</to>
+                            </copy>
+                        </assign>
+                    </sequence><if name="IfRespuesta">
+                        <documentation>
+                            <![CDATA[exito]]>
+                        </documentation>
+                        <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO=200</condition>
+                        <sequence name="Sequence21">
+                            <assign name="InitRegistroBitacora"
+                                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                </copy>
+                                <copy>
+                                    <from>true()</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                </copy>
+                            </assign>
+                            <invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                                    partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                                    inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                                    outputVariable="RsRegistrarBitacoraPago"
+                                    xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                            <if name="IfAudita">
+                                <documentation>
+                                    <![CDATA[auditar]]>
+                                </documentation>
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                                <sequence name="Sequence19">
+                                    <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                            partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                            inputVariable="RqAuditoria"/></sequence>
+                                <else>
+                                    <documentation>
+                                        <![CDATA[noAudit]]>
+                                    </documentation>
+                                    <empty name="NoAudit"/>
+                                </else>
+                            </if>
+                        </sequence>
+                        <else>
+                            <documentation>
+                                <![CDATA[error]]>
+                            </documentation>
+                            <sequence><assign name="InitRegistroBitacora"
+                                              xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   <copy>
+         <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CORE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+      </copy><copy>
+         <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+      </copy><copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+      </copy><copy>
+         <from>false()</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+      </copy></assign><invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                    partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                    inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                    outputVariable="RsRegistrarBitacoraPago" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/><assign name="Fault">
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgAplicaPagoInsis.parameters/code</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/COMPONENTE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgAplicaPagoInsis.parameters/summary</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RsAplicaPagoInsisSOAP.parameters/STATUS/DETALLE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgAplicaPagoInsis.parameters/detail</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                        partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                        inputVariable="RqAuditoria"/>
+                                <if name="If3">
+                                    <documentation>
+                                        <![CDATA[503]]>
+                                    </documentation>
+                                    <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO=204</condition>
+                                    <sequence name="Sequence20">
+                                        <invoke name="EnviarPagoError" portType="ns14:Produce_Message_ptt"
+                                                partnerLink="jmsEnviarPagoError" operation="Produce_Message"
+                                                inputVariable="MsgProcesarPagoRq"/></sequence>
+                                    <else>
+                                        <documentation>
+                                            <![CDATA[OSB_Error]]>
+                                        </documentation>
+                                        <throw name="ThrowAplicaPagoInsis" faultName="bpelx:assertFailure"
+                                               faultVariable="FaultVariable"/>
+                                    </else>
+                                </if>
+                            </sequence>
+                        </else>
+                    </if>
+                </sequence></elseif>
+            <else>
+                <documentation>
+                    <![CDATA[Natural]]>
+                </documentation>
+                <sequence name="CoreNatural">
+                    <sequence name="ConsultarPolizaV2">
+                        <assign name="InitVar">
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/NUMERO_POLIZA</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">var today = new Date() 
+var dateIn = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();      
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+var horas =today.getHours(); 
+var minutos; 
+var segundos; 
+if(today.getMinutes() &lt; 10){ 
+ minutos = '0' + today.getMinutes(); 
+}else{ 
+ minutos =today.getMinutes(); 
+} 
+if(today.getSeconds() &lt; 10){ 
+ segundos =  "0" + today.getSeconds(); 
+}else{ 
+ segundos =   today.getSeconds(); 
+} 
+time=horas +":"+minutos+":"+segundos; 
+var date= dateIn+" "+time; 
+ 
+process.fechaAuditoria=date;</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$fechaAuditoria</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:TIPO_CUENTA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$tipoCuenta</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$fechaOperacion</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$cedula</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:ESTADO_PAGO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$estadoPago</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$numReferencia</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$monto</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CABECERA/CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CABECERA/FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CABECERA/ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CABECERA/SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CABECERA/SISTEMA_ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:TIPO_POLIZA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/TIPO_POLIZA</to>
+                            </copy>
+                            <copy>
+                                <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqConsultarPoliza/CORE</to>
+                            </copy>
+                        </assign>
+                        <invoke name="ConsultarPolizaV2" portType="ns21:expoConsultarPolizaSOAP"
+                                partnerLink="Exp_ConsultarPolizaV2" operation="consultarPoliza"
+                                inputVariable="RqConsultarPoliza" outputVariable="RsConsultarPolizaSOAP"/><sequence name="VariablesAudit"
+                                                                                                                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      <assign name="InitRtaServicio">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/VIGENCIA_INICIAL</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$vigenciaDesde</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/VIGENCIA_FINAL</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$vigenciaHasta</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_PROCESAMIENTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:CODIGO</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:COMPONENTE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:DETALLE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_ORIGEN</to>
+                                </copy>
+                            </assign>
+      <assign name="TranslateMsgRS">
+         <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <bpelx:pattern>translate</bpelx:pattern>
+         </bpelx:annotation>
+         <copy>
+            <from>ora:doTranslateToNative($RqRespuestaServicio, 'Schemas/RespuestaServicio.xsd', 'RqRespuestaServicio', 'STRING')</from>
+            <to>$JSONMsgRsService</to>
+         </copy>
+      </assign>
+                            <assign name="InitAudit">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:NUMPOLIZA</to>
+                                </copy>
+                                <copy>
+                                    <from>$JSONMsgRqPago</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_REQUEST</to>
+                                </copy>
+                                <copy>
+                                    <from>$JSONMsgRsService</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_RESPONSE</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$fechaAuditoria</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_PROCESAMIENTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$fechaAuditoria</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:DETALLE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:CODIGO</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsConsultarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</to>
+                                </copy>
+                            </assign>
+                        </sequence><if name="IfRespuestaConsultarPoliza" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <documentation>
+         <![CDATA[exito]]>
+      </documentation>
+      <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsConsultarPolizaSOAP.parameters/STATUS/CODIGO=200</condition>
+      <sequence name="Sequence21">
+         <if name="IfAudita">
+            <documentation>
+               <![CDATA[auditar]]>
+            </documentation>
+            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition><sequence name="Sequence28"><sequence name="Sequence19"><invoke name="EnviarAuditoria"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             portType="ns12:Produce_Message_ptt"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             partnerLink="jmsEnviarAuditoria"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             operation="Produce_Message"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             inputVariable="RqAuditoria"/></sequence></sequence><else>
+               <documentation>
+                  <![CDATA[noAudit]]>
+               </documentation>
+               <empty name="NoAudit"/>
+            </else>
+         </if>
+      </sequence>
+      <else>
+         <documentation>
+            <![CDATA[error]]>
+         </documentation>
+         <sequence>
+            <assign name="Fault">
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsConsultarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgConsultarPoliza.parameters/code</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsConsultarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgConsultarPoliza.parameters/summary</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsConsultarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgConsultarPoliza.parameters/detail</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+                                        </copy>
+                                    </assign><invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt" partnerLink="jmsEnviarAuditoria"
+                             operation="Produce_Message" inputVariable="RqAuditoria"/>
+                                    <assign name="InitRegistroBitacora"
+                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                        </copy>
+                                        <copy>
+                                            <from>false()</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                        </copy>
+                                    </assign>
+                                    <invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                                            partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                                            inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                                            outputVariable="RsRegistrarBitacoraPago"
+                                            xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                    <if name="If3">
+               <documentation>
+                  <![CDATA[503]]>
+               </documentation>
+               <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsAplicaPagoInsisSOAP.parameters/STATUS/CODIGO=204</condition>
+               <sequence name="Sequence20">
+                  
+                  <invoke name="EnviarPagoError" portType="ns14:Produce_Message_ptt" partnerLink="jmsEnviarPagoError"
+                          operation="Produce_Message" inputVariable="MsgProcesarPagoRq"/>
+               </sequence>
+               <else>
+                                            <documentation>
+                                                <![CDATA[OSB_Error]]>
+                                            </documentation>
+                                            <throw name="ThrowConsultaPoliza" faultName="bpelx:assertFailure" faultVariable="FaultVariable"/>
+               </else>
+            </if>
+         </sequence>
+      </else>
+   </if></sequence>
+                    <sequence name="ValidarPoliza">
+                        <if name="IfTipoPoliza">
+                            <documentation>
+                                <![CDATA[Daño]]>
+                            </documentation>
+                            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/TIPO_POLIZA='D'</condition>
+                            <sequence name="Sequence8" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <assign name="InitVar">
+                                    <copy>
+                                        <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/VALOR</to>
+                                    </copy>
+                                    <copy>
+                                        <from expressionLanguage="javascript">'polizacs'</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/TIPO_BUSQUEDA</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqConsultarPoliza/CABECERA/CODIGO_OPERACION</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/CABECERA/CODIGO_OPERACION</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqConsultarPoliza/CABECERA/FECHA_TRANSACCION</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/CABECERA/FECHA_TRANSACCION</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqConsultarPoliza/CABECERA/ID_TRANSACCION_OSB</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/CABECERA/ID_TRANSACCION_OSB</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqConsultarPoliza/CABECERA/SISTEMA_DESTINO</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/CABECERA/SISTEMA_DESTINO</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$RqConsultarPoliza/CABECERA/SISTEMA_ORIGEN</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqValidarPolizaNatDano/CABECERA/SISTEMA_ORIGEN</to>
+                                    </copy>
+                                </assign><invoke name="ValidarPolizaNatDano"
+                                                            partnerLink="Exp_ValidarPolizaNatural"
+                                                            inputVariable="RqValidarPolizaNatDano"
+                                                            outputVariable="RsValidarPolizaSOAP"
+                                                            bpelx:invokeAsDetail="no"
+                                                            portType="ns22:validarPolizaDanoSOAP"
+                                                            operation="consultarPolizaDano"
+                                                            xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/><sequence name="VariablesAudit"
+                                                                                                                                        xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      <assign name="InitRtaServicio">
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:CODIGO_OPERACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_TRANSACCION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_PROCESAMIENTO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:ID_TRANSACCION_OSB</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_DESTINO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:DETALLE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:CODIGO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:COMPONENTE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:ORIGEN</to>
+                                        </copy>
+                                    </assign>
+      <assign name="TranslateMsgRS">
+         <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <bpelx:pattern>translate</bpelx:pattern>
+         </bpelx:annotation>
+         <copy>
+            <from>ora:doTranslateToNative($RqRespuestaServicio, 'Schemas/RespuestaServicio.xsd', 'RqRespuestaServicio', 'STRING')</from>
+            <to>$JSONMsgRsService</to>
+         </copy>
+      </assign>
+                                    <assign name="InitAudit">
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:NUMPOLIZA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:CODIGO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:DETALLE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RsValidarPolizaSOAP.parameters/STATUS/ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:CODIGO_OPERACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:ID_TRANSACCION_OSB</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$fechaAuditoria</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_PROCESAMIENTO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$fechaAuditoria</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_TRANSACCION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_DESTINO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$JSONMsgRqPago</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_REQUEST</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$JSONMsgRsService</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_RESPONSE</to>
+                                        </copy>
+                                    </assign>
+                                </sequence>
+      
+      
+      
+      <if name="IfRespuesta">
+         <documentation>
+            <![CDATA[exito]]>
+         </documentation>
+         <condition expressionLanguage="javascript">process.RsValidarPolizaSOAP.parameters.POLIZA_VALIDA.POLIZAVALIDA=true</condition>
+                                    <sequence name="Sequence26">
+                                        <assign name="Assign6">
+                                            <copy>
+                                                <from>$RsValidarPolizaSOAP.parameters/POLIZA_VALIDA/NUMERO_DE_POLIZA_SAP</from>
+                                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$polizaSAP</to>
+                                            </copy>
+                                        </assign>
+                                        <if name="IfAudita">
+                                            <documentation>
+                                                <![CDATA[auditar]]>
+                                            </documentation>
+                                            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                                            <sequence name="Sequence11">
+                                                <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                                        partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                                        inputVariable="RqAuditoria"/></sequence>
+                                            <else>
+                                                <empty name="NoAudit"/>
+                                            </else>
+                                        </if>
+                                    </sequence>
+                                    <else>
+            <documentation>
+               <![CDATA[error]]>
+            </documentation>
+            
+         <sequence xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+            <assign name="Fault">
+                                                <copy>
+                                                    <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RsValidarPolizaSOAP.parameters/STATUS/CODIGO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgValidarPoliza.parameters/code</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RsValidarPolizaSOAP.parameters/STATUS/DETALLE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgValidarPoliza.parameters/detail</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RsValidarPolizaSOAP.parameters/STATUS/COMPONENTE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultMsgValidarPoliza.parameters/summary</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+                                                </copy>
+                                            </assign>
+                                            <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                                    partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                                    inputVariable="RqAuditoria"/>
+                                            <assign name="InitRegistroBitacora"
+                                                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>false()</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                                </copy>
+                                            </assign>
+                                            <invoke name="RegistrarPagoBitacora"
+                                                    portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                                                    partnerLink="Exp_RegistrarPagoBitacora"
+                                                    operation="registrarPagoBitacora"
+                                                    inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                                                    outputVariable="RsRegistrarBitacoraPago"
+                                                    xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                                    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                            <if name="If3">
+               <documentation>
+                  <![CDATA[503]]>
+               </documentation>
+               <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsValidarPolizaSOAP.parameters/STATUS/CODIGO=204</condition>
+               <sequence name="Sequence20">
+                  <invoke name="EnviarPagoError" portType="ns14:Produce_Message_ptt" partnerLink="jmsEnviarPagoError"
+                          operation="Produce_Message" inputVariable="MsgProcesarPagoRq"/>
+               </sequence>
+               <else>
+                                                    <documentation>
+                                                        <![CDATA[OSB_Error]]>
+                                                    </documentation>
+                                                    <throw name="ThrowValidaPoliza" faultName="bpelx:assertFailure" faultVariable="FaultVariable"/>
+               </else>
+            </if>
+         </sequence></else>
+      </if>
+   </sequence>
+                            <else>
+                                <documentation>
+                                    <![CDATA[Vida]]>
+                                </documentation>
+                                <sequence name="Sequence25">
+                                    <if name="IfSubRamo">
+                                        <documentation>
+                                            <![CDATA[Subramo250]]>
+                                        </documentation>
+                                        <condition>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/SUBRAMO='250'</condition>
+                                        <assign name="Assign5">
+                                            <copy>
+                                                <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$polizaSAP</to>
+                                            </copy>
+                                        </assign>
+                                        <else>
+                                            <empty name="NoAudit"/>
+                                        </else>
+                                    </if>
+                                </sequence>
+                            </else>
+                        </if>
+                    </sequence>
+                    <sequence name="AplicaPagoNatural">
+                        <assign name="InitAplicaPagoNatural">
+                            <copy>
+                                <from expressionLanguage="javascript">"0"</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/RECAUDO_PRIMA</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'PANAMA_PAGOS_AUTOMAT'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/ESTRUCTURA_COMERCIAL/SUCURSAL</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'01'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/NUMERO_CAJA</to>
+                            </copy>
+                            <copy>
+                                <from>$usuario</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/USUARIO</to>
+                            </copy>
+                            <copy>
+                                <from>$claseIdentificacion</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/TITULAR/TIPO_IDENTIFICACION</to>
+                            </copy>
+                            <copy>
+                                <from>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/NUM_POLIZA_CARATULA</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/NUMERO_POLIZA</to>
+                            </copy>
+                            <copy>
+                                <from>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/RAMO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/RAMO</to>
+                            </copy>
+                            <copy>
+                                <from>$RsConsultarPolizaSOAP.parameters/POLIZAS/POLIZA/SUBRAMO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/SUB_RAMO</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">"AP"</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/OBSERVACION</to>
+                            </copy>
+                            <copy>
+                                <from>$numReferencia</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/ID_RECIBO</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">"AP"</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/MEDIO_PAGO</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">process.vigenciaDesde.substring(0,4)+ process.vigenciaDesde.substring(5,7)+ process.vigenciaDesde.substring(8,10)</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/VIGENCIA_DESDE</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">process.vigenciaHasta.substring(0,4)+ process.vigenciaHasta.substring(5,7)+ process.vigenciaHasta.substring(8,10)</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/POLIZA/VIGENCIA_HASTA</to>
+                            </copy>
+                            <copy>
+                                <from>$cedula</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/TITULAR/NUMERO_IDENTIFICACION</to>
+                            </copy>
+                            <copy>
+                                <from>$tipoCuenta</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/TIPO_CUENTA</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/CODIGO_OPERACION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/CODIGO_OPERACION</to>
+                            </copy>
+                            <copy>
+                                <from>$estadoPago</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/ESTADO_PAGO</to>
+                            </copy>
+                            <copy>
+                                <from>$numReferencia</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/ESTRUCTURA_COMERCIAL/REFERENCIA</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/FECHA_PROCESAMIENTO</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/FECHA_TRANSACCION</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/FECHA_TRANSACCION</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/ID_TRANSACCION_OSB</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/ID_TRANSACCION_OSB</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/SISTEMA_DESTINO</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/SISTEMA_DESTINO</to>
+                            </copy>
+                            <copy>
+                                <from>$RqConsultarPoliza/CABECERA/SISTEMA_ORIGEN</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/CABECERA/SISTEMA_ORIGEN</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'PR'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/CONCEPTO_RECAUDO</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">'C'</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/TIPO_RECAUDO</to>
+                            </copy>
+                            <copy>
+                                <from>$monto</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/IMPORTE</to>
+                            </copy>
+                            <copy>
+                                <from expressionLanguage="javascript">process.fechaOperacion.substring(0,4)+process.fechaOperacion.substring(5,7)+process.fechaOperacion.substring(8,10)</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicaPagoNatural/INFO_PAGO/FECHA_OPERACION</to>
+                            </copy>
+                        </assign>
+                        <invoke name="AplicaPagoNatural" portType="ns23:expoAplicaPagoNaturalSOAP"
+                                partnerLink="Exp_AplicaPagoNatural" operation="aplicarPagoNatural"
+                                inputVariable="RqAplicaPagoNatural" outputVariable="RsAplicarPagoNaturalSOAP"/><sequence name="VariablesAudit"
+                                                                                                                         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <assign name="InitRtaServicio">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:FECHA_PROCESAMIENTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:CABECERA/ns19:SISTEMA_ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/CODIGO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:CODIGO</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/COMPONENTE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:COMPONENTE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:DETALLE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRespuestaServicio/ns19:STATUS/ns19:ORIGEN</to>
+                                </copy>
+                            </assign>
+      <assign name="TranslateMsgRS">
+         <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <bpelx:pattern>translate</bpelx:pattern>
+         </bpelx:annotation>
+         <copy>
+            <from>ora:doTranslateToNative($RqRespuestaServicio, 'Schemas/RespuestaServicio.xsd', 'RqRespuestaServicio', 'STRING')</from>
+            <to>$JSONMsgRsService</to>
+         </copy>
+      </assign>
+   <assign name="InitAudit">
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:NUMPOLIZA</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:CODIGO_OPERACION</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/CODIGO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:CODIGO</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/DETALLE</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:DETALLE</to>
+                                </copy>
+                                <copy>
+                                    <from expressionLanguage="javascript">'AplicarPagoNatural'</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</to>
+                                </copy>
+                                <copy>
+                                    <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:ID_TRANSACCION_OSB</to>
+                                </copy>
+                                <copy>
+                                    <from>$fechaAuditoria</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_PROCESAMIENTO</to>
+                                </copy>
+                                <copy>
+                                    <from>$fechaAuditoria</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:FECHA_TRANSACCION</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_DESTINO</to>
+                                </copy>
+                                <copy>
+                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:CABECERA/ns13:SISTEMA_ORIGEN</to>
+                                </copy>
+                                <copy>
+                                    <from>$JSONMsgRqPago</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_REQUEST</to>
+                                </copy>
+                                <copy>
+                                    <from>$JSONMsgRsService</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAuditoria/ns13:STATUS/ns13:MENSAJE_RESPONSE</to>
+                                </copy>
+                            </assign></sequence><if name="IfRespuesta">
+                            <documentation>
+                                <![CDATA[exito]]>
+                            </documentation>
+                            <condition>$RsAplicarPagoNaturalSOAP.parameters/STATUS/CODIGO=200</condition>
+                            <if name="IfAudita">
+                                <documentation>
+                                    <![CDATA[auditar]]>
+                                </documentation>
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($auditar, "TRUE")=0</condition>
+                                <sequence name="Sequence11"
+                                                          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt" partnerLink="jmsEnviarAuditoria"
+              operation="Produce_Message" inputVariable="RqAuditoria"/>
+   <assign name="InitRegistroBitacora" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                        </copy>
+                                        <copy>
+                                            <from>true()</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                        </copy>
+                                    </assign><invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                          partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                          inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                          outputVariable="RsRegistrarBitacoraPago"
+                          xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                    <if name="If4">
+                                        <documentation>
+                                            <![CDATA[CS]]>
+                                        </documentation>
+                                        <condition expressionLanguage="javascript">process.polizaSAP!=null</condition>
+                                        <sequence name="Sequence29">
+                                            <assign name="InitLegalizacion">
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:CODIGO_OPERACION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:FECHA_TRANSACCION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:FECHA_PROCESAMIENTO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:ID_TRANSACCION_OSB</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:SISTEMA_DESTINO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CABECERA/ns25:SISTEMA_ORIGEN</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$polizaSAP</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:NUMERO_POLIZA</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$RsAplicarPagoNaturalSOAP.parameters/NUMERO_TRANSACCION</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:NUMERO_REFERENCIA</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:FECHA_OPERACION</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:MONTO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:CEDULA</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$MsgProcesarPagoRq/ns2:TIPO_CUENTA</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:FORMA_PAGO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from expressionLanguage="javascript">'WEB'</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:SUCURSAL</to>
+                                                </copy>
+                                                <copy>
+                                                    <from expressionLanguage="javascript">'SIGMA'</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:USUARIO</to>
+                                                </copy>
+                                                <copy>
+                                                    <from expressionLanguage="javascript">'QC'</from>
+                                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqLegalizacionCS/ns25:TIPO_CEDULA</to>
+                                                </copy>
+                                            </assign>
+                                            <invoke name="EnviarPagoLegalizacion" bpelx:invokeAsDetail="no"
+                                                    partnerLink="jmsLegalizacion" portType="ns24:Produce_Message_ptt"
+                                                    operation="Produce_Message" inputVariable="RqLegalizacionCS"/>
+                                        </sequence>
+                                        <else>
+                                            <documentation>
+                                                <![CDATA[NO CS]]>
+                                            </documentation>
+                                            <empty name="NoCS"/>
+                                        </else>
+                                    </if>
+                                </sequence><else><empty name="NoAudit"
+                                             xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/></else>
+                            </if>
+                            <else>
+                                <documentation>
+                                    <![CDATA[error]]>
+                                </documentation><sequence name="Sequence27">
+                                    <assign name="Fault"
+                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      
+      
+   <copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:CODIGO</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.code</to>
+      </copy><copy>
+                                            <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/CODIGO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultAplicarPagoNatural.parameters/code</to>
+                                        </copy><copy>
+                                            <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/COMPONENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultAplicarPagoNatural.parameters/summary</to>
+                                        </copy><copy>
+                                            <from>$RsAplicarPagoNaturalSOAP.parameters/STATUS/DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultAplicarPagoNatural.parameters/detail</to>
+                                        </copy><copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:COMPONENTE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.summary</to>
+      </copy><copy>
+         <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$FaultVariable.detail</to>
+      </copy></assign>
+                                    <invoke name="EnviarAuditoria" portType="ns12:Produce_Message_ptt"
+                                            partnerLink="jmsEnviarAuditoria" operation="Produce_Message"
+                                            inputVariable="RqAuditoria"/>
+                                    <assign name="InitRegistroBitacora"
+                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:REFERENCIA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ID_RECIBO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:MONTO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/MONTO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:FECHA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/FECHA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:IDENTIFICACION_CLIENTE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/IDENTIFICACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:NUMERO_POLIZA</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/NUMERO_POLIZA</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CORE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CORE</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:CODIGO_OPERACION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/CODIGO_OPERACION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/FECHA_TRANSACCION</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:ID_TRANSACCION_OSB</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/ID_TRANSACCION_OSB</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_DESTINO</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_DESTINO</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$MsgProcesarPagoRq/ns2:CABECERA/ns2:SISTEMA_ORIGEN</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/CABECERA/SISTEMA_ORIGEN</to>
+                                        </copy>
+                                        <copy>
+                                            <from>$RqAuditoria/ns13:STATUS/ns13:DETALLE</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/RESPUESTA_APLICAP</to>
+                                        </copy>
+                                        <copy>
+                                            <from>false()</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqRegistrarBitacora.parameters/ESTADO_PAGO</to>
+                                        </copy>
+                                    </assign>
+                                    <invoke name="RegistrarPagoBitacora" portType="ns18:expoRegistrarPagoBitacoraSOAP"
+                                            partnerLink="Exp_RegistrarPagoBitacora" operation="registrarPagoBitacora"
+                                            inputVariable="RqRegistrarBitacora" bpelx:invokeAsDetail="no"
+                                            outputVariable="RsRegistrarBitacoraPago"
+                                            xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"/>
+                                    <if name="If3" xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      <documentation>
+         <![CDATA[503]]>
+      </documentation>
+      <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RsAplicarPagoNaturalSOAP.parameters/STATUS/CODIGO=503</condition>
+      <sequence name="Sequence20">
+         
+         <invoke name="EnviarPagoError" portType="ns14:Produce_Message_ptt" partnerLink="jmsEnviarPagoError"
+                 operation="Produce_Message" inputVariable="MsgProcesarPagoRq"/>
+         
+         
+      </sequence>
+      <else>
+         <documentation>
+                                                <![CDATA[OSB_Error]]>
+                                            </documentation><throw name="ThrowAplicarPagoNatural" faultName="bpelx:assertFailure" faultVariable="FaultVariable"/>
+      </else>
+   </if></sequence></else>
+                        </if>
+                    </sequence>
+                </sequence>
+            </else>
+        </if>
+    </sequence></process>

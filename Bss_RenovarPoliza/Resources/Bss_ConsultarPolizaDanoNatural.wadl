@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="Bss_ConsultarPolizaDanoNatural">RestReference</doc>
+   <resources>
+      <resource path="/ServNatural/Polizas/ConsultarNaturalDano">
+         <method name="GET" soa:name="ConsultarPoliza">
+            <request>
+               <param name="POLIZA" style="query" type="xsd:string"/>
+               <param name="TIPO_POLIZA" style="query" type="xsd:string"/>
+            </request>
+            <response>
+               <representation mediaType="application/json"/>
+            </response>
+            <response>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

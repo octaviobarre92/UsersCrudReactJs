@@ -1,0 +1,12 @@
+<adapter-config name="jmsProcesarPago" adapter="jms" wsdlLocation="../WSDLs/jmsProcesarPago.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="DesaSura" location="eis/jms/AplicarPagoV2" UIJmsProvider="WLSJMS"/>
+  <endpoint-activation portType="ConsumirMensajeProcesarPago_ptt" operation="ConsumirMensajeProcesarPago">
+    <activation-spec className="oracle.tip.adapter.jms.inbound.JmsConsumeActivationSpec">
+      <property name="DestinationName" value="jms/procesarPagoV2"/>
+      <property name="UseMessageListener" value="false"/>
+      <property name="PayloadType" value="TextMessage"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

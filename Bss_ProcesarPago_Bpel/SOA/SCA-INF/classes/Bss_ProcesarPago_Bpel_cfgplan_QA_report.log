@@ -1,0 +1,110 @@
+Modified Composite [ Bss_ProcesarPago_Bpel ]
+  Composite properties
+	Property [ productVersion ]
+		No change in old and new value 12.2.1.3.0.170820 
+	Property [ compositeID ]
+		No change in old and new value 5bc7079e-4166-483f-8249-7fb6b75f45e6 
+	Property [ jca.retry.count ]
+		No change in old and new value 3 
+	Property [ jca.retry.interval ]
+		No change in old and new value 300 
+	Property [ oracle.composite.faultBindingFile ]
+		No change in old and new value fault-bindings.xml 
+	Property [ oracle.composite.faultPolicyFile ]
+		No change in old and new value fault-policies-2.xml 
+	Component
+	  Component  [ BPELProcesarPago ]
+	    Property [ destroyWSMOnClosure ]
+		No change in old and new value false 
+	    Property [ bpel.config.oneWayDeliveryPolicy ]
+		No change in old and new value async.persist 
+	Service
+	  Service  [ jmsProcesarPago ]
+	    Service Bindings
+	  	Binding  [ jca ]
+	    Property [ useRejectedMessageRecovery ]
+		No change in old and new value true 
+	  Service  [ jmsProcesarPago ]
+	    Service Bindings
+	Reference
+	  Reference  [ jmsEnviarAuditoria ]
+	    Reference Bindings
+	  Reference  [ jmsEnviarPagoError ]
+	    Reference Bindings
+	  Reference  [ Exp_AplicaPagoInsis ]
+	    Reference Bindings
+	  Reference  [ Exp_RegistrarPagoBitacora ]
+	    Reference Bindings
+	  Reference  [ Exp_ConsultarPolizaV2 ]
+	    Reference Bindings
+	  Reference  [ Exp_ValidarPolizaNatural ]
+	    Reference Bindings
+	  Reference  [ Exp_AplicaPagoNatural ]
+	    Reference Bindings
+	  Reference  [ jmsLegalizacion ]
+	    Reference Bindings
+	  Reference  [ jmsEnviarAuditoria ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+	  Reference  [ jmsEnviarPagoError ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+	  Reference  [ ExpCrearDetallePC ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/expoServiceSOAP/#wsdl.endpoint(expoServiceSOAP/crearDetallePCSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/crearDetallePC.wsdl 
+	  Reference  [ Exp_AplicaPagoInsis ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/expoAplicaPagoInsisSOAP/#wsdl.endpoint(expoAplicaPagoInsisSOAP/aplicaPagoInsisSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/aplicarPagoInsis.wsdl 
+	  Reference  [ Exp_RegistrarPagoBitacora ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/#wsdl.endpoint(expoRegistrarPagoBitacoraSOAP/registrarPagoBitacoraSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/registrarPagoBitacora.wsdl 
+	  Reference  [ Exp_ConsultarPolizaV2 ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/expoConsultarPolizaSOAP/#wsdl.endpoint(expoConsultarPolizaSOAP/consultarPolizaSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/consultarPoliza.wsdl 
+	  Reference  [ Exp_ValidarPolizaNatural ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/validarPolizaDanoSOAP/#wsdl.endpoint(validarPolizaDanoSOAP/consultarPolizaDanoSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/validarPolizaNat.wsdl 
+	  Reference  [ Exp_AplicaPagoNatural ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	    Property [ weblogic.wsee.wsat.transaction.flowOption ]
+		No change in old and new value WSDLDriven 
+	Attribute name=port
+		No change in old and new value http://sura.com.pa/expoAplicaPagoNaturalSOAP/#wsdl.endpoint(expoAplicaPagoNaturalSOAP/aplicarPagoNaturalSOAP) 
+	Attribute name=location
+		No change in old and new value WSDLs/aplicarPagoNatural.wsdl 
+	  Reference  [ jmsLegalizacion ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+---End Match for composite [ Bss_ProcesarPago_Bpel ] in config plan---
+Checking for replacement in wsdl and schema files

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+
+    <reference faultPolicy="AplicaPagoOSB_Premium">
+        <name>ExpCrearDetallePC</name>
+    </reference>
+
+    <reference faultPolicy="AplicaPagoOSB_Insis">
+        <name>Exp_AplicaPagoInsis</name>
+    </reference>
+
+    <reference faultPolicy="AplicaPagoOSB_ConsPoliza">
+        <name>Exp_ConsultarPolizaV2</name>
+    </reference>
+
+    <reference faultPolicy="AplicaPagoOSB_ValidPoliza">
+        <name>Exp_ValidarPolizaNatural</name>
+    </reference>
+
+    <reference faultPolicy="AplicaPagoOSB_Natural">
+        <name>Exp_AplicaPagoNatural</name>
+    </reference>
+</faultPolicyBindings>

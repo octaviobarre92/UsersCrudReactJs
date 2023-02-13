@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="expoServiceSOAP"
+     targetNamespace="http://sura.com.pa/expoServiceSOAP/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ccm="http://sura.com.pa/expoServiceSOAP/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="ExpCrearDetallePC1">
+        <plnk:role name="expoServiceSOAP" portType="ccm:expoServiceSOAP"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/expoServiceSOAP/" location="crearDetallePC.wsdl"/>
+</wsdl:definitions>

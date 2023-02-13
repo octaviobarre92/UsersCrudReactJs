@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/aplicarPagoNatural" targetNamespace="http://TargetNamespace.com/aplicarPagoNatural" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="RqAplicarPagoNatural">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CABECERA">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element type="xsd:string" name="CODIGO_OPERACION"/>
+                            <xsd:element type="xsd:string" name="FECHA_PROCESAMIENTO"/>
+                            <xsd:element type="xsd:string" name="FECHA_TRANSACCION"/>
+                            <xsd:element type="xsd:string" name="ID_TRANSACCION_OSB"/>
+                            <xsd:element type="xsd:string" name="SISTEMA_DESTINO"/>
+                            <xsd:element type="xsd:string" name="SISTEMA_ORIGEN"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ESTRUCTURA_COMERCIAL">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element type="xsd:string" name="REFERENCIA"/>
+                            <xsd:element type="xsd:string" name="SUCURSAL"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="INFO_PAGO">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element type="xsd:string" name="CONCEPTO_RECAUDO"/>
+                            <xsd:element type="xsd:string" name="ESTADO_PAGO"/>
+                            <xsd:element type="xsd:string" name="FECHA_OPERACION"/>
+                            <xsd:element type="xsd:string" name="ID_RECIBO"/>
+                            <xsd:element type="xsd:string" name="IMPORTE"/>
+                            <xsd:element type="xsd:string" name="MEDIO_PAGO"/>
+                            <xsd:element type="xsd:string" name="NUMERO_CAJA"/>
+                            <xsd:element type="xsd:string" name="RECAUDO_PRIMA"/>
+                            <xsd:element type="xsd:string" name="TIPO_CUENTA"/>
+                            <xsd:element type="xsd:string" name="TIPO_RECAUDO"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="POLIZA">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element type="xsd:string" name="NUMERO_POLIZA"/>
+                            <xsd:element type="xsd:string" name="OBSERVACION"/>
+                            <xsd:element type="xsd:string" name="RAMO"/>
+                            <xsd:element type="xsd:string" name="SUB_RAMO"/>
+                            <xsd:element type="xsd:string" name="USUARIO"/>
+                            <xsd:element type="xsd:string" name="VIGENCIA_DESDE"/>
+                            <xsd:element type="xsd:string" name="VIGENCIA_HASTA"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="TITULAR">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element type="xsd:string" name="NUMERO_IDENTIFICACION"/>
+                            <xsd:element type="xsd:string" name="TIPO_IDENTIFICACION"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

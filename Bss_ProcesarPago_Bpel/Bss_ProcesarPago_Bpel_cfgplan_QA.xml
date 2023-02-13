@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns:edl="http://schemas.oracle.com/events/edl" xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="Bss_ProcesarPago_Bpel">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search/>
+            <replace/>
+         </searchReplace>
+      </import>
+      <service name="jmsProcesarPago">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="jca">
+            <property name="useRejectedMessageRecovery">
+               <replace>true</replace>
+            </property>
+         </binding>
+      </service>
+      <property name="productVersion">
+         <replace>12.2.1.3.0.170820</replace>
+      </property>
+      <property name="compositeID">
+         <replace>5bc7079e-4166-483f-8249-7fb6b75f45e6</replace>
+      </property>
+      <property name="jca.retry.count">
+         <replace>3</replace>
+      </property>
+      <property name="jca.retry.interval">
+         <replace>300</replace>
+      </property>
+      <property name="oracle.composite.faultBindingFile">
+         <replace>fault-bindings.xml</replace>
+      </property>
+      <property name="oracle.composite.faultPolicyFile">
+         <replace>fault-policies-2.xml</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <component name="BPELProcesarPago">
+         <property name="destroyWSMOnClosure">
+            <replace>false</replace>
+         </property>
+         <property name="bpel.config.oneWayDeliveryPolicy">
+            <replace>async.persist</replace>
+         </property>
+      </component>
+      <reference name="jmsEnviarAuditoria">
+         <binding type="jca"/>
+      </reference>
+      <reference name="jmsEnviarPagoError">
+         <binding type="jca"/>
+      </reference>
+      <reference name="ExpCrearDetallePC">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+              <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/crearDetallePC.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="Exp_AplicaPagoInsis">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/aplicarPagoInsis.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="Exp_RegistrarPagoBitacora">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/registrarPagoBitacora.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="Exp_ConsultarPolizaV2">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/consultarPoliza.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="Exp_ValidarPolizaNatural">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/validarPolizaNat.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="Exp_AplicaPagoNatural">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <searchReplace>
+                <search>http://ptyosbdesa.sura.com.pa:17014/sbus</search>
+                <replace>https://iservice02.segurossura.com.pa/sbus</replace>
+              </searchReplace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/aplicarPagoNatural.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="jmsLegalizacion">
+         <binding type="jca"/>
+      </reference>
+   </composite>
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for JMS adapter: 
+	<jca:property name="DestinationName"><replace>jms/DemoSupplierTopic</replace></jca:property>
+	<jca:property name="TimeToLive"><replace>0</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="Adapters/jmsEnviarAuditoria_jms.jca|Adapters/jmsEnviarPagoError_jms.jca|Adapters/jmsLegalizacion_jms.jca|Adapters/jmsProcesarPago_jms.jca|Schemas/EnviarAuditoria.xsd|Schemas/ProcesarPagoRq.xsd|Schemas/registrarPagoBitacora.xsd|Schemas/RespuestaServicio.xsd|Schemas/RqAplicaPagoInsis.xsd|Schemas/RqAplicaPagoSAP.xsd|Schemas/RqAplicarPagoNatural.xsd|Schemas/RqConsultarPoliza.xsd|Schemas/RqCrearDetallePC.xsd|Schemas/RqEnviarPagoLegalizacion.xsd|Schemas/RqLegalizacion.xsd|Schemas/RqValidarPolizaNatDano.xsd|Schemas/RsCrearDetallePC.xsd|WSDLs/aplicarPagoInsis.wsdl|WSDLs/aplicarPagoInsisWrapper.wsdl|WSDLs/aplicarPagoNatural.wsdl|WSDLs/aplicarPagoNaturalWrapper.wsdl|WSDLs/BPELProcesarPago.wsdl|WSDLs/consultarPoliza.wsdl|WSDLs/consultarPolizaWrapper.wsdl|WSDLs/crearDetallePC.wsdl|WSDLs/crearDetallePCWrapper1.wsdl|WSDLs/jmsEnviarAuditoria.wsdl|WSDLs/jmsEnviarPagoError.wsdl|WSDLs/jmsLegalizacion.wsdl|WSDLs/jmsProcesarPago.wsdl|WSDLs/registrarPagoBitacora.wsdl|WSDLs/registrarPagoBitacoraWrapper.wsdl|WSDLs/RuntimeFault.wsdl|WSDLs/RuntimeFault_2.wsdl|WSDLs/validarPolizaNat.wsdl|WSDLs/validarPolizaNatWrapper.wsdl|WSDLs/wsdl-APLICAR-PAGO-SAP.wsdl|wsm-assembly.xml">
+      <searchReplace>
+         <search>8888</search>
+	 <replace>8889</replace>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

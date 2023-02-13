@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="validarPolizaDanoSOAP"
+     targetNamespace="http://sura.com.pa/validarPolizaDanoSOAP/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ccm="http://sura.com.pa/validarPolizaDanoSOAP/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="Exp_ValidarPolizaNatural">
+        <plnk:role name="validarPolizaDanoSOAP" portType="ccm:validarPolizaDanoSOAP"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://sura.com.pa/validarPolizaDanoSOAP/" location="validarPolizaNat.wsdl"/>
+</wsdl:definitions>
