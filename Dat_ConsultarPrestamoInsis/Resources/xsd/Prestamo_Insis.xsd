@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarPrestamoInsis" targetNamespace="http://www.sura.com/ConsultarPrestamoInsis" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="OBJETO_PRESTAMOS">
+      <xsd:complexType>
+         <xsd:sequence>
+             <xsd:element name="PRESTAMOS" maxOccurs="unbounded">
+                <xsd:complexType>
+                   <xsd:sequence>
+                      <xsd:element name="RAMO" type="xsd:string"/>
+                      <xsd:element name="SUBRAMO" type="xsd:string"/>
+                      <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+                      <xsd:element name="NUMERO_PRESTAMO" type="xsd:string"/>
+                      <xsd:element name="CORE" type="xsd:string"/>
+                      <xsd:element name="SALDO_PRESTAMO" type="xsd:string"/>
+                      <xsd:element name="TIPO_PRESTAMO" type="xsd:string"/>
+                      <xsd:element name="STATUS_PRESTAMO" type="xsd:string"/>
+                      <xsd:element name="OBSERVACION" type="xsd:string"/>
+                      <xsd:element name="FECHA_REGISTRO" type="xsd:string"/>
+                   </xsd:sequence>
+                </xsd:complexType>
+             </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

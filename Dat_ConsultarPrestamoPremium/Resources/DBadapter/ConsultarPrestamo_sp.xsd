@@ -1,0 +1,67 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarPrestamo" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarPrestamo" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_RAMO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_SUB_RAMO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_POLIZA" type="decimal" db:index="3" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_SECUENCIA" type="decimal" db:index="4" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_PRESTAMO" type="decimal" db:index="5" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_MENSAJE" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_BAND" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="RFC_PRESTAMOS" type="db:RFC_PRESTAMOS_RowSet" db:index="8" db:type="RowSet" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="RFC_PRESTAMOS_RowSet">
+      <sequence>
+         <element name="RFC_PRESTAMOS_Row" minOccurs="0" maxOccurs="unbounded">
+            <complexType>
+               <sequence>
+                  <element name="RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SUB_RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="POLIZA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="SECUENCIA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="NUMERO_PRESTAMO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="TIPO_PRESTAMO" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="STATUS_PRESTAMO" type="db:string7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SALDO_DE_PRESTAMO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="OBSERVACION" type="db:string2000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="FECHA_REGISTRO" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <simpleType name="string5">
+      <restriction base="string">
+         <maxLength value="5"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string30">
+      <restriction base="string">
+         <maxLength value="30"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string7">
+      <restriction base="string">
+         <maxLength value="7"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string2000">
+      <restriction base="string">
+         <maxLength value="2000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string10">
+      <restriction base="string">
+         <maxLength value="10"/>
+      </restriction>
+   </simpleType>
+</schema>

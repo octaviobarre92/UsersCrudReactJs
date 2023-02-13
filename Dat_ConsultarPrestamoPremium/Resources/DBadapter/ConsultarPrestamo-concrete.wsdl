@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_ConsultarPrestamoPremium/ConsultarPrestamo" name="ConsultarPrestamo-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="ConsultarPrestamo.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_ConsultarPrestamoPremium/ConsultarPrestamo"/>
+    <wsdl:binding name="ConsultarPrestamo_ptt-binding" type="con:ConsultarPrestamo_ptt" xmlns:con="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_ConsultarPrestamoPremium/ConsultarPrestamo">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="ConsultarPrestamo">
+            <soap:operation soapAction="ConsultarPrestamo"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
