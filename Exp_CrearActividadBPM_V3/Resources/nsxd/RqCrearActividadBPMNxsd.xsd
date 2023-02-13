@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/RqCrearActividadBPM" targetNamespace="http://www.sura.com.pa/RqCrearActividadBPM" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="OBJ_BPM">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TipoActividad" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="AsuntoActividad" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="IdUsuario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="IdProceso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="IdPersona" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="NumPoliza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="TipoReferencia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="NumReferencia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="IdPlantillaActividad" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ParametrosActividad" minOccurs="0" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Parametro" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Nombre" type="xsd:string" maxOccurs="1"/>
+                              <xsd:element name="Valor" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

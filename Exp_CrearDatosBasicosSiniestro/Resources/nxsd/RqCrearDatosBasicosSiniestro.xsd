@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/Siniestro"
+            targetNamespace="http://www.sura.com.pa/Siniestro" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+  <xsd:element name="OBJ_SINIESTRO">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="IdEnvio" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="FechaEnvio" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="CodigoCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="CodigoSucursalAseguradora" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="IdPais" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="NumeroSiniestro" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="IdProducto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="PolizaCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="FechaReclamacion" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="FechaSiniestro" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="FechaAgendaTaller" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="FechaCreacionPresupuesto" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="FechaEntradaTaller" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="FechaEstimadaSalidaTaller" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DiasReparacion" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CiudadAtencion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CiudadSiniestro" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="NomTaller" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="IdTaller" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="NombreEvaluador" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="IdEvaluador" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="IndicadorFraude" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Placa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="Vin" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="DescripcionVehiculo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="CodigoVehiculo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Modelo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="CodigoMotor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="TipoIdentificacion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="IdPropietario" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="NomPropietario" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="DirPropietario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="TelPropietario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="EmailPropietario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Cobertura" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="ValorAsegurado" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="MontoMaxRepcon" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="ValorDeducible" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="TipoDeducible" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="NumSalrDedcbl" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="PorcentajeDeducible" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Estado" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="SubEstado" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CodigoSegmentoCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DescrpcnSegmntClint" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CodigoSegmentoCliente1" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DescrpcnSegmntClint1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CodigoSegmentoCliente2" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DescrpcnSegmntClint2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="CodigoComprtmntClint" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DescComprtmntClint" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Influenciador" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="EstadoCartera" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="TipoVehiculo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="DirEvento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="TipoServicio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Moneda" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Header">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="autenticacion_Otp" type="xsd:string"/>
+        <xsd:element name="idCanal" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

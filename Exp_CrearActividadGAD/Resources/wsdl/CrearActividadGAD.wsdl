@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CrearActividadGAD" targetNamespace="http://sura.com.pa/CrearActividadGAD/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sura.com.pa/CrearActividadGAD/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://sura.com.pa/CrearActividadGAD/">
+			<xsd:element name="CrearActividadGADFaultMsg">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="code" type="xsd:string"/>
+						<xsd:element name="summary" type="xsd:string"/>
+						<xsd:element name="detail" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CrearActividadGADReq">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+						<xsd:element name="TipoReferencia" type="xsd:string"/>
+						<xsd:element name="IdProceso" type="xsd:string"/>
+						<xsd:element name="IdPlantillaActividad" type="xsd:string"/>
+						<xsd:element name="IdUsuario" type="xsd:string"/>
+						<xsd:element name="ParametrosActividad" minOccurs="0" maxOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Parametro" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Nombre" type="xsd:string" maxOccurs="1"/>
+												<xsd:element name="Valor" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CrearActividadGADResp">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+						<xsd:element name="STATUS" type="tns:STATUS" minOccurs="0" maxOccurs="unbounded"/>
+                                                <xsd:element name="IdActividad" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="CABECERA">
+				<xsd:sequence>
+					<xsd:element name="CODIGO_OPERACION" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="FECHA_TRANSACCION" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="SISTEMA_DESTINO" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="SISTEMA_ORIGEN" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="STATUS">
+				<xsd:sequence>
+                                        <xsd:element name="CODIGO" type="xsd:string"/>
+                                        <xsd:element name="DETALLE" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="PARAMETRO">
+				<xsd:sequence>
+					<xsd:element name="ATRIBUTO" type="xsd:string"/>
+					<xsd:element name="VALOR" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ADJUNTO">
+				<xsd:sequence>
+					<xsd:element name="NOMBRE_ARCHIVO" type="xsd:string"/>
+					<xsd:element name="TIPO" type="xsd:string"/>
+					<xsd:element name="ARCHIVO" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CrearActividadGADRequest">
+		<wsdl:part element="tns:CrearActividadGADReq" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CrearActividadGADResponse">
+		<wsdl:part element="tns:CrearActividadGADResp" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CrearActividadGADFault">
+		<wsdl:part name="parameters" element="tns:CrearActividadGADFaultMsg"/>
+	</wsdl:message>
+	<wsdl:portType name="CrearActividadGAD">
+		<wsdl:operation name="CrearActividadGAD">
+			<wsdl:input message="tns:CrearActividadGADRequest"/>
+			<wsdl:output message="tns:CrearActividadGADResponse"/>
+			<wsdl:fault name="CrearActividadGADFaultMsg" message="tns:CrearActividadGADFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CrearActividadGADSOAP" type="tns:CrearActividadGAD">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CrearActividadGAD">
+			<soap:operation soapAction="http://sura.com.pa/CrearActividadGAD"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CrearActividadGADFaultMsg">
+				<soap:fault name="CrearActividadGADFaultMsg" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CrearActividadGAD">
+		<wsdl:port binding="tns:CrearActividadGADSOAP" name="CrearActividadGADSOAP">
+			<wsdl:documentation/>
+			<soap:address location="http://sura.com.pa/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
