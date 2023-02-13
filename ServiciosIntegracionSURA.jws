@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <hash n="adrs-workspace-properties">
+      <value n="adrs-instance-binding" v="DefaultServer"/>
+   </hash>
+   <value n="appTemplateId" v="sbApplicationAndProjectTemplate"/>
+   <hash n="component-versions">
+      <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.adf.share.dt.migration.wsm.PolicyAttachmentMigratorHelper" v="12.1.2.0.0"/>
+      <value n="oracle.adfdt.controller.adfc.source.migration.SavePointDataSourceForWLSMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.adfdtinternal.model.ide.security.extension.AdfSecurityMigrator" v="11.1.1.1.0.13"/>
+      <value n="oracle.ide.model.Project" v="11.1.1.1.0;12.2.1.4.0"/>
+      <value n="oracle.jbo.dt.jdevx.deployment.JbdProjectMigrator" v="11.1.2.0.0"/>
+      <value n="oracle.jdeveloper.maven.migrator.POMNodeMigrator" v="12.2.1.0.0"/>
+      <value n="oracle.jdevimpl.appresources.ApplicationSrcDirMigrator" v="11.1.2.0.0"/>
+      <value n="oracle.jdevimpl.deploy.migrators.JeeDeploymentMigrator" v="12.1.2.0.0"/>
+      <value n="oracle.jdevimpl.xml.oc4j.jps.JpsConfigMigratorHelper" v="12.1.4.0.0"/>
+      <value n="oracle.jdevimpl.xml.wl.WeblogicMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.mds.internal.dt.deploy.base.MarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.mds.internal.dt.ide.migrator.MDSConfigMigratorHelper" v="11.1.1.0.5313"/>
+   </hash>
+   <list n="contentSets">
+      <string v="oracle.mds.internal.dt.ide.appresources.MDSAppResourceCSProvider/MDSAppContentSet"/>
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ADFContentSet"/>
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationSrcContentSet"/>
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationBuildToolContentSet"/>
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
+   </list>
+   <list n="listOfChildren">
+      <hash><url n="URL" path="Bss_AplicarPago_V2/Bss_AplicarPago_V2.jpr"/></hash>
+      <hash><url n="URL" path="Bss_AplicarPago/Bss_AplicarPago.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarCliente_V2/Bss_ConsultarCliente_V2.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarClientesTodos/Bss_ConsultarClientesTodos.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarEgreso/Bss_ConsultarEgreso.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarObjetoAseg/Bss_ConsultarObjetoAseg.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarPoliza_V2/Bss_ConsultarPoliza_V2.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarPrestamo/Bss_ConsultarPrestamo.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ConsultarReclamo/Bss_ConsultarReclamo.jpr"/></hash>
+      <hash><url n="URL" path="Bss_EmitirPolizaPremium/Bss_EmitirPolizaPremium.jpr"/></hash>
+      <hash><url n="URL" path="Bss_ProcesarPago_V2/Bss_ProcesarPago_V2.jpr"/></hash>
+      <hash><url n="URL" path="ComponentesComunes/ComponentesComunes.jpr"/></hash>
+      <hash><url n="URL" path="ComponentesComunesInsis/ComponentesComunesInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ActualizarEstatusReclamoInsis/Dat_ActualizarEstatusReclamoInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ActualizarReclamoInsis/Dat_ActualizarReclamoInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoEgresoSAP/Dat_AplicarPagoEgresoSAP.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoFondoAhorro/Dat_AplicarPagoFondoAhorro.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoInsis_V2/Dat_AplicarPagoInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoNatural/Dat_AplicarPagoNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoNaturalOtrosIngresos/Dat_AplicarPagoNaturalOtrosIngresos.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AplicarPagoPremium/Dat_AplicarPagoPremium.jpr"/></hash>
+      <hash><url n="URL" path="Dat_AsignarRolPersonaInsis/Dat_AsignarRolPersonaInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_BuscarDatosSap/Dat_BuscarDatosSap.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarClienteInsis/Dat_ConsultarClienteInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarClienteMUD/Dat_ConsultarClienteMUD.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarClienteNatural/Dat_ConsultarClienteNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarClientePremium_V2/Dat_ConsultarClientePremium_V2.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarEgresoPremium/Dat_ConsultarEgresoPremium.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarEgresoSAP/Dat_ConsultarEgresoSAP.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarObjetoAsegInsis/Dat_ConsultarObjetoAsegInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarObjetoAsegNatural/Dat_ConsultarObjetoAsegNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarObjetoAsegPremium/Dat_ConsultarObjetoAsegPremium.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarPolizaDanoNatural/Dat_ConsultarPolizaDanoNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarPolizaInsis/Dat_ConsultarPolizaInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarPolizaPremium/Dat_ConsultarPolizaPremium.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarPolizaVidaNatural/Dat_ConsultarPolizaVidaNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarReclamoInsis/Dat_ConsultarReclamoInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarReclamoNatural/Dat_ConsultarReclamoNatural.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ConsultarReclamoPremium/Dat_ConsultarReclamoPremium.jpr"/></hash>
+      <hash><url n="URL" path="Dat_CrearAutorizacionSAM/Dat_CrearAutorizacionSAM.jpr"/></hash>
+      <hash><url n="URL" path="Dat_CrearPersonaInsis/Dat_CrearPersonaInsis.jpr"/></hash>
+      <hash><url n="URL" path="Dat_CrearProveedorSAM/Dat_CrearProveedorSAM.jpr"/></hash>
+      <hash><url n="URL" path="Dat_CrearRolPersona/Dat_CrearRolPersona.jpr"/></hash>
+      <hash><url n="URL" path="Dat_EnviarPagoLegalizacionJMS/Dat_EnviarPagoLegalizacionJMS.jpr"/></hash>
+      <hash><url n="URL" path="Dat_GenerarToken/Dat_GenerarToken.jpr"/></hash>
+      <hash><url n="URL" path="Dat_ReservarPoliza/Dat_ReservarPoliza.jpr"/></hash>
+      <hash><url n="URL" path="EnviarAuditoria_v1.0.0/EnviarAuditoria_v1.0.0.jpr"/></hash>
+      <hash><url n="URL" path="EnviarPagoErrorJMS/EnviarPagoErrorJMS.jpr"/></hash>
+      <hash><url n="URL" path="GestionarCliente/GestionarCliente.jpr"/></hash>
+      <hash><url n="URL" path="GestionarEgreso/GestionarEgreso.jpr"/></hash>
+      <hash><url n="URL" path="GestionarPoliza/GestionarPoliza.jpr"/></hash>
+      <hash><url n="URL" path="GestionarPolizaV2/GestionarPolizaV2.jpr"/></hash>
+      <hash><url n="URL" path="GestionarReclamo/GestionarReclamo.jpr"/></hash>
+      <hash><url n="URL" path="J_TransformBase64/J_TransformBase64.jpr"/></hash>
+      <hash><url n="URL" path="MockUpProductoSalud/MockUpProductoSalud.jpr"/></hash>
+      <hash><url n="URL" path="SI_CrearDetallePC/SI_CrearDetallePC.jpr"/></hash>
+      <hash><url n="URL" path="SI_RegistrarPagoSAP_V2/SI_RegistrarPagoSAP.jpr"/></hash>
+      <hash><url n="URL" path="SI_ValidarPolizaNatural/SI_ValidarPolizaNatural.jpr"/></hash>
+      <hash><url n="URL" path="TrasformTextToJson/TrasformTextToJson.jpr"/></hash>
+   </list>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <hash n="profileDefinitions">
+         <hash n="ServiciosIntegracionSURA">
+            <value n="profileClass" v="SbAppDeployProfile"/>
+            <value n="profileName" v="ServiciosIntegracionSURA"/>
+         </hash>
+      </hash>
+      <list n="profileList">
+         <string v="ServiciosIntegracionSURA"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
+      <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
+         <url n="pomfileURL" path="pom.xml"/>
+      </hash>
+   </hash>
+   <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
+      <value n="configContextSessionName" v="OSB-IDE_build_1613016124652"/>
+   </hash>
+</jws:workspace>
