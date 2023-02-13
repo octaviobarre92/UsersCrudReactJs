@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GestionarActividadDocumento" targetNamespace="http://sura.com.pa/GestionarActividadDocumento/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sura.com.pa/GestionarActividadDocumento/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://sura.com.pa/GestionarActividadDocumento/">
+			<xsd:element name="GestionarActividadDocumentoFaultMsg">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="code" type="xsd:string"/>
+						<xsd:element name="summary" type="xsd:string"/>
+						<xsd:element name="detail" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GestionarActividadDocumentoReq">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+						<xsd:element name="TipoReferencia" type="xsd:string"/>
+						<xsd:element name="IdProceso" type="xsd:string"/>
+						<xsd:element name="IdPlantillaActividad" type="xsd:string"/>
+						<xsd:element name="IdUsuario" type="xsd:string"/>
+						<xsd:element name="ParametrosActividad" minOccurs="0" maxOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Parametro" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Nombre" type="xsd:string" maxOccurs="1"/>
+												<xsd:element name="Valor" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="Documento" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IdDocumental" type="xsd:string"/>
+									<xsd:element name="Adjunto" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Contenido" type="xsd:string"/>
+												<xsd:element name="IdFormato" type="xsd:string"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="AtributosRelacion" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Atributo" maxOccurs="unbounded" minOccurs="1">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="Nombre" minOccurs="1" type="xsd:string"/>
+															<xsd:element name="Valor" minOccurs="1" type="xsd:string"/>
+															<xsd:element name="Id" type="xsd:string"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GestionarActividadDocumentoResp">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+						<xsd:element name="STATUS" type="tns:STATUS" minOccurs="0" maxOccurs="unbounded"/>
+                                                <xsd:element name="IdActividad" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="CABECERA">
+				<xsd:sequence>
+					<xsd:element name="CODIGO_OPERACION" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="FECHA_TRANSACCION" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="SISTEMA_DESTINO" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="SISTEMA_ORIGEN" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="STATUS">
+				<xsd:sequence>
+                                        <xsd:element name="CODIGO" type="xsd:string"/>
+                                        <xsd:element name="DETALLE" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="PARAMETRO">
+				<xsd:sequence>
+					<xsd:element name="ATRIBUTO" type="xsd:string"/>
+					<xsd:element name="VALOR" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ADJUNTO">
+				<xsd:sequence>
+					<xsd:element name="NOMBRE_ARCHIVO" type="xsd:string"/>
+					<xsd:element name="TIPO" type="xsd:string"/>
+					<xsd:element name="ARCHIVO" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="GestionarActividadDocumentoRequest">
+		<wsdl:part element="tns:GestionarActividadDocumentoReq" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GestionarActividadDocumentoResponse">
+		<wsdl:part element="tns:GestionarActividadDocumentoResp" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GestionarActividadDocumentoFault">
+		<wsdl:part name="parameters" element="tns:GestionarActividadDocumentoFaultMsg"/>
+	</wsdl:message>
+	<wsdl:portType name="GestionarActividadDocumento">
+		<wsdl:operation name="GestionarActividadDocumento">
+			<wsdl:input message="tns:GestionarActividadDocumentoRequest"/>
+			<wsdl:output message="tns:GestionarActividadDocumentoResponse"/>
+			<wsdl:fault name="GestionarActividadDocumentoFaultMsg" message="tns:GestionarActividadDocumentoFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GestionarActividadSOAP" type="tns:GestionarActividadDocumento">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GestionarActividadDocumento">
+			<soap:operation soapAction="http://sura.com.pa/GestionarActividad/GestionarActividadDocumento"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="GestionarActividadDocumentoFaultMsg">
+				<soap:fault name="GestionarActividadDocumentoFaultMsg" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="actualizarDatosBasicosSiniestro">
+		<wsdl:port binding="tns:GestionarActividadSOAP" name="GestionarActividadSOAP">
+			<wsdl:documentation/>
+			<soap:address location="http://sura.com.pa/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

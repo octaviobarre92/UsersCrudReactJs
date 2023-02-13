@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sura.com.pa/GestionarActividadDocumento/" targetNamespace="http://sura.com.pa/GestionarActividadDocumento/" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+	<xsd:element name="GestionarActividadDocumentoReq">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+				<xsd:element name="TipoReferencia" type="xsd:string"/>
+				<xsd:element name="IdProceso" type="xsd:string"/>
+				<xsd:element name="IdPlantillaActividad" type="xsd:string"/>
+				<xsd:element name="IdUsuario" type="xsd:string"/>
+				<xsd:element name="ParametrosActividad" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Parametro" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Nombre" type="xsd:string" maxOccurs="1"/>
+										<xsd:element name="Valor" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Documento" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="IdDocumental" type="xsd:string"/>
+							<xsd:element name="Adjunto" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Contenido" type="xsd:string"/>
+										<xsd:element name="IdFormato" type="xsd:string"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AtributosRelacion" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Atributo" maxOccurs="unbounded" minOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Nombre" minOccurs="1" type="xsd:string"/>
+													<xsd:element name="Valor" minOccurs="1" type="xsd:string"/>
+													<xsd:element name="Id" type="xsd:string"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GestionarActividadDocumentoResp">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+				<xsd:element name="STATUS" type="tns:STATUS" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CABECERA">
+		<xsd:sequence>
+			<xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+			<xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+			<xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+			<xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+			<xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+			<xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="STATUS">
+		<xsd:sequence>
+			<xsd:element name="DETALLE" type="xsd:string"/>
+			<xsd:element name="CODIGO" type="xsd:string"/>
+			<xsd:element name="COMPONENTE" type="xsd:string"/>
+			<xsd:element name="ORIGEN" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation xmlns="">
+		<xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+		<xsd:appinfo>USEHEADER=false</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:annotation xmlns="">
+		<xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+		<xsd:appinfo>USEHEADER=false</xsd:appinfo>
+	</xsd:annotation>
+</xsd:schema>
