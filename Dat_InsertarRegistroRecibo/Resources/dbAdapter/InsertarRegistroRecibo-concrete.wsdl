@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_InsertarRegistroRecibo/InsertarRegistroRecibo" name="InsertarRegistroRecibo-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="InsertarRegistroRecibo.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_InsertarRegistroRecibo/InsertarRegistroRecibo"/>
+    <wsdl:binding name="InsertarRegistroRecibo_ptt-binding" type="ins:InsertarRegistroRecibo_ptt" xmlns:ins="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_InsertarRegistroRecibo/InsertarRegistroRecibo">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="InsertarRegistroRecibo">
+            <soap:operation soapAction="InsertarRegistroRecibo"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
