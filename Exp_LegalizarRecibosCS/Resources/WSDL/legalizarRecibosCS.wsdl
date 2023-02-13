@@ -1,0 +1,157 @@
+<wsdl:definitions name="expoServiceSOAP" targetNamespace="http://sura.com.pa/expoServiceSOAP/" xmlns:csl="http://sura.com.pa/expoServiceSOAP/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:import namespace="http://sura.com.pa/RuntimeFault/" location="RuntimeFault.wsdl"/>
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://sura.com.pa/expoServiceSOAP/"> 
+   <xsd:element name="legalizarRecibosFaultMsg">
+     <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="code" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Codigo Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="summary" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Resumen Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="detail" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Detalle Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+      <xsd:element name="legalizarRecibos">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="NUMERO_POLIZA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero de poliza
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="NUMERO_REFERENCIA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero de referencia
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="MONTO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Monto
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="CEDULA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Cedula
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="TIPO_CEDULA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Tipo de Cedula
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="SUCURSAL" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Sucursal
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="FECHA_OPERACION" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Fecha Operacion
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="USUARIO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Usuario
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="FORMA_PAGO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Forma de Pago
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="legalizarRecibosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="CODIGO" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>Codigo Operacion</xsd:documentation>
+          	</xsd:annotation></xsd:element>
+                <xsd:element name="MENSAJE" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>Detalle Mensaje</xsd:documentation>
+          	</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="legalizarRecibosRequest">
+    <wsdl:part element="csl:legalizarRecibos" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="legalizarRecibosResponse">
+    <wsdl:part element="csl:legalizarRecibosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="legalizarRecibosFault">
+    <wsdl:part name="parameters" element="csl:legalizarRecibosFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="expoServiceSOAP">
+    <wsdl:operation name="legalizarRecibos">
+      <wsdl:input message="csl:legalizarRecibosRequest"/>
+      <wsdl:output message="csl:legalizarRecibosResponse"/>
+      <wsdl:fault name="legalizarRecibosFaultMsg" message="csl:legalizarRecibosFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="legalizarRecibosSOAP" type="csl:expoServiceSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="legalizarRecibos">
+      <soap:operation soapAction="http://sura.com.pa/expoServiceSOAP/legalizarRecibos"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="legalizarRecibosFaultMsg">
+        <soap:fault name="legalizarRecibosFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="expoServiceSOAP">
+    <wsdl:documentation>Permite legalizar un pago contra recibos CS</wsdl:documentation>
+    <wsdl:port binding="csl:legalizarRecibosSOAP" name="legalizarRecibosSOAP">
+      <soap:address location="http://sura.com.pa/LegalizarRecibosCS"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

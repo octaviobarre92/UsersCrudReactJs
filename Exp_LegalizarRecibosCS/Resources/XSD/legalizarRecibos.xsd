@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://sura.com.pa/LegalizarRecibosCS" targetNamespace="http://sura.com.pa/LegalizarRecibosCS" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="LegalizarRecibo">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="NUMERO_POLIZA" type="xsd:string"/>
+            <xsd:element name="NUMERO_REFERENCIA" type="xsd:string"/>
+            <xsd:element name="MONTO" type="xsd:string"/>
+            <xsd:element name="CEDULA" type="xsd:string"/>
+            <xsd:element name="TIPO_CEDULA" type="xsd:string"/>
+            <xsd:element name="SUCURSAL" type="xsd:string"/>
+            <xsd:element name="FECHA_OPERACION" type="xsd:string"/>
+            <xsd:element name="USUARIO" type="xsd:string"/>
+            <xsd:element name="FORMA_PAGO" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

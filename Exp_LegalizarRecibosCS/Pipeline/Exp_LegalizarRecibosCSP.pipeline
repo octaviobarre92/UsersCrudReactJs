@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="Exp_LegalizarRecibosCS/Resources/WSDL/legalizarRecibosCS"/>
+            <con:binding>
+                <con:name>legalizarRecibosSOAP</con:name>
+                <con:namespace>http://sura.com.pa/expoServiceSOAP/</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N53eef3bf.21dadc7.0.17883e25952.N7fbc">
+            <con:stage id="_StageId-N53eef3bf.21dadc7.0.17883e25952.N7f4d" name="Inicialización">
+                <con:context>
+                    <con1:userNsDecl prefix="exp" namespace="http://sura.com.pa/expoServiceSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="transaccionId" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7f4c</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn-bea:uuid()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="RqIniLegalizar" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c8c.N69826366.0.1788ac91500.N7ffe</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="Exp_LegalizarRecibosCS/Resources/XSLT/InputParams_to_RestService"/>
+                                <con2:input>$body</con2:input>
+                                <con2:param name="numPoliza">
+                                    <con2:path>$body/exp:legalizarRecibos/NUMERO_POLIZA/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="numReferencia">
+                                    <con2:path>$body/exp:legalizarRecibos/NUMERO_REFERENCIA/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="monto">
+                                    <con2:path>$body/exp:legalizarRecibos/MONTO/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="cedula">
+                                    <con2:path>$body/exp:legalizarRecibos/CEDULA/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="tipoCedula">
+                                    <con2:path>$body/exp:legalizarRecibos/TIPO_CEDULA/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="sucursal">
+                                    <con2:path>$body/exp:legalizarRecibos/SUCURSAL/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="fechaOperacion">
+                                    <con2:path>$body/exp:legalizarRecibos/FECHA_OPERACION/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="usuario">
+                                    <con2:path>$body/exp:legalizarRecibos/USUARIO/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="formaPago">
+                                    <con2:path>$body/exp:legalizarRecibos/FORMA_PAGO/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53eef3bf.21dadc7.0.17883e25952.N7eac" name="TransformacionJSON">
+                <con:context/>
+                <con:actions>
+                    <con1:nxsdTranslation xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7eab</con2:id>
+                        <con1:type>XML-To-Native</con1:type>
+                        <con1:sourceExpr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$RqIniLegalizar</con2:xqueryText>
+                        </con1:sourceExpr>
+                        <con1:nxsd ref="Exp_LegalizarRecibosCS/Resources/XSD/legalizarRecibos"/>
+                        <con1:schemaElement xmlns:leg="http://sura.com.pa/LegalizarRecibosCS">leg:LegalizarRecibo</con1:schemaElement>
+                        <con1:assign-variable>RsIniLegalizar</con1:assign-variable>
+                    </con1:nxsdTranslation>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7eaa</con2:id>
+                        <con1:service ref="TrasformTextToJson/TransformTextToJson" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:request>
+                            <con1:payload wrapped="false">RsIniLegalizar</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">RqLegalizarRecibos</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7ea9</con2:id>
+                                <con1:header-set>outbound-request</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53eef3bf.21dadc7.0.17883e25952.N7e22" name="LegalizarRecibosJMS" errorHandler="error-N53eef3bf.21dadc7.0.17883e25952.N7cb5">
+                <con:context/>
+                <con:actions>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7e21</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":
+  {
+      "CODIGO_OPERACION":"E1",
+      "FECHA_PROCESAMIENTO":date,
+      "FECHA_TRANSACCION":date,
+      "ID_TRANSACCION_OSB":process.transaccionId,
+      "SISTEMA_DESTINO":"CS",
+      "SISTEMA_ORIGEN":"Natural"
+    },
+    "NUMERO_POLIZA":process.RqLegalizarRecibos.NUMERO_POLIZA,
+    "NUMERO_REFERENCIA":process.RqLegalizarRecibos.NUMERO_REFERENCIA,
+    "MONTO":process.RqLegalizarRecibos.MONTO,
+    "CEDULA":process.RqLegalizarRecibos.CEDULA,
+    "TIPO_CEDULA":process.RqLegalizarRecibos.TIPO_CEDULA,
+    "SUCURSAL":process.RqLegalizarRecibos.SUCURSAL,
+    "FECHA_OPERACION":process.RqLegalizarRecibos.FECHA_OPERACION,
+    "USUARIO":process.RqLegalizarRecibos.USUARIO,
+    "FORMA_PAGO":process.RqLegalizarRecibos.FORMA_PAGO
+}</con1:script>
+                    </con1:javaScript>
+                    <con2:route xmlns:con2="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7e20</con3:id>
+                        <con2:service ref="Dat_EnviarPagoLegalizacionJMS/ProxyService/Dat_EnviarPagoLegalizacionJMS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:outboundTransform/>
+                    </con2:route>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7c11</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.rtaXML=
+{
+"CABECERA":{
+"CODIGO_OPERACION":'E9',
+"FECHA_PROCESAMIENTO":date,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.transaccionId,
+"SISTEMA_DESTINO":'Natural',
+"SISTEMA_ORIGEN":'CS',
+},
+"STATUS":{
+"CODIGO": 200,
+"COMPONENTE": 'Exp_LegalizarRecibosCS',
+"DETALLE": "Transaccion exitosa",
+"ORIGEN": "OSB"
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:nxsdTranslation xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7c0e</con2:id>
+                        <con1:type>Native-To-XML</con1:type>
+                        <con1:sourceExpr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$rtaXML</con2:xqueryText>
+                        </con1:sourceExpr>
+                        <con1:nxsd ref="Exp_LegalizarRecibosCS/Resources/XSD/legalizarRecibosResponse"/>
+                        <con1:schemaElement xmlns:leg="http://sura.com.pa/LegalizarRecibosCS">leg:LegalizaRecibosResponse</con1:schemaElement>
+                        <con1:replace-body-content/>
+                    </con1:nxsdTranslation>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N53eef3bf.21dadc7.0.17883e25952.N7fbb">
+            <con:stage id="_StageId-N53eef3bf.21dadc7.0.17883e25952.N7d7b" name="Stage1">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N53eef3bf.21dadc7.0.17883e25952.N7cb5">
+            <con:stage id="_StageId-N53eef3bf.21dadc7.0.17883e25952.N7c48" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="exp" namespace="http://sura.com.pa/expoServiceSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7c47</con2:id>
+                        <con1:script>process.codigo=503;
+process.resumen="Hubo un error en el servicio EnviarPagoLegalizacionJMS";
+process.detalle="Hubo un error en el servicio EnviarPagoLegalizacionJMS";</con1:script>
+                    </con1:javaScript>
+                    <con1:assign varName="error" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7c46</con2:id>
+                        <con1:expr>
+                            <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="Exp_LegalizarRecibosCS/Resources/XSLT/RestServ_to_FaultMsg"/>
+                                <con2:param name="codigo">
+                                    <con2:path>$codigo</con2:path>
+                                </con2:param>
+                                <con2:param name="resumen">
+                                    <con2:path>$resumen</con2:path>
+                                </con2:param>
+                                <con2:param name="detalle">
+                                    <con2:path>$detalle</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:Error xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N53eef3bf.21dadc7.0.17883e25952.N7c45</con2:id>
+                        <con1:errCode>503</con1:errCode>
+                        <con1:message>Hubo un error en el servicio EnviarPagoLegalizacionJMS</con1:message>
+                    </con1:Error>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-N53eef3bf.21dadc7.0.17883e25952.N7fbc</con:request>
+                <con:response>response-N53eef3bf.21dadc7.0.17883e25952.N7fbb</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

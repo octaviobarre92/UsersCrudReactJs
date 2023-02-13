@@ -1,0 +1,20 @@
+<wsdl:definitions name="jmsGenerarActividadDocumento" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Exp_GestionarActividadDocumento/jmsGenerarActividadDocumento" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Exp_GestionarActividadDocumento/jmsGenerarActividadDocumento" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:imp1="http://sura.com.pa/GestionarActividadDocumento/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plt:partnerLinkType name="GenerarActividad_Documento_Produce_Message_plt">
+    <plt:role name="GenerarActividad_Documento_Produce_Message_role">
+      <plt:portType name="tns:GenerarActividad_Documento_Produce_Message_ptt"/>
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema">
+        <import namespace="http://sura.com.pa/GestionarActividadDocumento/" schemaLocation="../nxsd/RqExpGestionarActividadDocumento.xsd"/>
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="GenerarActividad_Documento_Produce_Message_msg">
+        <wsdl:part name="body" element="imp1:GestionarActividadDocumentoReq"/>
+    </wsdl:message>
+    <wsdl:portType name="GenerarActividad_Documento_Produce_Message_ptt">
+        <wsdl:operation name="GenerarActividad_Documento_Produce_Message">
+            <wsdl:input message="tns:GenerarActividad_Documento_Produce_Message_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
