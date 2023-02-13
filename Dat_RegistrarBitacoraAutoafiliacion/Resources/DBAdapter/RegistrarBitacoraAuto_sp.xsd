@@ -1,0 +1,31 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/RegistrarBitacoraAuto" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/RegistrarBitacoraAuto" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="card_token" type="db:string100" db:index="1" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="core" type="db:string10" db:index="2" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="insurance" type="db:string100" db:index="3" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="status" type="int" db:index="4" db:type="INT" minOccurs="0" nillable="true"/>
+            <element name="response_code" type="db:string10" db:index="5" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="response_description" type="string" db:index="6" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="identification" type="db:string25" db:index="7" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+            <element name="request" type="string" db:index="8" db:type="VARCHAR" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <simpleType name="string100">
+      <restriction base="string">
+         <maxLength value="100"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string10">
+      <restriction base="string">
+         <maxLength value="10"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string25">
+      <restriction base="string">
+         <maxLength value="25"/>
+      </restriction>
+   </simpleType>
+</schema>

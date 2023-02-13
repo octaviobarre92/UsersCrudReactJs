@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_RegistrarBitacoraPago/RegistrarBitacoraPago" name="RegistrarBitacoraPago-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="RegistrarBitacoraPago.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_RegistrarBitacoraPago/RegistrarBitacoraPago"/>
+    <wsdl:binding name="RegistrarBitacoraPago_ptt-binding" type="reg:RegistrarBitacoraPago_ptt" xmlns:reg="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_RegistrarBitacoraPago/RegistrarBitacoraPago">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="RegistrarBitacoraPago">
+            <soap:operation soapAction="RegistrarBitacoraPago"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

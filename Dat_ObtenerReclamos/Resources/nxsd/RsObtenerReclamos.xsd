@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/ObtenerReclamo" targetNamespace="http://www.sura.com.pa/ObtenerReclamo" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="INFO_RECLAMO">
+      <xsd:complexType>
+         <xsd:sequence>
+                       <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="PAGINACION">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CANTIDAD_DE_PAGINAS" type="xsd:string"/>
+                              <xsd:element name="PAGINA_ACTUAL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO" type="xsd:string"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="RECLAMOS" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_CORREDOR" type="xsd:string"/>
+                     <xsd:element name="OBJETO_POLIZA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NUMERO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_DESDE" type="xsd:string"/>
+                              <xsd:element name="DESC_RAMO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_POLIZA_INICIAL" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_HASTA" type="xsd:string"/>
+                              <xsd:element name="COD_RAMO" type="xsd:string"/>
+                              <xsd:element name="SECUENCIAL_POLIZA" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="INFO_RECLAMO">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ARTICULO" type="xsd:string"/>
+                              <xsd:element name="FECHA_SINIESTRO" type="xsd:string"/>
+                              <xsd:element name="FECHA_REPORTE" type="xsd:string"/>
+                              <xsd:element name="ESTATUS" type="xsd:string"/>
+                              <xsd:element name="AJUSTADOR" type="xsd:string"/>
+                              <xsd:element name="OBSERVACIONES" type="xsd:string"/>
+                              <xsd:element name="DESCRIPCION" type="xsd:string"/>
+                              <xsd:element name="DANOS" type="xsd:string"/>
+                              <xsd:element name="PROVINCIA" type="xsd:string"/>
+                              <xsd:element name="DISTRITO" type="xsd:string"/>
+                              <xsd:element name="CORREGIMIENTO" type="xsd:string"/>
+                              <xsd:element name="LUGAR" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

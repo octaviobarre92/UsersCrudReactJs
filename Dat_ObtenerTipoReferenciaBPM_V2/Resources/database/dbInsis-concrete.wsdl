@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerTipoReferenciaBPM_V2/dbInsis" name="dbInsis-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="dbInsis.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerTipoReferenciaBPM_V2/dbInsis"/>
+    <wsdl:binding name="dbInsis_ptt-binding" type="dbin:dbInsis_ptt" xmlns:dbin="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ObtenerTipoReferenciaBPM_V2/dbInsis">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="dbInsis">
+            <soap:operation soapAction="dbInsis"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
