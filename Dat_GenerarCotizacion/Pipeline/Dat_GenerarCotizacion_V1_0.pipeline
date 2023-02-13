@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf4">
+        <con:pipeline type="request" name="request-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf8">
+            <con:stage id="_StageId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bdb" name="IniciacionVariables">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="origenError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bda</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'GenerarCotizacion'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="componenteError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bd9</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">"Dat_GenerarCotizacion"</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bd8</con2:id>
+                        <con1:script>process.codigoOperacion = process.body.CABECERA.CODIGO_OPERACION
+process.fechaProcesamiento = process.body.CABECERA.FECHA_PROCESAMIENTO
+process.fechaTransaccion = process.body.CABECERA.FECHA_TRANSACCION
+process.idTransaccion = process.body.CABECERA.ID_TRANSACCION_OSB
+process.sistemaDestino = process.body.CABECERA.SISTEMA_DESTINO
+process.sistemaOrigen = process.body.CABECERA.SISTEMA_ORIGEN
+process.bodyorigina = process.body</con1:script>
+                    </con1:javaScript>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bd7" name="GeneracionCotizacion">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7bd4</con2:id>
+                        <con1:service ref="Dat_GenerarCotizacion/Resources/RestAdapter/GenerarCotizacion" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>GeneracionCotizacion</con1:operation>
+                        <con1:request>
+                            <con1:payload wrapped="false">rqGenerarCotizacion</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">rsGenerarCotizacion</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7f10</con2:id>
+                                <con1:script><![CDATA[process.cotizaciones = new Array()
+process.solicitantes2 = new Array()
+process.asegurados2 = new Array()
+var tipoi = ""
+var iden = ""
+var par1 = ""
+var par2 = ""
+var par3 = ""
+var par4 = ""
+var par5 = ""
+var par6 = ""
+var par7 = ""
+var par8 = ""
+var par9 = ""
+var par10 = ""
+var par11 = ""
+var par12 = ""
+for (i = 0; i < process.body.COTIZACIONES.length; i++) 
+{			
+	if(process.body.COTIZACIONES[i].ASEGURADOS!=null && process.body.COTIZACIONES[i].ASEGURADOS!="")
+	{
+		for (k = 0; k < process.body.COTIZACIONES[i].ASEGURADOS.length; k++) 
+		{
+			process.conto = process.body.COTIZACIONES[i].ASEGURADOS.length
+			tipoi = ""
+			iden = ""
+			par1 = ""
+			par2 = ""
+			par3 = ""
+			par4 = ""
+			par5 = ""
+			par6 = ""
+			par7 = ""
+			par8 = ""
+			par9 = ""
+			par10 = ""
+			par11 = ""
+			par12 = ""
+			if(process.body.COTIZACIONES[i].ASEGURADOS[k].TIPO_PERSONA == 'J')
+			{
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL!="")
+				{
+					par1 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION!="")
+				{
+					tipoi = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION!="")
+				{
+					iden = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION
+				}							
+			}
+			else
+			{
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NOMBRE!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NOMBRE!="")
+				{
+					par1 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NOMBRE
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO!="")
+				{
+					par2 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO!="")
+				{
+					par3 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO
+				}	
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION!="")
+				{
+					tipoi = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION!="")
+				{
+					iden = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO!="")
+				{
+					par4 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEXO!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEXO!="")
+				{
+					par5 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.SEXO
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA!="")
+				{
+					par6 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA
+				}
+
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD!="")
+				{
+					par7 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL!="")
+				{
+					par8 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PROFESION!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PROFESION!="")
+				{
+					par9 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.PROFESION
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS!="")
+				{
+					par10 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.EMAIL!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.EMAIL!="")
+				{
+					par11 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.EMAIL
+				}
+				if(process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TELEFONO!=null && process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TELEFONO!="")
+				{
+					par12 = process.body.COTIZACIONES[i].ASEGURADOS[k].PERSONA.PERSONA_NATURAL.TELEFONO
+				}						
+			}
+			
+			process.aseg = 
+			{
+				"NOMBRECOMPLETO":par1+" "+ par2 +" "+par3,
+				"TIPOID":tipoi,
+				"IDENTIFICACION":iden,
+				"PARAMETRO1":par1,
+				"PARAMETRO2":par2,
+				"PARAMETRO3":par3,
+				"PARAMETRO4":par4,
+				"PARAMETRO5":par5,
+				"PARAMETRO6":par6,
+				"PARAMETRO7":par7,
+				"PARAMETRO8":par8,
+				"PARAMETRO9":par9,
+				"PARAMETRO10":par10,
+				"PARAMETRO11":par11,
+				"PARAMETRO12":par12
+			}					
+			process.asegurados2.push(process.aseg)			
+		}
+	}
+	if(process.body.COTIZACIONES[i].SOLICITANTES!=null && process.body.COTIZACIONES[i].SOLICITANTES!="")
+	{
+		for (k = 0; k < process.body.COTIZACIONES[i].SOLICITANTES.length; k++) 
+		{
+			tipoi = ""
+			iden = ""
+			par1 = ""
+			par2 = ""
+			par3 = ""
+			par4 = ""
+			par5 = ""
+			par6 = ""
+			par7 = ""
+			par8 = ""
+			par9 = ""
+			par10 = ""
+			par11 = ""
+			par12 = ""
+			if(process.body.COTIZACIONES[i].SOLICITANTES[k].TIPO_PERSONA == 'J')
+			{
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL!="")
+				{
+					par1 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.RAZONSOCIAL
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION!="")
+				{
+					tipoi = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.TIPO_IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION!="")
+				{
+					iden = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_JURIDICA.IDENTIFICACION
+				}							
+			}
+			else
+			{
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NOMBRE!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NOMBRE!="")
+				{
+					par1 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NOMBRE
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO!="")
+				{
+					par2 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PRIMER_APELLIDO
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO!="")
+				{
+					par3 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEGUNDO_APELLIDO
+				}	
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION!="")
+				{
+					tipoi = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TIPO_IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION!="")
+				{
+					iden = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.IDENTIFICACION
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO!="")
+				{
+					par4 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.FECHA_DE_NACIMIENTO
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEXO!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEXO!="")
+				{
+					par5 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.SEXO
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA!="")
+				{
+					par6 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PAIS_RESIDENCIA
+				}
+
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD!="")
+				{
+					par7 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NACIONALIDAD
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL!="")
+				{
+					par8 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.ESTADO_CIVIL
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PROFESION!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PROFESION!="")
+				{
+					par9 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.PROFESION
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS!="")
+				{
+					par10 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.NUMERO_HIJOS
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.EMAIL!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.EMAIL!="")
+				{
+					par11 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.EMAIL
+				}
+				if(process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TELEFONO!=null && process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TELEFONO!="")
+				{
+					par12 = process.body.COTIZACIONES[i].SOLICITANTES[k].PERSONA.PERSONA_NATURAL.TELEFONO
+				}						
+			}
+			
+			process.solic = 
+			{
+				"SOLICITANTE_NOM":par1,
+				"SOLICITANTE_APE":par2,
+				"TIPOID":tipoi,
+				"IDENTIFICACION":iden,
+				"CORREO":par11,
+				"CELULAR":par12
+			}						
+			process.solicitantes2.push(process.solic)			
+		}
+	}	
+	process.cotizacion = 
+	{
+		"GENERALES":process.body.COTIZACIONES[i].COTIZACION,
+		"SOLICITANTE":process.solicitantes2,
+		"ASEGURADO":process.asegurados2,
+		"URLPDFCCM":process.body.COTIZACIONES[i].URLPDFCCM,
+		"INFORMACION_PRIMA":process.body.COTIZACIONES[i].INFORMACION_PRIMA,
+		"riesgos":process.body.COTIZACIONES[i].RIESGOS
+	}
+	process.cotizaciones.push(process.cotizacion)
+}
+process.rqGenerarCotizacion = 
+{
+	"cotizacion": process.cotizaciones
+}]]></con1:script>
+                            </con1:javaScript>
+                            <con3:transport-headers copy-all="false" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7ba0</con4:id>
+                                <con2:header-set>outbound-request</con2:header-set>
+                                <con2:header value="expression" name="Content-Type">
+                                    <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">'application/json'</con3:xqueryText>
+                                </con2:header>
+                            </con3:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:insert varName="inbound">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7edc</con2:id>
+                                <con1:location>
+                                    <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./ctx:transport/ctx:response</con2:xpathText>
+                                </con1:location>
+                                <con1:where>first-child</con1:where>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$outbound/ctx:transport/ctx:response/http:http-response-code</con2:xqueryText>
+                                </con1:expr>
+                            </con1:insert>
+                            <con1:assign varName="codigoHttp">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7ed9</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$inbound/ctx:transport/ctx:response/http:http-response-code/text()</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7ed6</con2:id>
+                                <con1:script>if ((process.codigoHttp==200))
+{
+	if(process.rsGenerarCotizacion.MENSAJE!=null)
+	{
+		process.mensajeError = process.rsGenerarCotizacion.MENSAJE
+		process.exito = false
+	}
+}
+else
+{
+	process.mensajeError = "Transaccion Fallida"
+	process.exito = false
+}</con1:script>
+                            </con1:javaScript>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                    <con1:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e47</con2:id>
+                        <con1:case id="_BranchId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e46">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($codigoHttp, "200")=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con2:javaScript xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                    <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e45</con3:id>
+                                    <con2:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"SoaSec",
+"SISTEMA_ORIGEN":"OSB",
+},
+"CODIGOS_CORREDORES":process.corredores,
+"STATUS":{
+"CODIGO": 200,
+"COMPONENTE": process.componenteError,
+"DETALLE": "Transaccion exitosa",
+"ORIGEN": process.origenError
+}
+}</con2:script>
+                                </con2:javaScript>
+                                <con2:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                    <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e44</con3:id>
+                                    <con2:case id="_BranchId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e43">
+                                        <con2:condition>
+                                            <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">fn:compare($auditar, "true")=0</con3:xqueryText>
+                                        </con2:condition>
+                                        <con2:actions>
+                                            <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config">
+                                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e42</con4:id>
+                                                <con3:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                <con3:outboundTransform/>
+                                            </con3:route>
+                                        </con2:actions>
+                                    </con2:case>
+                                    <con2:default/>
+                                </con2:ifThenElse>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default>
+                            <con1:assign varName="codigoError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e41</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">dvm:lookup("DVM_Project/Constantes_DVM.dvm", "Atributo", "codErrorVal", "Valor", "500")</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e40</con2:id>
+                                <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"SoaSec",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                            </con1:javaScript>
+                            <con2:route xmlns:con2="http://www.bea.com/wli/sb/stages/publish/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e3f</con3:id>
+                                <con2:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con2:outboundTransform/>
+                            </con2:route>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e3e</con2:id>
+                                <con1:header-set>inbound-response</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                            <con2:reply xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:id>_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e3d</con2:id>
+                            </con2:reply>
+                        </con1:default>
+                    </con1:ifThenElse>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e09</con2:id>
+                        <con1:script>process.body = process.rsGenerarCotizacion</con1:script>
+                    </con1:javaScript>
+                    <con1:assign varName="binaryContent" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e06</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/ctx:binary-content</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaCallout varName="rqTransformText" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7e03</con2:id>
+                        <con1:archive ref="Dat_GenerarCotizacion/Resources/lib/castbinary"/>
+                        <con1:className>castbinarytojson.Binary</con1:className>
+                        <con1:method>public static java.lang.String getBinaryContentAsString(java.lang.Object)</con1:method>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$binaryContent</con2:xqueryText>
+                        </con1:expr>
+                        <con1:return-param-as-ref>false</con1:return-param-as-ref>
+                    </con1:javaCallout>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7dc6</con2:id>
+                        <con1:service ref="TrasformTextToJson/TransformTextToJson" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:request>
+                            <con1:payload wrapped="false">rqTransformText</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">rsTransformText</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c4b.N144f9a02.0.17c33426764.N7ffe</con2:id>
+                                <con1:script>var texto = process.
+str.substring(1, 4)</con1:script>
+                            </con1:javaScript>
+                            <con1:assign varName="origenError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7dc5</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'OSB'</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:assign varName="componenteError">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7dc4</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'TransformarMensajeTextToJson'</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7dc3</con2:id>
+                                <con1:header-set>outbound-request</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7d53</con2:id>
+                        <con1:script>process.cotizaciones = new Array()
+process.solicitantes = new Array()
+process.asegurados = new Array()
+process.exito = true
+if ((process.codigoHttp==200))
+{
+	if(process.rsTransformText.cotizacion!=null)
+	{
+		for (i = 0; i &lt; process.rsTransformText.cotizacion.length; i++) 
+		{				
+			if (process.rsTransformText.cotizacion[i].SOLICITANTE != null)
+			{
+				for (k = 0; k &lt; process.rsTransformText.cotizacion[i].SOLICITANTE.length; k++) 
+				{
+					process.PERSONASOL = 
+					{
+						"PERSONA_NATURAL":
+						{
+							"NOMBRE":process.rsTransformText.cotizacion[i].SOLICITANTE[k].SOLICITANTE_NOM,
+							"PRIMER_APELLIDO":process.rsTransformText.cotizacion[i].SOLICITANTE[k].SOLICITANTE_APE,
+							"EMAIL":process.rsTransformText.cotizacion[i].SOLICITANTE[k].CORREO,
+							"TELEFONO":process.rsTransformText.cotizacion[i].SOLICITANTE[k].CELULAR,
+							"TIPO_IDENTIFICACION":process.rsTransformText.cotizacion[i].SOLICITANTE[k].TIPOID,
+							"IDENTIFICACION":process.rsTransformText.cotizacion[i].SOLICITANTE[k].IDENTIFICACION,
+						}
+					}
+					process.solicitantes.push(process.PERSONASOL)			
+				}
+			}		
+			if (process.rsTransformText.cotizacion[i].ASEGURADO != null)
+			{
+				for (k = 0; k &lt; process.rsTransformText.cotizacion[i].ASEGURADO.length; k++) 
+				{
+					process.PERSONA = 
+					{
+						"PERSONA_NATURAL":
+						{
+							"NOMBRE":process.rsTransformText.cotizacion[i].ASEGURADO[k].NOMBRECOMPLETO,
+							"PRIMER_APELLIDO":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO2,
+							"SEGUNDO_APELLIDO":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO3,
+							"FECHA_DE_NACIMIENTO":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO4,
+							"SEXO":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO5,
+							"PAIS_RESIDENCIA":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO6,
+							"NACIONALIDAD":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO7,
+							"ESTADO_CIVIL":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO8,
+							"PROFESION":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO9,
+							"NUMERO_HIJOS":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO10,
+							"EMAIL":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO11,
+							"TELEFONO":process.rsTransformText.cotizacion[i].ASEGURADO[k].PARAMETRO12,
+							"TIPO_IDENTIFICACION":process.rsTransformText.cotizacion[i].ASEGURADO[k].TIPOID,
+							"IDENTIFICACION":process.rsTransformText.cotizacion[i].ASEGURADO[k].IDENTIFICACION,
+						}
+					}
+					process.asegurados.push(process.PERSONA)			
+				}
+			}		
+			process.cotizacion = 
+			{
+				"COTIZACION":process.rsTransformText.cotizacion[i].GENERALES,
+				"SOLICITANTES":process.solicitantes,
+				"ASEGURADO":process.asegurados,
+				"URLPDFCCM":process.rsTransformText.cotizacion[i].URLPDFCCM,
+				"INFORMACION_PRIMA":process.rsTransformText.cotizacion[i].INFORMACION_PRIMA,
+				"RIESGOS":process.rsTransformText.cotizacion[i].riesgos,
+			}
+			process.cotizaciones.push(process.cotizacion)
+		}
+                process.mensajeError = "Transaccion Exitosa"
+                process.codigoError = 200
+	}
+	else
+	{
+		process.mensajeError = process.rsTransformText.MENSAJE
+                process.codigoError = 400
+		process.exito = false
+	}
+}
+else
+{
+	process.exito = false
+        process.codigoError = process.codigoHttp
+}</con1:script>
+                    </con1:javaScript>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf7">
+            <con:stage id="_StageId-N3f57fe6d.N733b3908.0.17b40b8257c.N7cea" name="Respuesta">
+                <con:context/>
+                <con:actions>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7ce9</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+},
+"COTIZACIONES": process.cotizaciones 
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:transport-headers xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N733b3908.0.17b40b8257c.N7ce8</con2:id>
+                        <con1:header-set>inbound-response</con1:header-set>
+                        <con1:header value="expression" name="Content-Type">
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                        </con1:header>
+                    </con1:transport-headers>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf4">
+            <con:stage id="_StageId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c4d" name="Stage_Error">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="mensajeError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c4c</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:concat($fault/ctx:reason/text(), " / ", $fault/ctx:details[1]/*:ErrorResponseDetail/*:detail/text())</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="codigoError" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c4b</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:errorCode/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c4a</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.body=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"SAM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": process.codigoError,
+"COMPONENTE": process.componenteError,
+"DETALLE": process.mensajeError,
+"ORIGEN": process.origenError
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c49</con2:id>
+                        <con1:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform/>
+                    </con1:route>
+                    <con1:transport-headers xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c48</con2:id>
+                        <con1:header-set>inbound-response</con1:header-set>
+                        <con1:header value="expression" name="Content-Type">
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                        </con1:header>
+                    </con1:transport-headers>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-N3f57fe6d.N6781477f.0.17b30b19a52.N7c47</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf8</con:request>
+                <con:response>response-N3f57fe6d.N6781477f.0.17b30b19a52.N7cf7</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

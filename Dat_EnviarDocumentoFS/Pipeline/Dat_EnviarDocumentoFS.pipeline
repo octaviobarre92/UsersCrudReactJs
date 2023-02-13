@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="ComponentesComunes/WSDL/GestionDocumentalSIV1"/>
+            <con:binding>
+                <con:name>GestionDocumentalBindingSOAP</con:name>
+                <con:namespace>http://xmlns.sura.com/ServicioIntegracion/DominioUtilitario/GestionDocumental/V1</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-ad33703.31e34814.0.17248563fb7.N7e18">
+        <con:pipeline type="request" name="request-ad33703.31e34814.0.17248563fb7.N7fc8">
+            <con:stage id="_StageId-ad33703.31e34814.0.17248563fb7.N7ecb" name="Validacion Entrada" errorHandler="error-ad33703.31e34814.0.17248563fb7.N7ec5">
+                <con:context>
+                    <con1:userNsDecl prefix="v12" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v11" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v13" namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v1" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7eca</con2:id>
+                        <con1:schema ref="ComponentesComunes/WSDL/xsd/DominioUtilitario/GestionDocumental/V1/GestionDocumentalMIV1"/>
+                        <con1:schemaElement xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1">v1:EnviarDocumentoFSMsjSol</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/v12:EnviarDocumentoFSMsjSol</con2:xpathText>
+                        </con1:location>
+                        <con1:resultVarName/>
+                    </con1:validate>
+                    <con1:assign varName="auditar" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec9</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">dvm:lookup("DVM_Project/Constantes_DVM.dvm", "Atributo", "auditar", "Valor", "FALSE")</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="codigoOperacion" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec8</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/v12:EnviarDocumentoFSMsjSol/v12:CabeceraSol/v11:CodigoOperacion/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="fechaProcesamiento" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec7</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/v12:EnviarDocumentoFSMsjSol/v12:CabeceraSol/v11:FechaTransaccion/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="idTransaccion" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec6</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/v12:EnviarDocumentoFSMsjSol/v12:CabeceraSol/v11:IdTransaccionOsb/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="NombreDoc" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N19f78477.0.1724df72cd9.N7ffe</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/v12:EnviarDocumentoFSMsjSol/v12:Documento/v13:Nombre/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-ad33703.N19f78477.0.1724df72cd9.N7ee0" name="Stage1">
+                <con:context/>
+                <con:disabled>true</con:disabled>
+                <con:actions>
+                    <con1:assign varName="base64" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N19f78477.0.1724df72cd9.N7edf</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'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ZXIgKG1hY09TIFZlcnNpb24gMTAuMTUuNCBcKEJ1aWxkIDE5RTI4N1wpIFF1YXJ0eiBQREZDb250ZXh0KQovQ3JlYXRvciAoV29yZCkgL0NyZWF0aW9uRGF0ZSAoRDoyMDIwMDUyNTIzMzAwN1owMCcwMCcpIC9Nb2REYXRlIChEOjIwMjAwNTI1MjMzMDA3WjAwJzAwJykKPj4KZW5kb2JqCnhyZWYKMCAxOAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMTI1NDYgMDAwMDAgbiAKMDAwMDAwMDI1NiAwMDAwMCBuIAowMDAwMDAzMjI5IDAwMDAwIG4gCjAwMDAwMDAwMjIgMDAwMDAgbiAKMDAwMDAwMDIzNyAwMDAwMCBuIAowMDAwMDAwMzYwIDAwMDAwIG4gCjAwMDAwMDMxOTMgMDAwMDAgbiAKMDAwMDAwMDAwMCAwMDAwMCBuIAowMDAwMDAzMzYyIDAwMDAwIG4gCjAwMDAwMDA0NTcgMDAwMDAgbiAKMDAwMDAwMzE3MiAwMDAwMCBuIAowMDAwMDAzMzEyIDAwMDAwIG4gCjAwMDAwMDM5MTIgMDAwMDAgbiAKMDAwMDAwMzU0OCAwMDAwMCBuIAowMDAwMDAzODkyIDAwMDAwIG4gCjAwMDAwMDQxNDggMDAwMDAgbiAKMDAwMDAxMjUyNSAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDE4IC9Sb290IDEyIDAgUiAvSW5mbyAxIDAgUiAvSUQgWyA8MWNmZjdjZTEwYmZlOGUzOWVmNDRjYjI0NzcyYjU1N2I+CjwxY2ZmN2NlMTBiZmU4ZTM5ZWY0NGNiMjQ3NzJiNTU3Yj4gXSA+PgpzdGFydHhyZWYKMTI3NjMKJSVFT0YK'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N19f78477.0.1724df72cd9.N7edc</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$base64</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-ad33703.31e34814.0.17248563fb7.N7fc7">
+            <con:stage id="_StageId-ad33703.31e34814.0.17248563fb7.N7e89" name="Response">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="RsAuxBody" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7e82</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="Dat_EnviarDocumentoFS/Resources/TOUT_Dat_to_Bss"/>
+                                <con2:input>$body</con2:input>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                    <con2:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7e85</con3:id>
+                        <con1:location>
+                            <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">$RsAuxBody</con3:xqueryText>
+                        </con1:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-ad33703.31e34814.0.17248563fb7.N7ec5">
+            <con:stage id="_StageId-ad33703.31e34814.0.17248563fb7.N7ec4" name="ErrorHandler">
+                <con:context>
+                    <con1:userNsDecl prefix="v11" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v1" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="mensaje" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec3</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:reason/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec2</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.auditoria=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"FILESYSTEM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": "404",
+"COMPONENTE": "Dat_EnviarDocumentoFS",
+"DETALLE": process.mensaje,
+"ORIGEN": "OSB"
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec1</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$auditoria</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con2:route xmlns:con2="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ec0</con3:id>
+                        <con2:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:outboundTransform/>
+                    </con2:route>
+                    <con1:assign varName="cuerpo" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ebf</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="ComponentesComunes/XSLT/ErrorGeneral"/>
+                                <con2:input>$fault</con2:input>
+                                <con2:param name="bm.tns">
+                                    <con2:path>"http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"</con2:path>
+                                </con2:param>
+                                <con2:param name="operation">
+                                    <con2:path>"EnviarDocumentoFS"</con2:path>
+                                </con2:param>
+                                <con2:param name="status">
+                                    <con2:path>"ErrorTecnico"</con2:path>
+                                </con2:param>
+                                <con2:param name="descripcion">
+                                    <con2:path>"Peticion Invalida"</con2:path>
+                                </con2:param>
+                                <con2:param name="componente">
+                                    <con2:path>"Dat_EnviarDocumentoFS"</con2:path>
+                                </con2:param>
+                                <con2:param name="codigoError">
+                                    <con2:path>$fault/ctx:errorCode</con2:path>
+                                </con2:param>
+                                <con2:param name="detalleError">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="mensajeError">
+                                    <con2:path>$fault/ctx:details[1]/*:ValidationFailureDetail/*:message/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="location">
+                                    <con2:path>$fault/ctx:location/*:stage/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7ebe</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$cuerpo</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-ad33703.31e34814.0.17248563fb7.N7ebd</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-ad33703.31e34814.0.17248563fb7.N7e18">
+            <con:stage id="_StageId-ad33703.31e34814.0.17248563fb7.N7da6" name="ErrorHandler">
+                <con:context>
+                    <con1:userNsDecl prefix="v11" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v1" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="mensaje" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da5</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:reason/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da4</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.auditoria=
+{
+"CABECERA":{
+"CODIGO_OPERACION":process.codigoOperacion,
+"FECHA_PROCESAMIENTO":process.fechaProcesamiento,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":process.idTransaccion,
+"SISTEMA_DESTINO":"FILESYSTEM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": "404",
+"COMPONENTE": "Dat_EnviarDocumentoFS",
+"DETALLE": process.mensaje,
+"ORIGEN": "OSB"
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da3</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$auditoria</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con2:route xmlns:con2="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da2</con3:id>
+                        <con2:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:outboundTransform/>
+                    </con2:route>
+                    <con1:assign varName="cuerpo" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da1</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="ComponentesComunes/XSLT/ErrorGeneral"/>
+                                <con2:input>$fault</con2:input>
+                                <con2:param name="bm.tns">
+                                    <con2:path>"http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"</con2:path>
+                                </con2:param>
+                                <con2:param name="operation">
+                                    <con2:path>"EnviarDocumentoFS"</con2:path>
+                                </con2:param>
+                                <con2:param name="status">
+                                    <con2:path>"ErrorTecnico"</con2:path>
+                                </con2:param>
+                                <con2:param name="descripcion">
+                                    <con2:path>"Error general no identificado"</con2:path>
+                                </con2:param>
+                                <con2:param name="componente">
+                                    <con2:path>"Dat_EnviarDocumentoFS"</con2:path>
+                                </con2:param>
+                                <con2:param name="codigoError">
+                                    <con2:path>$fault/ctx:errorCode</con2:path>
+                                </con2:param>
+                                <con2:param name="detalleError">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="mensajeError">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="location">
+                                    <con2:path>$fault/ctx:location/*:stage/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.31e34814.0.17248563fb7.N7da0</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$cuerpo</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-ad33703.31e34814.0.17248563fb7.N7d9f</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-ad33703.31e34814.0.17248563fb7.N7fc8</con:request>
+                <con:response>response-ad33703.31e34814.0.17248563fb7.N7fc7</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-ad33703.31e34814.0.17248563fb7.N8000</con2:id>
+                        <con1:service ref="Dat_EnviarDocumentoFS/BusinessService/SendDocumentFS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform>
+                            <con3:assign varName="nombre" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-ad33703.31e34814.0.17248563fb7.N7fcc</con2:id>
+                                <con2:disabled>true</con2:disabled>
+                                <con3:expr>
+                                    <con2:xqueryText>'Cedular112312'</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con3:transport-headers xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-ad33703.31e34814.0.17248563fb7.N7fc9</con2:id>
+                                <con3:header-set>outbound-request</con3:header-set>
+                                <con3:header value="expression" name="fileName">
+                                    <con2:xqueryText>$NombreDoc</con2:xqueryText>
+                                </con3:header>
+                                <con3:header value="expression" name="Content-Type">
+                                    <con2:xqueryText>'application/pdf'</con2:xqueryText>
+                                </con3:header>
+                            </con3:transport-headers>
+                        </con1:outboundTransform>
+                        <con1:responseTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

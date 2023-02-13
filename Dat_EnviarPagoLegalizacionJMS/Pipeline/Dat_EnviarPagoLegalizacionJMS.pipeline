@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-af01360.71cc58e6.0.16fb0743203.N7c91">
+            <con:stage id="_StageId-af03d03.5070eafa.0.16fc08cd742.N7fcc" name="Entrada">
+                <con:context/>
+                <con:actions>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af01360.71cc58e6.0.16fb0743203.N7c8b</con2:id>
+                        <con1:service ref="Dat_EnviarPagoLegalizacionJMS/BusinessService/EnviarPagoLegalizacionJMS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-af01360.71cc58e6.0.16fb0743203.N7c90">
+            <con:stage id="_StageId-af01360.71cc58e6.0.16fb0743203.N7c8e" name="Salida">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-af01360.71cc58e6.0.16fb0743203.N7c91</con:request>
+                <con:response>response-af01360.71cc58e6.0.16fb0743203.N7c90</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

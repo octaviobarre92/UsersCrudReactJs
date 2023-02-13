@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/crearpoliza"
+            targetNamespace="http://pa.sura.insis.com/crearpoliza" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+  <xsd:element name="RegistrarPolizaMC">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0" maxOccurs="1"></xsd:element>	
+        <xsd:element name="CLIENTE" type="tns:CLIENTE" minOccurs="0" maxOccurs="1"></xsd:element>	
+        <xsd:element name="POLIZAS" type="tns:POLIZA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="CABECERA">
+    <xsd:sequence>
+        <xsd:element name="CODIGO_OPERACION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	   
+        <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	   
+        <xsd:element name="FECHA_TRANSACCION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	   
+        <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	   
+        <xsd:element name="SISTEMA_DESTINO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	  
+        <xsd:element name="SISTEMA_ORIGEN" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	   
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CLIENTE">
+    <xsd:sequence>
+        <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="unbounded"></xsd:element>	   
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA">
+    <xsd:sequence>
+	  <xsd:element name="PERSONA_NATURAL" type="tns:PERSONA_NATURAL" minOccurs="0"/>
+          <xsd:element name="TIPO_PERSONA" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="NACIONALIDAD" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="DIRECCIONES" type="tns:DIRECCION" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+  </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA_NATURAL">
+    <xsd:sequence>
+      <xsd:element name="NOMBRE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PRIMER_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEGUNDO_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEXO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_DE_NACIMIENTO" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ESTADO_CIVIL" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DIRECCION">
+    <xsd:sequence>
+        <xsd:element name="NOMBRE_PAIS" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CODIGO_PAIS" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="NOMBRE_ESTADO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CODIGO_ESTADO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="NOMBRE_REGION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CODIGO_REGION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="NOMBRE_CIUDAD" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CODIGO_CIUDAD" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="BARRIO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CALLE_AVENIDA" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CALLE_AVENIDA_NRO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="EDIFICIO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="PISO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ENTRADA" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="APTO_CASA" type="xsd:string" minOccurs="0"/>	    
+        <xsd:element name="DIRECCION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="TIPO_DIRECCION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ES_CORRESPONDENCIA" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ES_FACTURACION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="TELEFONO" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FAX" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="EMAIL" type="xsd:string" minOccurs="0"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="POLIZA">
+    <xsd:sequence>
+         <xsd:element name="PROPIETARIOS" type="tns:PROPIETARIO" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+         <xsd:element name="OBJETO_ASEGURADO" type="tns:OBJETO_ASEGURADO" minOccurs="0" maxOccurs="unbounded"></xsd:element>           
+         <xsd:element name="MONTO_ASEGURADO" type="xsd:string" minOccurs="0"/>	
+         <xsd:element name="FECHA_INICIO" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="FECHA_FIN" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="DURACION_PAGOS" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="CLASE" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="CONDUCTO" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="USUARIO" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="DESCRIPCION_UNIDAD" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="PLAN" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PROPIETARIO">
+    <xsd:sequence>
+	   <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="1"></xsd:element>
+	   <xsd:element name="PORCENTAJE" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="ADMINISTRADOR_FIDUCIARIO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="JERARQUIA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="RELACION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OBJETO_ASEGURADO">
+    <xsd:sequence>
+	<xsd:element name="AUTO" type="tns:AUTO" minOccurs="0" maxOccurs="1"></xsd:element>               
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AUTO">
+    <xsd:sequence>
+	   <xsd:element name="TIPO_AUTO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="SUBTIPO_AUTO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="NUMERO_PLACA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="MARCA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="MODELO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="NO_MOTOR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="CHASIS" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="ACTIVIDAD" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TONELAJE" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="NUMERO_ASIENTOS" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="NUMERO_PUERTAS" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TIPO_PINTURA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="ANNIO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="CANTIDAD_ANNIO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="COLOR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="REGISTRO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="CABALLOS_FUERZA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TONELAJE_CARGA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TIPO_MOTOR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TIPO_COMBUSTIBLE" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TIPO_CONDUCTOR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="TIPO_CARROCERIA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="COLOR_VENTANAS" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="DESCRIPCION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="ACREEDOR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="ZONA_CIRCULACION" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="ACCESORIOS" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>           
+           <xsd:element name="MONTO_ASEGURADO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+           <xsd:element name="FORMA_PAGO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+    
+ <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

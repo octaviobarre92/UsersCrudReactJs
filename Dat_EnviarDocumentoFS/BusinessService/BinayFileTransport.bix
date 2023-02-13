@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:businessServiceEntry xmlns:con="http://xmlns.oracle.com/servicebus/business/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oper="http://xmlns.oracle.com/servicebus/business/operations" xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:file="http://www.bea.com/wli/sb/transports/file">
+    <con:coreEntry>
+        <con1:binding type="Mixed" xsi:type="con:MixedBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config" xmlns:con1="http://xmlns.oracle.com/servicebus/business/config">
+            <con:request type="Binary"/>
+        </con1:binding>
+        <oper:operations enabled="true">
+            <oper:throttling/>
+            <oper:resultCachingEnabled>true</oper:resultCachingEnabled>
+        </oper:operations>
+        <con:xqConfiguration>
+            <ser:snippetVersion>1.0</ser:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:endpointConfig>
+        <tran:provider-id>file</tran:provider-id>
+        <tran:inbound>false</tran:inbound>
+        <tran:URI>
+            <env:value>file:///C:/tmp/insis</env:value>
+        </tran:URI>
+        <tran:outbound-properties>
+            <tran:load-balancing-algorithm>round-robin</tran:load-balancing-algorithm>
+            <tran:retry-count>0</tran:retry-count>
+            <tran:retry-interval>30</tran:retry-interval>
+        </tran:outbound-properties>
+        <tran:provider-specific xsi:type="file:FileEndPointConfiguration">
+            <file:outbound-properties>
+                <file:prefix/>
+                <file:suffix>.pdf</file:suffix>
+            </file:outbound-properties>
+            <file:request-encoding>utf-8</file:request-encoding>
+        </tran:provider-specific>
+    </con:endpointConfig>
+</con:businessServiceEntry>
