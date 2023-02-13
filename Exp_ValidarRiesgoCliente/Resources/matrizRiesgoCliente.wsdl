@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:mrc="http://sura.com.pa/matrizRiesgoCliente/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="matrizRiesgoCliente" targetNamespace="http://sura.com.pa/matrizRiesgoCliente/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/matrizRiesgoCliente/">
+      <xsd:element name="validarRiesgoCliente">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="idPersona" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>idPersona: identificación de la persona. Para este campo se envia la cedula/RUC/pasaporte del mismo.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="tipoID" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>tipoID: Es el tipo de Identificación de la Persona, identificado a nivel del CORE INSIS. 
+Este campo esta asociado a un catalogo de INSIS [Personas Diccionario de Datos] en donde.
+Del cual puede ser según definición:
+1- Cedula (01)
+2- Pasaporte (02)
+3- RUC (03)
+
+Nota. Se debe enviar el codigo asociado al catalgo.
+          			</xsd:documentation>
+          		</xsd:annotation>
+
+          	</xsd:element>
+          	<xsd:element name="codigoActividadEconomica" minOccurs="0" maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>codigoActividadEconomica: es la actividad a la que se dedica la persona (cliente o posible cliente). [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Actividad de Administración de Empresas (01)
+Actividad de Arquitectura (02)
+etc..
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Este campo esta asociado exclusivamente al tipoID "RUC/Cedula", la cual pertenece a una Persona Juridica o una Persona Natural con Aviso de Operacion
+
+
+          			</xsd:documentation>
+          		</xsd:annotation>
+
+          	</xsd:element>
+          	<xsd:element name="codigoOcupacion" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>codigoOcupacion= es la ocupación a la cual se dedica la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Abogado Albañil (01)
+Alcalde (02)
+Actor (03) 
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Este campo esta asociado exclusivamente al tipoID "Cedula/Pasaporte", la cual pertenece a una Persona Natural</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoPais" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>codigoPais= es el pais de origen de la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Panamá (01)
+Afganistán (02)
+Albania (04)
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Usado para todos los tipoID de Persona, llamese Cedula, RUC, Pasaporte</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoProvincia" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>codigoProvincia= es la provincia o estado de la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Panamá (01)
+Bocas del Toro(02)
+Cocle (03)
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.codigo de la Provincia.           			
+2- Usado para todos los tipoID de Persona, llamese Cedula, RUC, Pasaporte</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="ingresosAnuales" type="xsd:double" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>ingresoAnuales: ingresosa anuales de la Persona [OPTIONAL]</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="expuestoPolitico" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>expuestoPolitico: es un valor que indica si la persona esta expuesta o no. [OPTIONAL]
+Valores
+Si
+No
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:length value="2"></xsd:length>
+          				<xsd:enumeration value="Si"></xsd:enumeration>
+          				<xsd:enumeration value="No"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="familiar_expuestoPolitico" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>familiar_expuestoPolitico: si tiene un familiar vinculado a la politica. [OPTIONAL]
+Valores
+Si
+No</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:length value="2"></xsd:length>
+          				<xsd:enumeration value="Si"></xsd:enumeration>
+          				<xsd:enumeration value="No"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="codigoProducto" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>codigoProducto: este valor es el codigo del Producto asociado al diccionario de datos del Product Book.
+Nota. Este es un valor contenido en el Catalogo de INSIS, ya definido por la solución. 
+
+Por ejemplo:
+[P031] PyC Fidelidad Bancaria
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="primaAnual" type="xsd:double">
+          		<xsd:annotation>
+          			<xsd:documentation>primaAnual: monto de la prima que desea asumir.
+Este valor puede ser 0.00
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="formaPago" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>formaPago: forma de pago registrada en el CORE INSIS. 
+Este valor es un catalogo creado en INSIS que maneja las diferentes formas de Pago.
+
+Nota. Para este valor se debe enviar el codigo registrado en el catalogo asociado al medio de pago.
+
+Por ejemplo
+	Descuento_Automático_Tarjeta_de_Credito [TC]
+	Descuento_Automático_Tarjeta_de_Credito_Debito [TD]
+	Pago_voluntario Descuento_automarico_ACH [ACH]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="canal" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>Canal: canal de comunicacion</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarRiesgoClienteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="statusMSG">
+                            <xsd:annotation>
+                            	<xsd:documentation>statusMSG: Este parametro permite recibir un estatus del mensaje puede ser: 
+OK - Mensaje ejecutado exitosamente 
+ERR- Mensaje con Error</xsd:documentation></xsd:annotation>
+                            <xsd:simpleType>
+                            	<xsd:restriction base="xsd:string">
+                            		<xsd:enumeration value="OK"></xsd:enumeration>
+                            		<xsd:enumeration value="ERR"></xsd:enumeration>
+                            		<xsd:minLength value="2"></xsd:minLength>
+                            		<xsd:maxLength value="3"></xsd:maxLength>
+                            	</xsd:restriction>
+                            </xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descMSG" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>descMSG: Este parametro permite obtener la descripción del mensaje de error.</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="nivelRiesgo" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>nivelRiesgo: Es la respuesta correcta cuando el servicio responde que puede ser:
+Niveles
+--------
+Alto
+Medio
+Bajo</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+        
+
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarRiesgoClienteRequest">
+    <wsdl:part element="mrc:validarRiesgoCliente" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validarRiesgoClienteResponse">
+    <wsdl:part element="mrc:validarRiesgoClienteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="matrizRiesgoCliente">
+    <wsdl:operation name="validarRiesgoCliente">
+      <wsdl:documentation>metodo: validarRiesgoCliente
+descripcion: permite validar el nivel de Riesgo del Cliente (alto, medio, bajo</wsdl:documentation>
+      <wsdl:input message="mrc:validarRiesgoClienteRequest"/>
+      <wsdl:output message="mrc:validarRiesgoClienteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="matrizRiesgoClienteSOAP" type="mrc:matrizRiesgoCliente">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validarRiesgoCliente">
+      <soap:operation soapAction="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="matrizRiesgoCliente">
+    <wsdl:documentation>Servicio que tiene como finalidad consumir un servicio que evaluará la información de un cliente para determinar su nivel de riesgo
+(alto, medio, bajo)
+
+Proceso asociado a la validación de Riesgo de la Persona al momento de Emitir una Póliza
+Puede ser para Clientes o Futuros Clientes, de los cuales pueden ser Personas Naturales o Juridicas</wsdl:documentation>
+    <wsdl:port binding="mrc:matrizRiesgoClienteSOAP" name="matrizRiesgoClienteSOAP">
+      <wsdl:documentation>Proceso asociado a la validación de Riesgo de la Persona al momento de Emitir una Póliza
+Puede ser para Clientes o Futuros Clientes, de los cuales pueden ser Personas Naturales o Juridicas</wsdl:documentation>
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
