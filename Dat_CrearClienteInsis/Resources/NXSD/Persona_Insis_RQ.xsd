@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/crearpersona"
+            targetNamespace="http://pa.sura.insis.com/crearpersona" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+  <xsd:element name="DatosBasicos">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ASEGURADOS" type="tns:ASEGURADO" minOccurs="0" maxOccurs="unbounded"></xsd:element>		        
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:complexType name="ASEGURADO">
+      <xsd:sequence>
+        <xsd:element name="DATOS_BANCARIOS" type="tns:DATO_BANCARIO" minOccurs="0" maxOccurs="unbounded"></xsd:element>		
+        <xsd:element name="CONTACTOS" type="tns:CONTACTO" minOccurs="0" maxOccurs="unbounded"></xsd:element>		
+        <xsd:element name="DIRECCIONES" type="tns:DIRECCION" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="PERSONA" type="tns:PERSONA" minOccurs="0" maxOccurs="1"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:complexType name="PERSONA">
+    <xsd:sequence>
+	  <xsd:element name="PERSONA_NATURAL" type="tns:PERSONA_NATURAL" minOccurs="0"/>
+          <xsd:element name="PERSONA_JURIDICA" type="tns:PERSONA_JURIDICA" minOccurs="0"/>
+	  <xsd:element name="TIPO_PERSONA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NACIONALIDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="INDUSTRIA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_REGISTRO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="PREGUNTAS" type="tns:PREGUNTA" minOccurs="0" maxOccurs="unbounded"/>
+	  <xsd:element name="DIGITO_VERIFICADOR" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_VENCIMIENTO_ID" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FECHA_OPERACION" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+   <xsd:complexType name="PERSONA_NATURAL">
+    <xsd:sequence>
+      <xsd:element name="NOMBRE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PRIMER_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEGUNDO_APELLIDO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IDENTIFICACION" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SEXO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_DE_NACIMIENTO" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="IDIOMA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PAIS_RESIDENCIA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PERSONA_JURIDICA">
+    <xsd:sequence>
+      <xsd:element name="RAZONSOCIAL" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ID_CLIENTE" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="PERIODO_FISCAL" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="TIPO_PERSONA_JURIDICA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PREGUNTA">
+    <xsd:sequence>
+	  <xsd:element name="CODIGO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="RESPUESTA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="IDENTIFICADOR" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DIRECCION">
+    <xsd:sequence>
+      <xsd:element name="NOMBRE_PAIS" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_PAIS" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_REGION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_REGION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="NOMBRE_CIUDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CODIGO_CIUDAD" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="BARRIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CALLE_AVENIDA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="CALLE_AVENIDA_NRO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="EDIFICIO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="PISO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ENTRADA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="APTO_CASA" type="xsd:string" minOccurs="0"/>	    
+	  <xsd:element name="DIRECCION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TIPO_DIRECCION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_CORRESPONDENCIA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_FACTURACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="TELEFONO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="FAX" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="EMAIL" type="xsd:string" minOccurs="0"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="CONTACTO">
+    <xsd:sequence>
+      <xsd:element name="TIPO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="VALOR" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="OBSERVACION" type="xsd:string" minOccurs="0"/>	  
+	  <xsd:element name="IDIOMA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="DATO_BANCARIO">
+    <xsd:sequence>
+      <xsd:element name="NUMERO_CUENTA" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="BANCO_NOMBRE" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ES_PRINCIPAL" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="IDENTIFICADOR_BANCO" type="xsd:string" minOccurs="0"/>	
+	  <xsd:element name="IDENTIFICADOR_CUENTA" type="xsd:string" minOccurs="0"/>		  
+	  <xsd:element name="ESTADO" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

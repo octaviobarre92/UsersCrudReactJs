@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ser:service-account xsi:type="ser:StaticServiceAccount" xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <ser:static-account>
+        <con:username>{AES256}xbCJ+avD7jn3/qYhtx9M3TUpH4Ykt4Y6Y9HhVry3hUs=</con:username>
+        <con:password>{AES256}uo011tQPY3LBqsPjEbxEtmmef2rQVzkB2J/XuIn5obk=</con:password>
+    </ser:static-account>
+</ser:service-account>
