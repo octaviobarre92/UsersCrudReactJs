@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/GestionarTransaccionBD" targetNamespace="http://www.sura.com.pa/GestionarTransaccionBD" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="OBJETO_TRANSACCION_BD">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="ACTIVATION_DATE" type="xsd:string"/>
+            <xsd:element name="AGENT_ID" type="xsd:string"/>
+            <xsd:element name="ANIO" type="xsd:string"/>
+            <xsd:element name="APELLIDO" type="xsd:string"/>
+            <xsd:element name="ASSOCIATION_DATE" type="xsd:string"/>
+            <xsd:element name="BASE_RATE" type="xsd:string"/>
+            <xsd:element name="BILLING_CYCLE" type="xsd:string"/>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CHANNEL" type="xsd:string"/>
+            <xsd:element name="CHASIS" type="xsd:string"/>
+            <xsd:element name="CIUDAD" type="xsd:string"/>
+            <xsd:element name="CLIENT_ID" type="xsd:string"/>
+            <xsd:element name="COLOR" type="xsd:string"/>
+            <xsd:element name="DEDUCTIBLE" type="xsd:string"/>
+            <xsd:element name="DEVICE_TYPE" type="xsd:string"/>
+            <xsd:element name="DIRECCION" type="xsd:string"/>
+            <xsd:element name="DIRECCION_EXTRA" type="xsd:string"/>
+            <xsd:element name="EMAIL" type="xsd:string"/>
+            <xsd:element name="EMAIL_COMPANIA" type="xsd:string"/>
+            <xsd:element name="ES_COMPAÑIA" type="xsd:string"/>
+            <xsd:element name="FROM_PREVIOUS_VOUCHER_ID" type="xsd:string"/>
+            <xsd:element name="GARAGE_REPAIR" type="xsd:string"/>
+            <xsd:element name="ID" type="xsd:string"/>
+            <xsd:element name="IDENTIFICACION" type="xsd:string"/>
+            <xsd:element name="IMEI" type="xsd:string"/>
+            <xsd:element name="KM_RATE" type="xsd:string"/>
+            <xsd:element name="LAST_COMMUNICATION" type="xsd:string"/>
+            <xsd:element name="LAST_MODIFIED" type="xsd:string"/>
+            <xsd:element name="LAST_TRIP" type="xsd:string"/>
+            <xsd:element name="MARCA" type="xsd:string"/>
+            <xsd:element name="MENSAJE" type="xsd:string"/>
+            <xsd:element name="MODELO" type="xsd:string"/>
+            <xsd:element name="NOMBRE" type="xsd:string"/>
+            <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+            <xsd:element name="OCTO_DEVICE_STATE" type="xsd:string"/>
+            <xsd:element name="OCTO_STATE" type="xsd:string"/>
+            <xsd:element name="OPEN_DATE" type="xsd:string"/>
+            <xsd:element name="OPERATION_TYPE" type="xsd:string"/>
+            <xsd:element name="PAIS" type="xsd:string"/>
+            <xsd:element name="PLACA" type="xsd:string"/>
+            <xsd:element name="PREV_MONTH_TRAVELED_KM" type="xsd:string"/>
+            <xsd:element name="PROCESADO" type="xsd:string"/>
+            <xsd:element name="PROVINCIA" type="xsd:string"/>
+            <xsd:element name="REINTENTO" type="xsd:string"/>
+            <xsd:element name="REPLACE_VEHICLE_TIME" type="xsd:string"/>
+            <xsd:element name="RESPONSABILITY_DAMAGE" type="xsd:string"/>
+            <xsd:element name="SEMESTER_TRAVELED_KM" type="xsd:string"/>
+            <xsd:element name="SENDER_ID" type="xsd:string"/>
+            <xsd:element name="STATE" type="xsd:string"/>
+            <xsd:element name="TELEFONO" type="xsd:string"/>
+            <xsd:element name="TERMINAL_RETURN_DATE" type="xsd:string"/>
+            <xsd:element name="TIPO_DE_COBERTURA" type="xsd:string"/>
+            <xsd:element name="TIPO_PROCESO" type="xsd:string"/>
+            <xsd:element name="TYPE" type="xsd:string"/>
+            <xsd:element name="UUID" type="xsd:string"/>
+            <xsd:element name="VIGENCIA_FINAL" type="xsd:string"/>
+            <xsd:element name="VIGENCIA_INICIAL" type="xsd:string"/>
+            <xsd:element name="ZONA_POSTAL" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

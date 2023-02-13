@@ -1,0 +1,79 @@
+<wsdl:definitions name="AdmonEgresosService" targetNamespace="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/" xmlns:tns="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/definitions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<!-- types -->
+	<wsdl:types>
+		<xs:schema targetNamespace="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/definitions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:include schemaLocation="AdmonEgresosService.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<!-- message -->
+	<wsdl:message name="asignarRefPagoRqMsg">
+		<wsdl:part name="request" element="xsd:AsignarRefPagoRq"/>
+	</wsdl:message>
+	<wsdl:message name="asignarRefPagoRsMsg">
+		<wsdl:part name="response" element="xsd:AsignarRefPagoRs"/>
+	</wsdl:message>
+	<wsdl:message name="anularRefPagoRqMsg">
+		<wsdl:part name="request" element="xsd:AnularRefPagoRq"/>
+	</wsdl:message>
+	<wsdl:message name="anularRefPagoRsMsg">
+		<wsdl:part name="response" element="xsd:AnularRefPagoRs"/>
+	</wsdl:message>
+	<wsdl:message name="anularOrdPagoRqMsg">
+		<wsdl:part name="request" element="xsd:AnularOrdPagoRq"/>
+	</wsdl:message>
+	<wsdl:message name="anularOrdPagoRsMsg">
+		<wsdl:part name="response" element="xsd:AnularOrdPagoRs"/>
+	</wsdl:message>
+	<!-- portType -->
+	<wsdl:portType name="AdmonEgresosPortType">
+		<wsdl:operation name="asignarRefPago">
+			<wsdl:input message="tns:asignarRefPagoRqMsg"/>
+			<wsdl:output message="tns:asignarRefPagoRsMsg"/>
+		</wsdl:operation>
+		<wsdl:operation name="anularRefPago">
+			<wsdl:input message="tns:anularRefPagoRqMsg"/>
+			<wsdl:output message="tns:anularRefPagoRsMsg"/>
+		</wsdl:operation>
+		<wsdl:operation name="anularOrdPago">
+			<wsdl:input message="tns:anularOrdPagoRqMsg"/>
+			<wsdl:output message="tns:anularOrdPagoRsMsg"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<!-- binding -->
+	<wsdl:binding name="AdmonEgresosBinding" type="tns:AdmonEgresosPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="asignarRefPago">
+			<soap:operation soapAction="asignarRefPago"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="anularRefPago">
+			<soap:operation soapAction="anularRefPago"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="anularOrdPago">
+			<soap:operation soapAction="anularOrdPago"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<!-- service -->
+	<wsdl:service name="AdmonEgresosService">
+		<wsdl:port binding="tns:AdmonEgresosBinding" name="AdmonEgresosPort">
+			<soap:address location="http://localhost:7001/insis/blc/custom/AdmonEgresosService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

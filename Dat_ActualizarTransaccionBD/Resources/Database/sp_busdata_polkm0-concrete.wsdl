@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ActualizarTransaccionBD/sp_busdata_polkm0" name="sp_busdata_polkm0-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="sp_busdata_polkm0.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ActualizarTransaccionBD/sp_busdata_polkm0"/>
+    <wsdl:binding name="sp_busdata_polkm0_ptt-binding" type="sp:sp_busdata_polkm0_ptt" xmlns:sp="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_ActualizarTransaccionBD/sp_busdata_polkm0">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="sp_busdata_polkm0">
+            <soap:operation soapAction="sp_busdata_polkm0"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="QrService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/OBDocService"/>
+      <xs:element name="OBDocStore">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sOBType" type="xs:int"/>
+            <xs:element minOccurs="0" name="oKWord" nillable="true" type="q1:ArrayOfOBKeyword" xmlns:q1="http://schemas.datacontract.org/2004/07/OBDocService"/>
+            <xs:element minOccurs="0" name="oDocPages" nillable="true" type="q2:ArrayOfpageData" xmlns:q2="http://schemas.datacontract.org/2004/07/OBDocService"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OBDocStoreResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OBDocStoreResult" nillable="true" type="q3:OBWSResult" xmlns:q3="http://schemas.datacontract.org/2004/07/OBDocService"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OBDocRetrieve">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sOBDocHandle" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OBDocRetrieveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OBDocRetrieveResult" nillable="true" type="q4:OBDocResult" xmlns:q4="http://schemas.datacontract.org/2004/07/OBDocService"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OBDocQuery">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sOBType" type="xs:int"/>
+            <xs:element minOccurs="0" name="oKWord" nillable="true" type="q5:ArrayOfOBKeyword" xmlns:q5="http://schemas.datacontract.org/2004/07/OBDocService"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OBDocQueryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OBDocQueryResult" nillable="true" type="q6:OBDocQryResult" xmlns:q6="http://schemas.datacontract.org/2004/07/OBDocService"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sPing">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sPingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sPingResult" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+      <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+      <xs:element name="byte" nillable="true" type="xs:byte"/>
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+      <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+      <xs:element name="double" nillable="true" type="xs:double"/>
+      <xs:element name="float" nillable="true" type="xs:float"/>
+      <xs:element name="int" nillable="true" type="xs:int"/>
+      <xs:element name="long" nillable="true" type="xs:long"/>
+      <xs:element name="QName" nillable="true" type="xs:QName"/>
+      <xs:element name="short" nillable="true" type="xs:short"/>
+      <xs:element name="string" nillable="true" type="xs:string"/>
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+      <xs:element name="char" nillable="true" type="tns:char"/>
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int"/>
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration"/>
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid"/>
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName"/>
+      <xs:attribute name="Id" type="xs:ID"/>
+      <xs:attribute name="Ref" type="xs:IDREF"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OBDocService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/OBDocService">
+      <xs:complexType name="ArrayOfOBKeyword">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OBKeyword" nillable="true" type="tns:OBKeyword"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOBKeyword" nillable="true" type="tns:ArrayOfOBKeyword"/>
+      <xs:complexType name="OBKeyword">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kwID" type="xs:int"/>
+          <xs:element minOccurs="0" name="kwName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="kwValue" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OBKeyword" nillable="true" type="tns:OBKeyword"/>
+      <xs:complexType name="ArrayOfpageData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="pageData" nillable="true" type="tns:pageData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfpageData" nillable="true" type="tns:ArrayOfpageData"/>
+      <xs:complexType name="pageData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pgContent" nillable="true" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="pgExtension" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="pgFormat" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="pageData" nillable="true" type="tns:pageData"/>
+      <xs:complexType name="OBWSResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docHandle" type="xs:double"/>
+          <xs:element minOccurs="0" name="sDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OBWSResult" nillable="true" type="tns:OBWSResult"/>
+      <xs:complexType name="OBDocResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docHandle" type="xs:double"/>
+          <xs:element minOccurs="0" name="oDocPages" nillable="true" type="tns:ArrayOfpageData"/>
+          <xs:element minOccurs="0" name="sDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OBDocResult" nillable="true" type="tns:OBDocResult"/>
+      <xs:complexType name="OBDocQryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oDocList" nillable="true" type="tns:ArrayOfdocRecord"/>
+          <xs:element minOccurs="0" name="sDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="sDocCount" type="xs:double"/>
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OBDocQryResult" nillable="true" type="tns:OBDocQryResult"/>
+      <xs:complexType name="ArrayOfdocRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="docRecord" nillable="true" type="tns:docRecord"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfdocRecord" nillable="true" type="tns:ArrayOfdocRecord"/>
+      <xs:complexType name="docRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docHandle" type="xs:int"/>
+          <xs:element minOccurs="0" name="docName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="docdate" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="docRecord" nillable="true" type="tns:docRecord"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_OBDocStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocStore"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_OBDocStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocStoreResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_OBDocRetrieve_InputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocRetrieve"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_OBDocRetrieve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocRetrieveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_OBDocQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocQuery"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_OBDocQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OBDocQueryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_sPing_InputMessage">
+    <wsdl:part name="parameters" element="tns:sPing"/>
+  </wsdl:message>
+  <wsdl:message name="IService1_sPing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sPingResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="OBDocStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OBDocStore" message="tns:IService1_OBDocStore_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OBDocStoreResponse" message="tns:IService1_OBDocStore_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="OBDocRetrieve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OBDocRetrieve" message="tns:IService1_OBDocRetrieve_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OBDocRetrieveResponse" message="tns:IService1_OBDocRetrieve_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="OBDocQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OBDocQuery" message="tns:IService1_OBDocQuery_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OBDocQueryResponse" message="tns:IService1_OBDocQuery_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sPing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/sPing" message="tns:IService1_sPing_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/sPingResponse" message="tns:IService1_sPing_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="OBDocStore">
+      <soap:operation soapAction="http://tempuri.org/IService1/OBDocStore" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OBDocRetrieve">
+      <soap:operation soapAction="http://tempuri.org/IService1/OBDocRetrieve" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OBDocQuery">
+      <soap:operation soapAction="http://tempuri.org/IService1/OBDocQuery" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sPing">
+      <soap:operation soapAction="http://tempuri.org/IService1/sPing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QrService">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://10.242.20.6/OBDocService/OBDocService.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
