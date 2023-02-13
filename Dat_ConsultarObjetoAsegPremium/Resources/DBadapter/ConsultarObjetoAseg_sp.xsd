@@ -1,0 +1,117 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarObjetoAseg" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarObjetoAseg" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_TIPO_DE_BUSQUEDA" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_OBJETO_ASEGURADO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_RAMO" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_SUB_RAMO" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PN_POLIZA" type="decimal" db:index="5" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="PN_SECUENCIA" type="decimal" db:index="6" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_OBJETO_ASEGURADO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_MENSAJE" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_BAND" type="string" db:index="8" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="RFC_OBJ_ASEGURADO" type="db:RFC_OBJ_ASEGURADO_RowSet" db:index="9" db:type="RowSet" minOccurs="0" nillable="true"/>
+            <element name="RFC_OBJ_ASEG_COBERTURAS" type="db:RFC_OBJ_ASEG_COBERTURAS_RowSet" db:index="10" db:type="RowSet" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="RFC_OBJ_ASEG_COBERTURAS_RowSet">
+      <sequence>
+         <element name="RFC_OBJ_ASEG_COBERTURAS_Row" minOccurs="0" maxOccurs="unbounded">
+            <complexType>
+               <sequence>
+                  <element name="RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SUB_RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="POLIZA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="SECUENCIA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="PLACA" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="COBERTURA" type="db:string4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="NOMBRE" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="LIMITE" type="db:string35" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="PRIMA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="DEDUCIBLE" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="TARIFA" type="db:string4" db:type="CHAR" minOccurs="0" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="RFC_OBJ_ASEGURADO_RowSet">
+      <sequence>
+         <element name="RFC_OBJ_ASEGURADO_Row" minOccurs="0" maxOccurs="unbounded">
+            <complexType>
+               <sequence>
+                  <element name="RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SUB_RAMO" type="db:string5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="POLIZA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="SECUENCIA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="UNIDAD" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="DESCRIPCION_OBJETO" type="string" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="SUMA_ASEGURADA" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="PLACA" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="ANO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="MARCA" type="db:string15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="MODELO" type="db:string15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="TIPO" type="db:string25" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="COLOR" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="MOTOR" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="CHASIS" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="ACTIVIDAD" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <simpleType name="string5">
+      <restriction base="string">
+         <maxLength value="5"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string10">
+      <restriction base="string">
+         <maxLength value="10"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string15">
+      <restriction base="string">
+         <maxLength value="15"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string25">
+      <restriction base="string">
+         <maxLength value="25"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string50">
+      <restriction base="string">
+         <maxLength value="50"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string4">
+      <restriction base="string">
+         <maxLength value="4"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string150">
+      <restriction base="string">
+         <maxLength value="150"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string35">
+      <restriction base="string">
+         <maxLength value="35"/>
+      </restriction>
+   </simpleType>
+</schema>

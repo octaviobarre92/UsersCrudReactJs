@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarPolizaInsis"
+            targetNamespace="http://www.sura.com/ConsultarPolizaInsis" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="OBJETO_RIESGOS">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="OBJETO_ASEGURADO" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="RAMO" type="xsd:string"/>
+              <xsd:element name="SUBRAMO" type="xsd:string"/>
+              <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+              <xsd:element name="CORE" type="xsd:string"/>
+              <xsd:element name="CODIGO_OBJETO" type="xsd:string"/>
+              <xsd:element name="DESCRIPCION_OBJETO" type="xsd:string"/>
+              <xsd:element name="SUMA_ASEGURADA" type="xsd:string"/>
+              <xsd:element name="AUTO">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="NUMERO_PLACA" type="xsd:string"/>
+                    <xsd:element name="ANNIO" type="xsd:string"/>
+                    <xsd:element name="MARCA" type="xsd:string"/>
+                    <xsd:element name="MODELO" type="xsd:string"/>
+                    <xsd:element name="TIPO" type="xsd:string"/>
+                    <xsd:element name="COLOR" type="xsd:string"/>
+                    <xsd:element name="NO_MOTOR" type="xsd:string"/>
+                    <xsd:element name="ACTIVIDAD" type="xsd:string"/>
+                    <xsd:element name="CHASIS" type="xsd:string"/>
+                    <xsd:element name="COBERTURA">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="CODIGO_COBERTURA" type="xsd:string"/>
+                          <xsd:element name="DESCRIPCION_COBERTURA" type="xsd:string"/>
+                          <xsd:element name="LIMITE_COBERTURA" type="xsd:string"/>
+                          <xsd:element name="PRIMA_COBERTURA" type="xsd:string"/>
+                          <xsd:element name="DEDUCIBLE_COBERTURA" type="xsd:string"/> 
+                          <xsd:element name="TASA_COBERTURA" type="xsd:string"/> 
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>
