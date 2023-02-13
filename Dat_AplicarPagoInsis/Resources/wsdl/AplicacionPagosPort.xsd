@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.--><schema targetNamespace="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AplicacionPagosService/definitions" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AplicacionPagosService/definitions">
+  <element name="AplicarPagoPrimaRq" type="tns:AplicarPagoPrimaRq_Type"/>
+  <element name="AplicarPagoPrimaRs" type="tns:AplicarPagoPrimaRs_Type"/>
+  <element name="AplicarPagoSalvamentoRq" type="tns:AplicarPagoSalvamentoRq_Type"/>
+  <element name="AplicarPagoSalvamentoRs" type="tns:AplicarPagoSalvamentoRs_Type"/>
+  <element name="AplicarPagoRecobroRq" type="tns:AplicarPagoRecobroRq_Type"/>
+  <element name="AplicarPagoRecobroRs" type="tns:AplicarPagoRecobroRs_Type"/>
+  <element name="AplicarPagoDeducibleRq" type="tns:AplicarPagoDeducibleRq_Type"/>
+  <element name="AplicarPagoDeducibleRs" type="tns:AplicarPagoDeducibleRs_Type"/>
+  <complexType name="AplicarPagoPrimaRq_Type">
+    <sequence>
+      <element name="idPersona" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="numPoliza" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="recibo" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="monto" type="decimal" maxOccurs="1" minOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="AplicarPagoPrimaRs_Type">
+    <complexContent>
+      <extension base="tns:AplicarPagoRs_Type"/>
+    </complexContent>
+  </complexType>
+  <complexType name="AplicarPagoSalvamentoRq_Type">
+    <sequence>
+      <element name="idPersona" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="numSalvamento" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="monto" type="decimal" maxOccurs="1" minOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="AplicarPagoSalvamentoRs_Type">
+    <complexContent>
+      <extension base="tns:AplicarPagoRs_Type"/>
+    </complexContent>
+  </complexType>
+  <complexType name="AplicarPagoRecobroRq_Type">
+    <sequence>
+      <element name="idPersona" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="numRecobro" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="monto" type="decimal" minOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="AplicarPagoRecobroRs_Type">
+    <complexContent>
+      <extension base="tns:AplicarPagoRs_Type"/>
+    </complexContent>
+  </complexType>
+  <complexType name="AplicarPagoDeducibleRq_Type">
+    <sequence>
+      <element name="idPersona" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="numReclamo" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="monto" type="decimal" maxOccurs="1" minOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="AplicarPagoDeducibleRs_Type">
+    <complexContent>
+      <extension base="tns:AplicarPagoRs_Type"/>
+    </complexContent>
+  </complexType>
+  <complexType name="AplicarPagoRs_Type">
+    <sequence>
+      <element name="estatus" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="idPago" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="descripcion" type="string" maxOccurs="1" minOccurs="0"/>
+    </sequence>
+  </complexType>
+</schema>

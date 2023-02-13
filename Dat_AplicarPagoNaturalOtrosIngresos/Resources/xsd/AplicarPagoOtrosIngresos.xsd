@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarPolizaInsis" targetNamespace="http://www.sura.com/ConsultarPolizaInsis" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="OTROS_INGRESOS">
+      <xsd:complexType>
+         <xsd:sequence>
+             <xsd:element name="DATOS_SAP" maxOccurs="1">
+                <xsd:complexType>
+                   <xsd:sequence>
+                      <xsd:element name="tercero">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="nmApartadoAereo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdClaveCtrlCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsSegundoNombre" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdIndicadorEntrada" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdRegion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdPoblacion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsPrimerApellido" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsPrimerNombre" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdPais" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmTelefonoMovil" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdIdioma" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTipoNif" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsDireccion2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdBancoCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsSegundoApellido" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdGrupoCuentas" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmFax" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTitularCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsEmail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmTelefono" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmIdentifFiscal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsPersonaJuridica" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdPaisBancoCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdSucursal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmCuentaBancaria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdConceptoBusqueda" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsDireccion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>                           
+                      <xsd:element name="posiciones"  minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="cdClaveReferencia2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdClaveReferencia3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTipoIdNit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdClaveCtrlCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="ptImporte" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdClaveReferencia1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feExpedicion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdIndicadorImpuestos" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmPolizaLider" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdViaPago" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feBase" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdCondicionPago" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro8" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro9" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro10" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdDivision" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdBancoCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTercero" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdNIT" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdIndicadorRetencion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTitularCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTipoIdTercero" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTipoCuenta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmCertificadoLider" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="snCalcularImpuestos" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro6" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro7" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdAsignacion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro4" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdParametro5" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdPaisBancoCtaBan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsNombre" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdTipoRetencion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmCuentaBancaria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdBloqueoBago" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="dsTextoPosicion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feValor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feVencimiento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>     
+                      <xsd:element name="encabezado">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="cdReferencia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feContabilizacion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdSociedad" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="feDocumento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdClaseDocumento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdMoneda" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>       
+                      <xsd:element name="conversionContable">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="cdTipoOperacion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdCanal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="nmAplicacion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                              <xsd:element name="cdFuente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>                                   
+                   </xsd:sequence>
+                </xsd:complexType>
+             </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

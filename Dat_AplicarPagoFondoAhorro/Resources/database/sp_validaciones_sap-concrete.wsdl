@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_AplicarPagoFondoAhorro/sp_validaciones_sap" name="sp_validaciones_sap-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="sp_validaciones_sap.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_AplicarPagoFondoAhorro/sp_validaciones_sap"/>
+    <wsdl:binding name="sp_validaciones_sap_ptt-binding" type="sp:sp_validaciones_sap_ptt" xmlns:sp="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Dat_AplicarPagoFondoAhorro/sp_validaciones_sap">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="sp_validaciones_sap">
+            <soap:operation soapAction="sp_validaciones_sap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

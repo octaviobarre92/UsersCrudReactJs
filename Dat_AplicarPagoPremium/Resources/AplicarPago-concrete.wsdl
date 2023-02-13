@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_AplicarPagoPremium/AplicarPago" name="AplicarPago-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="database/AplicarPago.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_AplicarPagoPremium/AplicarPago"/>
+    <wsdl:binding name="AplicarPago_ptt-binding" type="apl:AplicarPago_ptt" xmlns:apl="http://xmlns.oracle.com/pcbpel/adapter/db/CajaUnica/Dat_AplicarPagoPremium/AplicarPago">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="AplicarPago">
+            <soap:operation soapAction="AplicarPago"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

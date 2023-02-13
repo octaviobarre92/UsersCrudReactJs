@@ -1,0 +1,117 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/definitions"
+	targetNamespace="http://www.ctinsuretech.com/SURA/PA/INSIS/BLC/custom/AdmonEgresosService/definitions"
+	elementFormDefault="qualified">
+	<!-- Elements -->
+	<element name="AsignarRefPagoRq"
+		type="tns:AsignarRefPagoRq_Type" />
+	<element name="AsignarRefPagoRs"
+		type="tns:AsignarRefPagoRs_Type" />
+	<element name="AnularRefPagoRq" type="tns:AnularRefPagoRq_Type" />
+	<element name="AnularRefPagoRs" type="tns:AnularRefPagoRs_Type" />
+	<element name="AnularOrdPagoRq" type="tns:AnularOrdPagoRq_Type" />
+	<element name="AnularOrdPagoRs" type="tns:AdmonEgresosRs_Type" />
+	<!-- Complex Types -->
+	<complexType name="AsignarRefPagoRq_Type">
+		<sequence maxOccurs="1" minOccurs="1">
+            <element name="numRefSAP" type="string" maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>Número de Referencia SAP (respuesta a mapeo).
+					</documentation>
+				</annotation>
+			</element>
+			<element name="numRefPago" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+				    <documentation>Número de cheque o transferencia bancaria.</documentation>
+				</annotation>
+			</element>
+			<element name="metodoPago" maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>Forma de pago registrada en SAP. C: Cheque, T:
+						Transferencia</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="C"></enumeration>
+						<enumeration value="T"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="fechaRefPago" type="date" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+				    <documentation>Fecha asociada al campo Número de Referencia de Pago.</documentation>
+				</annotation>
+			</element>
+			<element name="numDocComp" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Número de Documento de Compensación asociado con
+						cheque o transferencia.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="AsignarRefPagoRs_Type">
+		<complexContent>
+			<extension base="tns:AdmonEgresosRs_Type" />
+		</complexContent>
+	</complexType>
+	<complexType name="AnularRefPagoRq_Type">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element name="numRefPago" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+				    <documentation>Número de referencia de SAP, recibido como respuesta a un mapeo.</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="AnularRefPagoRs_Type">
+		<complexContent>
+			<extension base="tns:AdmonEgresosRs_Type" />
+		</complexContent>
+	</complexType>
+	<complexType name="AnularOrdPagoRq_Type">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element name="numRefSAP" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+				    <documentation>Número de referencia de SAP, recibido como respuesta a un mapeo..</documentation>
+				</annotation>
+			</element>
+        </sequence>
+	</complexType>
+	<complexType name="AnularOrdPagoRs_Type">
+		<complexContent>
+			<extension base="tns:AdmonEgresosRs_Type" />
+		</complexContent>
+	</complexType>
+	<complexType name="AdmonEgresosRs_Type">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element name="estatus" maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>
+						Estatus de la ejecución: Éxito o error.
+					</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="EXITO"></enumeration>
+						<enumeration value="ERROR"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="descripcion" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+				<annotation>
+					<documentation>Descripción del resultado de la ejecución, en caso
+						de error.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+</schema>
