@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="enviarNotificacion" targetNamespace="http://sura.com.pa/enviarNotificacion/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sura.com.pa/enviarNotificacion/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://sura.com.pa/enviarNotificacion/">
+      <xsd:element name="EnviarNotificacionFaultMsg">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="code" type="xsd:string"></xsd:element>
+            <xsd:element name="summary" type="xsd:string"></xsd:element>
+            <xsd:element name="detail" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConnectionFaultMsg">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="code" type="xsd:string"></xsd:element>
+            <xsd:element name="summary" type="xsd:string"></xsd:element>
+            <xsd:element name="detail" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarNotificacionReq">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+            <xsd:element name="PLANTILLA" type="xsd:string"/>
+            <xsd:element name="HACIA" type="xsd:string"/>
+            <xsd:element name="PARAMETROS" type="tns:PARAMETRO" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="ADJUNTOS" type="tns:ADJUNTO" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarNotificacionResp">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+            <xsd:element name="STATUS" type="tns:STATUS" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="CABECERA">
+        <xsd:sequence>
+          <xsd:element name="CODIGO_OPERACION" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="FECHA_TRANSACCION" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="SISTEMA_DESTINO" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="SISTEMA_ORIGEN" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="STATUS">
+        <xsd:sequence>
+          <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+          <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+          <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+          <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+          <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+          <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PARAMETRO">
+        <xsd:sequence>
+          <xsd:element name="ATRIBUTO" type="xsd:string"/>
+          <xsd:element name="VALOR" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ADJUNTO">
+        <xsd:sequence>
+          <xsd:element name="NOMBRE_ARCHIVO" type="xsd:string"/>
+          <xsd:element name="TIPO" type="xsd:string"/>
+          <xsd:element name="ARCHIVO" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviarNotificacionRequest">
+    <wsdl:part element="tns:EnviarNotificacionReq" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="EnviarNotificacionResponse">
+    <wsdl:part element="tns:EnviarNotificacionResp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="EnviarNotificacionFault">
+    <wsdl:part name="parameters" element="tns:EnviarNotificacionFaultMsg"/>
+  </wsdl:message>
+  <wsdl:message name="ConnectionFault">
+    <wsdl:part name="parameters" element="tns:ConnectionFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="EnviarNotificacion">
+    <wsdl:operation name="EnviarNotificacion">
+      <wsdl:input message="tns:EnviarNotificacionRequest"/>
+      <wsdl:output message="tns:EnviarNotificacionResponse"/>
+      <wsdl:fault name="EnviarNotificacionFaultMsg" message="tns:EnviarNotificacionFault"/>
+      <wsdl:fault name="ConnectionFaultMsg" message="tns:ConnectionFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NotificacionSOAP" type="tns:EnviarNotificacion">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="EnviarNotificacion">
+      <soap:operation soapAction="http://sura.com.pa/Notificacion/EnviarNotificacion"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnviarNotificacionFaultMsg">
+        <soap:fault name="EnviarNotificacionFaultMsg" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ConnectionFaultMsg">
+        <soap:fault name="ConnectionFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="enviarNotificacion">
+    <wsdl:port binding="tns:NotificacionSOAP" name="NotificacionSOAP">
+      <wsdl:documentation></wsdl:documentation>
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

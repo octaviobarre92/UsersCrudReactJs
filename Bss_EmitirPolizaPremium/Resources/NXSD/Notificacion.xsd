@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sura.com.pa/enviarNotificacion/"
+            targetNamespace="http://sura.com.pa/enviarNotificacion/" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+    <xsd:element name="EnviarNotificacionReq">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+                <xsd:element name="PLANTILLA" type="xsd:string"/>
+                <xsd:element name="HACIA" type="xsd:string"/>
+                <xsd:element name="PARAMETROS" type="tns:PARAMETRO" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="ADJUNTOS" type="tns:ADJUNTO" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="EnviarNotificacionResp">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CABECERA" type="tns:CABECERA" minOccurs="0"/>
+                <xsd:element name="STATUS" type="tns:STATUS" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="CABECERA">
+        <xsd:sequence>
+            <xsd:element name="CODIGO_OPERACION" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FECHA_TRANSACCION" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="SISTEMA_DESTINO" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="SISTEMA_ORIGEN" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="STATUS">
+        <xsd:sequence>
+            <xsd:element name="DETALLE" type="xsd:string"/>
+            <xsd:element name="CODIGO" type="xsd:string"/>
+            <xsd:element name="COMPONENTE" type="xsd:string"/>
+            <xsd:element name="ORIGEN" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PARAMETRO">
+        <xsd:sequence>
+            <xsd:element name="ATRIBUTO" type="xsd:string"/>
+            <xsd:element name="VALOR" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ADJUNTO">
+        <xsd:sequence>
+            <xsd:element name="NOMBRE_ARCHIVO" type="xsd:string"/>
+            <xsd:element name="TIPO" type="xsd:string"/>
+            <xsd:element name="ARCHIVO" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:annotation xmlns="">
+        <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+        <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+    </xsd:annotation>
+</xsd:schema>
