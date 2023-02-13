@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.hlt.pa.sura.insis.com/"
+            targetNamespace="http://ws.hlt.pa.sura.insis.com/" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+  <xsd:element name="CONDICIONES_POLIZA">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CONDICION_POLIZA" type="tns:CONDICION_POLIZA" maxOccurs="unbounded"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element> 
+  <xsd:complexType name="CONDICION_POLIZA">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ID_CONDICION" type="xsd:string"/>
+      <xsd:element name="REGLA_CFGID" type="xsd:decimal"/>
+      <xsd:element name="POLIZA_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="ANEXO_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="ANEXO_AUXILIAR_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="ASEGURADO_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="GRUPO_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="SUBGRUPO_ID" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="PAQUETE_CODIGO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CODIGO_COBERTURA" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="ESTADO_RECLAMO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TIPO_RECLAMO" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="TIPO_SOLICITUD" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RED" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_INICIO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="HORA_INICIO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_FIN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="HORA_FIN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ESTATUS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ATRIBUTOS_CONDICION_POLIZA" type="tns:ATRIBUTOS_CONDICION_POLIZA" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="VALORES_CONDICION_POLIZA" type="tns:VALORES_CONDICION_POLIZA" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ATRIBUTO_CONDICION_POLIZA">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" type="xsd:string" name="ID_CONDICION"/>
+      <xsd:element name="ORDEN_ATRIBUTO" type="xsd:int"/>
+      <xsd:element name="TIPO_DEFINICION" type="xsd:string"/>
+      <xsd:element name="CODIGO_ATRIBUTO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TIPO_VALOR" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="REGLA_VALOR" type="xsd:decimal" minOccurs="0"/>
+      <xsd:element name="REGLA_CODIGO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="VALOR_DIM" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ATRIBUTOS_CONDICION_POLIZA">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="ATRIBUTO_CONDICION_POLIZA" type="tns:ATRIBUTO_CONDICION_POLIZA"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VALOR_CONDICION_POLIZA">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ID_CONDICION" type="xsd:string"/>
+      <xsd:element name="REGLA_VALOR" type="xsd:decimal" minOccurs="1"/>
+      <xsd:element name="VALOR_DIM" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONEDA" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="TIPO_VALOR" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="INCLUIDO" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VALORES_CONDICION_POLIZA">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="VALOR_CONDICION_POLIZA" type="tns:VALOR_CONDICION_POLIZA"/>
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

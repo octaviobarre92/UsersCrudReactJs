@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarReclamoPremium"
+            targetNamespace="http://www.sura.com/ConsultarReclamoPremium" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="OBJETO_RECLAMOS">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RECLAMO" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="RAMO" type="xsd:string"/>
+              <xsd:element name="SUBRAMO" type="xsd:string"/>
+              <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+              <xsd:element name="SECUENCIA" type="xsd:string"/>
+              <xsd:element name="NO_RECLAMO" type="xsd:string"/>
+              <xsd:element name="FECHA_REGISTRO" type="xsd:string"/>              
+              <xsd:element name="STATUS" type="xsd:string"/>
+              <xsd:element name="BENEFICIARIO" type="xsd:string"/>
+              <xsd:element name="CONCEPTO_RECLAMO" type="xsd:string"/> 
+              <xsd:element name="SALVAMENTO" type="xsd:string"/> 
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="OBJETO_RECOBRO">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="RECOBRO" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="NO_RECOBRO" type="xsd:string"/>
+                    <xsd:element name="FECHA_REGISTRO_RECOBRO" type="xsd:string"/>
+                    <xsd:element name="MONTO_RECOBRO" type="xsd:string"/>   
+                    <xsd:element name="NO_RECLAMO" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="OBJETO_COBERTURA">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="COBERTURA"  maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="CODIGO" type="xsd:string"/>
+                    <xsd:element name="DESCRIPCION" type="xsd:string"/>
+                    <xsd:element name="MONTO_DEDUCIBLE" type="xsd:string"/> 
+                    <xsd:element name="NO_RECLAMO" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

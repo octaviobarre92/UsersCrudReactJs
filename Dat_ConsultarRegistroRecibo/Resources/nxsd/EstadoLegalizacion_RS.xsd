@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pa.sura.insis.com/crearpersona"
+            targetNamespace="http://pa.sura.insis.com/crearpersona" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON">
+  <xsd:element name="DatosBasicos">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ERROR" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>	
+        <xsd:element name="MENSAJE" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>		
+        <xsd:element name="ESTADO_LEGALIZACION" type="tns:ESTADO_LEGALIZACION" minOccurs="0" maxOccurs="1"></xsd:element>		        
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:complexType name="ESTADO_LEGALIZACION">
+      <xsd:sequence>
+        <xsd:element name="SECUENCIAL" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>		
+        <xsd:element name="NUMERO_POLIZA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>		
+        <xsd:element name="MENSAJE_ENTRADA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="ESTADO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="FECHA_REGISTRO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>        
+      </xsd:sequence>
+    </xsd:complexType>  
+ <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

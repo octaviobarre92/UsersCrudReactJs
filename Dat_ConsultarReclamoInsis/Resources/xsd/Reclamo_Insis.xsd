@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarReclamoInsis"
+            targetNamespace="http://www.sura.com/ConsultarReclamoInsis" elementFormDefault="qualified"
+            xmlns:tns="http://www.sura.com/ConsultarReclamoInsis" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="OBJETO_RECLAMOS">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RECLAMO" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="RAMO" type="xsd:string"/>
+              <xsd:element name="SUBRAMO" type="xsd:string"/>
+              <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+              <xsd:element name="CORE" type="xsd:string"/>
+              <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:string"/>
+              <xsd:element name="NO_RECLAMO" type="xsd:string"/>
+              <xsd:element name="FECHA_REGISTRO" type="xsd:string"/>              
+              <xsd:element name="OBJETO_COBERTURAS" type="tns:OBJETO_COBERTURAS" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="OBJETO_RECOBROS" type="tns:OBJETO_RECOBROS" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="OBJETO_SALVAMENTOS" type="tns:OBJETO_SALVAMENTOS" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="STATUS" type="xsd:string"/>
+              <xsd:element name="BENEFICIARIO" type="xsd:string"/>
+              <xsd:element name="CONCEPTO_RECLAMO" type="xsd:string"/>                   
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType  name="OBJETO_COBERTURAS">
+    <xsd:sequence>
+      <xsd:element name="COBERTURA" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="COBERTURA">
+    <xsd:sequence>
+      <xsd:element name="CODIGO" type="xsd:string"/>
+      <xsd:element name="DESCRIPCION" type="xsd:string"/>
+      <xsd:element name="MONTO_DEDUCIBLE" type="xsd:string"/>                    
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="OBJETO_RECOBROS">
+    <xsd:sequence>
+      <xsd:element name="RECOBRO" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RECOBRO">
+    <xsd:sequence>
+      <xsd:element name="NO_RECOBRO" type="xsd:string"/>
+      <xsd:element name="FECHA_REGISTRO_RECOBRO" type="xsd:string"/>
+      <xsd:element name="MONTO_RECOBRO" type="xsd:string"/>                     
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="OBJETO_SALVAMENTOS">
+    <xsd:sequence>
+      <xsd:element name="SALVAMENTO" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SALVAMENTO">
+    <xsd:sequence>
+      <xsd:element name="NO_SALVAMENTO" type="xsd:string"/>
+      <xsd:element name="FECHA_REGISTRO_SALVAMENTO" type="xsd:string"/>
+      <xsd:element name="MONTO_SALVAMENTO" type="xsd:string"/>  
+      <xsd:element name="DESCRIPCION_SALVAMENTO" type="xsd:string"/>                     
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>
