@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.hlt.pa.sura.insis.com/"
+            targetNamespace="http://ws.hlt.pa.sura.insis.com/" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="RegisterApplicationRs">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="POLIZA_CODIGO" type="xsd:string" maxOccurs="1"></xsd:element>
+        <xsd:element name="POLIZA" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+        <xsd:element name="CUOTAS" type="tns:CUOTA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="PLANES_PAGO" type="tns:PLAN_PAGO" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>  
+  <xsd:complexType name="CUOTA">
+    <xsd:sequence>
+      <xsd:element name="ANEXO_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONTO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_PAGO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CUOTAS_ANUALES" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FACTURA_NUMERO" type="xsd:string" minOccurs="0"/>      
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CUOTA_PAGADA">
+    <xsd:sequence>
+      <xsd:element name="PLAN_PAGO_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ANEXO_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONTO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_PAGO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CUOTAS_ANUALES" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FACTURA_NUMERO" type="xsd:string" minOccurs="0"/>      
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PLAN_PAGO">
+    <xsd:sequence>      
+      <xsd:element name="CUOTAS" type="tns:CUOTA_PAGADA" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>
