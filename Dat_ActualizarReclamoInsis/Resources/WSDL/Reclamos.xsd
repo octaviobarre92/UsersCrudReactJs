@@ -1,0 +1,135 @@
+<xs:schema xmlns:tns="http://ws.hlt.pa.sura.insis.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.hlt.pa.sura.insis.com/">
+<xs:element name="UpdateClaimHltRq" type="tns:UpdateClaimHltRq"/>
+<xs:element name="UpdateClaimHltRqResponse" type="tns:UpdateClaimHltRqResponse"/>
+<xs:element name="UpdateClaimStHltRq" type="tns:UpdateClaimStHltRq"/>
+<xs:element name="UpdateClaimStHltRqResponse" type="tns:UpdateClaimStHltRqResponse"/>
+<xs:complexType name="UpdateClaimStHltRq">
+<xs:sequence>
+<xs:element name="CLAIM" type="tns:updClaimStHlt" minOccurs="1" maxOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updClaimStHlt">
+<xs:sequence>
+<xs:element name="CLAIM_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="CLAIM_NO" type="xs:string" minOccurs="1"/>
+<xs:element name="CLAIM_ST" type="xs:string" minOccurs="1"/>
+<xs:element name="PROVIDER_ID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UpdateClaimStHltRqResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:updateClaimHltRs" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateClaimHltRs">
+<xs:sequence>
+<xs:element name="CLAIM_ID" type="xs:long" minOccurs="1"/>
+<xs:element name="CLAIM_NO" type="xs:string" minOccurs="1"/>
+<xs:element name="CLAIM_PROVIDER_ID" type="xs:long" minOccurs="1"/>
+<xs:element name="DESC_CODE" type="xs:string" minOccurs="1"/>
+<xs:element name="STATUS_CODE" type="xs:int" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UpdateClaimHltRq">
+<xs:sequence>
+<xs:element name="CLAIM" type="tns:updClaimHlt" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updClaimHlt">
+<xs:sequence>
+<xs:element name="CARD_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="CLAIM_ID" type="xs:long" minOccurs="1"/>
+<xs:element name="CLAIM_NO" type="xs:string" minOccurs="1"/>
+<xs:element name="CLAIM_STARTED" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="CLAIM_TYPE" type="xs:string" minOccurs="0"/>
+<xs:element name="CONTRACT_NO" type="xs:long" minOccurs="0"/>
+<xs:element name="DEATH_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="EVENT_COUNTRY" type="xs:string" minOccurs="0"/>
+<xs:element name="EVENT_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="EVENT_TIME" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="EVENT_TYPE" type="xs:int" minOccurs="0"/>
+<xs:element name="OFFICE_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="REGISTRATION_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="REQUEST" type="tns:request" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+<xs:element name="STAFF_ID" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="request">
+<xs:sequence>
+<xs:element name="ADMISSION_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="ADMISSION_TIME" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="CLAIM_TYPE" type="xs:string" minOccurs="0"/>
+<xs:element name="DISCHARGE_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="EXPECTED_ADMISSION_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="EXPLANATION" type="xs:string" minOccurs="0"/>
+<xs:element name="INVOICE_AMOUNT" type="xs:double" minOccurs="0"/>
+<xs:element name="INVOICE_CURRENCY" type="xs:string" minOccurs="0"/>
+<xs:element name="INVOICE_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="INVOICE_ID" type="xs:string" minOccurs="0"/>
+<xs:element name="PARTICIPANT" type="tns:participants" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="PRIMARY_DIAGNOSIS_GROUP_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="PRIMARY_DIAGNOSIS_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="PROVIDER_CONTRACT_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="PROVIDER_ID" type="xs:long" minOccurs="1"/>
+<xs:element name="PROVIDER_NETWORK_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="REQUEST_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="REQUEST_TYPE" type="xs:string" minOccurs="0"/>
+<xs:element name="SERVICE" type="tns:services" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="SERVICE_PLACE" type="xs:string" minOccurs="0"/>
+<xs:element name="CLAIMANT_TYPE" type="xs:int" minOccurs="1" maxOccurs="1"/>
+<xs:element name="CLAIMANT_ID" type="xs:long" minOccurs="1" maxOccurs="1"/>
+<xs:element name="DIAGNOSIS_CODE" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="participants">
+<xs:sequence>
+<xs:element name="APPOINTMENT_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="BENEF_PERCENTAGE" type="xs:int" minOccurs="0"/>
+<xs:element name="MAN_ID" type="xs:long" minOccurs="1"/>
+<xs:element name="NOTES" type="xs:string" minOccurs="0"/>
+<xs:element name="PARTICIPANT_ROLE" type="xs:string" minOccurs="0"/>
+<xs:element name="REGISTRATION_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="REPORT_DATE" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="REPORT_NO" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="services">
+<xs:sequence>
+<xs:element name="CONFIRMED_CURRENCY" type="xs:string" minOccurs="1"/>
+<xs:element name="DOCTOR_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="DOCTOR_NAME" type="xs:string" minOccurs="0"/>
+<xs:element name="DRUG_DAYS_SUPPLY" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_DOSAGE_PER_DAY" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_ORIGIN_PRESCRIPTION" type="xs:string" minOccurs="0"/>
+<xs:element name="DRUG_PACKING" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_PACKING_DIM" type="xs:string" minOccurs="0"/>
+<xs:element name="DRUG_PACKING_TOTAL" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_PRESCRIPTION" type="xs:string" minOccurs="0"/>
+<xs:element name="DRUG_STRENGHT" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_STRENGHT_DIM" type="xs:string" minOccurs="0"/>
+<xs:element name="DRUG_UNITS" type="xs:int" minOccurs="0"/>
+<xs:element name="DRUG_UNIT_DIM" type="xs:string" minOccurs="0"/>
+<xs:element name="DSCR_TYPE" type="xs:string" minOccurs="1"/>
+<xs:element name="NOTES" type="xs:string" minOccurs="0"/>
+<xs:element name="REQUESTED_AMOUNT" type="xs:double" minOccurs="0"/>
+<xs:element name="REQUESTED_CURRENCY" type="xs:string" minOccurs="0"/>
+<xs:element name="REQUESTED_PRICE" type="xs:double" minOccurs="0"/>
+<xs:element name="REQUESTED_QUANTITY" type="xs:int" minOccurs="0"/>
+<xs:element name="SERVICE_CODE" type="xs:string" minOccurs="1"/>
+<xs:element name="SERVICE_DATE" type="xs:dateTime" minOccurs="1"/>
+<xs:element name="SERVICE_DATE_TO" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="SERVICE_GROUP_ID" type="xs:long" minOccurs="0"/>
+<xs:element name="SERVICE_PLACE" type="xs:string" minOccurs="0"/>
+<xs:element name="SERVICE_TYPE" type="xs:string" minOccurs="1"/>
+<xs:element name="SERVICE_SUBTYPE" type="xs:string" minOccurs="0"/>
+<xs:element name="TOOTH_NUMBER" type="xs:int" minOccurs="0"/>
+<xs:element name="TOOTH_SEGMENT_ID" type="xs:string" minOccurs="0"/>
+<xs:element name="TOOTH_SURFACE_ID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UpdateClaimHltRqResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:updateClaimHltRs" minOccurs="1" maxOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

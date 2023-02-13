@@ -1,0 +1,46 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="OBService_1.xsd" namespace="http://schemas.datacontract.org/2004/07/OBService"/>
+  <xs:element name="OBDocCreate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sOBType" type="xs:int"/>
+        <xs:element minOccurs="0" name="sOBClass" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="oKWord" nillable="true" type="q1:ArrayOfOBKeyword" xmlns:q1="http://schemas.datacontract.org/2004/07/OBService"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OBDocCreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OBDocCreateResult" nillable="true" type="q2:OBWSResult" xmlns:q2="http://schemas.datacontract.org/2004/07/OBService"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OBDocEdit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sOBDocHandle" type="xs:double"/>
+        <xs:element minOccurs="0" name="oKWord" nillable="true" type="q3:ArrayOfOBKeyword" xmlns:q3="http://schemas.datacontract.org/2004/07/OBService"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OBDocEditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OBDocEditResult" nillable="true" type="q4:OBWSResult" xmlns:q4="http://schemas.datacontract.org/2004/07/OBService"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sPing">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sPingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sPingResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

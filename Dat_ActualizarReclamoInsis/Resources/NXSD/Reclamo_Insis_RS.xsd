@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.hlt.pa.sura.insis.com/"
+            targetNamespace="http://ws.hlt.pa.sura.insis.com/" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="UpdateClaimHltRqResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="return" type="tns:RETURN" maxOccurs="1"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="RETURN">
+    <xsd:sequence>
+      <xsd:element name="CLAIM_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="CLAIM_NO" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="CLAIM_PROVIDER_ID" type="xsd:long" minOccurs="1"/>
+      <xsd:element name="DESC_CODE" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="STATUS_CODE" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

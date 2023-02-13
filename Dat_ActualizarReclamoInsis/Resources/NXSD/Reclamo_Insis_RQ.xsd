@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.hlt.pa.sura.insis.com/reclamolocal"
+            targetNamespace="http://ws.hlt.pa.sura.insis.com/reclamolocal" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="UpdateClaimHltRq">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RECLAMO" type="tns:CLAIM" maxOccurs="1"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="CLAIM">
+    <xsd:sequence>
+      <xsd:element name="TARJETA_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="RECLAMO_ID" type="xsd:long" minOccurs="1"/>
+      <xsd:element name="RECLAMO_NO" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="RECLAMO_STARTED" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="RECLAMO_TYPE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NUMERO_DE_POLIZA" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="FECHA_MUERTE" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="EVENTO_PAIS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EVENTO_FECHA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="EVENTO_HORA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="EVENTO_TIPO" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="SUCURSAL_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="FECHA_REGISTRO" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="SOLICITUD" type="tns:request" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element name="STAFF_ID" type="xsd:long" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="request">
+    <xsd:sequence>
+      <xsd:element name="FECHA_ADMISION" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="HORA_ADMISION" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="TIPO_RECLAMO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_ALTA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="FECHA_ESPERADA_ADMISION" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="DETALLE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FACTURA_MONTO" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="FACTURA_MONEDA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FACTURA_FECHA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="FACTURA_NO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BENEFICIARIO" type="tns:participants" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="DIAGNOSTICO_PRIMARIO_GRUPO_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="DIAGNOSTICO_PRIMARIO_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="PROVEEDOR_CONTRATO_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="PROVEEDOR_ID" type="xsd:long" minOccurs="1"/>
+      <xsd:element name="PROVEEDOR_RED" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="SOLICITUD_FECHA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="SOLICITUD_TIPO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SERVICIO" type="tns:services" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SERVICIO_LUGAR" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CLIENTE_TIPO" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="participants">
+    <xsd:sequence>
+      <xsd:element name="FECHA_CITA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="PORCENTAJE" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="MAN_ID" type="xsd:long" minOccurs="1"/>
+      <xsd:element name="DETALLE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BENEFICIARIO_ROL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FECHA_REGISTRO" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="REPORTE_FECHA" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="REPORTE_NO" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tratamiento">
+    <xsd:sequence>
+      <xsd:element name="TRATAMIENTO_DIAS" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_DOSIS" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_PRESCRIPCION_ORIGINAL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_CANTIDAD_PAQUETES" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_CANTIDAD_PAQUETES_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_UNIDADES_POR_PAQUETE" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_PRESCRIPCION" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_FUERZA" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_FUERZA_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_UNIDAD_MEDIDA" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO_UNIDAD_MEDIDA_ID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="services">
+    <xsd:sequence>
+      <xsd:element name="MONEDA_MANUAL" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="DOCTOR_ID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="DOCTOR_NOMBRE" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TRATAMIENTO" type="tns:tratamiento" minOccurs="0"/>      
+      <xsd:element name="DETALLE" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="NOTAS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MONTO_TOTAL" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="MONEDA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PRECIO" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="CANTIDAD" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="CODIGO" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="FECHA_INICIO" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="FECHA_FINALIZACION" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="CODIGO_AGRUPACION" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="LUGAR" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TIPO" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="SUBTIPO" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DIENTE_NUMERO" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="SEGMENTO_DENTAL_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SUPERFICIE_DENTAL_ID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

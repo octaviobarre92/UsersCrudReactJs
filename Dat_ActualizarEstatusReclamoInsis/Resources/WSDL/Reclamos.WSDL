@@ -1,0 +1,56 @@
+<!--  Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.  -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:tns="http://ws.hlt.pa.sura.insis.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CustClaimHltImplService" targetNamespace="http://ws.hlt.pa.sura.insis.com/">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://ws.hlt.pa.sura.insis.com/" schemaLocation="Reclamos.xsd"/>
+</xsd:schema>
+</types>
+<message name="UpdateClaimStHltRq">
+<part name="parameters" element="tns:UpdateClaimStHltRq"/>
+</message>
+<message name="UpdateClaimStHltRqResponse">
+<part name="parameters" element="tns:UpdateClaimStHltRqResponse"/>
+</message>
+<message name="UpdateClaimHltRq">
+<part name="parameters" element="tns:UpdateClaimHltRq"/>
+</message>
+<message name="UpdateClaimHltRqResponse">
+<part name="parameters" element="tns:UpdateClaimHltRqResponse"/>
+</message>
+<portType name="CustClaimHlt">
+<operation name="UpdateClaimStHltRq">
+<input message="tns:UpdateClaimStHltRq" wsam:Action="http://ws.hlt.pa.sura.insis.com/CustClaimHlt/UpdateClaimStHltRqRequest"/>
+<output message="tns:UpdateClaimStHltRqResponse" wsam:Action="http://ws.hlt.pa.sura.insis.com/CustClaimHlt/UpdateClaimStHltRqResponse"/>
+</operation>
+<operation name="UpdateClaimHltRq">
+<input message="tns:UpdateClaimHltRq" wsam:Action="http://ws.hlt.pa.sura.insis.com/CustClaimHlt/UpdateClaimHltRqRequest"/>
+<output message="tns:UpdateClaimHltRqResponse" wsam:Action="http://ws.hlt.pa.sura.insis.com/CustClaimHlt/UpdateClaimHltRqResponse"/>
+</operation>
+</portType>
+<binding name="CustClaimHltImplPortBinding" type="tns:CustClaimHlt">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="UpdateClaimStHltRq">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="UpdateClaimHltRq">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="CustClaimHltImplService">
+<port name="CustClaimHltImplPort" binding="tns:CustClaimHltImplPortBinding">
+<soap:address location="https://ws.pa.sura.qa.ctplc.ltd:9074/CustClaimHlt/CustClaimHltImplPort"/>
+</port>
+</service>
+</definitions>
