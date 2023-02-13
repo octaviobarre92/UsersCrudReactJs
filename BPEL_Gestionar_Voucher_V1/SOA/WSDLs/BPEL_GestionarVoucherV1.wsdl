@@ -1,0 +1,55 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="BPEL_GestionarVoucherV1"
+     targetNamespace="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_Gestionar_Voucher_V1/BPEL_GestionarVoucherV1"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:client="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_Gestionar_Voucher_V1/BPEL_GestionarVoucherV1"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+     xmlns:ns2="http://TargetNamespace.com/EnviarAuditoria"
+     xmlns:ns3="http://www.sura.com.pa/Exp_RqCrearVoucher"
+     xmlns:ns4="http://www.sura.com.pa/GestionarTransaccionPremium"
+     xmlns:ns5="http://www.sura.com.pa/GestionarTransaccionBD"
+    >
+    <plnk:partnerLinkType name="BPEL_GestionarVoucherV1">
+        <plnk:role name="BPEL_GestionarVoucherV1Provider" portType="client:BPEL_GestionarVoucherV1"/>
+        <plnk:role name="BPEL_GestionarVoucherV1Requester" portType="client:BPEL_GestionarVoucherV1Callback"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_Gestionar_Voucher_V1/BPEL_GestionarVoucherV1"
+                 schemaLocation="../Schemas/BPEL_GestionarVoucherV1.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.sura.com.pa/RqCrearVoucher" schemaLocation="../Schemas/RqCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/EnviarAuditoria" schemaLocation="../Schemas/EnviarAuditoria.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.sura.com.pa/Exp_RqCrearVoucher" schemaLocation="../Schemas/ExpRqCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.sura.com.pa/GestionarTransaccionPremium" schemaLocation="../Schemas/RqGestionarTransaccionPremium.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.sura.com.pa/GestionarTransaccionBD" schemaLocation="../Schemas/RqGestionarTransaccionBD.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="BPEL_GestionarVoucherV1RequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="BPEL_GestionarVoucherV1ResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="BPEL_GestionarVoucherV1">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:BPEL_GestionarVoucherV1RequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="BPEL_GestionarVoucherV1Callback">
+        <wsdl:operation name="processResponse">
+            <wsdl:input message="client:BPEL_GestionarVoucherV1ResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

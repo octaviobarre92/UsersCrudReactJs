@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='faultHandlers']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='catchAll']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='SequenceResponse']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='extensionActivity']/*[namespace-uri()='http://schemas.oracle.com/bpel/extension'][local-name()='js'][@name='JS_Response']</loc>
+      <line>113</line>
+      <col/>
+      <file>BPEL/BPEL_GestionarVoucher.bpel</file>
+      <name>BPEL/BPEL_GestionarVoucher.bpel</name>
+      <fix/>
+      <msg>[js] Trailing comma is not legal in an ECMA-262 object initializer</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='main']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='extensionActivity']/*[namespace-uri()='http://schemas.oracle.com/bpel/extension'][local-name()='js'][@name='JS_Response']</loc>
+      <line>1507</line>
+      <col/>
+      <file>BPEL/BPEL_GestionarVoucher.bpel</file>
+      <name>BPEL/BPEL_GestionarVoucher.bpel</name>
+      <fix/>
+      <msg>[js] Trailing comma is not legal in an ECMA-262 object initializer</msg>
+   </Fault>
+</Faults>

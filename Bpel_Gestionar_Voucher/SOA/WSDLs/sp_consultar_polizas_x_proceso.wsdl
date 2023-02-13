@@ -1,0 +1,97 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="sp_consultar_polizas_x_proceso"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+     xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher"
+     xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+     xmlns:ns4="http://www.sura.com.pa/ObjectResponse"
+     xmlns:ns5="http://TargetNamespace.com/EnviarAuditoria"
+     xmlns:ns6="http://www.sura.com.pa/GestionarTransaccionPremium"
+    >
+    <plt:partnerLinkType name="sp_consultar_polizas_x_proceso_plt">
+        <plt:role name="sp_consultar_polizas_x_proceso_role">
+            <plt:portType name="tns:sp_consultar_polizas_x_proceso_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+                 schemaLocation="../Schemas/sp_consultar_polizas_x_proceso_sp.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <xsd:import namespace="http://www.sura.com.pa/RqCrearVoucher" schemaLocation="../Schemas/RqCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse"/>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <xsd:import namespace="http://www.sura.com.pa/Exp_RqCrearVoucher" schemaLocation="../Schemas/ExpRqCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <xsd:import namespace="http://www.sura.com.pa/Exp_RqCrearVoucher" schemaLocation="../Schemas/ExpRqCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <xsd:import namespace="http://www.sura.com.pa/RsCrearVoucher" schemaLocation="../Schemas/RsCrearVoucher.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/Bpel_Gestionar_Voucher/sp_consultar_polizas_x_proceso"
+             xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consultar_polizas_x_proceso"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.sura.com.pa/RqCrearVoucher"
+             xmlns:ns2="http://www.sura.com.pa/Exp_RqCrearVoucher" xmlns:ns3="http://www.sura.com.pa/RsCrearVoucher"
+             xmlns:ns4="http://www.sura.com.pa/ObjectResponse">
+            <xsd:import namespace="http://www.sura.com.pa/ObjectResponse" schemaLocation="../Schemas/ResponseObject.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/EnviarAuditoria" schemaLocation="../Schemas/EnviarAuditoria.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.sura.com.pa/GestionarTransaccionPremium" schemaLocation="../Schemas/RqGestionarTransaccionPremium.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="args_in_msg">
+        <wsdl:part name="InputParameters" element="db:InputParameters"/>
+    </wsdl:message>
+    <wsdl:message name="args_out_msg">
+        <wsdl:part name="OutputParameters" element="db:OutputParameters"/>
+    </wsdl:message>
+    <wsdl:portType name="sp_consultar_polizas_x_proceso_ptt">
+        <wsdl:operation name="sp_consultar_polizas_x_proceso">
+            <wsdl:input message="tns:args_in_msg"/>
+            <wsdl:output message="tns:args_out_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
