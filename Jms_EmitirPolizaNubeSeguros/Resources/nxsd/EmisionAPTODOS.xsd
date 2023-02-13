@@ -1,0 +1,449 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/EmisionAPTODOS" targetNamespace="http://www.sura.com/EmisionAPTODOS" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="EmisionAPTODOS">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="negocio_producto_accidente_personal_para_todos">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                     <xsd:element name="fecha_rechazo" type="xsd:string"/>
+                     <xsd:element name="fecha_expedicion" type="xsd:string"/>
+                     <xsd:element name="tomador">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="tomador_negocio_producto_accidente_personal_para_todos">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="lugar_de_tributo_otro" type="xsd:string"/>
+                                       <xsd:element name="telefono" type="xsd:string"/>
+                                       <xsd:element name="nacionalidad" type="xsd:string"/>
+                                       <xsd:element name="calle" type="xsd:string"/>
+                                       <xsd:element name="relacion_pep" type="xsd:string"/>
+                                       <xsd:element name="nombre_empresa_laboral" type="xsd:string"/>
+                                       <xsd:element name="telefono_oficina" type="xsd:string"/>
+                                       <xsd:element name="segundo_nombre" type="xsd:string"/>
+                                       <xsd:element name="nombre_pep" type="xsd:string"/>
+                                       <xsd:element name="email" type="xsd:string"/>
+                                       <xsd:element name="distrito" type="xsd:string"/>
+                                       <xsd:element name="segundo_apellido" type="xsd:string"/>
+                                       <xsd:element name="cargo_pep" type="xsd:string"/>
+                                       <xsd:element name="ocupacion" type="xsd:string"/>
+                                       <xsd:element name="parentesco_asegurado" type="xsd:string"/>
+                                       <xsd:element name="detalle_vinculo_pep" type="xsd:string"/>
+                                       <xsd:element name="barrio" type="xsd:string"/>
+                                       <xsd:element name="corregimiento" type="xsd:string"/>
+                                       <xsd:element name="es_pep" type="xsd:string"/>
+                                       <xsd:element name="primer_apellido" type="xsd:string"/>
+                                       <xsd:element name="lugar_de_tributo" type="xsd:string"/>
+                                       <xsd:element name="sexo" type="xsd:string"/>
+                                       <xsd:element name="estado_civil" type="xsd:string"/>
+                                       <xsd:element name="provincia" type="xsd:string"/>
+                                       <xsd:element name="edad" type="xsd:string"/>
+                                       <xsd:element name="numero_documento" type="xsd:string"/>
+                                       <xsd:element name="casa_edificio_apto" type="xsd:string"/>
+                                       <xsd:element name="celular" type="xsd:string"/>
+                                       <xsd:element name="primer_nombre" type="xsd:string"/>
+                                       <xsd:element name="fecha_nacimiento" type="xsd:string"/>
+                                       <xsd:element name="tipo_documento" type="xsd:string"/>
+                                       <xsd:element name="informacion_banco">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="informacion_banco">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                        <xsd:element name="tipo_cuenta" type="xsd:string"/>
+                                                        <xsd:element name="cantidad_de_pagos" type="xsd:string"/>
+                                                        <xsd:element name="fecha_expiracion_tc" type="xsd:string"/>
+                                                        <xsd:element name="cobro_exitoso" type="xsd:string"/>
+                                                        <xsd:element name="cobro" type="xsd:string"/>
+                                                        <xsd:element name="banco" type="xsd:string"/>
+                                                        <xsd:element name="tag_tc" type="xsd:string"/>
+                                                        <xsd:element name="tag_fecha_expiracion_tc" type="xsd:string"/>
+                                                        <xsd:element name="iv_fecha_expiracion_tc" type="xsd:string"/>
+                                                        <xsd:element name="zona_de_cobro" type="xsd:string"/>
+                                                        <xsd:element name="referencia_de_pago" type="xsd:string"/>
+                                                        <xsd:element name="ruta_transito" type="xsd:string"/>
+                                                        <xsd:element name="numero_cuenta" type="xsd:string"/>
+                                                        <xsd:element name="numero_cuenta_desencriptada" type="xsd:string"/>
+                                                        <xsd:element name="iv_tc" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>   
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="numero_poliza_caratula" type="xsd:string"/>
+                     <xsd:element name="riesgos" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="persona">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                       <xsd:element name="peso" type="xsd:string"/>
+                                       <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                       <xsd:element name="coberturas" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="apt_adelanto_de_gastos_funerarios" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_adelanto_por_desmembramiento" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_adelanto_por_incapacidad_total" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_gastos_medicos_por_accidente" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_homicidio_culposo">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_homicidio_doloso">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="apt_muerte_accidental">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="prima_comercial_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="prima_neta" type="xsd:string"/>
+                                                         <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                                         <xsd:element name="es_basica" type="xsd:string"/>
+                                                         <xsd:element name="impuesto_prima" type="xsd:string"/>
+                                                         <xsd:element name="ramo">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ramo_accidentes_personales">
+                                                                     <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                           <xsd:element name="compania" type="xsd:string"/>
+                                                                           <xsd:element name="impuesto" type="xsd:string"/>
+                                                                           <xsd:element name="pais" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                     </xsd:complexType>
+                                                                  </xsd:element>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="asegurado">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="asegurado_riesgos_negocio_producto_accidente_personal_para_todos">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="lugar_de_tributo_otro" type="xsd:string"/>
+                                                         <xsd:element name="telefono" type="xsd:string"/>
+                                                         <xsd:element name="nacionalidad" type="xsd:string"/>
+                                                         <xsd:element name="calle" type="xsd:string"/>
+                                                         <xsd:element name="relacion_pep" type="xsd:string"/>
+                                                         <xsd:element name="nombre_empresa_laboral" type="xsd:string"/>
+                                                         <xsd:element name="telefono_oficina" type="xsd:string"/>
+                                                         <xsd:element name="segundo_nombre" type="xsd:string"/>
+                                                         <xsd:element name="ingresos_anuales_otros" type="xsd:string"/>
+                                                         <xsd:element name="nombre_pep" type="xsd:string"/>
+                                                         <xsd:element name="email" type="xsd:string"/>
+                                                         <xsd:element name="distrito" type="xsd:string"/>
+                                                         <xsd:element name="segundo_apellido" type="xsd:string"/>
+                                                         <xsd:element name="ingresos_anuales_principal" type="xsd:string"/>
+                                                         <xsd:element name="cargo_pep" type="xsd:string"/>
+                                                         <xsd:element name="edificio" type="xsd:string"/>
+                                                         <xsd:element name="ocupacion" type="xsd:string"/>
+                                                         <xsd:element name="detalle_vinculo_pep" type="xsd:string"/>
+                                                         <xsd:element name="barrio" type="xsd:string"/>
+                                                         <xsd:element name="corregimiento" type="xsd:string"/>
+                                                         <xsd:element name="es_pep" type="xsd:string"/>
+                                                         <xsd:element name="primer_apellido" type="xsd:string"/>
+                                                         <xsd:element name="lugar_de_tributo" type="xsd:string"/>
+                                                         <xsd:element name="sexo" type="xsd:string"/>
+                                                         <xsd:element name="estado_civil" type="xsd:string"/>
+                                                         <xsd:element name="provincia" type="xsd:string"/>
+                                                         <xsd:element name="edad" type="xsd:string"/>
+                                                         <xsd:element name="numero_documento" type="xsd:string"/>
+                                                         <xsd:element name="casa_edificio_apto" type="xsd:string"/>
+                                                         <xsd:element name="celular" type="xsd:string"/>
+                                                         <xsd:element name="primer_nombre" type="xsd:string"/>
+                                                         <xsd:element name="fecha_nacimiento" type="xsd:string"/>
+                                                         <xsd:element name="tipo_documento" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>                                                
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                                       <xsd:element name="imc" type="xsd:string"/>
+                                       <xsd:element name="es_fumador" type="xsd:string"/>
+                                       <xsd:element name="sexo" type="xsd:string"/>
+                                       <xsd:element name="beneficiarios"  minOccurs="0" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="beneficiarios_riesgos_negocio_producto_accidente_personal_para_todos">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="telefono" type="xsd:string"/>
+                                                         <xsd:element name="administrador_fiduciario" type="xsd:string"/>
+                                                         <xsd:element name="segundo_nombre" type="xsd:string"/>
+                                                         <xsd:element name="segundo_apellido" type="xsd:string"/>
+                                                         <xsd:element name="parentesco_beneficiario" type="xsd:string"/>
+                                                         <xsd:element name="primer_apellido" type="xsd:string"/>
+                                                         <xsd:element name="tipo_beneficiario" type="xsd:string"/>
+                                                         <xsd:element name="edad" type="xsd:string"/>
+                                                         <xsd:element name="numero_documento" type="xsd:string"/>
+                                                         <xsd:element name="porcentaje_beneficiario" type="xsd:string"/>
+                                                         <xsd:element name="celular" type="xsd:string"/>
+                                                         <xsd:element name="primer_nombre" type="xsd:string"/>
+                                                         <xsd:element name="tipo_documento" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="edad" type="xsd:string"/>
+                                       <xsd:element name="estatura" type="xsd:string"/>
+                                       <xsd:element name="idagrupacion" type="xsd:string"/>
+                                       <xsd:element name="plan">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="plan_accidente_personal_para_todos">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="moneda" type="xsd:string"/>
+                                                         <xsd:element name="valor_asegurado" type="xsd:string"/>
+                                                         <xsd:element name="medio_venta" type="xsd:string"/>
+                                                         <xsd:element name="canal" type="xsd:string"/>
+                                                         <xsd:element name="temporalidad" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="prima_resultado_calculo" type="xsd:string"/>
+                     <xsd:element name="usuario_application_premium" type="xsd:string"/>
+                     <xsd:element name="id_producto" type="xsd:string"/>
+                     <xsd:element name="impuesto_prima_resultado_calculo" type="xsd:string"/>
+                     <xsd:element name="version_reglas" type="xsd:string"/>
+                     <xsd:element name="fecha_remision" type="xsd:string"/>
+                     <xsd:element name="fecha_inicio_vigencia" type="xsd:string"/>
+                     <xsd:element name="agrupacion">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="agrupacion_negocio_producto_accidente_personal_para_todos">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="id_agrupacion" type="xsd:string"/>
+                                       <xsd:element name="nombre" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="id_negocio_core_legacy" type="xsd:string"/>
+                     <xsd:element name="id_plan" type="xsd:string"/>
+                     <xsd:element name="usuario_seus" type="xsd:string"/>
+                     <xsd:element name="estructura_venta">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="estructura_venta">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="sucursal_banco" type="xsd:string"/>
+                                       <xsd:element name="identificacion_ejecutivo_venta" type="xsd:string"/>
+                                       <xsd:element name="nombre_ejecutivo_venta" type="xsd:string"/>
+                                       <xsd:element name="zona_banco" type="xsd:string"/>
+                                       <xsd:element name="canal_comercial" type="xsd:string"/>
+                                       <xsd:element name="subcanal_comercial" type="xsd:string"/>
+                                       <xsd:element name="no_peoplesoft" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="fecha_cotizacion" type="xsd:string"/>
+                     <xsd:element name="id_negocio" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

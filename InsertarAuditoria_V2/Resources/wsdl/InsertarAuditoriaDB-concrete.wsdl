@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/InsertarAuditoria/InsertarAuditoriaDB" name="InsertarAuditoriaDB-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="InsertarAuditoriaDB.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/InsertarAuditoria/InsertarAuditoriaDB"/>
+    <wsdl:binding name="InsertarAuditoriaDB_ptt-binding" type="ins:InsertarAuditoriaDB_ptt" xmlns:ins="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/InsertarAuditoria/InsertarAuditoriaDB">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="InsertarAuditoriaDB">
+            <soap:operation soapAction="InsertarAuditoriaDB"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
