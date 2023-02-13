@@ -1,0 +1,69 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarEgreso" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/ConsultarEgreso" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_TIPO_EGRESO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_ASEGURADO" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PD_FECHA_TRANSACCION" type="dateTime" db:index="3" db:type="DATE" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PV_MENSAJE" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PV_BAND" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="RFC_EGRESOS" type="db:RFC_EGRESOS_RowSet" db:index="6" db:type="RowSet" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="RFC_EGRESOS_RowSet">
+      <sequence>
+         <element name="RFC_EGRESOS_Row" minOccurs="0" maxOccurs="unbounded">
+            <complexType>
+               <sequence>
+                  <element name="ASEGURADO" type="db:string25" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="NUMERO_DE_DOCUMENTO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="NUMERO_DE_SOLICITUD" type="db:string7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="FECHA_DEL_DOCUMENTO" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+                  <element name="BENEFICIARIO" type="db:string250" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="TIPO_BENEFICIARIO" type="db:string21" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="MONTO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+                  <element name="MOTIVO_DEL_DOCUMENTO" type="db:string200" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+                  <element name="OBSERVACION_PAGO" type="db:string2000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <simpleType name="string25">
+      <restriction base="string">
+         <maxLength value="25"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string7">
+      <restriction base="string">
+         <maxLength value="7"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string250">
+      <restriction base="string">
+         <maxLength value="250"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string21">
+      <restriction base="string">
+         <maxLength value="21"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string200">
+      <restriction base="string">
+         <maxLength value="200"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string2000">
+      <restriction base="string">
+         <maxLength value="2000"/>
+      </restriction>
+   </simpleType>
+</schema>

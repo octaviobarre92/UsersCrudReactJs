@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarEgresoPremium" targetNamespace="http://www.sura.com/ConsultarEgresoPremium" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="OBJETO_EGRESOS">
+      <xsd:complexType>
+         <xsd:sequence>
+             <xsd:element name="EGRESO" maxOccurs="unbounded">
+                <xsd:complexType>
+                   <xsd:sequence>
+                      <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:string"/>
+                      <xsd:element name="EGRESO_CODIGO" type="xsd:string"/>                      
+                      <xsd:element name="NUMERO_DE_SOLICITUD" type="xsd:string"/>
+                      <xsd:element name="FECHA_DOCUMENTO" type="xsd:string"/>                      
+                      <xsd:element name="CORE" type="xsd:string"/>
+                      <xsd:element name="NOMBRECOMPLETO" type="xsd:string"/>
+                      <xsd:element name="CLASEIDENTIFICACION" type="xsd:string"/>
+                      <xsd:element name="MONTO" type="xsd:string"/>
+                      <xsd:element name="MOTIVO" type="xsd:string"/>
+                      <xsd:element name="OBSERVACION" type="xsd:string"/>
+                   </xsd:sequence>
+                </xsd:complexType>
+             </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

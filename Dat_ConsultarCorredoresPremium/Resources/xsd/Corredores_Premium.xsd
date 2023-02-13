@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/ConsultarCorredores" targetNamespace="http://www.sura.com/ConsultarCorredores" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="OBJETO_POLIZAS">
+      <xsd:complexType>
+         <xsd:sequence>
+             <xsd:element name="POLIZA" maxOccurs="unbounded">
+                <xsd:complexType>
+                   <xsd:sequence>
+                      <xsd:element name="RAMO" type="xsd:string"/>
+                      <xsd:element name="SUBRAMO" type="xsd:string"/>
+                      <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+                      <xsd:element name="NUMEROPOLIZACARATULA" type="xsd:string"/>
+                      <xsd:element name="CORE" type="xsd:string"/>
+                      <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:string"/>
+                      <xsd:element name="TIPO_POLIZA" type="xsd:string"/>
+                      <xsd:element name="CODIGO_CLIENTE" type="xsd:string"/>
+                      <xsd:element name="VIGENCIA_INICIAL" type="xsd:string"/>
+                      <xsd:element name="VIGENCIA_FINAL" type="xsd:string"/>
+                      <xsd:element name="ESTADO" type="xsd:string"/>
+                      <xsd:element name="PRIMA" type="xsd:string"/>
+                      <xsd:element name="IMPUESTO" type="xsd:string"/>
+                      <xsd:element name="PRIMA_TOTAL" type="xsd:string"/>
+                      <xsd:element name="PRIMA_LETRA" type="xsd:string"/>
+                      <xsd:element name="SALDO_TOTAL" type="xsd:string"/>
+                      <xsd:element name="DESCTO_PRONTO_PAGO" type="xsd:string"/>
+                      <xsd:element name="PERIODICIDAD" type="xsd:string"/>
+                      <xsd:element name="DIA" type="xsd:string"/>
+                      <xsd:element name="SOLICITUD" type="xsd:string"/>
+                      <xsd:element name="MOROSIDAD">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NO_EXIGIBLE" type="xsd:string"/>
+                              <xsd:element name="CORRIENTE" type="xsd:string"/>
+                              <xsd:element name="VENCIDO" type="xsd:string"/>
+                              <xsd:element name="SALDO_30" type="xsd:string"/>
+                              <xsd:element name="SALDO_60" type="xsd:string"/>
+                              <xsd:element name="SALOD_90" type="xsd:string"/>
+                              <xsd:element name="SALDO_120MAS" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>     
+                   </xsd:sequence>
+                </xsd:complexType>
+             </xsd:element>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

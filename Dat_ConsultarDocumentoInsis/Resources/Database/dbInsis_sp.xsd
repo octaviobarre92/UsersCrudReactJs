@@ -1,0 +1,40 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/dbInsis" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/dbInsis" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="PI_CODEPO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_CODEOPER" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_TYPEEXEC" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_PEOPLEID" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_CLIENTID" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_AGENTID" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_POLICYID" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_ANNEXID" type="string" db:index="8" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_CLAIMID" type="string" db:index="9" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_SECID" type="string" db:index="10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PI_LISTEMAILFROM" type="string" db:index="11" db:type="CLOB" minOccurs="0" nillable="true"/>
+            <element name="PI_LISTEMAILTO" type="string" db:index="12" db:type="CLOB" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="PO_XML" type="db:PUBLIC.XMLTYPE" db:index="13" db:type="Opaque" minOccurs="0" nillable="true"/>
+            <element name="PO_PROCID" type="string" db:index="14" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_DOCNAME" type="string" db:index="15" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_CORRELATIONID" type="string" db:index="16" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_IDCOMMUNICATION" type="string" db:index="17" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_ROUTINKEY" type="string" db:index="18" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_ACTION" type="string" db:index="19" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_MSG_STATUS" type="string" db:index="20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="PO_MSG_ERROR" type="string" db:index="21" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="PUBLIC.XMLTYPE">
+      <sequence>
+         <any processContents="skip"/>
+      </sequence>
+   </complexType>
+</schema>
