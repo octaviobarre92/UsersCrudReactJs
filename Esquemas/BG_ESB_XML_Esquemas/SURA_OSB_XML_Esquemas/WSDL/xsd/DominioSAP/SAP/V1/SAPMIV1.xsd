@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1"
+	version="1.0" 
+	elementFormDefault="qualified"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	xmlns:msapsap="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1"
+	xmlns:dsapsap="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">
+	<xsd:import schemaLocation="SAPOIV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1"></xsd:import>
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+	<xsd:import
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+		schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd" />
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion del mensaje de entrada
+				base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo">
+				<xsd:annotation>
+					<xsd:documentation>Contiene los datos especficos de transaccin
+						para
+						la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion correspondiente al mensaje
+				de salida base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo">
+				<xsd:annotation>
+					<xsd:documentation>Entidad que contiene los datos especficos de
+						transaccin para la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="AsignarEgresosMsjSol" type="msapsap:AsignarEgresosMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AsignarEgresosMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="ReferenciaPago" type="dsapsap:ReferenciaPagoSAP"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AsignarEgresosMsjResp" type="msapsap:AsignarEgresosMsjRespTipo" />
+	<xsd:complexType name="AsignarEgresosMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AnularEgresosMsjSol" type="msapsap:AnularEgresosMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AnularEgresosMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="ReferenciaPago" type="dsapsap:ReferenciaPagoSAP"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AnularEgresosMsjResp" type="msapsap:AnularEgresosMsjRespTipo" />
+	<xsd:complexType name="AnularEgresosMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+	<xsd:element name="AnularOrdenPagoMsjSol" type="msapsap:AnularOrdenPagoMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AnularOrdenPagoMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdReferenciaSAP" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Numero de Referencia SAP
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AnularOrdenPagoMsjResp" type="msapsap:AnularOrdenPagoMsjRespTipo" />
+	<xsd:complexType name="AnularOrdenPagoMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+	<xsd:element name="AnularReferenciaPagoMsjSol" type="msapsap:AnularReferenciaPagoMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AnularReferenciaPagoMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdReferenciaPago" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Id de Referencia del Pago.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AnularReferenciaPagoMsjResp" type="msapsap:AnularReferenciaPagoMsjRespTipo" />
+	<xsd:complexType name="AnularReferenciaPagoMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="msapsap:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+</xsd:schema>

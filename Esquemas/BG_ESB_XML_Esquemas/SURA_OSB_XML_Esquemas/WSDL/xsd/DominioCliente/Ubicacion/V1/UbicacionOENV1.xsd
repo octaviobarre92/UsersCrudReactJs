@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V1"
+	version="1.0" elementFormDefault="qualified" 
+	xmlns:dcliubi="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V1">
+	<xsd:element name="ProvinciaTipo" type="dcliubi:ProvinciaTipo" />
+	<xsd:complexType name="ProvinciaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de la
+				Provincia.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Provincia.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Provincia.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PaisTipo" type="dcliubi:PaisTipo" />
+	<xsd:complexType name="PaisTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica del
+				Pais.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Pais.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nacionalidad"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nacionalidad del Pais</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Pais.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BarrioTipo" type="dcliubi:BarrioTipo" />
+	<xsd:complexType name="BarrioTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Barrio.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Barrio.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del barrio.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DistritoTipo" type="dcliubi:DistritoTipo" />
+	<xsd:complexType name="DistritoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica del
+				Distrito.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Distrito.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Distrito.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TipoApartado" type="dcliubi:TipoApartado" />
+	<xsd:complexType name="TipoApartado">
+		<xsd:annotation>
+			<xsd:documentation>Diferencia el tipo de correo (Postal o
+				Electronico) [M,L,E]</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CasillaTipo" type="dcliubi:CasillaTipo" />
+	<xsd:complexType name="CasillaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de la
+				Casilla.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la casilla.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoCasilla"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Muestra el tipo de casilla si es principal o
+						adicional</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Valor"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Valor de la casilla</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoApartado"
+				type="dcliubi:TipoApartado" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TipoTelefonoTipo" type="dcliubi:TipoTelefonoTipo" />
+	<xsd:complexType name="TipoTelefonoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica del
+				Tipo de telefono.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Tipo de Telefono.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Tipo de Telefono.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CorreoElectronicoTipo" type="dcliubi:CorreoElectronicoTipo" />
+	<xsd:complexType name="CorreoElectronicoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Correo electronico.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dcliubi:CasillaTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="BancaLinea"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Bandera para anunciar que se realizo el cambio
+								de correo a un correo Corporativo o Peronal a traves de banca en
+								linea.
+								[N,C,P]</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Email" type="dcliubi:EmailTipo" />
+	<xsd:complexType name="EmailTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Correo electronico.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>
+						Bandera para anunciar que se realizo el cambio
+						de correo a un correo Corporativo o Peronal a
+						traves de banca en
+						linea. [N,C,P]
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="DireccionEmail"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoEmail"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoMedioEnvio"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TipoDireccionTipo" type="dcliubi:TipoDireccionTipo" />
+	<xsd:complexType name="TipoDireccionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica del
+				Tipo de direccin.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Tipo de Direccion.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre Tipo Direccion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TelefonoTipo" type="dcliubi:TelefonoTipo" />
+	<xsd:complexType name="TelefonoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica del
+				telefono.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int"> 
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del tipo de telefono.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Extension"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Extension del telefono.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Numero"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Numero de telefono.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoTelefono"
+				type="dcliubi:TipoTelefonoTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CorreoPostalTipo" type="dcliubi:CorreoPostalTipo" />
+	<xsd:complexType name="CorreoPostalTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Correo Postal.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dcliubi:CasillaTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="DescripcionCargo"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Descripcion del cargo.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Zona"
+						type="dcliubi:ZonaTipo">
+						<xsd:annotation>
+							<xsd:documentation>Zona del Correo Postal.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CorregimientoTipo" type="dcliubi:CorregimientoTipo" />
+	<xsd:complexType name="CorregimientoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Corregimiento.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Corregimiento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Corregimiento</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DireccionTipo" type="dcliubi:DireccionTipo" />
+	<xsd:complexType name="DireccionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de
+				Direccion.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Calle"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Nombre de la calle.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>
+						Identificador unico de la Direccin
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="Descripcion"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Direccin completa del Ente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="NumeroCasaApartamento" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Nmero de casa o apartamento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="Corregimiento" type="dcliubi:CorregimientoTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="TipoDireccion" type="dcliubi:TipoDireccionTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Distrito"
+				type="dcliubi:DistritoTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Barrio"
+				type="dcliubi:BarrioTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Pais"
+				type="dcliubi:PaisTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Provincia"
+				type="dcliubi:ProvinciaTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Zona"
+				type="dcliubi:ZonaTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Ciudad"
+				type="dcliubi:CiudadTipo" />
+			<xsd:element name="Parroquia"
+				type="dcliubi:ParroquiaTipo" maxOccurs="1" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ZonaTipo" type="dcliubi:ZonaTipo" />
+	<xsd:complexType name="ZonaTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Codigo"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CiudadTipo" type="dcliubi:CiudadTipo" />
+	<xsd:complexType name="CiudadTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ParroquiaTipo">
+		<xsd:sequence>
+			<xsd:element name="Codigo" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="Nombre" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

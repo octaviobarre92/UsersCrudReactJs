@@ -1,0 +1,424 @@
+
+
+Se está importando el archivo: C:\Users\brkadm\Desktop\rcotillo@192.168.49.13_SVNFactory\ProyectoBase\BG_ESB_Recursos\WSDL\mockservicesSoap.wsdl
+
+
+La siguiente es una lista de mensajes de aviso de WS-I que se han encontrado al importar:
+XSD: La ubicacion 'mockservicesSoap?WSDL&interface=servicesSoap&part=Entrust_services_InlineSchema1.xsd' no se ha resuelto, Línea: 15, Columna: 7
+WSDL: El elemento 'MaquinaDesRegistrar' al que hace referencia el componente parameters no se puede resolver., Línea: 19, Columna: 5
+WSDL: El elemento 'TokenGetLicenceInfo' al que hace referencia el componente parameters no se puede resolver., Línea: 23, Columna: 5
+WSDL: El elemento 'ValidarCoordenadas' al que hace referencia el componente parameters no se puede resolver., Línea: 27, Columna: 5
+WSDL: El elemento 'SoftTokenActivateCompletedResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 31, Columna: 5
+WSDL: El elemento 'getIDGServidorPrimario' al que hace referencia el componente parameters no se puede resolver., Línea: 35, Columna: 5
+WSDL: El elemento 'UsuarioCrear' al que hace referencia el componente parameters no se puede resolver., Línea: 39, Columna: 5
+WSDL: El elemento 'TokenReSync' al que hace referencia el componente parameters no se puede resolver., Línea: 43, Columna: 5
+WSDL: El elemento 'CambioEstadoToken' al que hace referencia el componente parameters no se puede resolver., Línea: 47, Columna: 5
+WSDL: El elemento 'ImagenRemoverResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 51, Columna: 5
+WSDL: El elemento 'PoseeTarjeta' al que hace referencia el componente parameters no se puede resolver., Línea: 55, Columna: 5
+WSDL: El elemento 'UsuarioCambiar' al que hace referencia el componente parameters no se puede resolver., Línea: 59, Columna: 5
+WSDL: El elemento 'ActivarTarjeta' al que hace referencia el componente parameters no se puede resolver., Línea: 63, Columna: 5
+WSDL: El elemento 'UsuarioCambiarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 67, Columna: 5
+WSDL: El elemento 'setIDGServidorPrimarioResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 71, Columna: 5
+WSDL: El elemento 'ImagenRemover' al que hace referencia el componente parameters no se puede resolver., Línea: 75, Columna: 5
+WSDL: El elemento 'QAAgregarPreguntasRespuestasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 79, Columna: 5
+WSDL: El elemento 'TPINRemover' al que hace referencia el componente parameters no se puede resolver., Línea: 83, Columna: 5
+WSDL: El elemento 'TPINValidarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 87, Columna: 5
+WSDL: El elemento 'TokenGetLicenceInfoResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 91, Columna: 5
+WSDL: El elemento 'cardExport' al que hace referencia el componente parameters no se puede resolver., Línea: 95, Columna: 5
+WSDL: El elemento 'OTPValidar' al que hace referencia el componente parameters no se puede resolver., Línea: 99, Columna: 5
+WSDL: El elemento 'ImagenObtenerBase64Response' al que hace referencia el componente parameters no se puede resolver., Línea: 103, Columna: 5
+WSDL: El elemento 'PoseeQAResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 107, Columna: 5
+WSDL: El elemento 'QARemoverPreguntasRespuestasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 111, Columna: 5
+WSDL: El elemento 'QAObtenerPreguntasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 115, Columna: 5
+WSDL: El elemento 'SolicitarCoordenadas' al que hace referencia el componente parameters no se puede resolver., Línea: 119, Columna: 5
+WSDL: El elemento 'setIDGServidorPrimario' al que hace referencia el componente parameters no se puede resolver., Línea: 123, Columna: 5
+WSDL: El elemento 'SoftTokenCreate' al que hace referencia el componente parameters no se puede resolver., Línea: 127, Columna: 5
+WSDL: El elemento 'DesAsignarToken' al que hace referencia el componente parameters no se puede resolver., Línea: 131, Columna: 5
+WSDL: El elemento 'cardExportResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 135, Columna: 5
+WSDL: El elemento 'TPINAgregarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 139, Columna: 5
+WSDL: El elemento 'SoftTokenActivate' al que hace referencia el componente parameters no se puede resolver., Línea: 143, Columna: 5
+WSDL: El elemento 'ValidarTokenValueResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 147, Columna: 5
+WSDL: El elemento 'IPAgregar' al que hace referencia el componente parameters no se puede resolver., Línea: 151, Columna: 5
+WSDL: El elemento 'SoftTokenActivateFullResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 155, Columna: 5
+WSDL: El elemento 'getResultado' al que hace referencia el componente parameters no se puede resolver., Línea: 159, Columna: 5
+WSDL: El elemento 'PoseeQA' al que hace referencia el componente parameters no se puede resolver., Línea: 163, Columna: 5
+WSDL: El elemento 'PoseeTPIN' al que hace referencia el componente parameters no se puede resolver., Línea: 167, Columna: 5
+WSDL: El elemento 'SoftTokenActivateResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 171, Columna: 5
+WSDL: El elemento 'OTPValidarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 175, Columna: 5
+WSDL: El elemento 'ActivarTarjetaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 179, Columna: 5
+WSDL: El elemento 'ImagenObtenerBase64' al que hace referencia el componente parameters no se puede resolver., Línea: 183, Columna: 5
+WSDL: El elemento 'SoftTokenActivateCompleted' al que hace referencia el componente parameters no se puede resolver., Línea: 187, Columna: 5
+WSDL: El elemento 'QARemoverPreguntaRespuesta' al que hace referencia el componente parameters no se puede resolver., Línea: 191, Columna: 5
+WSDL: El elemento 'SolicitarAutenticacionToken' al que hace referencia el componente parameters no se puede resolver., Línea: 195, Columna: 5
+WSDL: El elemento 'UsuarioBloquear' al que hace referencia el componente parameters no se puede resolver., Línea: 199, Columna: 5
+WSDL: El elemento 'TPINAgregar' al que hace referencia el componente parameters no se puede resolver., Línea: 203, Columna: 5
+WSDL: El elemento 'getResultadoResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 207, Columna: 5
+WSDL: El elemento 'CambioEstadoResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 211, Columna: 5
+WSDL: El elemento 'EstadoToken' al que hace referencia el componente parameters no se puede resolver., Línea: 215, Columna: 5
+WSDL: El elemento 'QARemoverPreguntasRespuestas' al que hace referencia el componente parameters no se puede resolver., Línea: 219, Columna: 5
+WSDL: El elemento 'UsuarioAliasRemover' al que hace referencia el componente parameters no se puede resolver., Línea: 223, Columna: 5
+WSDL: El elemento 'ImagenObtenerObjectResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 227, Columna: 5
+WSDL: El elemento 'IPValidar' al que hace referencia el componente parameters no se puede resolver., Línea: 231, Columna: 5
+WSDL: El elemento 'PoseeTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 235, Columna: 5
+WSDL: El elemento 'QAObtenerPreguntas' al que hace referencia el componente parameters no se puede resolver., Línea: 239, Columna: 5
+WSDL: El elemento 'MaquinaRegistrar' al que hace referencia el componente parameters no se puede resolver., Línea: 243, Columna: 5
+WSDL: El elemento 'MaquinaValidarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 247, Columna: 5
+WSDL: El elemento 'EstadoTarjetaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 251, Columna: 5
+WSDL: El elemento 'ValidarCoordenadasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 255, Columna: 5
+WSDL: El elemento 'SoftTokenActivateOffline' al que hace referencia el componente parameters no se puede resolver., Línea: 259, Columna: 5
+WSDL: El elemento 'OTPRemoverResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 263, Columna: 5
+WSDL: El elemento 'UsuarioCrearResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 267, Columna: 5
+WSDL: El elemento 'UsuarioObtener' al que hace referencia el componente parameters no se puede resolver., Línea: 271, Columna: 5
+WSDL: El elemento 'ImagenAgregar' al que hace referencia el componente parameters no se puede resolver., Línea: 275, Columna: 5
+WSDL: El elemento 'SoftTokenActivateOfflineResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 279, Columna: 5
+WSDL: El elemento 'SoftTokenCreateResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 283, Columna: 5
+WSDL: El elemento 'OTPRemover' al que hace referencia el componente parameters no se puede resolver., Línea: 287, Columna: 5
+WSDL: El elemento 'QAValidarRespuestas' al que hace referencia el componente parameters no se puede resolver., Línea: 291, Columna: 5
+WSDL: El elemento 'ImagenObtener' al que hace referencia el componente parameters no se puede resolver., Línea: 295, Columna: 5
+WSDL: El elemento 'ValidarTokenValueSimpleResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 299, Columna: 5
+WSDL: El elemento 'DesAsignarTarjeta' al que hace referencia el componente parameters no se puede resolver., Línea: 303, Columna: 5
+WSDL: El elemento 'PoseeOTP' al que hace referencia el componente parameters no se puede resolver., Línea: 307, Columna: 5
+WSDL: El elemento 'OTPAgregarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 311, Columna: 5
+WSDL: El elemento 'DesAsignarTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 315, Columna: 5
+WSDL: El elemento 'ActivarToken' al que hace referencia el componente parameters no se puede resolver., Línea: 319, Columna: 5
+WSDL: El elemento 'QAAgregarPreguntasRespuestas' al que hace referencia el componente parameters no se puede resolver., Línea: 323, Columna: 5
+WSDL: El elemento 'SolicitarAutenticacionTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 327, Columna: 5
+WSDL: El elemento 'PoseeOTPResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 331, Columna: 5
+WSDL: El elemento 'IPValidarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 335, Columna: 5
+WSDL: El elemento 'CambioEstadoTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 339, Columna: 5
+WSDL: El elemento 'UsuarioBloquearResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 343, Columna: 5
+WSDL: El elemento 'ImagenAgregarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 347, Columna: 5
+WSDL: El elemento 'PoseeImagen' al que hace referencia el componente parameters no se puede resolver., Línea: 351, Columna: 5
+WSDL: El elemento 'OTPAgregar' al que hace referencia el componente parameters no se puede resolver., Línea: 355, Columna: 5
+WSDL: El elemento 'TPINRemoverResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 359, Columna: 5
+WSDL: El elemento 'SolicitarCoordenadasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 363, Columna: 5
+WSDL: El elemento 'PoseeTPINResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 367, Columna: 5
+WSDL: El elemento 'SoftTokenActivateFull' al que hace referencia el componente parameters no se puede resolver., Línea: 371, Columna: 5
+WSDL: El elemento 'ValidarTokenValue' al que hace referencia el componente parameters no se puede resolver., Línea: 375, Columna: 5
+WSDL: El elemento 'TokenReSyncResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 379, Columna: 5
+WSDL: El elemento 'PoseeMaquinaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 383, Columna: 5
+WSDL: El elemento 'ImagenObtenerObject' al que hace referencia el componente parameters no se puede resolver., Línea: 387, Columna: 5
+WSDL: El elemento 'PoseeImagenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 391, Columna: 5
+WSDL: El elemento 'DesAsignarTarjetaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 395, Columna: 5
+WSDL: El elemento 'CambioEstado' al que hace referencia el componente parameters no se puede resolver., Línea: 399, Columna: 5
+WSDL: El elemento 'EstadoTarjeta' al que hace referencia el componente parameters no se puede resolver., Línea: 403, Columna: 5
+WSDL: El elemento 'getIDGServidorPrimarioResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 407, Columna: 5
+WSDL: El elemento 'QARemoverPreguntaRespuestaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 411, Columna: 5
+WSDL: El elemento 'PoseeTarjetaResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 415, Columna: 5
+WSDL: El elemento 'EstadoTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 419, Columna: 5
+WSDL: El elemento 'TPINValidar' al que hace referencia el componente parameters no se puede resolver., Línea: 423, Columna: 5
+WSDL: El elemento 'ActivarTokenResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 427, Columna: 5
+WSDL: El elemento 'ValidarTokenValueSimple' al que hace referencia el componente parameters no se puede resolver., Línea: 431, Columna: 5
+WSDL: El elemento 'UsuarioObtenerResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 435, Columna: 5
+WSDL: El elemento 'MaquinaValidar' al que hace referencia el componente parameters no se puede resolver., Línea: 439, Columna: 5
+WSDL: El elemento 'MaquinaRegistrarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 443, Columna: 5
+WSDL: El elemento 'QAValidarRespuestasResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 447, Columna: 5
+WSDL: El elemento 'IPAgregarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 451, Columna: 5
+WSDL: El elemento 'ImagenObtenerResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 455, Columna: 5
+WSDL: El elemento 'PoseeToken' al que hace referencia el componente parameters no se puede resolver., Línea: 459, Columna: 5
+WSDL: El elemento 'MaquinaDesRegistrarResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 463, Columna: 5
+WSDL: El elemento 'PoseeMaquina' al que hace referencia el componente parameters no se puede resolver., Línea: 467, Columna: 5
+WSDL: El elemento 'UsuarioAliasRemoverResponse' al que hace referencia el componente parameters no se puede resolver., Línea: 471, Columna: 5
+
+
+La importacion de WSDL proseguirá con los enlaces servicesSoap, servicesSoap12.
+Creando documento de esquema wsdl para file:///C:/Users/brkadm/Desktop/rcotillo@192.168.49.13_SVNFactory/ProyectoBase/BG_ESB_Recursos/WSDL/mockservicesSoap.wsdl.
+Parsing wsdl binding {http://interlinksoft.net/}servicesSoap.
+Parsing wsdl binding input getResultado.
+Parsing wsdl binding output getResultado.
+Parsing wsdl binding input getIDGServidorPrimario.
+Parsing wsdl binding output getIDGServidorPrimario.
+Parsing wsdl binding input setIDGServidorPrimario.
+Parsing wsdl binding output setIDGServidorPrimario.
+Parsing wsdl binding input cardExport.
+Parsing wsdl binding output cardExport.
+Parsing wsdl binding input DesAsignarTarjeta.
+Parsing wsdl binding output DesAsignarTarjeta.
+Parsing wsdl binding input DesAsignarToken.
+Parsing wsdl binding output DesAsignarToken.
+Parsing wsdl binding input UsuarioCrear.
+Parsing wsdl binding output UsuarioCrear.
+Parsing wsdl binding input UsuarioBloquear.
+Parsing wsdl binding output UsuarioBloquear.
+Parsing wsdl binding input UsuarioCambiar.
+Parsing wsdl binding output UsuarioCambiar.
+Parsing wsdl binding input UsuarioObtener.
+Parsing wsdl binding output UsuarioObtener.
+Parsing wsdl binding input UsuarioAliasRemover.
+Parsing wsdl binding output UsuarioAliasRemover.
+Parsing wsdl binding input PoseeTarjeta.
+Parsing wsdl binding output PoseeTarjeta.
+Parsing wsdl binding input ActivarTarjeta.
+Parsing wsdl binding output ActivarTarjeta.
+Parsing wsdl binding input SolicitarCoordenadas.
+Parsing wsdl binding output SolicitarCoordenadas.
+Parsing wsdl binding input ValidarCoordenadas.
+Parsing wsdl binding output ValidarCoordenadas.
+Parsing wsdl binding input EstadoTarjeta.
+Parsing wsdl binding output EstadoTarjeta.
+Parsing wsdl binding input CambioEstado.
+Parsing wsdl binding output CambioEstado.
+Parsing wsdl binding input SoftTokenCreate.
+Parsing wsdl binding output SoftTokenCreate.
+Parsing wsdl binding input SoftTokenActivate.
+Parsing wsdl binding output SoftTokenActivate.
+Parsing wsdl binding input SoftTokenActivateCompleted.
+Parsing wsdl binding output SoftTokenActivateCompleted.
+Parsing wsdl binding input SoftTokenActivateOffline.
+Parsing wsdl binding output SoftTokenActivateOffline.
+Parsing wsdl binding input SoftTokenActivateFull.
+Parsing wsdl binding output SoftTokenActivateFull.
+Parsing wsdl binding input PoseeToken.
+Parsing wsdl binding output PoseeToken.
+Parsing wsdl binding input ActivarToken.
+Parsing wsdl binding output ActivarToken.
+Parsing wsdl binding input SolicitarAutenticacionToken.
+Parsing wsdl binding output SolicitarAutenticacionToken.
+Parsing wsdl binding input ValidarTokenValue.
+Parsing wsdl binding output ValidarTokenValue.
+Parsing wsdl binding input ValidarTokenValueSimple.
+Parsing wsdl binding output ValidarTokenValueSimple.
+Parsing wsdl binding input EstadoToken.
+Parsing wsdl binding output EstadoToken.
+Parsing wsdl binding input TokenReSync.
+Parsing wsdl binding output TokenReSync.
+Parsing wsdl binding input CambioEstadoToken.
+Parsing wsdl binding output CambioEstadoToken.
+Parsing wsdl binding input PoseeQA.
+Parsing wsdl binding output PoseeQA.
+Parsing wsdl binding input QAAgregarPreguntasRespuestas.
+Parsing wsdl binding output QAAgregarPreguntasRespuestas.
+Parsing wsdl binding input QARemoverPreguntasRespuestas.
+Parsing wsdl binding output QARemoverPreguntasRespuestas.
+Parsing wsdl binding input QARemoverPreguntaRespuesta.
+Parsing wsdl binding output QARemoverPreguntaRespuesta.
+Parsing wsdl binding input QAObtenerPreguntas.
+Parsing wsdl binding output QAObtenerPreguntas.
+Parsing wsdl binding input QAValidarRespuestas.
+Parsing wsdl binding output QAValidarRespuestas.
+Parsing wsdl binding input OTPValidar.
+Parsing wsdl binding output OTPValidar.
+Parsing wsdl binding input OTPRemover.
+Parsing wsdl binding output OTPRemover.
+Parsing wsdl binding input OTPAgregar.
+Parsing wsdl binding output OTPAgregar.
+Parsing wsdl binding input PoseeOTP.
+Parsing wsdl binding output PoseeOTP.
+Parsing wsdl binding input TPINValidar.
+Parsing wsdl binding output TPINValidar.
+Parsing wsdl binding input TPINRemover.
+Parsing wsdl binding output TPINRemover.
+Parsing wsdl binding input TPINAgregar.
+Parsing wsdl binding output TPINAgregar.
+Parsing wsdl binding input PoseeTPIN.
+Parsing wsdl binding output PoseeTPIN.
+Parsing wsdl binding input PoseeImagen.
+Parsing wsdl binding output PoseeImagen.
+Parsing wsdl binding input ImagenAgregar.
+Parsing wsdl binding output ImagenAgregar.
+Parsing wsdl binding input ImagenRemover.
+Parsing wsdl binding output ImagenRemover.
+Parsing wsdl binding input ImagenObtener.
+Parsing wsdl binding output ImagenObtener.
+Parsing wsdl binding input ImagenObtenerObject.
+Parsing wsdl binding output ImagenObtenerObject.
+Parsing wsdl binding input ImagenObtenerBase64.
+Parsing wsdl binding output ImagenObtenerBase64.
+Parsing wsdl binding input PoseeMaquina.
+Parsing wsdl binding output PoseeMaquina.
+Parsing wsdl binding input MaquinaValidar.
+Parsing wsdl binding output MaquinaValidar.
+Parsing wsdl binding input MaquinaRegistrar.
+Parsing wsdl binding output MaquinaRegistrar.
+Parsing wsdl binding input MaquinaDesRegistrar.
+Parsing wsdl binding output MaquinaDesRegistrar.
+Parsing wsdl binding input IPAgregar.
+Parsing wsdl binding output IPAgregar.
+Parsing wsdl binding input IPValidar.
+Parsing wsdl binding output IPValidar.
+Parsing wsdl binding input TokenGetLicenceInfo.
+Parsing wsdl binding output TokenGetLicenceInfo.
+Parsing wsdl binding {http://interlinksoft.net/}servicesSoap12.
+Parsing wsdl binding input getResultado.
+Parsing wsdl binding output getResultado.
+Parsing wsdl binding input getIDGServidorPrimario.
+Parsing wsdl binding output getIDGServidorPrimario.
+Parsing wsdl binding input setIDGServidorPrimario.
+Parsing wsdl binding output setIDGServidorPrimario.
+Parsing wsdl binding input cardExport.
+Parsing wsdl binding output cardExport.
+Parsing wsdl binding input DesAsignarTarjeta.
+Parsing wsdl binding output DesAsignarTarjeta.
+Parsing wsdl binding input DesAsignarToken.
+Parsing wsdl binding output DesAsignarToken.
+Parsing wsdl binding input UsuarioCrear.
+Parsing wsdl binding output UsuarioCrear.
+Parsing wsdl binding input UsuarioBloquear.
+Parsing wsdl binding output UsuarioBloquear.
+Parsing wsdl binding input UsuarioCambiar.
+Parsing wsdl binding output UsuarioCambiar.
+Parsing wsdl binding input UsuarioObtener.
+Parsing wsdl binding output UsuarioObtener.
+Parsing wsdl binding input UsuarioAliasRemover.
+Parsing wsdl binding output UsuarioAliasRemover.
+Parsing wsdl binding input PoseeTarjeta.
+Parsing wsdl binding output PoseeTarjeta.
+Parsing wsdl binding input ActivarTarjeta.
+Parsing wsdl binding output ActivarTarjeta.
+Parsing wsdl binding input SolicitarCoordenadas.
+Parsing wsdl binding output SolicitarCoordenadas.
+Parsing wsdl binding input ValidarCoordenadas.
+Parsing wsdl binding output ValidarCoordenadas.
+Parsing wsdl binding input EstadoTarjeta.
+Parsing wsdl binding output EstadoTarjeta.
+Parsing wsdl binding input CambioEstado.
+Parsing wsdl binding output CambioEstado.
+Parsing wsdl binding input SoftTokenCreate.
+Parsing wsdl binding output SoftTokenCreate.
+Parsing wsdl binding input SoftTokenActivate.
+Parsing wsdl binding output SoftTokenActivate.
+Parsing wsdl binding input SoftTokenActivateCompleted.
+Parsing wsdl binding output SoftTokenActivateCompleted.
+Parsing wsdl binding input SoftTokenActivateOffline.
+Parsing wsdl binding output SoftTokenActivateOffline.
+Parsing wsdl binding input SoftTokenActivateFull.
+Parsing wsdl binding output SoftTokenActivateFull.
+Parsing wsdl binding input PoseeToken.
+Parsing wsdl binding output PoseeToken.
+Parsing wsdl binding input ActivarToken.
+Parsing wsdl binding output ActivarToken.
+Parsing wsdl binding input SolicitarAutenticacionToken.
+Parsing wsdl binding output SolicitarAutenticacionToken.
+Parsing wsdl binding input ValidarTokenValue.
+Parsing wsdl binding output ValidarTokenValue.
+Parsing wsdl binding input ValidarTokenValueSimple.
+Parsing wsdl binding output ValidarTokenValueSimple.
+Parsing wsdl binding input EstadoToken.
+Parsing wsdl binding output EstadoToken.
+Parsing wsdl binding input TokenReSync.
+Parsing wsdl binding output TokenReSync.
+Parsing wsdl binding input CambioEstadoToken.
+Parsing wsdl binding output CambioEstadoToken.
+Parsing wsdl binding input PoseeQA.
+Parsing wsdl binding output PoseeQA.
+Parsing wsdl binding input QAAgregarPreguntasRespuestas.
+Parsing wsdl binding output QAAgregarPreguntasRespuestas.
+Parsing wsdl binding input QARemoverPreguntasRespuestas.
+Parsing wsdl binding output QARemoverPreguntasRespuestas.
+Parsing wsdl binding input QARemoverPreguntaRespuesta.
+Parsing wsdl binding output QARemoverPreguntaRespuesta.
+Parsing wsdl binding input QAObtenerPreguntas.
+Parsing wsdl binding output QAObtenerPreguntas.
+Parsing wsdl binding input QAValidarRespuestas.
+Parsing wsdl binding output QAValidarRespuestas.
+Parsing wsdl binding input OTPValidar.
+Parsing wsdl binding output OTPValidar.
+Parsing wsdl binding input OTPRemover.
+Parsing wsdl binding output OTPRemover.
+Parsing wsdl binding input OTPAgregar.
+Parsing wsdl binding output OTPAgregar.
+Parsing wsdl binding input PoseeOTP.
+Parsing wsdl binding output PoseeOTP.
+Parsing wsdl binding input TPINValidar.
+Parsing wsdl binding output TPINValidar.
+Parsing wsdl binding input TPINRemover.
+Parsing wsdl binding output TPINRemover.
+Parsing wsdl binding input TPINAgregar.
+Parsing wsdl binding output TPINAgregar.
+Parsing wsdl binding input PoseeTPIN.
+Parsing wsdl binding output PoseeTPIN.
+Parsing wsdl binding input PoseeImagen.
+Parsing wsdl binding output PoseeImagen.
+Parsing wsdl binding input ImagenAgregar.
+Parsing wsdl binding output ImagenAgregar.
+Parsing wsdl binding input ImagenRemover.
+Parsing wsdl binding output ImagenRemover.
+Parsing wsdl binding input ImagenObtener.
+Parsing wsdl binding output ImagenObtener.
+Parsing wsdl binding input ImagenObtenerObject.
+Parsing wsdl binding output ImagenObtenerObject.
+Parsing wsdl binding input ImagenObtenerBase64.
+Parsing wsdl binding output ImagenObtenerBase64.
+Parsing wsdl binding input PoseeMaquina.
+Parsing wsdl binding output PoseeMaquina.
+Parsing wsdl binding input MaquinaValidar.
+Parsing wsdl binding output MaquinaValidar.
+Parsing wsdl binding input MaquinaRegistrar.
+Parsing wsdl binding output MaquinaRegistrar.
+Parsing wsdl binding input MaquinaDesRegistrar.
+Parsing wsdl binding output MaquinaDesRegistrar.
+Parsing wsdl binding input IPAgregar.
+Parsing wsdl binding output IPAgregar.
+Parsing wsdl binding input IPValidar.
+Parsing wsdl binding output IPValidar.
+Parsing wsdl binding input TokenGetLicenceInfo.
+Parsing wsdl binding output TokenGetLicenceInfo.
+Processing doc style for operation getResultado.
+Processing doc style for operation getIDGServidorPrimario.
+Processing doc style for operation setIDGServidorPrimario.
+Processing doc style for operation cardExport.
+Processing doc style for operation DesAsignarTarjeta.
+Processing doc style for operation DesAsignarToken.
+Processing doc style for operation UsuarioCrear.
+Processing doc style for operation UsuarioBloquear.
+Processing doc style for operation UsuarioCambiar.
+Processing doc style for operation UsuarioObtener.
+Processing doc style for operation UsuarioAliasRemover.
+Processing doc style for operation PoseeTarjeta.
+Processing doc style for operation ActivarTarjeta.
+Processing doc style for operation SolicitarCoordenadas.
+Processing doc style for operation ValidarCoordenadas.
+Processing doc style for operation EstadoTarjeta.
+Processing doc style for operation CambioEstado.
+Processing doc style for operation SoftTokenCreate.
+Processing doc style for operation SoftTokenActivate.
+Processing doc style for operation SoftTokenActivateCompleted.
+Processing doc style for operation SoftTokenActivateOffline.
+Processing doc style for operation SoftTokenActivateFull.
+Processing doc style for operation PoseeToken.
+Processing doc style for operation ActivarToken.
+Processing doc style for operation SolicitarAutenticacionToken.
+Processing doc style for operation ValidarTokenValue.
+Processing doc style for operation ValidarTokenValueSimple.
+Processing doc style for operation EstadoToken.
+Processing doc style for operation TokenReSync.
+Processing doc style for operation CambioEstadoToken.
+Processing doc style for operation PoseeQA.
+Processing doc style for operation QAAgregarPreguntasRespuestas.
+Processing doc style for operation QARemoverPreguntasRespuestas.
+Processing doc style for operation QARemoverPreguntaRespuesta.
+Processing doc style for operation QAObtenerPreguntas.
+Processing doc style for operation QAValidarRespuestas.
+Processing doc style for operation OTPValidar.
+Processing doc style for operation OTPRemover.
+Processing doc style for operation OTPAgregar.
+Processing doc style for operation PoseeOTP.
+Processing doc style for operation TPINValidar.
+Processing doc style for operation TPINRemover.
+Processing doc style for operation TPINAgregar.
+Processing doc style for operation PoseeTPIN.
+Processing doc style for operation PoseeImagen.
+Processing doc style for operation ImagenAgregar.
+Processing doc style for operation ImagenRemover.
+Processing doc style for operation ImagenObtener.
+Processing doc style for operation ImagenObtenerObject.
+Processing doc style for operation ImagenObtenerBase64.
+Processing doc style for operation PoseeMaquina.
+Processing doc style for operation MaquinaValidar.
+Processing doc style for operation MaquinaRegistrar.
+Processing doc style for operation MaquinaDesRegistrar.
+Processing doc style for operation IPAgregar.
+Processing doc style for operation IPValidar.
+Processing doc style for operation TokenGetLicenceInfo.
+Populating WSDL schema WSDL/mockservicesSoap.xsd.
+Eliminando sentencia import innecesaria con espacio de nombres mockservicesSoap?WSDL&interface=servicesSoap&part=Entrust_services_InlineSchema1.xsd del esquema WSDL/mockservicesSoap_InlineSchema1.xsd.  Esta sentencia no se ha resuelto y no se utiliza nunca.
+Creando archivo WSDL/mockservicesSoap.xsd en el espacio de trabajo.
+Copiando WSDL origen mockservicesSoap.wsdl en mockservicesSoap.wsdl.
+
+Tiempo transcurrido para procesar este archivo de definicion de mensajes: 4.367 segundos
+Número de avisos para este archivo de definicion de mensajes: 0
+
+
+Número de archivos procesados: 1
+
+

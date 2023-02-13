@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="ProcesoSIV1" targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioProceso/BPM/V1"
+	xmlns:mprobpm="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioProceso/BPM/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true" name="ProcesoBindingSOAP"
+					originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1"
+				schemaLocation="xsd/DominioProceso/BPM/V1/ProcesoMIV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CrearActividadBPMMsjSol">
+		<wsdl:part element="mprobpm:CrearActividadBPMMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="CrearActividadBPMMsjResp">
+		<wsdl:part element="mprobpm:CrearActividadBPMMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ActualizarActividadBPMMsjSol">
+		<wsdl:part element="mprobpm:ActualizarActividadBPMMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ActualizarActividadBPMMsjResp">
+		<wsdl:part element="mprobpm:ActualizarActividadBPMMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ObtenerReferenciaBPMMsjSol">
+		<wsdl:part element="mprobpm:ObtenerReferenciaBPMMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ObtenerReferenciaBPMMsjResp">
+		<wsdl:part element="mprobpm:ObtenerReferenciaBPMMsjResp"
+			name="parameters" />
+	</wsdl:message>
+
+	<wsdl:portType name="ProcesoPortTypeSOAP">
+		<wsdl:operation name="CrearActividadBPM">
+			<wsdl:input message="tns:CrearActividadBPMMsjSol" name="CrearActividadBPMRq" />
+			<wsdl:output message="tns:CrearActividadBPMMsjResp" name="CrearActividadBPMRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ActualizarActividadBPM">
+			<wsdl:input message="tns:ActualizarActividadBPMMsjSol"
+				name="ActualizarActividadBPMRq" />
+			<wsdl:output message="tns:ActualizarActividadBPMMsjResp"
+				name="ActualizarActividadBPMRs" />
+		</wsdl:operation>
+			<wsdl:operation name="ObtenerReferenciaBPM">
+			<wsdl:input message="tns:ObtenerReferenciaBPMMsjSol"
+				name="ObtenerReferenciaBPMRq" />
+			<wsdl:output message="tns:ObtenerReferenciaBPMMsjResp"
+				name="ObtenerReferenciaBPMRs" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+	<wsdl:binding name="ProcesoBindingSOAP" type="tns:ProcesoPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="CrearActividadBPM">
+			<soap:operation
+				soapAction="http://xmlns.sura.com/ServicioIntegracion/DominioProceso/BPM/V1/CrearActividadBPM" />
+			<wsdl:input name="CrearActividadBPMRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CrearActividadBPMRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ActualizarActividadBPM">
+			<soap:operation
+				soapAction="http://xmlns.sura.com/ServicioIntegracion/DominioProceso/BPM/V1/ActualizarActividadBPM" />
+			<wsdl:input name="ActualizarActividadBPMRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ActualizarActividadBPMRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerReferenciaBPM">
+			<soap:operation
+				soapAction="http://xmlns.sura.com/ServicioIntegracion/DominioProceso/BPM/V1/ObtenerReferenciaBPM" />
+			<wsdl:input name="ObtenerReferenciaBPMRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ObtenerReferenciaBPMRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ProcesoSIV1">
+		<wsdl:port name="ProcesoPortSOAP" binding="tns:ProcesoBindingSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioProceso/BPM/V1/ProcesoPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

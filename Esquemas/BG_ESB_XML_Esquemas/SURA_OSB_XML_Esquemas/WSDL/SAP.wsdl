@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="SAPSIV1"
+	targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1"
+	xmlns:msapsap="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true"
+					name="SAPBindingSOAP" originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1"
+				schemaLocation="xsd/DominioSAP/SAP/V1/SAPMIV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="AsignarEgresosMsjSol">
+		<wsdl:part element="msapsap:AsignarEgresosMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AsignarEgresosMsjResp">
+		<wsdl:part element="msapsap:AsignarEgresosMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularEgresosMsjSol">
+		<wsdl:part element="msapsap:AnularEgresosMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularEgresosMsjResp">
+		<wsdl:part element="msapsap:AnularEgresosMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularOrdenPagoMsjSol">
+		<wsdl:part element="msapsap:AnularOrdenPagoMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularOrdenPagoMsjResp">
+		<wsdl:part element="msapsap:AnularOrdenPagoMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularReferenciaPagoMsjSol">
+		<wsdl:part element="msapsap:AnularReferenciaPagoMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AnularReferenciaPagoMsjResp">
+		<wsdl:part element="msapsap:AnularReferenciaPagoMsjResp" name="parameters" />
+	</wsdl:message>
+	
+	<wsdl:portType name="SAPPortTypeSOAP">
+		<wsdl:operation name="AsignarEgresos">
+			<wsdl:input message="tns:AsignarEgresosMsjSol" name="AsignarEgresosRq" />
+			<wsdl:output message="tns:AsignarEgresosMsjResp" name="AsignarEgresosRs" />
+		</wsdl:operation>
+		<wsdl:operation name="AnularEgresos">
+			<wsdl:input message="tns:AnularEgresosMsjSol" name="AnularEgresosRq" />
+			<wsdl:output message="tns:AnularEgresosMsjResp" name="AnularEgresosRs" />
+		</wsdl:operation>
+			<wsdl:operation name="AnularOrdenPago">
+			<wsdl:input message="tns:AnularOrdenPagoMsjSol" name="AnularOrdenPagoRq" />
+			<wsdl:output message="tns:AnularOrdenPagoMsjResp" name="AnularOrdenPagoRs" />
+		</wsdl:operation>
+		<wsdl:operation name="AnularReferenciaPago">
+			<wsdl:input message="tns:AnularReferenciaPagoMsjSol" name="AnularReferenciaPagoRq" />
+			<wsdl:output message="tns:AnularReferenciaPagoMsjResp" name="AnularReferenciaPagoRs" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+	<wsdl:binding name="SAPBindingSOAP" type="tns:SAPPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="AsignarEgresos">
+			<soap:operation style="document" />
+			<wsdl:input name="AsignarEgresosRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AsignarEgresosRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AnularEgresos">
+			<soap:operation style="document" />
+			<wsdl:input name="AnularEgresosRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AnularEgresosRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+				<wsdl:operation name="AnularOrdenPago">
+			<soap:operation style="document" />
+			<wsdl:input name="AnularOrdenPagoRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AnularOrdenPagoRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+				<wsdl:operation name="AnularReferenciaPago">
+			<soap:operation style="document" />
+			<wsdl:input name="AnularReferenciaPagoRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AnularReferenciaPagoRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SAPSIV1">
+		<wsdl:port binding="tns:SAPBindingSOAP" name="SAPPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioSAP/SAP/V1/SAPPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

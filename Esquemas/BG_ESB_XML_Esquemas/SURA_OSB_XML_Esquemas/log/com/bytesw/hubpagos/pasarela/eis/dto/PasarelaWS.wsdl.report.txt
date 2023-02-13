@@ -1,0 +1,31 @@
+
+
+Importing file: D:\SOAINT\Banca en Linea\szapata\bg_esb_xml_esquemas\BG_ESB_XML_Esquemas\WSDL\PasarelaWS.wsdl
+
+The WSDL import will proceed with bindings PasarelaHTTPPortBinding.
+Creating wsdl schema document for file:///D:/SOAINT/Banca en Linea/szapata/bg_esb_xml_esquemas/BG_ESB_XML_Esquemas/WSDL/PasarelaWS.wsdl.
+Parsing wsdl binding {http://dto.eis.pasarela.hubpagos.bytesw.com/}PasarelaHTTPPortBinding.
+Parsing wsdl binding input GetSession.
+Parsing wsdl binding output GetSession.
+Parsing wsdl binding input GetBillers.
+Parsing wsdl binding output GetBillers.
+Parsing wsdl binding input GetBalance.
+Parsing wsdl binding output GetBalance.
+Parsing wsdl binding input PayBill.
+Parsing wsdl binding output PayBill.
+Processing doc style for operation GetSession.
+Processing doc style for operation GetBillers.
+Processing doc style for operation GetBalance.
+Processing doc style for operation PayBill.
+Populating WSDL schema PasarelaWS.xsd.
+Creating file PasarelaWS.xsd in the workspace.
+Creating file /BG_ESB_XML_Esquemas/pasarela.xsd in the workspace.
+Copying source WSDL PasarelaWS.wsdl to PasarelaWS.wsdl.
+
+Elapsed time processing this message definition file: 0.866 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

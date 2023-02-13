@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+	xmlns:dcliper="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+	xmlns:dcliubi="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V1"
+	xmlns:dcomcomban="http://www.sura.com/ObjetoEmpresarial/DominioComun/ComunBanco/V1">
+	<xsd:import
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V1"
+		schemaLocation="../../Ubicacion/V1/UbicacionOENV1.xsd" />
+	<xsd:complexType name="TipoEmpresaTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Descripcion"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmpleoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de los Empleos
+				del Ente Natural.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Cargo"
+				type="CargoTipo">
+				<xsd:annotation>
+					<xsd:documentation>
+						Cargo desempenado en el empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="CarreraAdministrativa" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>
+						Identificador unico del Empleo
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="FechaIngreso"
+				type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						Fecha de ingreso al empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="FechaSalida"
+				type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						Fecha de salida del Empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Ministerio"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Planilla"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Posicion"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Region"
+				type="RegionTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Sueldo"
+				type="xsd:double">
+				<xsd:annotation>
+					<xsd:documentation>
+						Monto del Sueldo. (Salario)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="RangoSueldo"
+				type="dcliper:RangoSueldoTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoEmpleo"
+				type="dcliper:RolTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Empresa"
+				type="dcliper:EmpresaTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Ocupacion"
+				type="dcliper:OcupacionTipo" />
+			<xsd:element name="UltimaFechaActualizacion" type="xsd:dateTime"
+				maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PersonaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin bsica de
+				cualquier Persona.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="DocumentoIdentidad"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Documento de identidad del Persona(Nmero de
+						Cdula / Ruc / Pasaporte).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nacionalidad"
+				type="dcliubi:PaisTipo">
+				<xsd:annotation>
+					<xsd:documentation>Pais de la Nacionalidad</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="NombreCompleto"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del corto de la Persona.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="RiesgoPais"
+				type="dcliubi:PaisTipo">
+				<xsd:annotation>
+					<xsd:documentation>Pais donde desarrolla su actividad economica.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="SegundaNacionalidad" type="dcliubi:PaisTipo">
+				<xsd:annotation>
+					<xsd:documentation>Segunda Nacionalidad de la Persona.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="Telefono"
+				type="dcliubi:TelefonoTipo" />
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="Direccion"
+				type="dcliubi:DireccionTipo" />
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="CorreoPostal" type="dcliubi:CorreoPostalTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="ActividadEconomica"
+				type="dcliper:ActividadEconomicaTipo" />
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="CorreoElectronico" type="dcliubi:CorreoElectronicoTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del Rol del
+				Empleo.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de Tipo de Empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Tipo de Empleo.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CargoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del cargo del
+				Empleado.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del cargo del empleado.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del cargo del empleado.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de la region
+				del empleo.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la region del empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la region del empleo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RepresentanteLegalTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Cedula"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EstadoCivilTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacion del estado
+				Civil.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Estado Civil
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Estado Civil.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReferenciaPersonalTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de las
+				Referencias Personales del Ente Natural.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="ApellidoMaterno"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Apellido Materno de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="ApellidoPaterno"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Apellido Paterno de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Referencia Personal
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Direccion"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Direccion de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TelefonoDomicilio"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Telefono del domicilio de la Referencia
+						Personal.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TelefonoOtros"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Telefono de otros de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TelefonoTrabajo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Telefono de trabajo de la Referencia Personal.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CorreoElectronico"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Parentesco"
+				type="dcliper:ParentescoTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ObjetoSocialTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del objeto
+				Social.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Objeto Social.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Linea"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Indice de la linea del objeto social
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProfesionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de las
+				Profesiones del Ente Natural.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Profesion.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la profesion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PersonaJuridicaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin bsica de
+				cualquier Persona Juridico.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dcliper:PersonaTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="FechaAumentoCapital" type="xsd:dateTime">
+						<xsd:annotation>
+							<xsd:documentation>Fecha de Aumento de Capital
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="FechaConstitucion" type="xsd:dateTime">
+						<xsd:annotation>
+							<xsd:documentation>Fecha de constitucin de la empresa
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="FechaInsripcion"
+						type="xsd:dateTime">
+						<xsd:annotation>
+							<xsd:documentation>Fecha de Inscripcin</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="MontoReservaLegal" type="xsd:double">
+						<xsd:annotation>
+							<xsd:documentation>Monto de Reserva Legar</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="NombreComercial"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Nombre de la organizacin.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Plazo"
+						type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation>Plazo.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="DireccionDefecto"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Direccion de defecto de la Compania.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="Estatuto"
+						type="dcliper:EstatutoTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="RUC"
+						type="dcliper:RUCTipo" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0"
+						name="ObjetoSocial" type="dcliper:ObjetoSocialTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="RepresentanteLegal" type="dcliper:RepresentanteLegalTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EstatutoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del Estatuto.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Estatuto.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Linea"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Indice del estatuto.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmpresaTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="ActividadEconomica"
+				type="dcliper:ActividadEconomicaTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoEmpresa"
+				type="dcliper:TipoEmpresaTipo" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Descripcion"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PersonaNaturalTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin bsica de
+				cualquier Persona Natural. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dcliper:PersonaTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="ApellidoCasada"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Apellido de casada. Aplica slo para
+								mujeres
+								casadas o viudas, con apellido
+								de casada.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="ApellidoMaterno"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Apellido Materno de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="ApellidoPaterno"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Primer apellido de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="FechaNacimiento"
+						type="xsd:dateTime">
+						<xsd:annotation>
+							<xsd:documentation>
+								Fecha de nacimiento de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="NumeroSeguroSocial" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Nmero de Seguro Social de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Pasaporte"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Pasaporte de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="PrimerNombre"
+						type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation>
+								Nombre primer de la Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="SegundoNombre"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Segundo nombre de la persona, aplica
+								para
+								Personas Naturales.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Edad"
+						type="xsd:int" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="NivelEducativo"
+						type="dcliper:NivelEducativoTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="Sexo"
+						type="dcliper:SexoTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="Profesion"
+						type="dcliper:ProfesionTipo" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0"
+						name="ReferenciasPersonales" type="dcliper:ReferenciaPersonalTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="EstadoCivil"
+						type="dcliper:EstadoCivilTipo" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="Empleos"
+						type="dcliper:EmpleoTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ParentescoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de Parentesco
+				de la Referencia Personal.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Parentesco
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de parentesco.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SexoTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OcupacionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin Ocupacion del
+				empleo.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Ocupacion.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Ocupacion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RangoSueldoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del Rango de
+				Sueldos.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del rango de sueldos.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Minimo"
+				type="xsd:double">
+				<xsd:annotation>
+					<xsd:documentation>Monto minimo del rango de Sueldo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del rango de Sueldo.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Maximo"
+				type="xsd:double">
+				<xsd:annotation>
+					<xsd:documentation>Monto maximo del rango de Sueldo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RUCTipo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Alfa"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="DigitoVerificador"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Formato"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Finca"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Letra"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Provincia"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Valor1"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Valor2"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Valor3"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="FincaNT"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActividadEconomicaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de las
+				Actividades Economicas del Ente.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico para la Actividad Economica
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Descripcion"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Descricpcion de la actividad economica.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la actividad Economica.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NivelEducativoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin del Nivel
+				Educativo.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Nivel educativo
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Nivel Educativo.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
