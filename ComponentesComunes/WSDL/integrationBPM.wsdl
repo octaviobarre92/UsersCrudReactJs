@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:prc="http://sura.com.pa/Actividad/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Actividad" targetNamespace="http://sura.com.pa/Actividad/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/Actividad/">
+      <xsd:element name="crearActividad">
+                <xsd:annotation>
+                	<xsd:documentation></xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="tipoActividad" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				tipoActividad : es el tipo de Actividad con el
+          				cual será creado. Para este campo se manejará
+          				el siguiente catalogo y solo se envia el
+          				codigo. 01 - Consulta 02 - Solicitud 03 -
+          				Carga Masiva de Archivo
+
+          				Nota. * Este campo debe ser un catalogo de
+          				Usuario que debe almacenarse en INSIS para
+          				futuros cambios. * Se detallará más a fondo en
+          				la Matriz de Parametros IP012 vs Procesos
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="1"></xsd:enumeration>
+          				<xsd:enumeration value="2"></xsd:enumeration>
+          				<xsd:enumeration value="3"></xsd:enumeration>
+
+
+
+
+
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="asuntoActividad" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				asuntoActividad: Porque se ha creado la
+          				actividad. Este campo se una concatenacion de
+          				acuerdo al proceso que lo invoca y se
+          				dictamina de la siguiente forma: Proceso de
+          				Cotización y Emisión, [Tipo de Actividad
+          				(descripcion)] de [Nombre de Proceso] -
+          				[Referencia (depende de lo que se esta
+          				haciendo en el proceso)] Por ejemplo: 1-
+          				Solicitud de Cotización - Poliza"XXXXXXX" 2-
+          				Consulta de Endoso - Poliza "XXX" -
+          				Endoso"YYY"
+
+          				Nota. Se detallará más a fondo en la Matriz de
+          				Parametros IP012 vs Procesos
+
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="idUsuario" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				idUsuario: usuario de INSIS que envio a crear
+          				la actividad ene el BPM. Este usuario es el
+          				que se maneja en el CORE, por ejemplo, Si es
+          				María, en INSIS, dicha persona se logea con el
+          				usuario insis_maria.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="idProceso" type="xsd:string"
+          		maxOccurs="1" minOccurs="0">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				idProceso: Es el codigo del Proceso que se
+          				levanta al momento de interactuar en INSIS.
+          				[OPCIONAL] Este campo es opcional, ya que no
+          				todos los procesos en INSIS, levantan un
+          				identificador unico. Este campo debe formarse
+          				de la siguiente manera: [CORE que lo
+          				Invoca]_[id del Proceso] Ejemplo
+          				INSIS_"idProcxxx"
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+
+
+
+
+          	<xsd:element name="idPersona" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				idPersona: identificación de la persona. Para
+          				este campo se envia la cedula/RUC/pasaporte
+          				del mismo. [OPCIONAL] En este campo puede ser
+          				el Asegurado, Corredor, Acreedor. Esto lo
+          				dictamina el proceso.
+
+          				1. Para el proceso de Personas, la vinculación
+          				es hacia el Asegurado [PC001] 2. Para el
+          				proceso de Cotización, la vinculación a este
+          				campo es para el Asegurado. [PC007, PC008,
+          				PC009] 3. Para el proceso de Emision, la
+          				vinculación a este campo es para el Asegurado.
+          				[PC011, PC013, PC015] 4. Para el proceso de
+          				Endoso No Valorable, la vinculación a este
+          				campo puede ser para el Asegurado, Corredor y
+          				Acreedor[PC016, PC017, PC018] 5. Para el
+          				proceso de Endosos Valorables, la vinculación
+          				a este campo es para el Asegurado[PC019,
+          				PC020, PC021]
+
+          				Nota. Se detallará más a fondo en la Matriz de
+          				Parametros IP012 vs Procesos
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="25"></xsd:maxLength>
+          				<xsd:minLength value="1"></xsd:minLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="numPoliza" type="xsd:string"
+          		maxOccurs="1" minOccurs="0">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				numPoliza: numero de la póliza a reportar
+          				[OPCIONAL]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="tipoReferencia" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				tipoReferencia: Este campo permite identificar
+          				si la actividad se ha levantado para un anexo
+          				o endoso, sieniestro, pago asociado a la
+          				poliza. Este campo solo debe tener como
+          				parametro a enviar lo siguiente: Cuando se
+          				efectue una Emisión, Renovación y Cotización
+          				--> NO APLICA Cuando se efectue un Endosos o
+          				Anexos tanto Valorable como No Valorable -->
+          				ENDOSO Cuando se efecture una Cancelacion -->
+          				CANCELACION Cuando se efectue un Siniestro o
+          				una Reserva --> SINIESTRO Cuando se efectue un
+          				Pago --> RECAUDO Cuando se efectue una
+          				Devolucion de Prima --> DEVOLUCION Cuando se
+          				efectue ajustes o cambios a un Corredor,
+          				exclusivamente para el proceso de Canales
+          				PC034, PC035, PC036 --> CANALES Cuando se este
+          				efectuando procesos vinculados al ejecuciones
+          				de Carga de Archivos (FileAdapter) sería -->
+          				CARGA_ARCHIVO
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+
+
+
+          	<xsd:element name="numReferencia" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				numReferencia: es el numero referencia del
+          				cual se esta haciendo un movimiento o proceso
+          				y esta asociado al tipo de referencia. Para
+          				este campo el comportamiento del mismo: Cuando
+          				el tipo de Referencia es [EMISION ó
+          				COTIZACION], el numReferencia sería " ".
+          				Cuando el tipo de Referencia es [ENDOSO], el
+          				numReferencia sería [Numero de Endoso o Anexo]
+          				Cuando el tipo de Referencia es [CANCELACION],
+          				el numReferencia sería [Numero de Endoso o
+          				Anexo] .... Cuando el tipo de Referencia es
+          				[CARGA_ARCHIVO], el numReferencia debe ser el
+          				id unico con el cual se ejecuto el
+          				FileAdapter. Por ejemplo, el FileAdapter de la
+          				SuperIntendencia, el genera un numero unico
+          				por el cual se puede visualizar la cabecera y
+          				detalle asociado a esa ejecución.
+
+          				Nota. * Para todos los tipos de Referencia,
+          				excepto Carga_Archivo, se debe colocar el
+          				numero de la Póliza en el campo numPoliza. *
+          				Se detallará más a fondo en la Matriz de
+          				Parametros IP012 vs Procesos
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="idPlantillaActividad" type="xsd:string"
+          		maxOccurs="1" minOccurs="0">
+                            <xsd:annotation>
+                            	<xsd:documentation>Plantilla utilizada para obtener los campos necesarios para crear la actividad. </xsd:documentation></xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="ParametrosActividad" type="prc:ParametrosActividadTipo" maxOccurs="1" minOccurs="0">
+          		<xsd:annotation>
+          			<xsd:documentation>Parametros relacionados para la creación de la actividad.</xsd:documentation></xsd:annotation></xsd:element>
+          </xsd:sequence>
+                </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="crearActividadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="statusMSG">
+                            <xsd:annotation>
+                            	<xsd:documentation>statusMSG: Este parametro permite recibir un estatus del mensaje puede ser: 
+OK - Mensaje ejecutado exitosamente 
+ERR- Mensaje con Error</xsd:documentation>
+                            </xsd:annotation>
+                            <xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="2"></xsd:minLength>
+          				<xsd:maxLength value="3"></xsd:maxLength>
+          				<xsd:enumeration value="OK"></xsd:enumeration>
+          				<xsd:enumeration value="ERR"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descMSG" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>descMSG: Este parametro permite obtener la descripción del mensaje de error. [OPTIONAL]</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="idActividad" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>idActividad: numero de la Actividad creado en el BPM.</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+      <xsd:element name="cambiar_estadoActividad">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idActividad" type="xsd:string">
+      				<xsd:annotation>
+      					<xsd:documentation>idActividad: numero de la Actividad creado en el BPM
+      					</xsd:documentation>
+      				</xsd:annotation>
+      			</xsd:element>
+      			<xsd:element name="idUsuario" type="xsd:string">
+      				<xsd:annotation>
+      					<xsd:documentation>Usuario que esta realizando el seguimiento de actividad</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      			<xsd:element name="codigoEstado">
+      				<xsd:annotation>
+      					<xsd:documentation>codigoEstado: es el codigo que determina el estado de una actividad realizada en el CORE INSIS. Se debe enviar el codigo asociado al catalogo.
+Nota.
+Este campo debe ser un catalogo de Usuario que debe almacenarse en INSIS para futuros cambios.
+
+Catalogo
+01- Abierto 
+02- Pendiente  (Estado que esta vinculado al SubEstado)
+03- En Ejecución
+04- En Aprobacion 
+05- Cerrado 
+06- Cancelado
+      					</xsd:documentation>
+      				</xsd:annotation>
+      				<xsd:simpleType>
+      					<xsd:restriction base="xsd:string">
+      						<xsd:enumeration value="01"></xsd:enumeration>
+      						<xsd:enumeration value="02"></xsd:enumeration>
+      						<xsd:enumeration value="03"></xsd:enumeration>
+      						<xsd:enumeration value="04"></xsd:enumeration>
+      						<xsd:enumeration value="05"></xsd:enumeration>
+      						<xsd:enumeration value="06"></xsd:enumeration>
+      						<xsd:enumeration value="07"></xsd:enumeration>
+      					</xsd:restriction>
+      				</xsd:simpleType>
+      			</xsd:element>
+      			<xsd:element name="codigoSubEstado" minOccurs="0"
+      				maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>codigoSubEstado: Codigo del SubEstado a manejar al momento de que el codigoEstado es igual a (02 - Pendiente)
+Nota. Este campo debe ser un catalogo de Usuario que debe almacenarse en INSIS para futuros cambios.
+
+Catalgo
+01- En Cumplimiento
+02- En Evaluación Técnica
+03- En Gestión (abarca cualquier seguimiento por parte de un corredor, usuario, asistencia, taller, legal)
+04- EnTesoreria / Finanzas 
+05- En Devolución
+      					</xsd:documentation>
+      				</xsd:annotation>
+      				<xsd:simpleType>
+      					<xsd:restriction base="xsd:string">
+      						<xsd:enumeration value="01"></xsd:enumeration>
+      						<xsd:enumeration value="02"></xsd:enumeration>
+      						<xsd:enumeration value="03"></xsd:enumeration>
+      						<xsd:enumeration value="04"></xsd:enumeration>
+      						<xsd:enumeration value="05"></xsd:enumeration>
+      						<xsd:enumeration value="06"></xsd:enumeration>
+      					</xsd:restriction>
+      				</xsd:simpleType>
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cambiar_estadoActividadResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="statusMSG">
+                            <xsd:annotation>
+                            	<xsd:documentation>statusMSG: Este parametro permite recibir un estatus del mensaje puede ser: 
+OK - Mensaje ejecutado exitosamente 
+ERR- Mensaje con Error</xsd:documentation></xsd:annotation>
+                            <xsd:simpleType>
+      					<xsd:restriction base="xsd:string">
+      						<xsd:minLength value="2"></xsd:minLength>
+      						<xsd:maxLength value="3"></xsd:maxLength>
+      						<xsd:enumeration value="OK"></xsd:enumeration>
+      						<xsd:enumeration value="ERR"></xsd:enumeration>
+      					</xsd:restriction>
+      				</xsd:simpleType>
+      			</xsd:element>
+      			<xsd:element name="descMSG" type="xsd:string">
+      				<xsd:annotation>
+      					<xsd:documentation>descMSG: Este parametro permite obtener la descripción del mensaje de error.</xsd:documentation></xsd:annotation></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ParametrosActividadTipo">
+    	<xsd:annotation>
+        	<xsd:documentation>Parametros relacionados para la creación de la actividad.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="ParametroActividad" type="prc:ParametroActividadTipo" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+		</xsd:complexType>
+
+    <xsd:complexType name="ParametroActividadTipo">
+    	<xsd:annotation>
+			<xsd:documentation>
+				Parametro que contiene el valor y el nombre del atributo
+				necesario para crear la actividad.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Valor" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+			</xsd:element>
+			<xsd:element name="IdValor" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="Elemento" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+    
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="crearActividadRequest">
+    <wsdl:part element="prc:crearActividad" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="crearActividadResponse">
+    <wsdl:part element="prc:crearActividadResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cambiar_estadoActividadRequest">
+  	<wsdl:part name="parameters" element="prc:cambiar_estadoActividad"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cambiar_estadoActividadResponse">
+  	<wsdl:part name="parameters" element="prc:cambiar_estadoActividadResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Actividad">
+    <wsdl:operation name="crearActividad">
+      <wsdl:input message="prc:crearActividadRequest"/>
+      <wsdl:output message="prc:crearActividadResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="cambiar_estadoActividad">
+    	<wsdl:input message="prc:cambiar_estadoActividadRequest"></wsdl:input>
+    	<wsdl:output message="prc:cambiar_estadoActividadResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActividadSOAP" type="prc:Actividad">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="crearActividad">
+      <soap:operation soapAction="http://sura.com.pa/Actividad/crearActividad"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="cambiar_estadoActividad">
+      <soap:operation soapAction="http://sura.com.pa/Actividad/cambiar_estadoActividad"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>    
+    
+  </wsdl:binding>
+  <wsdl:service name="Actividad">
+    <wsdl:port binding="prc:ActividadSOAP" name="ActividadSOAP">
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

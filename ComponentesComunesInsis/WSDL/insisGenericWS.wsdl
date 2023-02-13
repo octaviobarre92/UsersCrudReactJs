@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InsisGenericWS"
+             targetNamespace="http://fadata.eu/soap/insis/genericws"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://fadata.eu/soap/insis/genericws"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis">
+    <import location="insisAbstractBase.wsdl"
+            namespace="http://fadata.eu/soap/insis"/>
+   <types>
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+<xs:include schemaLocation="xsd/insis/Insis_GenericWS_v3.0.xsd"/>
+</xs:schema>
+</types>
+<message name="ChainRqMessage">
+<part name="payload" element="insis:ChainRq"/>
+</message>
+<message name="ChainRsMessage">
+<part name="payload" element="insis:ChainRs"/>
+</message>
+<message name="ClearNotificationsRqMessage">
+<part name="payload" element="insis:ClearNotificationsRq"/>
+</message>
+<message name="ClearNotificationsRsMessage">
+<part name="payload" element="insis:ClearNotificationsRs"/>
+</message>
+<message name="CloseOpenPeriodRqMessage">
+<part name="payload" element="insis:CloseOpenPeriodRq"/>
+</message>
+<message name="CloseOpenPeriodRsMessage">
+<part name="payload" element="insis:CloseOpenPeriodRs"/>
+</message>
+<message name="CloseOpenDayRqMessage">
+<part name="payload" element="insis:CloseOpenDayRq"/>
+</message>
+<message name="CloseOpenDayRsMessage">
+<part name="payload" element="insis:CloseOpenDayRs"/>
+</message>
+<message name="DeleteQuestionaryRqMessage">
+<part name="payload" element="insis:DeleteQuestionaryRq"/>
+</message>
+<message name="DeleteQuestionaryRsMessage">
+<part name="payload" element="insis:DeleteQuestionaryRs"/>
+</message>
+<message name="DownloadAttachmentsRqMessage">
+<part name="payload" element="insis:DownloadAttachmentsRq"/>
+</message>
+<message name="DownloadAttachmentsRsMessage">
+<part name="payload" element="insis:DownloadAttachmentsRs"/>
+</message>
+<message name="DueNotificationsRqMessage">
+<part name="payload" element="insis:DueNotificationsRq"/>
+</message>
+<message name="DueNotificationsRsMessage">
+<part name="payload" element="insis:DueNotificationsRs"/>
+</message>
+<message name="InvokeSBSEventRqMessage">
+<part name="payload" element="insis:InvokeSBSEventRq"/>
+</message>
+<message name="InvokeSBSEventRsMessage">
+<part name="payload" element="insis:InvokeSBSEventRs"/>
+</message>
+<message name="GetCurrencyRateRqMessage">
+<part name="payload" element="insis:GetCurrencyRateRq"/>
+</message>
+<message name="GetCurrencyRateRsMessage">
+<part name="payload" element="insis:GetCurrencyRateRs"/>
+</message>
+<message name="GetLocalizedMessageRqMessage">
+<part name="payload" element="insis:GetLocalizedMessageRq"/>
+</message>
+<message name="GetLocalizedMessageRsMessage">
+<part name="payload" element="insis:GetLocalizedMessageRq"/>
+</message>
+<message name="GetOpenPeriodRqMessage">
+<part name="payload" element="insis:GetOpenPeriodRq"/>
+</message>
+<message name="GetOpenPeriodRsMessage">
+<part name="payload" element="insis:GetOpenPeriodRs"/>
+</message>
+<message name="GetOpenDayRqMessage">
+<part name="payload" element="insis:GetOpenDayRq"/>
+</message>
+<message name="GetOpenDayRsMessage">
+<part name="payload" element="insis:GetOpenDayRs"/>
+</message>
+<message name="GetParameterRqMessage">
+<part name="payload" element="insis:GetParameterRq"/>
+</message>
+<message name="GetParameterRsMessage">
+<part name="payload" element="insis:GetParameterRs"/>
+</message>
+<message name="GetQuestionaryLayoutsRqMessage">
+<part name="payload" element="insis:GetQuestionaryLayoutsRq"/>
+</message>
+<message name="GetQuestionaryLayoutsRsMessage">
+<part name="payload" element="insis:GetQuestionaryLayoutsRs"/>
+</message>
+<message name="GetUserQuestionaryRqMessage">
+<part name="payload" element="insis:GetUserQuestionaryRq"/>
+</message>
+<message name="GetUserQuestionaryRsMessage">
+<part name="payload" element="insis:GetUserQuestionaryRs"/>
+</message>
+<message name="ListOfValuesRqMessage">
+<part name="payload" element="insis:ListOfValuesRq"/>
+</message>
+<message name="ListOfValuesRsMessage">
+<part name="payload" element="insis:ListOfValuesRs"/>
+</message>
+<message name="LocalizationRqMessage">
+<part name="payload" element="insis:LocalizationRq"/>
+</message>
+<message name="LocalizationRsMessage">
+<part name="payload" element="insis:LocalizationRs"/>
+</message>
+<message name="LockOpenDayRqMessage">
+<part name="payload" element="insis:LockOpenDayRq"/>
+</message>
+<message name="LockOpenDayRsMessage">
+<part name="payload" element="insis:LockOpenDayRs"/>
+</message>
+<message name="LockOpenPeriodRqMessage">
+<part name="payload" element="insis:LockOpenPeriodRq"/>
+</message>
+<message name="LockOpenPeriodRsMessage">
+<part name="payload" element="insis:LockOpenPeriodRs"/>
+</message>
+<message name="OpenNewDayRqMessage">
+<part name="payload" element="insis:OpenNewDayRq"/>
+</message>
+<message name="OpenNewDayRsMessage">
+<part name="payload" element="insis:OpenNewDayRs"/>
+</message>
+<message name="OpenNewPeriodRqMessage">
+<part name="payload" element="insis:OpenNewPeriodRq"/>
+</message>
+<message name="OpenNewPeriodRsMessage">
+<part name="payload" element="insis:OpenNewPeriodRs"/>
+</message>
+<message name="PaginatedQueryRqMessage">
+<part name="payload" element="insis:PaginatedQueryRq"/>
+</message>
+<message name="PaginatedQueryRsMessage">
+<part name="payload" element="insis:PaginatedQueryRs"/>
+</message>
+<message name="PublishChainCollectionRqMessage">
+<part name="payload" element="insis:PublishChainCollectionRq"/>
+</message>
+<message name="PublishChainCollectionRsMessage">
+<part name="payload" element="insis:PublishChainCollectionRs"/>
+</message>
+<message name="PublishQuestionaryLayoutRqMessage">
+<part name="payload" element="insis:PublishQuestionaryLayoutRq"/>
+</message>
+<message name="PublishQuestionaryLayoutRsMessage">
+<part name="payload" element="insis:PublishQuestionaryLayoutRs"/>
+</message>
+<message name="QuestionaryConfigurationRqMessage">
+<part name="payload" element="insis:QuestionaryConfigurationRq"/>
+</message>
+<message name="QuestionaryConfigurationRsMessage">
+<part name="payload" element="insis:QuestionaryConfigurationRq"/>
+</message>
+<message name="RegisterFNOLSRRqMessage">
+<part name="payload" element="insis:RegisterFNOLSRRq"/>
+</message>
+<message name="RegisterFNOLSRRsMessage">
+<part name="payload" element="insis:RegisterFNOLSRRs"/>
+</message>
+<message name="RegisterUserQuestionaryRqMessage">
+<part name="payload" element="insis:RegisterUserQuestionaryRq"/>
+</message>
+<message name="RegisterUserQuestionaryRsMessage">
+<part name="payload" element="insis:RegisterUserQuestionaryRs"/>
+</message>
+<message name="RulesRqMessage">
+<part name="payload" element="insis:RulesRq"/>
+</message>
+<message name="RulesRsMessage">
+<part name="payload" element="insis:RulesRs"/>
+</message>
+<message name="SetQuestionaryConfigurationRqMessage">
+<part name="payload" element="insis:SetQuestionaryConfigurationRq"/>
+</message>
+<message name="SetQuestionaryConfigurationRsMessage">
+<part name="payload" element="insis:SetQuestionaryConfigurationRs"/>
+</message>
+<message name="SetCurrencyRateRqMessage">
+<part name="payload" element="insis:SetCurrencyRateRq"/>
+</message>
+<message name="SetCurrencyRateRsMessage">
+<part name="payload" element="insis:SetCurrencyRateRs"/>
+</message>
+<message name="UploadAttachmentsRqMessage">
+<part name="payload" element="insis:UploadAttachmentsRq"/>
+</message>
+<message name="UploadAttachmentsRsMessage">
+<part name="payload" element="insis:UploadAttachmentsRs"/>
+</message>
+<portType name="InsisGenericWSPort">
+<operation name="chain">
+<input message="tns:ChainRqMessage"/>
+<output message="tns:ChainRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="clearNotifications">
+<input message="tns:ClearNotificationsRqMessage"/>
+<output message="tns:ClearNotificationsRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="closeOpenPeriod">
+<input message="tns:CloseOpenPeriodRqMessage"/>
+<output message="tns:CloseOpenPeriodRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="closeOpenDay">
+<input message="tns:CloseOpenDayRqMessage"/>
+<output message="tns:CloseOpenDayRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="deleteQuestionary">
+<input message="tns:DeleteQuestionaryRqMessage"/>
+<output message="tns:DeleteQuestionaryRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="downloadAttachments">
+<input message="tns:DownloadAttachmentsRqMessage"/>
+<output message="tns:DownloadAttachmentsRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="dueNotifications">
+<input message="tns:DueNotificationsRqMessage"/>
+<output message="tns:DueNotificationsRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="invokeSBSEvent">
+<input message="tns:InvokeSBSEventRqMessage"/>
+<output message="tns:InvokeSBSEventRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getCurrencyRate">
+<input message="tns:GetCurrencyRateRqMessage"/>
+<output message="tns:GetCurrencyRateRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getLocalizedMessage">
+<input message="tns:GetLocalizedMessageRqMessage"/>
+<output message="tns:GetLocalizedMessageRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getOpenPeriod">
+<input message="tns:GetOpenPeriodRqMessage"/>
+<output message="tns:GetOpenPeriodRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getOpenDay">
+<input message="tns:GetOpenDayRqMessage"/>
+<output message="tns:GetOpenDayRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getParameter">
+<input message="tns:GetParameterRqMessage"/>
+<output message="tns:GetParameterRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getQuestionaryLayouts">
+<input message="tns:GetQuestionaryLayoutsRqMessage"/>
+<output message="tns:GetQuestionaryLayoutsRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="getUserQuestionary">
+<input message="tns:GetUserQuestionaryRqMessage"/>
+<output message="tns:GetUserQuestionaryRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="listOfValues">
+<input message="tns:ListOfValuesRqMessage"/>
+<output message="tns:ListOfValuesRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="localization">
+<input message="tns:LocalizationRqMessage"/>
+<output message="tns:LocalizationRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="lockOpenDay">
+<input message="tns:LockOpenDayRqMessage"/>
+<output message="tns:LockOpenDayRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="lockOpenPeriod">
+<input message="tns:LockOpenPeriodRqMessage"/>
+<output message="tns:LockOpenPeriodRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="openNewDay">
+<input message="tns:OpenNewDayRqMessage"/>
+<output message="tns:OpenNewDayRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="openNewPeriod">
+<input message="tns:OpenNewPeriodRqMessage"/>
+<output message="tns:OpenNewPeriodRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="paginatedQuery">
+<input message="tns:PaginatedQueryRqMessage"/>
+<output message="tns:PaginatedQueryRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="publishChainCollection">
+<input message="tns:PublishChainCollectionRqMessage"/>
+<output message="tns:PublishChainCollectionRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="publishQuestionaryLayout">
+<input message="tns:PublishQuestionaryLayoutRqMessage"/>
+<output message="tns:PublishQuestionaryLayoutRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="questionaryConfiguration">
+<input message="tns:QuestionaryConfigurationRqMessage"/>
+<output message="tns:QuestionaryConfigurationRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerFNOLSR">
+<input message="tns:RegisterFNOLSRRqMessage"/>
+<output message="tns:RegisterFNOLSRRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerUserQuestionary">
+<input message="tns:RegisterUserQuestionaryRqMessage"/>
+<output message="tns:RegisterUserQuestionaryRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="rules">
+<input message="tns:RulesRqMessage"/>
+<output message="tns:RulesRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="setQuestionaryConfiguration">
+<input message="tns:SetQuestionaryConfigurationRqMessage"/>
+<output message="tns:SetQuestionaryConfigurationRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="setCurrencyRate">
+<input message="tns:SetCurrencyRateRqMessage"/>
+<output message="tns:SetCurrencyRateRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="uploadAttachments">
+<input message="tns:UploadAttachmentsRqMessage"/>
+<output message="tns:UploadAttachmentsRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+</portType>
+<binding name="InsisGenericWSPortBinding" type="tns:InsisGenericWSPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="chain">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="clearNotifications">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="closeOpenPeriod">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="closeOpenDay">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="deleteQuestionary">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="downloadAttachments">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="dueNotifications">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="invokeSBSEvent">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getCurrencyRate">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getLocalizedMessage">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getOpenPeriod">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getOpenDay">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getParameter">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getQuestionaryLayouts">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="getUserQuestionary">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="listOfValues">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="localization">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="lockOpenDay">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="lockOpenPeriod">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="openNewDay">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="openNewPeriod">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="paginatedQuery">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="publishChainCollection">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="publishQuestionaryLayout">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="questionaryConfiguration">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerFNOLSR">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerUserQuestionary">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="rules">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="setQuestionaryConfiguration">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="setCurrencyRate">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="uploadAttachments">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+</binding>
+<service name="InsisGenericWS">
+<port name="InsisGenericWSPort" binding="tns:InsisGenericWSPortBinding">
+<soap:address location="https://ws.pa.sura.qa.ctplc.ltd:9074/insisws/InsisGenericWSPort"/>
+</port>
+</service>
+</definitions>

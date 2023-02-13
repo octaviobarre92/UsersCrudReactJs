@@ -1,0 +1,80 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           xmlns:xdb="http://xmlns.oracle.com/xdb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           elementFormDefault="qualified">
+    <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_ACM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_CSM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_OMM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_PAM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_PBM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_PDM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_GenericWS_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_IEM_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_WF_v3.0.xsd"/>
+    <xs:include schemaLocation="Insis_System_v3.0.xsd"/>
+    <!-- Global elements -->
+    <xs:element name="InsuranceSvc" type="InsuranceSvc_Type">
+        <xs:annotation>
+            <xs:documentation>Document entry point</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="InsisProxyRq" type="InsisProxyRq_Type"/>
+    <xs:complexType name="InsisProxyRq_Type">
+        <xs:sequence>
+            <xs:element name="User" type="xs:string"/>
+            <xs:element name="Password" type="xs:string"/>
+            <xs:element name="InsuranceSvcRq" type="InsuranceSvcRq_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InsuranceSvcRq_Type"
+                    xdb:SQLType="InsuranceSvcRq_Type">
+        <xs:sequence>
+            <xs:group ref="ACM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="CSM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="IEM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="OMM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="PAM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="PBM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="PDM_Rq_Group" minOccurs="0"/>
+            <xs:group ref="GenericWS_Rq_Group" minOccurs="0"/>            
+            <xs:group ref="WF_Rq_Group" minOccurs="0"/>
+            <xs:group ref="System_Rq_Group" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InsuranceSvcRs_Type"
+                    xdb:SQLType="InsuranceSvcRs_Type">
+        <xs:sequence>
+            <xs:group ref="ACM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="CSM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="IEM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="OMM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="PAM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="PBM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="PDM_Rs_Group" minOccurs="0"/>
+            <xs:group ref="GenericWS_Rs_Group" minOccurs="0"/>            
+            <xs:group ref="WF_Rs_Group" minOccurs="0"/>
+            <xs:group ref="System_Rs_Group" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InsuranceSvc_Type" xdb:SQLType="InsuranceSvc_Type">
+        <xs:choice>
+            <xs:element name="InsuranceSvcRq" type="InsuranceSvcRq_Type"/>
+            <xs:element name="InsuranceSvcRs" type="InsuranceSvcRs_Type"/>
+            <xs:element ref="Error"/>
+        </xs:choice>
+        <xs:attribute name="operationalMode" type="OPERATIONAL_MODE_TYPE"/>
+        <xs:attribute name="transactionID" type="xs:string"/>
+        <xs:attribute name="correlationID" type="xs:string"/>
+        <xs:attribute name="measureTime" type="xs:boolean"/>
+        <xs:attribute name="propagateAfterCommit" type="xs:boolean"/>
+        <xs:attribute name="propagateBeforeCommit" type="xs:boolean"/>
+    </xs:complexType>
+    <xs:simpleType name="OPERATIONAL_MODE_TYPE">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="SIM|EX"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

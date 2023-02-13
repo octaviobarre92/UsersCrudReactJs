@@ -1,0 +1,35 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           xmlns:xdb="http://xmlns.oracle.com/xdb" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!-- Service Request messages -->
+  <xs:element name="GetEmployeeAgentStatusRq" type="GetEmplAgntStsRq_Type" />
+  <!-- Service Response messages -->
+  <xs:element name="GetEmployeeAgentStatusRs" type="GetEmplAgntStsRs_Type" />
+  <xs:group name="ACM_Rq_Group">
+    <xs:choice>
+        <xs:element name="GetEmployeeAgentStatusRq" type="GetEmplAgntStsRq_Type" />
+    </xs:choice>
+  </xs:group>
+  <xs:group name="ACM_Rs_Group">
+    <xs:choice>
+        <xs:element name="GetEmployeeAgentStatusRs" type="GetEmplAgntStsRs_Type" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="GetEmplAgntStsRq_Type"
+                  xdb:SQLType="GetEmplAgntStsRq_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element name="OfficeCode" type="xs:string"/>
+      <xs:element ref="ProductCode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetEmplAgntStsRs_Type"
+                  xdb:SQLType="GetEmplAgntStsRs_Type">
+    <xs:sequence>
+      <xs:element ref="Result"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

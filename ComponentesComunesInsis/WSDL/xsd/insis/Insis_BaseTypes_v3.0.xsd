@@ -1,0 +1,3986 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified" targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/">
+<xs:element name="AccountState">
+<xs:simpleType>
+<xs:restriction base="xs:integer">
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="AddressID" type="xs:integer"/>
+<xs:element name="AddressType" type="xs:string"/>
+<xs:element name="Addresses" type="Addresses_Type"/>
+<xs:element name="AgentID" type="xs:long"/>
+<xs:element name="AgentNo" type="xs:string"/>
+<xs:element name="AnnexDate" type="xs:date"/>
+<xs:element name="AnnexID" type="xs:integer"/>
+<xs:element name="AnnuityRecipients" type="AnnuityRecipients_Type"/>
+<xs:element name="ApplicationNo" type="xs:string"/>
+<xs:element name="AttachmentFiles" type="AttachmentFiles_Type"/>
+<xs:element name="AttachmentRef" type="AttachmentRef_Type"/>
+<xs:element name="AuxAnnexID" type="xs:integer"/>
+<xs:element name="BankAccounts" type="BankAccnts_Type"/>
+<xs:element name="BankAccID" type="xs:integer"/>
+<xs:element name="BankID" type="xs:long"/>
+<xs:element name="BeginDate" type="xs:date"/>
+<xs:element name="CardID" type="xs:long"/>
+<xs:element name="CauseID" type="xs:integer"/>
+<xs:element name="Claim" type="Claim_Type"/>
+<xs:element name="ClaimExpenseSeq" type="xs:long"/>
+<xs:element name="ClaimID" type="xs:string"/>
+<xs:element name="ClaimNo" type="xs:string"/>
+<xs:element name="ClaimObjSeq" type="xs:long"/>
+<xs:element name="ClaimObjectSeq" type="xs:long"/>
+<xs:element name="ClaimType" type="xs:string"/>
+<xs:element name="ClaimantID" type="xs:long"/>
+<xs:element name="Claims" type="Claims_Type"/>
+<xs:element name="ClassCode" type="xs:string"/>
+<xs:element name="ClassSubCode" type="xs:string"/>
+<xs:element name="Client" type="Client_Type"/>
+<xs:element name="ClientName" type="xs:string"/>
+<xs:element name="ClientPID" type="xs:string"/>
+<xs:element name="CompType" type="xs:string"/>
+<xs:element name="CompanyData" type="CompanyData_Type"/>
+<xs:element name="Contact" type="Contact_Type"/>
+<xs:element name="ContactID" type="xs:integer"/>
+<xs:element name="Contacts" type="Contacts_Type"/>
+<xs:element name="ContentType" type="MIME_TYPE_TYPE"/>
+<xs:element name="Contributions" type="InvAccountPPlans_Type"/>
+<xs:element name="CoverCode" type="xs:string"/>
+<xs:element name="CoverPackages" type="CoverPackages_Type"/>
+<xs:element name="Covers" type="Covers_Type"/>
+<xs:element name="CreditCards" type="CreditCards_Type"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="CustomOID" type="CustomOID_Type"/>
+<xs:element name="CustomProperties" type="CustomProperties_Type"/>
+<xs:element name="DataSource" type="xs:string"/>
+<xs:element name="Discounts" type="Discounts_Type"/>
+<xs:element name="DocID" type="xs:string"/>
+<xs:element name="DocInfo" type="DocInfo_Type"/>
+<xs:element name="Drivers" type="Drivers_Type"/>
+<xs:element name="EngagementID" type="xs:long"/>
+<xs:element name="EngagementNo" type="xs:string"/>
+<xs:element name="Entity" type="Entity_Type"/>
+<xs:element name="EntityType" type="ENTITY_VALUE_TYPE"/>
+<xs:element name="ExpertID" type="xs:long"/>
+<xs:element name="FileName" type="xs:string"/>
+<xs:element name="Error" type="Error_Type">
+<xs:annotation>
+<xs:documentation>Generic INSIS WS Error</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FilterCriteria" type="FilterCriteria_Type"/>
+<xs:element name="FiscalPeriod" type="xs:string"/>
+<xs:element name="GeogAreaID" type="xs:string"/>
+<xs:element name="GroupID" type="xs:long"/>
+<xs:element name="Guilty" type="Guilty_Type"/>
+<xs:element name="HomeCountry" type="xs:string"/>
+<xs:element name="IndustryCode" type="xs:string"/>
+<xs:element name="InjuredObjects" type="InjuredObjects_Type"/>
+<xs:element name="InsrBegin" type="DATE_TIME_TYPE"/>
+<xs:element name="InsrEnd" type="xs:dateTime"/>
+<xs:element name="InstallmentType">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="2|5|6|7|8|9|10|11|12|14|15|17"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Installments" type="xs:integer"/>
+<xs:element name="InsuranceBegin" type="xs:date"/>
+<xs:element name="InsuranceEnd" type="xs:dateTime"/>
+<xs:element name="InsuredAmount" type="xs:decimal"/>
+<xs:element name="InsuredEntity" type="InsuredEntity_Type"/>
+<xs:element name="InsuredID" type="xs:integer"/>
+<xs:element name="InsuredObjectID" type="xs:long"/>
+<xs:element name="InsuredRole" type="xs:string"/>
+<xs:element name="Insureds" type="Insureds_Type"/>
+<xs:element name="InsurerID" type="xs:long"/>
+<xs:element name="Language" type="xs:string"/>
+<xs:element name="LettersOfCredit" type="LettersOfCredit_Type"/>
+<xs:element name="LossSize" type="xs:string"/>
+<xs:element name="LossType" type="xs:string"/>
+<xs:element name="ManID" type="xs:long"/>
+<xs:element name="ModifyInsuredEntity" type="ModifyInsuredEntity_Type"/>
+<xs:element name="NamePrefix" type="xs:string"/>
+<xs:element name="NameSuffix" type="xs:string"/>
+<xs:element name="Nationality" type="xs:string"/>
+<xs:element name="NewAnnexID" type="xs:integer"/>
+<xs:element name="Notes" type="xs:string"/>
+<xs:element name="OAccidentInsured" type="OAccidentInsured_Type"/>
+<xs:element name="OAdditionalEquipment" type="OAdditionalEquipment_Type"/>
+<xs:element name="OAgriculture" type="OAgriculture_Type"/>
+<xs:element name="OAnimal" type="OAnimal_Type"/>
+<xs:element name="OCar" type="OCar_Type"/>
+<xs:element name="OCargo" type="OCargo_Type"/>
+<xs:element name="OInsuredGroups" type="OInsuredGroups_Type"/>
+<xs:element name="OLiability" type="OLiability_Type"/>
+<xs:element name="OLoss" type="OLoss_Type"/>
+<xs:element name="OPerson" type="OPerson_Type"/>
+<xs:element name="OPlane" type="OPlane_Type"/>
+<xs:element name="OPropBri" type="OPropBri_Type"/>
+<xs:element name="OProperty" type="OProperty_Type"/>
+<xs:element name="OShip" type="OShip_Type"/>
+<xs:element name="OTrain" type="OTrain_Type"/>
+<xs:element name="ObjectID" type="xs:integer"/>
+<xs:element name="ObjectNum" type="xs:integer"/>
+<xs:element name="ObjectType" type="xs:integer"/>
+<xs:element name="OfficeID" type="xs:long"/>
+<xs:element name="Operation" type="OPERATION_MODE_TYPE"/>
+<xs:element name="Owners" type="Owners_Type"/>
+<xs:element name="PID" type="xs:string">
+<xs:annotation>
+<xs:documentation>Personal identifier (social security number, EGN...)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PaymentID" type="xs:long"/>
+<xs:element name="PaymentWay" type="xs:string"/>
+<xs:element name="PersonalData" type="PersonalData_Type"/>
+<xs:element name="PolicyID" type="xs:long"/>
+<xs:element name="PolicyNo" type="xs:string"/>
+<xs:element name="PolicyRef" type="xs:string"/>
+<xs:element name="PolicyRuleID" type="xs:long"/>
+<xs:element name="PolicyAddresses" type="PolicyAddresses_Type"/>
+<xs:element name="PolicyContacts" type="PolicyContacts_Type"/>
+<xs:element name="PolicyBankAccounts" type="PolicyBankAccounts_Type"/>
+<xs:element name="PolicyCreditCards" type="PolicyCreditCards_Type"/>
+<xs:element name="Premium" type="Premium_Type"/>
+<xs:element name="ProductCode" type="xs:string"/>
+<xs:element name="RecipientData" type="RecipientData_Type"/>
+<xs:element name="RefuseCode" type="xs:integer"/>
+<xs:element name="RefuseComment" type="xs:string"/>
+<xs:element name="RefuseDate" type="xs:date"/>
+<xs:element name="RefuseLetter" type="xs:string"/>
+<xs:element name="RegistrationDate" type="xs:dateTime"/>
+<xs:element name="RegressID" type="xs:long"/>
+<xs:element name="RelatedPersons" type="RelatedPersons_Type"/>
+<xs:element name="ReportID" type="xs:long"/>
+<xs:element name="RequestNo" type="xs:integer"/>
+<xs:element name="ResidentialAddress" type="ResidentialAddress_Type"/>
+<xs:element name="Result" type="xs:integer"/>
+<xs:element name="ReturningMessage" type="xs:string"/>
+<xs:element name="ReturningMessages" type="ReturningMessages_Type"/>
+<xs:element name="RiskType" type="xs:string"/>
+<xs:element name="Risks" type="Risks_Type"/>
+<xs:element name="SeparateDuration" type="xs:integer"/>
+<xs:element name="StaffID" type="xs:integer"/>
+<xs:element name="SubGroupID" type="xs:long"/>
+<xs:element name="SubIndustryCode" type="xs:string"/>
+<xs:element name="Supplementaries" type="Supplementaries_Type"/>
+<xs:element name="SurvivorID" type="xs:integer"/>
+<xs:element name="Taxes" type="Taxes_Type"/>
+<xs:element name="TreatyID" type="xs:long"/>
+<xs:element name="TreatyType" type="xs:string"/>
+<xs:element name="ULFunds">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ULFund" type="ULFund_Type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="URL" type="xs:anyURI"/>
+<xs:element name="Userexit" type="Userexit_Type"/>
+<xs:element name="ValidityConditions">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ValidityCondition" type="ValidityCondition_Type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidFrom" type="xs:date"/>
+<xs:element name="ValidFromTime" type="xs:time"/>
+<xs:element name="ValidTo" type="xs:date"/>
+<xs:element name="ValidToTime" type="xs:time"/>
+<xs:element name="WfAttachmentPackage" type="WfAttachmentPackage_Type"/>
+<xs:element name="WfStep" type="WfStep_Type"/>
+<xs:group name="Change_People_Data_Group">
+<xs:sequence>
+<xs:element name="Entity" type="ChngeEntityData_Type"/>
+<xs:element name="Addresses" type="ChngeAddresses_Type" minOccurs="0"/>
+<xs:element name="Contacts" type="ChngeContacts_Type" minOccurs="0"/>
+<xs:element name="BankAccounts" type="ChngeBankAccnts_Type" minOccurs="0"/>
+<xs:element name="CreditCards" type="ChngeCreditCards_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="ClaimReport_Group">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="ClaimID"/>
+<xs:element ref="ClaimNo"/>
+</xs:choice>
+<xs:element ref="RequestNo"/>
+<xs:element name="ReportNo" type="xs:integer"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="Cnng_Insured_Group">
+<xs:sequence>
+<xs:element ref="InsuredObjectID"/>
+<xs:element ref="PolicyNo"/>
+<xs:element name="Cover" type="Cover_Type"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="Engagement_Quote_Group">
+<xs:sequence>
+<xs:element name="QuoteID" type="xs:long" minOccurs="0"/>
+<xs:element name="QuoteNo" type="xs:string" minOccurs="0"/>
+<xs:element name="QuoteVer" type="xs:string" minOccurs="0"/>
+<xs:element name="Status" type="xs:string" minOccurs="0"/>
+<xs:element name="OrgQuoteID" type="xs:long" minOccurs="0"/>
+<xs:element name="DateSubmitted" type="xs:date" minOccurs="0"/>
+<xs:element name="DateAccepted" type="xs:date" minOccurs="0"/>
+<xs:element name="ValidTo" type="xs:date" minOccurs="0"/>
+<xs:element name="RejectReason" type="xs:string" minOccurs="0"/>
+<xs:element name="QuoteType" type="xs:string" minOccurs="0"/>
+<xs:element name="QuoteNotes" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="Insured_Group">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="PolicyID"/>
+<xs:element ref="PolicyNo"/>
+</xs:choice>
+<xs:element ref="InsuredObjectID"/>
+<xs:element minOccurs="0" ref="ObjectNum"/>
+<xs:element minOccurs="0" ref="InsuredAmount"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element minOccurs="0" ref="Covers"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="Insured_Ref_Group">
+<xs:annotation>
+<xs:documentation>A structure is used for Enrollment in gen/life/health policies. The group must be named as to be referred in Insured objects as a group and/or subgroup to which they belong.</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="GroupSeqNum" type="xs:int" minOccurs="0"/>
+<xs:element name="AttachToGroup" type="AttachToGroup_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:group>
+<xs:complexType name="AttachToGroup_Type">
+<xs:sequence>
+<xs:element name="GroupRef" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:group name="PID_Data_Group">
+<xs:sequence>
+<xs:element ref="PID"/>
+<xs:element minOccurs="0" ref="EntityType"/>
+</xs:sequence>
+</xs:group>
+<xs:group name="People_Data_Group">
+<xs:sequence>
+<xs:element ref="Entity"/>
+<xs:element minOccurs="0" ref="Addresses"/>
+<xs:element minOccurs="0" ref="Contacts"/>
+<xs:element minOccurs="0" ref="BankAccounts"/>
+<xs:element minOccurs="0" ref="CreditCards"/>
+</xs:sequence>
+</xs:group>
+<xs:complexType name="Accounts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="BankAccount" type="BankAccount_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Address_Type">
+<xs:sequence>
+<xs:element ref="AddressID" minOccurs="0"/>
+<xs:element name="Country" type="xs:string" minOccurs="0"/>
+<xs:element name="CountryCode" type="xs:string" minOccurs="0"/>
+<xs:element name="State" type="xs:string" minOccurs="0"/>
+<xs:element name="CountryState" type="xs:string" minOccurs="0"/>
+<xs:element name="Region" type="xs:string" minOccurs="0"/>
+<xs:element name="StateRegion" type="xs:string" minOccurs="0"/>
+<xs:element name="City" type="xs:string" minOccurs="0"/>
+<xs:element name="CityCode" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ResidentialAddress"/>
+<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+<xs:element ref="AddressType"/>
+<xs:element name="Address" type="xs:string" minOccurs="0"/>
+<xs:element name="MailYN" type="xs:string" minOccurs="0"/>
+<xs:element name="InvoiceYN" type="xs:string" minOccurs="0"/>
+<xs:element name="Notes" type="xs:string" minOccurs="0"/>
+<xs:element name="TerritoryClass" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="UsageDateFrom" type="xs:date" minOccurs="0"/>
+<xs:element name="UsageDateFromTime" type="xs:time" minOccurs="0"/>
+<xs:element name="UsageDateTo" type="xs:date" minOccurs="0"/>
+<xs:element name="UsageDateToTime" type="xs:time" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+<xs:element name="Phone" type="xs:string" minOccurs="0"/>
+<xs:element name="Fax" type="xs:string" minOccurs="0"/>
+<xs:element name="Email" type="xs:string" minOccurs="0"/>
+<xs:element name="EarthquakeFactor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Addresses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Address" type="Address_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Annex_Type">
+<xs:sequence>
+<xs:element name="AnnexNo" type="xs:string" minOccurs="0"/>
+<xs:element name="BeginDate" type="xs:date" minOccurs="0"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+<xs:element name="DateGiven" type="xs:date" minOccurs="0"/>
+<xs:element name="InstallmentsNo" type="xs:integer" minOccurs="0"/>
+<xs:element name="TariffRule" type="xs:string" minOccurs="0"/>
+<xs:element name="ReasonID" type="xs:string" minOccurs="0"/>
+<xs:element name="Username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AnnuityData_Type">
+<xs:sequence>
+<xs:element name="AnnuityType" type="xs:string"/>
+<xs:element name="AnnuityReason" type="xs:int" minOccurs="0"/>
+<xs:element name="AnnuityPeriod" type="xs:integer" minOccurs="0"/>
+<xs:element name="GuarantyPeriod" type="xs:integer" minOccurs="0"/>
+<xs:element name="BeginDate" type="xs:date"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+<xs:element name="PaymentMode" type="xs:int"/>
+<xs:element name="ModalAnnuityAmnt" type="xs:decimal"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="AnnualAnnuityAmnt" type="xs:decimal" minOccurs="0"/>
+<xs:element name="LumpSum" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ReserveCalcMode" type="xs:string" minOccurs="0"/>
+<xs:element name="TechnicalInterest" type="xs:int" minOccurs="0"/>
+<xs:element name="ReserveAmount" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AnnuityRecipients_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="AnnuityRecipient" type="AnnuityRecipient_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AnnuityRecipient_Type">
+<xs:sequence>
+<xs:group ref="PID_Data_Group"/>
+<xs:element name="RecipientName" type="xs:string" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element name="AnnuityType" type="xs:string" minOccurs="0"/>
+<xs:element name="RecipientState" type="xs:string" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element name="AnnualAmnt" type="xs:double" minOccurs="0"/>
+<xs:element name="AnnuityClaimAmount" type="xs:double"/>
+<xs:element name="InstallmentAmnt" type="xs:double" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element name="AnnuityStartDate" type="xs:date" minOccurs="0"/>
+<xs:element name="AnnuityDuration" type="xs:int"/>
+<xs:element name="DurationDim" type="xs:string"/>
+<xs:element name="Age" type="xs:int" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element name="Gender" type="xs:string" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element name="DeathDate" type="xs:date" minOccurs="0"/>
+<!--  only in query mode -->
+<xs:element name="GuarantyPeriod" type="xs:int" minOccurs="0"/>
+<xs:element name="GuarantyDim" type="xs:string" minOccurs="0"/>
+<xs:element name="PaymentDay" type="xs:int" minOccurs="0"/>
+<xs:element name="PaymentMode" type="xs:int" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="AnnuityRecID" type="xs:integer" minOccurs="0"/>
+<!--  only in query mode -->
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Attachment_Type">
+<xs:sequence>
+<xs:element ref="URL"/>
+<xs:element ref="FileName" minOccurs="0"/>
+<xs:element ref="ContentType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AttachmentFile_Type">
+<xs:sequence>
+<xs:element name="FileID" type="xs:long" minOccurs="0"/>
+<xs:choice>
+<xs:sequence>
+<xs:element ref="FileName"/>
+<xs:element ref="ContentType"/>
+<xs:element name="Content" type="xs:base64Binary" minOccurs="1"/>
+</xs:sequence>
+<xs:element ref="AttachmentRef"/>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AttachmentFiles_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="File" type="AttachmentFile_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AttachmentRef_Type">
+<xs:sequence>
+<xs:element name="FileId" type="xs:string"/>
+<xs:choice minOccurs="0">
+<xs:element name="DocumentId" type="xs:string" minOccurs="0"/>
+<xs:element name="MsgId" type="xs:string" minOccurs="0"/>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BankAccnt_Type">
+<xs:sequence>
+<xs:element ref="BankAccID" minOccurs="0"/>
+<xs:element name="BankName" type="xs:string"/>
+<xs:element name="BankPID" type="xs:string"/>
+<xs:element name="AccountNo" type="xs:string"/>
+<xs:element ref="Currency"/>
+<xs:element minOccurs="0" ref="AccountState"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BankAccnts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="BankAccount" type="BankAccnt_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BankAccount_Type">
+<xs:sequence>
+<xs:element ref="BankAccID" minOccurs="0"/>
+<xs:element name="BankName" type="xs:string"/>
+<xs:element name="BankPID" type="xs:string"/>
+<xs:element name="AccountCode" type="xs:string" minOccurs="0"/>
+<xs:element name="AccountNo" type="xs:string"/>
+<xs:element ref="Currency"/>
+<xs:element ref="AccountState"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChangeOthersData_Type">
+<xs:sequence>
+<xs:element name="AddressID" type="xs:string" minOccurs="0"/>
+<xs:element name="ManID" type="xs:string" minOccurs="0"/>
+<xs:element name="AddressType" type="xs:int"/>
+<xs:element name="ChangeDate" type="xs:date" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element name="OtherSubtype" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngAccidentInsured_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="PersonID" type="xs:long" minOccurs="1"/>
+<xs:element ref="PID"/>
+<xs:group ref="People_Data_Group"/>
+</xs:choice>
+<xs:element name="Age" type="xs:integer" minOccurs="0"/>
+<xs:element name="AccinsType" type="xs:string" minOccurs="0"/>
+<xs:element name="AccinsSubtype" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for insured. (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngAdditionalEquipment_Type">
+<xs:sequence>
+<xs:element name="ParentObjectID" type="xs:string" minOccurs="0"/>
+<xs:element name="EquipmentType" type="xs:string" minOccurs="0"/>
+<xs:element name="EquipmentSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Model" type="xs:string" minOccurs="0"/>
+<xs:element name="SerialNo" type="xs:string" minOccurs="0"/>
+<xs:element name="IVOver" type="BOOLEAN_NUMBER_TYPE" minOccurs="0"/>
+<xs:element name="AvValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+<xs:element name="EquipmentKind" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for additional equipment (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngAgriculture_Type">
+<xs:sequence>
+<xs:element name="CultureType" type="xs:string" minOccurs="0"/>
+<xs:element name="CultureSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Area" type="xs:decimal" minOccurs="0"/>
+<xs:element name="RegionID" type="xs:integer" minOccurs="0"/>
+<xs:element name="CadastNum" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for agriculture (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngAnimal_Type">
+<xs:sequence>
+<xs:element name="AnimalType" type="xs:string" minOccurs="0"/>
+<xs:element name="AnimalSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Breed" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="Distinction" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for animal (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngCar_Type">
+<xs:sequence>
+<xs:element name="RegNo" type="xs:string" minOccurs="0"/>
+<xs:element name="CarType" type="xs:string" minOccurs="0"/>
+<xs:element name="CarSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Model" type="xs:string" minOccurs="0"/>
+<xs:element name="Make" type="xs:string" minOccurs="0"/>
+<xs:element name="Modification" type="xs:string" minOccurs="0"/>
+<xs:element name="Chassis" type="xs:string" minOccurs="0"/>
+<xs:element name="Engine" type="xs:string" minOccurs="0"/>
+<xs:element name="CCMTon" type="xs:decimal" minOccurs="0"/>
+<xs:element name="CarUsage" type="xs:integer" minOccurs="0"/>
+<xs:element name="SeatsNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="DoorNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="PaintType" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdYear" type="xs:integer" minOccurs="0"/>
+<xs:element name="CarAge" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ProdType" type="xs:string" minOccurs="0"/>
+<xs:element name="CarColor" type="xs:string" minOccurs="0"/>
+<xs:element name="RegType" type="xs:string" minOccurs="0"/>
+<xs:element name="EnginePower" type="xs:decimal" minOccurs="0"/>
+<xs:element name="BonusMalus" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Tonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="EngineType" type="xs:string" minOccurs="0"/>
+<xs:element name="FuelType" type="xs:string" minOccurs="0"/>
+<xs:element name="DriveType" type="xs:string" minOccurs="0"/>
+<xs:element name="CarBodyType" type="xs:string" minOccurs="0"/>
+<xs:element name="WindowColor" type="xs:string" minOccurs="0"/>
+<xs:element name="Modified" type="BOOLEAN_NUMBER_TYPE" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element name="VehicleKey" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for car (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SupplementaryEquipment" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="OAdditionalEquipment" maxOccurs="unbounded" type="ChngAdditionalEquipment_Type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngCargo_Type">
+<xs:sequence>
+<xs:element name="CargoType" type="xs:integer" minOccurs="0"/>
+<xs:element name="CargoSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="CargoPolicyType" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="PackingType" type="xs:integer" minOccurs="0"/>
+<xs:element name="BoxNumber" type="xs:integer" minOccurs="0"/>
+<xs:element name="TeritoryID" type="xs:integer" minOccurs="0"/>
+<xs:element name="FromPlace" type="xs:string" minOccurs="0"/>
+<xs:element maxOccurs="1" name="ToPlace" type="xs:string" minOccurs="0"/>
+<xs:element name="Via" type="xs:string" minOccurs="0"/>
+<xs:element maxOccurs="1" name="Destination" type="xs:string" minOccurs="0"/>
+<xs:element name="TransportType" type="xs:integer" minOccurs="0"/>
+<xs:element name="VehicleType" type="xs:integer" minOccurs="0"/>
+<xs:element name="ShipmentDoc" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipmentDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ToOrder" type="xs:string" minOccurs="0"/>
+<xs:element name="AverageAgent" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Distance" type="xs:string" minOccurs="0"/>
+<xs:element name="TransportMeans" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element name="TermsOfSale" type="TermsOfSale_Type" minOccurs="0"/>
+<xs:element name="Vehicles" type="OVehicles_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for cargo (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngInsuredGroups_Type">
+<xs:sequence>
+<xs:element name="GrpType" type="xs:string" minOccurs="0"/>
+<xs:element name="GrpSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for insured groups (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngLiability_Type">
+<xs:sequence>
+<xs:element name="LiabDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="LiabType" type="xs:string" minOccurs="0"/>
+<xs:element name="LiabSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:choice maxOccurs="1" minOccurs="0">
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for liability (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngLoss_Type">
+<xs:sequence>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for loss (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngPerson_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PersonalData"/>
+<xs:element minOccurs="0" ref="Addresses"/>
+<xs:element minOccurs="0" ref="Contacts"/>
+<xs:element minOccurs="0" ref="BankAccounts"/>
+<xs:element minOccurs="0" ref="InsuredRole"/>
+<xs:element name="RiskClass" type="xs:string" minOccurs="0"/>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngPlane_Type">
+<xs:sequence>
+<xs:element name="Make" type="xs:string" minOccurs="0"/>
+<xs:element name="RegNo" type="xs:string" minOccurs="0"/>
+<xs:element name="PlaneType" type="xs:string" minOccurs="0"/>
+<xs:element name="PlaneSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdNo" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdYear" type="xs:integer" minOccurs="0"/>
+<xs:element name="CCMTon" type="xs:decimal" minOccurs="0"/>
+<xs:element name="SeatsNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="PlaneHistory" type="xs:integer" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for plane (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngPropBri_Type">
+<xs:sequence>
+<xs:element name="Construction" type="xs:string" minOccurs="0"/>
+<xs:element name="ConstructionType" type="xs:string" minOccurs="0"/>
+<xs:element name="Area" type="xs:decimal" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element maxOccurs="1" name="BriDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for buildings under construction (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngProperty_Type">
+<xs:sequence>
+<xs:element name="PropertyKind" type="xs:string" minOccurs="0"/>
+<xs:element name="PropertyType" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for property (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngShip_Type">
+<xs:sequence>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipClass" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipType" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipSubtype" type="xs:string" minOccurs="0"/>
+<xs:element maxOccurs="1" name="RegNo" type="xs:string" minOccurs="0"/>
+<xs:element name="RegPort" type="xs:string" minOccurs="0"/>
+<xs:element name="GrossTonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="NetTonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="OwnerClass" type="xs:string" minOccurs="0"/>
+<xs:element name="Length" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Height" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Wide" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Wade" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DeadWeight" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Region" type="xs:string" minOccurs="0"/>
+<xs:element name="PreviousInsurer" type="xs:string" minOccurs="0"/>
+<xs:element name="PassengerNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="CrewNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="LastMaintenanceDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Engine" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdInfo" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdYear" type="xs:integer" minOccurs="0"/>
+<xs:element name="Producer" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimInfo" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for ship (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SupplementaryEquipment" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="OAdditionalEquipment" maxOccurs="unbounded" type="ChngAdditionalEquipment_Type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngTrain_Type">
+<xs:sequence>
+<xs:element name="RegNo" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="TrainType" type="xs:string" minOccurs="0"/>
+<xs:element name="TrainSubtype" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for train (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeAddresses_Type">
+<xs:sequence>
+<xs:element name="Address" type="Address_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeBankAccnt_Type">
+<xs:sequence>
+<xs:element ref="BankAccID" minOccurs="0"/>
+<xs:element name="BankName" type="xs:string" minOccurs="0"/>
+<xs:element name="BankPID" type="xs:string"/>
+<xs:element name="AccountNo" type="xs:string"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element minOccurs="0" ref="AccountState"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeBankAccnts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="BankAccount" type="ChngeBankAccnt_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeCompData_Type">
+<xs:sequence>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="CustomerID" type="xs:string"/>
+<xs:element minOccurs="0" ref="FiscalPeriod"/>
+<xs:element minOccurs="0" ref="CompType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeContact_Type">
+<xs:sequence>
+<xs:sequence>
+<xs:element ref="ContactID" minOccurs="0"/>
+<xs:element name="Type" type="xs:string"/>
+<xs:element name="Details" type="xs:string" minOccurs="0"/>
+<xs:element name="ContactNote" type="xs:string" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Language"/>
+</xs:sequence>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeContacts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Contact" type="ChngeContact_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CreditCards_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CreditCard" type="CreditCard_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CreditCard_Type">
+<xs:sequence>
+<xs:element ref="CardID" minOccurs="0"/>
+<xs:element name="CCTypeID" type="xs:string"/>
+<xs:element name="BillingAddress" type="xs:string"/>
+<xs:element name="CardHolderName" type="xs:string"/>
+<xs:element name="ExpiryMonth" type="xs:int"/>
+<xs:element name="ExpiryYear" type="xs:int"/>
+<xs:element ref="ValidFrom"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeCreditCards_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CreditCard" type="ChngeCreditCard_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeCreditCard_Type">
+<xs:sequence>
+<xs:element ref="CardID" minOccurs="0"/>
+<xs:element name="CCTypeID" type="xs:string"/>
+<xs:element name="BillingAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="CardHolderName" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" name="ExpiryMonth" type="xs:int"/>
+<xs:element minOccurs="0" name="ExpiryYear" type="xs:int"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngeEntityData_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="PersonalData" type="ChngePrsnlData_Type"/>
+<xs:element name="CompanyData" type="ChngeCompData_Type"/>
+</xs:choice>
+<xs:element minOccurs="0" ref="ManID"/>
+<xs:element minOccurs="0" ref="NamePrefix"/>
+<xs:element minOccurs="0" ref="NameSuffix"/>
+<xs:element minOccurs="0" ref="Nationality"/>
+<xs:element minOccurs="0" ref="IndustryCode"/>
+<xs:element minOccurs="0" ref="SubIndustryCode"/>
+<xs:element minOccurs="0" ref="ClassCode"/>
+<xs:element minOccurs="0" ref="ClassSubCode"/>
+<xs:element minOccurs="0" ref="DataSource"/>
+<xs:element name="RegistrationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element name="PersonRelations" type="PersonRelations_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChngePrsnlData_Type">
+<xs:sequence>
+<xs:element name="Name" type="PersonName_Type" minOccurs="0"/>
+<xs:element ref="PID"/>
+<xs:element name="Gender" type="GENDER_VALUE_TYPE" minOccurs="0"/>
+<xs:element name="BirthDate" type="xs:date" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Language"/>
+<xs:element ref="HomeCountry" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimAddresses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ClaimAddress" type="Address_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimBankAccounts_Type">
+<xs:sequence>
+<xs:element name="ClaimBankAccount" type="ClaimBankAccount_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimBankAccount_Type">
+<xs:sequence>
+<xs:element name="ClaimBankAccountID" type="xs:long" minOccurs="0"/>
+<xs:element ref="BankAccID" minOccurs="0"/>
+<xs:element name="BankAccount" type="ChngeBankAccnt_Type"/>
+<xs:element name="AccountPurpose" type="xs:string"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimDamageList_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Damage" type="ClaimDamage_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimDamage_Type">
+<xs:sequence>
+<xs:element name="DamageID" type="xs:string"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="LossPercent" type="xs:double" minOccurs="0"/>
+<xs:element name="RequestedQty" type="xs:int" minOccurs="0"/>
+<xs:element name="RequestedAmnt" type="xs:double" minOccurs="0"/>
+<xs:element name="Price" type="xs:double" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+<xs:element name="ConfirmedQty" type="xs:int" minOccurs="0"/>
+<xs:element name="ConfirmedAmnt" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimExpense_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="ClaimExpenseSeq"/>
+<xs:element name="ExpenseID" type="xs:int"/>
+<xs:element name="ExpenseSum" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element minOccurs="0" ref="PaymentID"/>
+<xs:element name="ClaimExpSrc" type="xs:long" minOccurs="0"/>
+<xs:element name="UsedSum" type="xs:double" minOccurs="0"/>
+<xs:element name="ExpenseDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ExpenseType" type="xs:string" minOccurs="0"/>
+<xs:element name="VAT" type="xs:double" minOccurs="0"/>
+<xs:element name="VATUsed" type="xs:double" minOccurs="0"/>
+<xs:element name="SubjectRI" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimExpenses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Expense" type="ClaimExpense_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimIndeminityDetail_Type">
+<xs:sequence>
+<xs:element name="ClaimIndemSeq" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ClaimObjectSeq"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:element name="InspectNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="IndemnityType" type="xs:integer"/>
+<xs:element name="ParamID" type="xs:int"/>
+<xs:element name="ParamName" type="xs:string" minOccurs="0"/>
+<xs:element name="ParamValue" type="xs:double"/>
+<xs:element name="ParamDim" type="xs:string"/>
+<xs:element name="ParamSum" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element name="Applied" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimIndeminityDetails_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ClaimIndeminityDetail" type="ClaimIndeminityDetail_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimIndemnities_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ClaimIndeminity" type="ClaimIndemnity_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimIndemnity_Type">
+<xs:sequence>
+<xs:element name="ClaimIndemSeq" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ClaimObjectSeq"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:element minOccurs="0" ref="InsuredObjectID"/>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element minOccurs="0" ref="RiskType"/>
+<xs:element name="InspectNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="IndemnityType" type="xs:integer"/>
+<xs:element name="ConvertDateType" type="xs:int"/>
+<xs:element name="ConvertDate" type="xs:date" minOccurs="0"/>
+<xs:element name="CalculateDate" type="xs:date"/>
+<xs:element name="PaySum" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element name="CalSum" type="xs:double" minOccurs="0"/>
+<xs:element name="CorrectReason" type="xs:string" minOccurs="0"/>
+<xs:element maxOccurs="1" name="OverLimit" type="xs:int" minOccurs="0"/>
+<xs:element name="ClaimIndeminityDetails" type="ClaimIndeminityDetails_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimObjDriver_Type">
+<xs:annotation>
+<xs:documentation>A structure holding details for driver of claim object</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:choice>
+<xs:element ref="ManID"/>
+<xs:group ref="People_Data_Group"/>
+</xs:choice>
+<xs:element name="LicenseID" type="xs:string" minOccurs="0"/>
+<xs:element name="Experience" type="xs:int" minOccurs="0"/>
+<xs:element name="Age" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimParticipant_Type">
+<xs:sequence>
+<xs:element name="ParticipantID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:group ref="People_Data_Group"/>
+<xs:element name="ParticipantRole" type="xs:string"/>
+<xs:element name="AppointmentDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ReportNo" type="xs:string" minOccurs="0"/>
+<xs:element name="ReportDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Percentage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Notes" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimBankAccounts" minOccurs="0" type="ClaimBankAccounts_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimParticipants_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Participant" type="ClaimParticipant_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimPaymExpense_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PaymentID"/>
+<xs:element name="ExpenseID" type="xs:int"/>
+<xs:element name="ExpenseName" type="xs:string" minOccurs="0"/>
+<xs:element name="InsuredName" type="xs:string" minOccurs="0"/>
+<xs:element name="CoverName" type="xs:string" minOccurs="0"/>
+<xs:element name="ExpenseSum" type="xs:double" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+<xs:element name="VAT" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimPaymExpenses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Expense" type="ClaimPaymExpense_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimPayment_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="ReportID"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:element minOccurs="0" ref="PaymentID"/>
+<xs:element name="BenefType" type="xs:int"/>
+<xs:choice>
+<xs:element ref="ManID"/>
+<xs:group ref="PID_Data_Group"/>
+</xs:choice>
+<xs:element name="PaymentNum" type="xs:int"/>
+<xs:element name="PaymentWay" type="xs:string"/>
+<xs:element name="PaySum" type="xs:double" minOccurs="0"/>
+<xs:element name="ExpenseSum" type="xs:double" minOccurs="0"/>
+<xs:element name="IndemSum" type="xs:double" minOccurs="0"/>
+<xs:element ref="Currency"/>
+<xs:element name="OverrideIndemnity" type="OverrideIndemnity_Type" minOccurs="0"/>
+<xs:element name="PaymentDetails" type="PaymentDetails_Type" minOccurs="0"/>
+<xs:element name="Expenses" type="ClaimPaymExpenses_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimPayments_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Payment" type="ClaimPayment_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimReport_Type">
+<xs:sequence>
+<xs:element ref="ClaimID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:element minOccurs="0" ref="ReportID"/>
+<xs:element name="ReportNo" type="xs:int"/>
+<xs:element name="ReportState" type="xs:int" minOccurs="0"/>
+<xs:element name="ReportDate" type="xs:date"/>
+<xs:element name="PaymentType" type="xs:int"/>
+<xs:element name="Payments" type="ClaimPayments_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimReports_Type">
+<xs:sequence maxOccurs="unbounded">
+<xs:element name="Report" type="ClaimReport_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Claim_Type">
+<xs:sequence>
+<xs:element ref="ClaimID"/>
+<xs:element ref="ClaimNo"/>
+<xs:element minOccurs="0" ref="PolicyNo"/>
+<xs:element minOccurs="0" ref="ProductCode"/>
+<xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ClaimType"/>
+<xs:element minOccurs="0" ref="CauseID"/>
+<xs:element name="EventType" type="xs:integer"/>
+<xs:element name="EventTypeDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="EventDate" type="xs:date"/>
+<xs:element name="EventTime" type="xs:time" minOccurs="0"/>
+<xs:element name="EventDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="EventCountry" type="xs:string" minOccurs="0"/>
+<xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+<xs:element name="SrcInsurer" type="xs:int" minOccurs="0"/>
+<xs:element name="SrcInsurerName" type="xs:string" minOccurs="0"/>
+<xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimComment" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimAddresses" type="ClaimAddresses_Type" minOccurs="0"/>
+<xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+<xs:element name="Requests" type="Requests_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Claims_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" ref="Claim" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClientData_Type">
+<xs:sequence>
+<xs:element name="CorporateIcStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="CustomerType" type="xs:string" minOccurs="0"/>
+<xs:element name="EmployeeStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="IcStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="OfficialStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="Profitability" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskRating" type="xs:string" minOccurs="0"/>
+<xs:element name="Segment" type="xs:string" minOccurs="0"/>
+<xs:element name="ClientId" type="xs:integer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Client_Type">
+<xs:sequence>
+<xs:group ref="People_Data_Group"/>
+<xs:element name="ClientData" type="ClientData_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CompanyData_Type">
+<xs:sequence>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="CustomerID" type="xs:string"/>
+<xs:element minOccurs="0" ref="FiscalPeriod"/>
+<xs:element minOccurs="0" ref="CompType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Contact_Type">
+<xs:sequence>
+<xs:element ref="ContactID" minOccurs="0"/>
+<xs:element name="Type" type="xs:string"/>
+<xs:element name="Details" type="xs:string"/>
+<xs:element name="ContactNote" type="xs:string" minOccurs="0"/>
+<xs:element name="PrimaryFlag" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Language"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Contacts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Contact" type="Contact_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Correction_Type">
+<xs:sequence>
+<xs:element name="CorrectionID" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CoverPackage_Type">
+<xs:sequence>
+<xs:element name="PackageID" type="xs:string"/>
+<xs:element name="PackageName" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Covers"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CoverPackages_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CoverPackage" type="CoverPackage_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Cover_Type">
+<xs:sequence>
+<xs:element ref="CoverCode"/>
+<xs:element name="CoverDescription" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ObjectNum"/>
+<xs:element ref="AnnexID"/>
+<xs:element ref="InsuredAmount"/>
+<xs:element ref="Currency"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="State" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="SeparateDuration"/>
+<xs:element minOccurs="0" ref="Premium"/>
+<xs:element name="PremiumType" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Risks"/>
+<xs:element ref="ULFunds" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Contributions"/>
+<xs:element name="Endorsements" type="Endorsements_Type" minOccurs="0"/>
+<xs:element name="Territories" type="Territories_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Discounts"/>
+<xs:element name="PolicyDocuments" type="PolicyDocs_Type" minOccurs="0"/>
+<xs:element name="Indemnities" type="Indemnities_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Taxes"/>
+<xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CoverageAssign_Type">
+<xs:choice>
+<xs:element name="LinkedObject" type="POLICY_TYPE"/>
+<xs:element name="Insureds" type="LinkedInsureds_Type"/>
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="Coverage_Type">
+<xs:sequence>
+<xs:element name="CoverageID" type="xs:long" minOccurs="0"/>
+<xs:element name="CoverageName" type="xs:string"/>
+<xs:element name="Placement" type="xs:double"/>
+<xs:element name="PlacementDim" type="xs:string"/>
+<xs:element name="Premium" type="xs:double"/>
+<xs:element name="PremiumDim" type="xs:string"/>
+<xs:element ref="Currency"/>
+<xs:element name="AggregatedLimit" type="xs:double" minOccurs="0"/>
+<xs:element name="AggregatedDeductible" type="xs:double" minOccurs="0"/>
+<xs:element name="Retention" type="xs:double" minOccurs="0"/>
+<xs:element name="Limit" type="xs:double" minOccurs="0"/>
+<xs:element name="Retrocession" type="Retrocession_Type" minOccurs="0"/>
+<xs:element name="Assignment" type="CoverageAssign_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Coverages_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Coverage" type="Coverage_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Covers_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Cover" type="Cover_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CreditorData_Type">
+<xs:sequence>
+<xs:element name="CreditorID" type="xs:long" minOccurs="0"/>
+<xs:element name="Notes" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomOID_Type">
+<xs:sequence>
+<xs:element name="ObjectType" type="xs:integer"/>
+<xs:element ref="FilterCriteria"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomProperties_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CustomProperty" type="CustomProperty_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomProperty_Type">
+<xs:sequence>
+<xs:element name="FieldName" type="xs:string"/>
+<xs:element name="FieldLabel" type="xs:string" minOccurs="0"/>
+<xs:element name="Value" type="xs:string" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DamageList_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Damage" type="Damage_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Damage_Type">
+<xs:sequence>
+<xs:element name="DamageID" type="xs:integer"/>
+<xs:element name="DamageName" type="xs:string"/>
+<xs:element name="DamageLevel" type="xs:integer"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="WornOut" type="xs:integer"/>
+<xs:element name="PartPrice" type="xs:double" minOccurs="0"/>
+<xs:element name="RepairWork" type="xs:double" minOccurs="0"/>
+<xs:element maxOccurs="1" name="MountWork" type="xs:double" minOccurs="0"/>
+<xs:element name="PaintWork" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DependentOn_Type">
+<xs:sequence>
+<xs:group ref="PID_Data_Group"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Discount_Type">
+<xs:sequence>
+<xs:element name="ClientGroup" type="xs:string" minOccurs="0"/>
+<xs:element name="DiscountType" type="xs:string" minOccurs="1"/>
+<xs:element name="DiscountValue" type="xs:double" minOccurs="0"/>
+<xs:element name="AccumulativeFlag" type="xs:string" minOccurs="0"/>
+<xs:element name="Applied" type="xs:string" minOccurs="0"/>
+<xs:element name="TariffDiscount" type="xs:string" minOccurs="0"/>
+<xs:element name="DiscountDimension" type="xs:string" minOccurs="0"/>
+<xs:element name="BeginDate" type="xs:date" minOccurs="0"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+<xs:element name="DiscountPercent" type="xs:double" minOccurs="0"/>
+<xs:element name="DiscountOrder" type="xs:positiveInteger" minOccurs="0"/>
+<xs:element name="UnderwritingCode" type="xs:string" minOccurs="0"/>
+<xs:element name="LumpSumDiscount" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Discounts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Discount" type="Discount_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocDocument_Type">
+<xs:sequence>
+<xs:element name="DocSeq" type="xs:double" minOccurs="0"/>
+<xs:element name="DocumentID" type="xs:string" minOccurs="1"/>
+<xs:element name="DocumentName" type="xs:string" minOccurs="0"/>
+<xs:element name="DocumentSerial" type="xs:string" minOccurs="0"/>
+<xs:element name="DocumentNo" type="xs:string" minOccurs="0"/>
+<xs:element name="DocumentDate" type="xs:date" minOccurs="0"/>
+<xs:element name="DocumentDateTime" type="xs:time" minOccurs="0"/>
+<xs:element name="DocumentValidTo" type="xs:date" minOccurs="0"/>
+<xs:element name="DocumentValidToTime" type="xs:time" minOccurs="0"/>
+<xs:element name="DocumentHolderName" type="xs:string" minOccurs="0"/>
+<xs:element name="DocumentHolderAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="ReceiveDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ReceiveDateTime" type="xs:time" minOccurs="0"/>
+<xs:element name="DocState" type="xs:int" minOccurs="0"/>
+<xs:element name="CertifyEvent" type="xs:string" minOccurs="0"/>
+<xs:element name="DocDays" type="xs:date" minOccurs="0"/>
+<xs:element name="DocDaysTime" type="xs:time" minOccurs="0"/>
+<xs:element name="DocumentRef" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Notes"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocDocuments_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Document" type="DocDocument_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocInfo_Type">
+<xs:sequence>
+<xs:element name="Documents" type="Documents_Type"/>
+<xs:element minOccurs="0" ref="AttachmentRef"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Document_Type">
+<xs:sequence>
+<xs:element name="DocID" type="xs:string"/>
+<xs:element name="DocName" type="xs:string"/>
+<xs:element name="DocRef" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Documents_Type">
+<xs:sequence>
+<xs:element name="Document" maxOccurs="unbounded" type="Document_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Driver_Type">
+<xs:annotation>
+<xs:documentation>A structure holding details for drivers of insured object</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="DriverID" type="xs:long" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:element ref="ManID"/>
+<xs:element ref="PID"/>
+</xs:choice>
+<xs:group minOccurs="0" ref="Change_People_Data_Group"/>
+<xs:element name="LicenseID" type="xs:string" minOccurs="0"/>
+<xs:element name="Experience" type="xs:int" minOccurs="0"/>
+<xs:element name="Age" type="xs:int" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element name="AuxAnnexID" minOccurs="0" type="xs:integer"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Drivers_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Driver" type="Driver_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Endorsement_Type">
+<xs:sequence>
+<xs:element name="EndorsementID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="ProductCode"/>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element name="EndorsementCode" type="xs:string"/>
+<xs:element name="EndorsementType" type="xs:string" minOccurs="0"/>
+<xs:element name="EndorsementSubType" type="xs:string" minOccurs="0"/>
+<xs:element name="EndorsementOrder" type="xs:int" minOccurs="0"/>
+<xs:element name="Text" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="BeginDate"/>
+<xs:element name="BeginDateTime" type="xs:time" minOccurs="0"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+<xs:element name="EndDateTime" type="xs:time" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Endorsements_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Endorsement" type="Endorsement_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Entity_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="PersonalData"/>
+<xs:element ref="CompanyData"/>
+</xs:choice>
+<xs:element ref="ManID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="NamePrefix"/>
+<xs:element minOccurs="0" ref="NameSuffix"/>
+<xs:element minOccurs="0" ref="Nationality"/>
+<xs:element minOccurs="0" ref="IndustryCode"/>
+<xs:element minOccurs="0" ref="SubIndustryCode"/>
+<xs:element minOccurs="0" ref="ClassCode"/>
+<xs:element minOccurs="0" ref="ClassSubCode"/>
+<xs:element minOccurs="0" ref="DataSource"/>
+<xs:element minOccurs="0" ref="RegistrationDate"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element name="PersonRelations" type="PersonRelations_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Error_Type">
+<xs:sequence>
+<xs:element name="ErrorID" type="xs:string"/>
+<xs:element name="ErrorDescr" type="xs:string"/>
+<xs:element name="Module" type="xs:string" minOccurs="0"/>
+<xs:element name="Details" minOccurs="0" type="Exceptions_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Estimation_Type">
+<xs:sequence>
+<xs:element name="EstDate" type="xs:date"/>
+<xs:element name="WornOut" type="xs:double" minOccurs="0"/>
+<xs:element name="HourPrice" type="xs:double" minOccurs="0"/>
+<xs:element name="PaintType" type="xs:string" minOccurs="0"/>
+<xs:element name="Reduction" type="xs:integer"/>
+<xs:element name="DocNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="DocPage" type="xs:string" minOccurs="0"/>
+<xs:element name="DocColumn" type="xs:string" minOccurs="0"/>
+<xs:element name="Recapitulations" type="Recapitulations_Type" minOccurs="0"/>
+<xs:element name="DamageList" type="DamageList_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Evaluation_Type">
+<xs:sequence>
+<xs:element ref="ClaimObjectSeq"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element ref="RequestNo"/>
+<xs:element name="InspectNum" type="xs:integer"/>
+<xs:element minOccurs="0" ref="ObjectID"/>
+<xs:element minOccurs="0" ref="ObjectType"/>
+<xs:element name="ManID" type="xs:integer" minOccurs="0"/>
+<xs:element name="InspectionDate" type="xs:date"/>
+<xs:element name="ExpertiseAmount" type="xs:decimal"/>
+<xs:element name="ExpertiseCurrency" type="xs:string"/>
+<xs:element name="Measure" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="LossSize"/>
+<xs:element maxOccurs="1" name="ActualValue" type="xs:string" minOccurs="0"/>
+<xs:element name="ActualCurrency" type="xs:string" minOccurs="0"/>
+<xs:element name="TaxesValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="RecordType" type="xs:string" minOccurs="0"/>
+<xs:element name="RecordStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="SumConfirmedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="SumConfirmTime" type="xs:date" minOccurs="0"/>
+<xs:element name="InvoiceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="InspectionType" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimDamageList" type="ClaimDamageList_Type" minOccurs="0"/>
+<xs:element name="ClaimIndemnities" type="ClaimIndemnities_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Evaluations_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Evaluation" type="Evaluation_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ExceptionDetail_Type">
+<xs:sequence>
+<xs:element name="Code" type="xs:string" minOccurs="0"/>
+<xs:element name="Message" type="xs:string"/>
+<xs:element name="StackTrace" minOccurs="0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Exceptions_Type">
+<xs:sequence>
+<xs:element name="ExceptionDetail" type="ExceptionDetail_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FacFee_Type">
+<xs:sequence>
+<xs:element name="FeeType" type="xs:string"/>
+<xs:element name="FeeAmount" type="xs:double" minOccurs="0"/>
+<xs:element name="FeeDim" type="xs:string"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element name="RetainedFeeFlag" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FacFees_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Fee" type="FacFee_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Facultative_Type">
+<xs:sequence>
+<xs:element name="FacID" type="xs:long" minOccurs="0"/>
+<xs:element name="InOutFlag" type="xs:string"/>
+<xs:element name="FacType" type="xs:string"/>
+<xs:element name="TreatyType" type="xs:string"/>
+<xs:element name="FacNo" type="xs:string"/>
+<xs:element name="FacAnnexID" type="xs:int"/>
+<xs:element name="FacAuxAnnexID" type="xs:int" minOccurs="0"/>
+<xs:element name="FacDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="BeginDate" type="xs:date"/>
+<xs:element name="EndDate" type="xs:date"/>
+<xs:element name="InwardLeaderFlag" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="InwardPlacement" type="xs:double" minOccurs="0"/>
+<xs:element name="Status" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element name="InsurerGroups" type="InsurerGroups_Type" minOccurs="0"/>
+<xs:element name="Fees" type="FacFees_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Facultatives_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Facultative" type="Facultative_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FilterCriteria_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="FilterCriterion" type="FilterCriterion_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FilterCriterion_Type">
+<xs:attribute use="optional" name="operation" type="FILTER_OPERATION_TYPE"/>
+<xs:attribute use="required" name="value" type="xs:string"/>
+<xs:attribute use="required" name="field" type="xs:string"/>
+<xs:attribute name="conjunction" type="FILTER_CONJUNCTION_TYPE"/>
+</xs:complexType>
+<xs:complexType name="Fund_Type">
+<xs:sequence>
+<xs:element name="FundID" type="xs:string"/>
+<xs:element name="FundName" type="xs:string" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element name="CoverType" type="xs:string" minOccurs="0"/>
+<xs:element name="Percentage" type="PERCENT_TYPE"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Funds_Type">
+<xs:sequence>
+<xs:element name="Fund" type="Fund_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Guilty_Type">
+<xs:sequence>
+<xs:element name="GuiltyPerson" type="Others_Type" minOccurs="0"/>
+<xs:element name="InjuredObject" type="ObjectData_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="PolicyNo"/>
+<xs:element name="RegressReason" type="xs:string" minOccurs="0"/>
+<xs:element ref="InsurerID" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Indemnities_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Indemnity" type="Indemnity_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Indemnity_Type">
+<xs:sequence>
+<xs:element name="FranchiseType" type="xs:string" minOccurs="0"/>
+<xs:element name="FranchiseDimension" type="xs:string" minOccurs="0"/>
+<xs:element name="FranchiseValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseMin" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseMax" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseCurrency" type="xs:string" minOccurs="0"/>
+<xs:element name="FranchiseClaim" type="xs:string"/>
+<xs:element name="IndemnityPercent" type="PERCENT_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjObject_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element name="InitialReserve" type="xs:decimal" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Currency"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjObjects_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InjObject" type="InjObject_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjuredObjectData_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="ClaimObjSeq"/>
+<xs:choice>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element name="ObjectData" type="ObjectData_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element name="InitialReserve" type="xs:decimal" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element name="InsuredData" type="InsuredData_Type" minOccurs="0"/>
+<!-- xs:element name="AnnuityData" type="AnnuityData_Type" minOccurs="0"/ -->
+<xs:element name="Driver" type="ClaimObjDriver_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjuredObject_Type">
+<xs:sequence>
+<xs:element name="ObjectData" type="InsuredEntity_Type" minOccurs="0"/>
+<xs:element ref="ClaimObjSeq" minOccurs="0"/>
+<xs:element name="InitialReserve" type="xs:decimal" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element name="InsuredData" type="InsuredData_Type" minOccurs="0"/>
+<!-- xs:element name="AnnuityData" type="AnnuityData_Type" minOccurs="0"/ -->
+<xs:element name="Driver" type="ClaimObjDriver_Type" minOccurs="0"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element name="Evaluations" type="Evaluations_Type" minOccurs="0"/>
+<xs:element name="Expenses" type="ClaimExpenses_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjuredObjectsData_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InjuredObject" type="InjuredObjectData_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InjuredObjects_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InjuredObject" type="InjuredObject_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Installment_Type">
+<xs:sequence>
+<xs:element name="AnnexID" type="xs:long"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element name="CoveredFrom" type="xs:dateTime" minOccurs="1"/>
+<xs:element name="CoveredTo" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="DateToPay" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="AccountState" type="xs:int" minOccurs="0"/>
+<xs:element name="AccountType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Installments_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Installment" type="Installment_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsuredData_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="InsuredObjectID"/>
+<xs:element ref="CustomOID"/>
+</xs:choice>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element minOccurs="0" ref="RiskType"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsuredEntityChange_Type">
+<xs:annotation>
+<xs:documentation>Insured entity represents what exactly is insured - an object (car, property, train, etc.) or a person (for life insurance). Depending on the type of the object, the structure may vary, which is defined by choice between generic object structures. Besides the predefiend fields, every object can have a varying number of additional fields (flex fields), which are configured at system installation time for a certain client. The fields are described by "any" element in the XML structure</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="ObjectID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ObjectType" type="xs:integer" minOccurs="0"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element minOccurs="0" ref="RelatedPersons"/>
+<xs:choice>
+<xs:element name="OAccidentInsured" type="ChngAccidentInsured_Type">
+<xs:annotation>
+<xs:documentation>Insured for an accident. Describes insureds by an individual. The predefined fields are: - PersonID: ID for person in p_people table; - Age: age of the person - ProfID: profession ID from the list of professions</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OAdditionalEquipment" type="ChngAdditionalEquipment_Type">
+<xs:annotation>
+<xs:documentation>Additional equipment of various vehicles. Mainly for cars. - ParentObjectID: Vehicle code; - EquipmentType: Equipment type code - Model: Equipment model - SerialNo - IVOver: Flag. Shows if the insured value should be accumulated; - AvValue: Average value; - EquipmentKind</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OAgriculture" type="ChngAgriculture_Type">
+<xs:annotation>
+<xs:documentation>Data about the insured cultivations. - CultureType: Cultivation type; - CultureSubtype: Subcultivation type; - Area: The area, sowed by the cultivation(dka); - RegioID: The code of the area, sowed by the cultivation; - CadastNum: The number of the area in the public registries, sowed by the cultivation</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OAnimal" type="ChngAnimal_Type">
+<xs:annotation>
+<xs:documentation>Information about the insured animals. - AnimalType: Animal type in accordance of the internal nomenclature; - AnimalSubtype:Animal subtype in accordance of the internal nomenclature; - Breed: Animal breed - Name - Distinction:Distinguishing feachers</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OCar" type="ChngCar_Type">
+<xs:annotation>
+<xs:documentation>Contains the data about cars with motorcar place accident insurance. - RegNo:THE REGISTRATION NUMBER OF THE VEHICLE; - CarType: A car type in accordance of the internal nomenclature; - Model: Car model; - Make: Car maker; - Modification - Chassis: Chassis number - Engine: Engine number - CCMTon: Engine power(weight-TON); - CarUsage: Car usage-in accordance of the internal nomenclature; - SeatsNum: Number of seats; - DoorNum: Number of doors; - PaintType: Paint type-common or metalic; - ProdYear: Year of production; - CarAge: Age; - ProdType: Production type-Eastern or Western ; - CarColo - RegType - EnginePower - BonusMalus - Tonage - EngineType - FuelType - DriveType - CarBodyType - WindowColor - Modified - Notes</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OCargo" type="ChngCargo_Type">
+<xs:annotation>
+<xs:documentation>Description of the insured goods in the subscription policies. - CargoType: Goods type in accordance with a internal nomenclature; - CargoSubtype - CargoPolicyType - Description - PackingType: Package type in accordance with a internal nomenclature; - BoxNumber: Number of the packages; - TeritoryID: Teritory ID in accordance with a internal nomenclature; - FromPlace: The start place of the route; - ToPlace: The end place of the route; - Via: The place, via which is the route; - Destination: Final destination; - TransportType - VehicleType - FreightPrc: Freight(% to get more expensive as a result of transportation); - FreightDim - ShipmentDoc: Shipment document; - ToOrder - AverageAgent - Distance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OInsuredGroups" type="ChngInsuredGroups_Type">
+<xs:annotation>
+<xs:documentation>Group Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OLiability" type="ChngLiability_Type">
+<xs:annotation>
+<xs:documentation>General purpose object. Mainly used for liability insurance. - LiabDesc: Liability description; - LiabType: Liability type; - AddressID</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OLoss" type="ChngLoss_Type">
+<xs:annotation>
+<xs:documentation>Claim inventory. Contains description of losses when claim</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPerson" type="ChngPerson_Type">
+<xs:annotation>
+<xs:documentation>Data for insured person in Life Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPlane" type="ChngPlane_Type">
+<xs:annotation>
+<xs:documentation>Planes. - Make: Plain maker; - RegNo: Registration number; - ProdNo: Number given by the producer - ProdYear: Year of production - CCMTon: Tonage - SeatsNum: Number of seats - PlainHistory: Free text for plane history</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OProperty" type="ChngProperty_Type">
+<xs:annotation>
+<xs:documentation>Insured property. - PropertyKind; - PropertyType: Property type(estate/movable) - Name: Name (property description) - AddressID: ID of address structure</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPropBri" type="ChngPropBri_Type">
+<xs:annotation>
+<xs:documentation>Insured building. Contains data about Insured building, typically building in construction. - Construction; - Area: area in square meters; - AddressID: ID of address structure; - BriDescription: The description of the insured object</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OShip" type="ChngShip_Type">
+<xs:annotation>
+<xs:documentation>Ships. - Name; - ShipClass ; - ShipType; - RegNo: Registration number; - RegPort: Port of registration; - GrossTonage: Gross register ton; - NetTonage: Net register ton; - OwnerClass; - Length; - Height; - Wide; - Wade; - DeadWeight; - Region: Insured region; - PreviousInsurer; - PassengerNum; - CrewNum; - LastMaintenanceDate; - Engine: Engine info; - ProdInfo: Production info; - ProdYear: Year of production; - Producer; - ClaimInfo: Previous claim info.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OTrain" type="ChngTrain_Type">
+<xs:annotation>
+<xs:documentation>Trains.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsuredEntity_Type">
+<xs:annotation>
+<xs:documentation>Insured entity represents what exactly is insured - an object (car, property, train, etc.) or a person (for life insurance). Depending on the type of the object, the structure may vary, which is defined by choice between generic object structures. Besides the predefiend fields, every object can have a varying number of additional fields (flex fields), which are configured at system installation time for a certain client. The fields are described by "any" element in the XML structure</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="ObjectID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ObjectType" type="xs:integer"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element minOccurs="0" ref="RelatedPersons"/>
+<xs:choice>
+<xs:element ref="OAccidentInsured">
+<xs:annotation>
+<xs:documentation>Insured for an accident. Describes insureds by an individual. The predefined fields are: - PersonID: ID for person in p_people table; - Age: age of the person - ProfID: profession ID from the list of professions</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAdditionalEquipment">
+<xs:annotation>
+<xs:documentation>Additional equipment of various vehicles. Mainly for cars. - ParentObjectID: Vehicle code; - EquipmentType: Equipment type code - Model: Equipment model - SerialNo - IVOver: Flag. Shows if the insured value should be accumulated; - AvValue: Average value; - EquipmentKind</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAgriculture">
+<xs:annotation>
+<xs:documentation>Data about the insured cultivations. - CultureType: Cultivation type; - CultureSubtype: Subcultivation type; - Area: The area, sowed by the cultivation(dka); - RegioID: The code of the area, sowed by the cultivation; - CadastNum: The number of the area in the public registries, sowed by the cultivation</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAnimal">
+<xs:annotation>
+<xs:documentation>Information about the insured animals. - AnimalType: Animal type in accordance of the internal nomenclature; - AnimalSubtype:Animal subtype in accordance of the internal nomenclature; - Breed: Animal breed - Name - Distinction:Distinguishing feachers</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OCar">
+<xs:annotation>
+<xs:documentation>Contains the data about cars with motorcar place accident insurance. - RegNo:THE REGISTRATION NUMBER OF THE VEHICLE; - CarType: A car type in accordance of the internal nomenclature; - Model: Car model; - Make: Car maker; - Modification - Chassis: Chassis number - Engine: Engine number - CCMTon: Engine power(weight-TON); - CarUsage: Car usage-in accordance of the internal nomenclature; - SeatsNum: Number of seats; - DoorNum: Number of doors; - PaintType: Paint type-common or metalic; - ProdYear: Year of production; - CarAge: Age; - ProdType: Production type-Eastern or Western ; - CarColo - RegType - EnginePower - BonusMalus - Tonage - EngineType - FuelType - DriveType - CarBodyType - WindowColor - Modified - Notes</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OCargo">
+<xs:annotation>
+<xs:documentation>Description of the insured goods in the subscription policies. - CargoType: Goods type in accordance with a internal nomenclature; - CargoSubtype - CargoPolicyType - Description - PackingType: Package type in accordance with a internal nomenclature; - BoxNumber: Number of the packages; - TeritoryID: Teritory ID in accordance with a internal nomenclature; - FromPlace: The start place of the route; - ToPlace: The end place of the route; - Via: The place, via which is the route; - Destination: Final destination; - TransportType - VehicleType - FreightPrc: Freight(% to get more expensive as a result of transportation); - FreightDim - ShipmentDoc: Shipment document; - ToOrder - AverageAgent - Distance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OInsuredGroups">
+<xs:annotation>
+<xs:documentation>Group Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OLiability">
+<xs:annotation>
+<xs:documentation>General purpose object. Mainly used for liability insurance. - LiabDesc: Liability description; - LiabType: Liability type; - AddressID</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OLoss">
+<xs:annotation>
+<xs:documentation>Claim inventory. Contains description of losses when claim</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPerson">
+<xs:annotation>
+<xs:documentation>Data for insured person in Life Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPlane">
+<xs:annotation>
+<xs:documentation>Planes. - Make: Plain maker; - RegNo: Registration number; - ProdNo: Number given by the producer - ProdYear: Year of production - CCMTon: Tonage - SeatsNum: Number of seats - PlainHistory: Free text for plane history</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OProperty">
+<xs:annotation>
+<xs:documentation>Insured property. - PropertyKind; - PropertyType: Property type(estate/movable) - Name: Name (property description) - AddressID: ID of address structure</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPropBri">
+<xs:annotation>
+<xs:documentation>Insured building. Contains data about Insured building, typically building in construction. - Construction; - Area: area in square meters; - AddressID: ID of address structure; - BriDescription: The description of the insured object</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OShip">
+<xs:annotation>
+<xs:documentation>Ships. - Name; - ShipClass ; - ShipType; - RegNo: Registration number; - RegPort: Port of registration; - GrossTonage: Gross register ton; - NetTonage: Net register ton; - OwnerClass; - Length; - Height; - Wide; - Wade; - DeadWeight; - Region: Insured region; - PreviousInsurer; - PassengerNum; - CrewNum; - LastMaintenanceDate; - Engine: Engine info; - ProdInfo: Production info; - ProdYear: Year of production; - Producer; - ClaimInfo: Previous claim info.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OTrain">
+<xs:annotation>
+<xs:documentation>Trains.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Insured_Type">
+<xs:annotation>
+<xs:documentation>A structure holding details for insured object or person. The contained data elements are Insured Entity (person or object), Insured Value and Covers</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:group ref="Insured_Ref_Group" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="SubGroupID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="PolicyNo"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element ref="ObjectNum" minOccurs="0"/>
+<xs:element ref="InsuredEntity"/>
+<xs:element ref="InsuredAmount"/>
+<xs:element ref="Currency"/>
+<xs:element name="ActualValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="AVCurrency" type="xs:string" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="IVBase" type="xs:string" minOccurs="0"/>
+<xs:element name="IVType" type="xs:string" minOccurs="0"/>
+<xs:element name="PaymentDuration" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DurDimension" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskClass" type="xs:int" minOccurs="0"/>
+<xs:element ref="Supplementaries" minOccurs="0"/>
+<xs:choice>
+<xs:element maxOccurs="1" minOccurs="0" ref="CoverPackages"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="Covers"/>
+</xs:choice>
+<xs:element ref="Discounts" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Drivers"/>
+<!-- xs:element name="ULFundStructure" type="ULFundStructure_Type" minOccurs="0"/ -->
+<xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+<xs:element name="LettersOfCredit" type="OperLettersOfCredit_Type" minOccurs="0"/>
+<xs:element name="Territories" type="Territories_Type" minOccurs="0"/>
+<xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+<xs:element name="PreexistingConditions" type="PreexistingConditions_Type" minOccurs="0"/>
+<xs:element name="ApprovalConditions" type="PolicyParRequirements_Type" minOccurs="0"/>
+<xs:element name="GeographicalAreas" type="PolicyGeogAreas_Type" minOccurs="0"/>
+<xs:element name="Diagnoses" type="PolicyDiagnoses_Type" minOccurs="0"/>
+<xs:element name="Services" type="PolicyServices_Type" minOccurs="0"/>
+<xs:element name="Drugs" type="PolicyDrugs_Type" minOccurs="0"/>
+<xs:element name="Networks" type="PolicyNetworks_Type" minOccurs="0"/>
+<xs:element name="Providers" type="PolicyProviders_Type" minOccurs="0"/>
+<xs:element name="Gatekeepers" type="PolicyGatekeepers_Type" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="riId" type="xs:int"/>
+</xs:complexType>
+<xs:complexType name="Insureds_Type">
+<xs:sequence minOccurs="1">
+<xs:element maxOccurs="unbounded" name="Insured" type="Insured_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsurerGroup_Type">
+<xs:sequence>
+<xs:element name="InsurerGroupID" type="xs:long" minOccurs="0"/>
+<xs:element name="GroupName" type="xs:string"/>
+<xs:element name="Coverages" type="Coverages_Type"/>
+<xs:element name="Insurers" type="Insurers_Type" minOccurs="0"/>
+<xs:element name="Fees" type="FacFees_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsurerGroups_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InsurerGroup" type="InsurerGroup_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsurerSplit_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="InsurerID"/>
+<xs:group ref="PID_Data_Group"/>
+</xs:choice>
+<xs:element name="InsurerName" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskShare" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Insurer_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="InsurerID"/>
+<xs:group ref="PID_Data_Group"/>
+</xs:choice>
+<xs:element name="InsurerName" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskShare" type="xs:double"/>
+<xs:element name="LeaderFlag" type="BOOLEAN_STRING_TYPE"/>
+<xs:element name="ShareOffered" type="xs:double" minOccurs="0"/>
+<xs:element name="ShareWritten" type="xs:double" minOccurs="0"/>
+<xs:element name="InsurersSplit" type="InsurersSplit_Type" minOccurs="0"/>
+<xs:element name="Fees" type="FacFees_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InsurersSplit_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InsurerSplit" type="InsurerSplit_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Insurers_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Insurer" type="Insurer_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvAccount_Type">
+<xs:sequence>
+<xs:element name="AccountID" type="xs:integer"/>
+<xs:element ref="AnnexID"/>
+<xs:element name="AccountState" type="xs:string"/>
+<xs:element name="AccountStateReason" type="xs:string"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="InsuredManID" type="xs:integer"/>
+<xs:element name="AccountHolder" type="xs:integer"/>
+<xs:element name="CoverType" type="xs:string"/>
+<xs:element ref="AuxAnnexID"/>
+<xs:element name="Funds" type="Funds_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvAccountPPlan_Type">
+<xs:sequence>
+<xs:element name="PPlanID" minOccurs="0" type="xs:integer"/>
+<xs:element name="AccountID" minOccurs="0" type="xs:integer"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:element name="AccountPaymentType" minOccurs="0" type="xs:string"/>
+<xs:element name="AccountFractType" type="xs:string"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element name="Period" type="xs:integer"/>
+<xs:element name="DueDate" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvAccountPPlans_Type">
+<xs:sequence>
+<xs:element name="Contribution" type="InvAccountPPlan_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvCovers_Type">
+<xs:sequence>
+<xs:element name="Cover" type="InvCover_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvCover_Type">
+<xs:sequence>
+<xs:element name="CoverType" type="xs:string" maxOccurs="1"/>
+<xs:element ref="ULFunds"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvestmentAccount_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID"/>
+<xs:element name="Covers" type="InvCovers_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LetterOfCredit_Type">
+<xs:sequence>
+<xs:element name="LcID" type="xs:long" minOccurs="0"/>
+<xs:element name="ReferenceNo" type="xs:string"/>
+<xs:element name="IssueDate" type="xs:date"/>
+<xs:element name="BeginDate" type="xs:date"/>
+<xs:element name="EndDate" type="xs:date"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element name="UsedAmount" type="xs:double" minOccurs="0"/>
+<xs:element name="LinkAmount" type="xs:double" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="CurrencyRate" type="xs:integer"/>
+<xs:element name="IssuingBank" type="xs:string" minOccurs="0"/>
+<xs:element name="AdvisingBank" type="xs:string" minOccurs="0"/>
+<xs:element name="InsuranceReqs" type="xs:string" minOccurs="0"/>
+<xs:element name="Status" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LettersOfCredit_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="LetterOfCredit" type="LetterOfCredit_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Limit_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="InsuredObjectID"/>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element minOccurs="0" ref="RiskType"/>
+<xs:element minOccurs="0" ref="LossType"/>
+<xs:element name="LimitType" type="xs:string"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element name="Dimension" type="LIMIT_DIMENSION_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Limits_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Limit" type="Limit_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LinkedCover_Type">
+<xs:sequence>
+<xs:element ref="CoverCode"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LinkedCovers_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Cover" type="LinkedCover_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LinkedInsured_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="InsuredObjectID"/>
+<xs:element name="InsuredRef" type="xs:int"/>
+</xs:choice>
+<xs:element name="Covers" type="LinkedCovers_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LinkedInsureds_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Insured" type="LinkedInsured_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyCoverPackage_Type">
+<xs:sequence>
+<xs:element name="PackageID" type="xs:string"/>
+<xs:element name="PackageName" type="xs:string" minOccurs="0"/>
+<xs:element name="Covers" maxOccurs="1" type="ModifyCovers_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyCoverPackages_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CoverPackage" type="ModifyCoverPackage_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyCover_Type">
+<xs:sequence>
+<xs:element ref="CoverCode"/>
+<xs:element minOccurs="0" ref="ObjectNum"/>
+<xs:element name="CoverDescription" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="InsuredAmount"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="State" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="SeparateDuration"/>
+<xs:element minOccurs="0" ref="Premium"/>
+<xs:element name="PremiumType" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Risks"/>
+<xs:element ref="ULFunds" minOccurs="0"/>
+<xs:element ref="Contributions" minOccurs="0"/>
+<xs:element name="Endorsements" type="Endorsements_Type" minOccurs="0"/>
+<xs:element name="Territories" type="Territories_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Discounts"/>
+<xs:element name="PolicyDocuments" type="PolicyDocs_Type" minOccurs="0"/>
+<xs:element name="Indemnities" type="Indemnities_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Taxes"/>
+<xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyCovers_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Cover" type="ModifyCover_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyInsuredData_Type">
+<xs:sequence>
+<xs:element maxOccurs="1" ref="InsuredObjectID" minOccurs="1"/>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="RiskType"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyInsuredEntity_Type">
+<xs:sequence>
+<xs:element name="ObjectID" type="xs:integer" minOccurs="1"/>
+<xs:element name="ObjectType" type="xs:integer" minOccurs="0"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="RelatedPersons" minOccurs="0"/>
+<xs:choice>
+<xs:element name="OAccidentInsured" type="ChngAccidentInsured_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Insured for an accident. Describes insureds by an individual. The predefined fields are: - PersonID: ID for person in p_people table; - Age: age of the person - ProfID: profession ID from the list of professions</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OAdditionalEquipment" type="ChngAdditionalEquipment_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Additional equipment of various vehicles. Mainly for cars. - ParentObjectID: Vehicle code; - EquipmentType: Equipment type code - Model: Equipment model - SerialNo - IVOver: Flag. Shows if the insured value should be accumulated; - AvValue: Average value; - EquipmentKind</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ChngAgriculture" type="ChngAgriculture_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Data about the insured cultivations. - CultureType: Cultivation type; - CultureSubtype: Subcultivation type; - Area: The area, sowed by the cultivation(dka); - RegioID: The code of the area, sowed by the cultivation; - CadastNum: The number of the area in the public registries, sowed by the cultivation</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OAnimal" type="ChngAnimal_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Information about the insured animals. - AnimalType: Animal type in accordance of the internal nomenclature; - AnimalSubtype:Animal subtype in accordance of the internal nomenclature; - Breed: Animal breed - Name - Distinction:Distinguishing feachers</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OCar" type="ChngCar_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Contains the data about cars with motorcar place accident insurance. - RegNo:THE REGISTRATION NUMBER OF THE VEHICLE; - CarType: A car type in accordance of the internal nomenclature; - Model: Car model; - Make: Car maker; - Modification - Chassis: Chassis number - Engine: Engine number - CCMTon: Engine power(weight-TON); - CarUsage: Car usage-in accordance of the internal nomenclature; - SeatsNum: Number of seats; - DoorNum: Number of doors; - PaintType: Paint type-common or metalic; - ProdYear: Year of production; - CarAge: Age; - ProdType: Production type-Eastern or Western ; - CarColo - RegType - EnginePower - BonusMalus - Tonage - EngineType - FuelType - DriveType - CarBodyType - WindowColor - Modified - Notes</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OCargo" type="ChngCargo_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Description of the insured goods in the subscription policies. - CargoType: Goods type in accordance with a internal nomenclature; - CargoSubtype - CargoPolicyType - Description - PackingType: Package type in accordance with a internal nomenclature; - BoxNumber: Number of the packages; - TeritoryID: Teritory ID in accordance with a internal nomenclature; - FromPlace: The start place of the route; - ToPlace: The end place of the route; - Via: The place, via which is the route; - Destination: Final destination; - TransportType - VehicleType - FreightPrc: Freight(% to get more expensive as a result of transportation); - FreightDim - ShipmentDoc: Shipment document; - ToOrder - AverageAgent - Distance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OInsuredGroups" type="ChngInsuredGroups_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Group Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OLiability" type="ChngLiability_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>General purpose object. Mainly used for liability insurance. - LiabDesc: Liability description; - LiabType: Liability type; - AddressID</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OLoss" type="ChngLoss_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Claim inventory. Contains description of losses when claim</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPerson" type="ChngPerson_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Data for insured person in Life Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPlane" type="ChngPlane_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Planes. - Make: Plain maker; - RegNo: Registration number; - ProdNo: Number given by the producer - ProdYear: Year of production - CCMTon: Tonage - SeatsNum: Number of seats - PlainHistory: Free text for plane history</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OProperty" type="ChngProperty_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Insured property. - PropertyKind; - PropertyType: Property type(estate/movable) - Name: Name (property description) - AddressID: ID of address structure</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OPropBri" type="ChngPropBri_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Insured building. Contains data about Insured building, typically building in construction. - Construction; - Area: area in square meters; - AddressID: ID of address structure; - BriDescription: The description of the insured object</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OShip" maxOccurs="1" type="ChngShip_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Ships. - Name; - ShipClass ; - ShipType; - RegNo: Registration number; - RegPort: Port of registration; - GrossTonage: Gross register ton; - NetTonage: Net register ton; - OwnerClass; - Length; - Height; - Wide; - Wade; - DeadWeight; - Region: Insured region; - PreviousInsurer; - PassengerNum; - CrewNum; - LastMaintenanceDate; - Engine: Engine info; - ProdInfo: Production info; - ProdYear: Year of production; - Producer; - ClaimInfo: Previous claim info.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="OTrain" type="ChngTrain_Type" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Trains.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyInsured_Type">
+<xs:annotation>
+<xs:documentation>A structure holding details for insured object or person. The contained data elements are Insured Entity (person or object), Insured Value and Covers</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:group ref="Insured_Ref_Group" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="1"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="SubGroupID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element ref="ObjectNum" minOccurs="0"/>
+<xs:element name="InsuredEntity" type="ModifyInsuredEntity_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="InsuredAmount"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element name="ActualValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="AVCurrency" type="xs:string" minOccurs="0"/>
+<xs:element name="IVBase" type="xs:string" minOccurs="0"/>
+<xs:element name="IVType" type="xs:string" minOccurs="0"/>
+<xs:element name="PaymentDuration" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DurDimension" type="xs:string" minOccurs="0"/>
+<xs:element ref="Supplementaries" minOccurs="0"/>
+<xs:choice>
+<xs:element name="CoverPackages" maxOccurs="1" type="ModifyCoverPackages_Type" minOccurs="0"/>
+<xs:element name="Covers" maxOccurs="1" type="ModifyCovers_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element minOccurs="0" ref="Discounts"/>
+<xs:element minOccurs="0" ref="Drivers"/>
+<!-- xs:element name="ULFundStructure" type="ULFundStructure_Type" minOccurs="0"/ -->
+<xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+<xs:element name="LettersOfCredit" type="OperLettersOfCredit_Type" minOccurs="0"/>
+<xs:element name="Territories" type="Territories_Type" minOccurs="0"/>
+<xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="riId" type="xs:int"/>
+</xs:complexType>
+<xs:complexType name="NewCreditor_Type">
+<xs:sequence>
+<xs:group ref="People_Data_Group"/>
+<xs:element minOccurs="0" ref="Notes"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OAccidentInsured_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="PersonID" type="xs:long" minOccurs="1"/>
+<xs:element ref="PID"/>
+<xs:group ref="People_Data_Group"/>
+</xs:choice>
+<xs:element name="Age" type="xs:integer" minOccurs="0"/>
+<xs:element name="AccinsType" type="xs:string" minOccurs="0"/>
+<xs:element name="AccinsSubtype" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for insured. (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Gender" type="GENDER_VALUE_TYPE" minOccurs="0"/>
+<xs:element name="DependentOn" minOccurs="0" type="DependentOn_Type">
+<xs:annotation>
+<xs:documentation>Can be populated with PID of main member</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OAdditionalEquipment_Type">
+<xs:sequence>
+<xs:element name="ParentObjectID" type="xs:string"/>
+<xs:element name="EquipmentType" type="xs:string"/>
+<xs:element name="EquipmentSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Model" type="xs:string"/>
+<xs:element name="SerialNo" type="xs:string"/>
+<xs:element name="IVOver" type="BOOLEAN_NUMBER_TYPE" minOccurs="0"/>
+<xs:element name="AvValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+<xs:element name="EquipmentKind" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for additional equipment (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OAgriculture_Type">
+<xs:sequence>
+<xs:element name="CultureType" type="xs:string"/>
+<xs:element name="CultureSubtype" type="xs:string"/>
+<xs:element name="Area" type="xs:decimal"/>
+<xs:element name="RegionID" type="xs:integer"/>
+<xs:element name="CadastNum" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for agriculture (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OAnimal_Type">
+<xs:sequence>
+<xs:element name="AnimalType" type="xs:string"/>
+<xs:element name="AnimalSubtype" type="xs:string"/>
+<xs:element name="Breed" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="Distinction" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for animal (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OCar_Type">
+<xs:sequence>
+<xs:element name="RegNo" type="xs:string"/>
+<xs:element name="CarType" type="xs:string"/>
+<xs:element name="CarSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Model" type="xs:string" minOccurs="1"/>
+<xs:element name="Make" type="xs:string" minOccurs="1"/>
+<xs:element name="Modification" type="xs:string" minOccurs="0"/>
+<xs:element name="Chassis" type="xs:string" minOccurs="1"/>
+<xs:element name="Engine" type="xs:string" minOccurs="1"/>
+<xs:element name="CCMTon" type="xs:decimal" minOccurs="0"/>
+<xs:element name="CarUsage" type="xs:integer" minOccurs="0"/>
+<xs:element name="SeatsNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="DoorNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="PaintType" type="xs:string" minOccurs="1"/>
+<xs:element name="ProdYear" type="xs:integer" minOccurs="0"/>
+<xs:element name="CarAge" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ProdType" type="xs:string"/>
+<xs:element name="CarColor" type="xs:string" minOccurs="0"/>
+<xs:element name="RegType" type="xs:string" minOccurs="0"/>
+<xs:element name="EnginePower" type="xs:decimal" minOccurs="0"/>
+<xs:element name="BonusMalus" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Tonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="EngineType" type="xs:string" minOccurs="0"/>
+<xs:element name="FuelType" type="xs:string" minOccurs="0"/>
+<xs:element name="DriveType" type="xs:string" minOccurs="0"/>
+<xs:element name="CarBodyType" type="xs:string" minOccurs="0"/>
+<xs:element name="WindowColor" type="xs:string" minOccurs="0"/>
+<xs:element name="Modified" type="BOOLEAN_NUMBER_TYPE"/>
+<xs:element minOccurs="0" ref="Notes"/>
+<xs:element name="VehicleKey" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for car (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SupplementaryEquipment" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" ref="OAdditionalEquipment"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OCargo_Type">
+<xs:sequence>
+<xs:element name="CargoType" type="xs:string"/>
+<xs:element name="CargoSubtype" type="xs:string"/>
+<xs:element name="CargoPolicyType" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string"/>
+<xs:element name="PackingType" type="xs:integer"/>
+<xs:element name="BoxNumber" type="xs:integer" minOccurs="0"/>
+<xs:element name="TeritoryID" type="xs:integer"/>
+<xs:element name="FromPlace" type="xs:string"/>
+<xs:element name="ToPlace" type="xs:string"/>
+<xs:element name="Via" type="xs:string" minOccurs="0"/>
+<xs:element maxOccurs="1" name="Destination" type="xs:string" minOccurs="0"/>
+<xs:element name="TransportType" type="xs:integer"/>
+<xs:element name="VehicleType" type="xs:integer" minOccurs="0"/>
+<xs:element name="ShipmentDoc" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipmentDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ToOrder" type="xs:string" minOccurs="0"/>
+<xs:element name="AverageAgent" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Distance" type="xs:string" minOccurs="0"/>
+<xs:element name="TransportMeans" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element name="TermsOfSale" type="TermsOfSale_Type" minOccurs="0"/>
+<xs:element name="Vehicles" type="OVehicles_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for cargo (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OInsuredGroups_Type">
+<xs:sequence>
+<xs:element name="GrpType" type="xs:string" minOccurs="0"/>
+<xs:element name="GrpSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="Description" type="xs:string"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for insured groups (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OLiability_Type">
+<xs:sequence>
+<xs:element name="LiabDesc" type="xs:string"/>
+<xs:element name="LiabType" type="xs:string"/>
+<xs:element name="LiabSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:choice>
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for liability (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OLoss_Type">
+<xs:sequence>
+<xs:element name="Description" type="xs:string"/>
+<xs:element ref="Notes"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for loss (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OPerson_Type">
+<xs:sequence>
+<xs:element ref="PersonalData"/>
+<xs:element minOccurs="0" ref="Addresses"/>
+<xs:element minOccurs="0" ref="Contacts"/>
+<xs:element minOccurs="0" ref="BankAccounts"/>
+<xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="InsuredRole"/>
+<xs:element name="RiskClass" type="xs:string" minOccurs="0"/>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OPlane_Type">
+<xs:sequence>
+<xs:element name="Make" type="xs:string"/>
+<xs:element name="RegNo" type="xs:string"/>
+<xs:element name="PlaneType" type="xs:string" minOccurs="0"/>
+<xs:element name="PlaneSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdNo" type="xs:string"/>
+<xs:element name="ProdYear" type="xs:integer"/>
+<xs:element name="CCMTon" type="xs:decimal" minOccurs="0"/>
+<xs:element name="SeatsNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="PlaneHistory" type="xs:integer" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for plane (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OPropBri_Type">
+<xs:sequence>
+<xs:element name="Construction" type="xs:string"/>
+<xs:element name="ConstructionType" type="xs:string"/>
+<xs:element name="Area" type="xs:decimal"/>
+<xs:choice>
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element name="BriDescription" type="xs:string"/>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for buildings under construction (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OProperty_Type">
+<xs:sequence>
+<xs:element name="PropertyKind" type="xs:string"/>
+<xs:element name="PropertyType" type="xs:string"/>
+<xs:element name="Name" type="xs:string"/>
+<xs:choice>
+<xs:element ref="AddressID" minOccurs="1"/>
+<xs:element name="NewAddress" type="Object_Address_Type" minOccurs="1"/>
+</xs:choice>
+<xs:element name="RiskLocationID" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for property (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OShip_Type">
+<xs:sequence>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="ShipClass" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipType" type="xs:string" minOccurs="0"/>
+<xs:element name="ShipSubtype" type="xs:string" minOccurs="0"/>
+<xs:element name="RegNo" type="xs:string"/>
+<xs:element name="RegPort" type="xs:string" minOccurs="0"/>
+<xs:element name="GrossTonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="NetTonage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="OwnerClass" type="xs:string" minOccurs="0"/>
+<xs:element name="Length" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Height" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Wide" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Wade" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DeadWeight" type="xs:decimal" minOccurs="0"/>
+<xs:element name="Region" type="xs:string" minOccurs="0"/>
+<xs:element name="PreviousInsurer" type="xs:string" minOccurs="0"/>
+<xs:element name="PassengerNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="CrewNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="LastMaintenanceDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Engine" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdInfo" type="xs:string" minOccurs="0"/>
+<xs:element name="ProdYear" type="xs:integer" minOccurs="0"/>
+<xs:element name="Producer" type="xs:string" minOccurs="0"/>
+<xs:element name="ClaimInfo" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for ship (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="SupplementaryEquipment" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" ref="OAdditionalEquipment"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OTrain_Type">
+<xs:sequence>
+<xs:element name="RegNo" type="xs:string"/>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="TrainType" type="xs:string" minOccurs="0"/>
+<xs:element name="TrainSubtype" type="xs:string" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Possible custom properties for train (FiledName | Description | Product Code):</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Creditors" type="ObjectsCredited_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OVechicle_Type">
+<xs:sequence>
+<xs:element ref="ObjectType"/>
+<xs:element name="VehicleObjectID" type="xs:long"/>
+<xs:element name="VehicleDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="BoxNum" type="xs:integer" minOccurs="0"/>
+<xs:element name="FromPlace" type="xs:string" minOccurs="0"/>
+<xs:element name="ToPlace" type="xs:string" minOccurs="0"/>
+<xs:element name="TeritoryID" type="xs:string" minOccurs="0"/>
+<xs:element name="Param1" type="xs:string" minOccurs="0"/>
+<xs:element name="Param2" type="xs:string" minOccurs="0"/>
+<xs:element name="Param3" type="xs:string" minOccurs="0"/>
+<xs:element name="Param4" type="xs:string" minOccurs="0"/>
+<xs:element name="Param5" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OVehicles_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Vehicle" type="OVechicle_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ObjectCredited_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="CreditorID" type="xs:long"/>
+<xs:element name="NewCreditor" type="NewCreditor_Type"/>
+</xs:choice>
+<xs:element name="Amount" type="xs:double" minOccurs="0"/>
+<xs:element name="LendDate" type="xs:date" minOccurs="0"/>
+<xs:element name="ExpireDate" type="xs:date" minOccurs="0"/>
+<xs:element name="InterestRate" type="xs:double" minOccurs="0"/>
+<xs:element name="NumOfInstallments" type="xs:int" minOccurs="0"/>
+<xs:element name="Installment" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ObjectData_Type">
+<xs:annotation>
+<xs:documentation>Insured entity represents what exactly is insured - an object (car, property, train, etc.) or a person (for life insurance). Depending on the type of the object, the structure may vary, which is defined by choice between generic object structures. Besides the predefiend fields, every object can have a varying number of additional fields (flex fields), which are configured at system installation time for a certain client. The fields are described by "any" element in the XML structure</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="ObjectID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:element ref="OAccidentInsured">
+<xs:annotation>
+<xs:documentation>Insured for an accident. Describes insureds by an individual. The predefined fields are: - PersonID: ID for person in p_people table; - Age: age of the person - ProfID: profession ID from the list of professions</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAdditionalEquipment">
+<xs:annotation>
+<xs:documentation>Additional equipment of various vehicles. Mainly for cars. - ParentObjectID: Vehicle code; - EquipmentType: Equipment type code - Model: Equipment model - SerialNo - IVOver: Flag. Shows if the insured value should be accumulated; - AvValue: Average value; - EquipmentKind</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAgriculture">
+<xs:annotation>
+<xs:documentation>Data about the insured cultivations. - CultureType: Cultivation type; - CultureSubtype: Subcultivation type; - Area: The area, sowed by the cultivation(dka); - RegioID: The code of the area, sowed by the cultivation; - CadastNum: The number of the area in the public registries, sowed by the cultivation</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OAnimal">
+<xs:annotation>
+<xs:documentation>Information about the insured animals. - AnimalType: Animal type in accordance of the internal nomenclature; - AnimalSubtype:Animal subtype in accordance of the internal nomenclature; - Breed: Animal breed - Name - Distinction:Distinguishing feachers</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OCar">
+<xs:annotation>
+<xs:documentation>Contains the data about cars with motorcar place accident insurance. - RegNo:THE REGISTRATION NUMBER OF THE VEHICLE; - CarType: A car type in accordance of the internal nomenclature; - Model: Car model; - Make: Car maker; - Modification - Chassis: Chassis number - Engine: Engine number - CCMTon: Engine power(weight-TON); - CarUsage: Car usage-in accordance of the internal nomenclature; - SeatsNum: Number of seats; - DoorNum: Number of doors; - PaintType: Paint type-common or metalic; - ProdYear: Year of production; - CarAge: Age; - ProdType: Production type-Eastern or Western ; - CarColo - RegType - EnginePower - BonusMalus - Tonage - EngineType - FuelType - DriveType - CarBodyType - WindowColor - Modified - Notes</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OCargo">
+<xs:annotation>
+<xs:documentation>Description of the insured goods in the subscription policies. - CargoType: Goods type in accordance with a internal nomenclature; - CargoSubtype - CargoPolicyType - Description - PackingType: Package type in accordance with a internal nomenclature; - BoxNumber: Number of the packages; - TeritoryID: Teritory ID in accordance with a internal nomenclature; - FromPlace: The start place of the route; - ToPlace: The end place of the route; - Via: The place, via which is the route; - Destination: Final destination; - TransportType - VehicleType - FreightPrc: Freight(% to get more expensive as a result of transportation); - FreightDim - ShipmentDoc: Shipment document; - ToOrder - AverageAgent - Distance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OInsuredGroups">
+<xs:annotation>
+<xs:documentation>Group Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OLiability">
+<xs:annotation>
+<xs:documentation>General purpose object. Mainly used for liability insurance. - LiabDesc: Liability description; - LiabType: Liability type; - AddressID</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OLoss">
+<xs:annotation>
+<xs:documentation>Claim inventory. Contains description of losses when claim</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPerson">
+<xs:annotation>
+<xs:documentation>Data for insured person in Life Insurance</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPlane">
+<xs:annotation>
+<xs:documentation>Planes. - Make: Plain maker; - RegNo: Registration number; - ProdNo: Number given by the producer - ProdYear: Year of production - CCMTon: Tonage - SeatsNum: Number of seats - PlainHistory: Free text for plane history</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OProperty">
+<xs:annotation>
+<xs:documentation>Insured property. - PropertyKind; - PropertyType: Property type(estate/movable) - Name: Name (property description) - AddressID: ID of address structure</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OPropBri">
+<xs:annotation>
+<xs:documentation>Insured building. Contains data about Insured building, typically building in construction. - Construction; - Area: area in square meters; - AddressID: ID of address structure; - BriDescription: The description of the insured object</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OShip">
+<xs:annotation>
+<xs:documentation>Ships. - Name; - ShipClass ; - ShipType; - RegNo: Registration number; - RegPort: Port of registration; - GrossTonage: Gross register ton; - NetTonage: Net register ton; - OwnerClass; - Length; - Height; - Wide; - Wade; - DeadWeight; - Region: Insured region; - PreviousInsurer; - PassengerNum; - CrewNum; - LastMaintenanceDate; - Engine: Engine info; - ProdInfo: Production info; - ProdYear: Year of production; - Producer; - ClaimInfo: Previous claim info.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="OTrain">
+<xs:annotation>
+<xs:documentation>Trains.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Object_Address_Type">
+<xs:sequence>
+<xs:element ref="AddressID" minOccurs="0"/>
+<xs:element name="Country" type="xs:string" minOccurs="0"/>
+<xs:element name="CountryCode" type="xs:string" minOccurs="0"/>
+<xs:element name="State" type="xs:string" minOccurs="0"/>
+<xs:element name="CountryState" type="xs:string" minOccurs="0"/>
+<xs:element name="Region" type="xs:string" minOccurs="0"/>
+<xs:element name="StateRegion" type="xs:string" minOccurs="0"/>
+<xs:element name="City" type="xs:string" minOccurs="1"/>
+<xs:element name="CityCode" type="xs:string" minOccurs="0"/>
+<xs:element ref="ResidentialAddress"/>
+<xs:element name="ZipCode" type="xs:string" minOccurs="1"/>
+<xs:element name="ZipEarthQuake" type="xs:string" minOccurs="0"/>
+<xs:element name="EarthquakeFactor" type="xs:string" minOccurs="0"/>
+<xs:element name="Address" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ObjectsCredited_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ObjectCredited" type="ObjectCredited_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OperLetterOfCredit_Type">
+<xs:sequence>
+<xs:element name="LcID" type="xs:long"/>
+<xs:element name="Operation" type="LOC_OPER_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OperLettersOfCredit_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="LetterOfCredit" type="OperLetterOfCredit_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Others_Type">
+<xs:sequence>
+<xs:group ref="People_Data_Group"/>
+<xs:element name="OthersData" type="ChangeOthersData_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OverrideIndemnity_Type">
+<xs:sequence>
+<xs:element name="IndemnityAmount" type="xs:double"/>
+<xs:element minOccurs="0" ref="Currency"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Owner_Type">
+<xs:sequence>
+<xs:group ref="Change_People_Data_Group"/>
+<xs:element name="BeginDate" type="xs:date"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Percent" type="PERCENT_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Owners_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Owner" type="Owner_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ParticipantAddition_Type">
+<xs:sequence>
+<xs:element name="ParticipantAddID" type="xs:long" minOccurs="0"/>
+<xs:element name="ParticipantID" type="xs:long" minOccurs="0"/>
+<xs:element name="ObjectID" type="xs:long" minOccurs="0"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element name="Currency" type="xs:string"/>
+<xs:element name="Status" type="xs:string" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:element name="LendDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Note1" type="xs:string" minOccurs="0"/>
+</xs:choice>
+<xs:choice minOccurs="0">
+<xs:element name="ExpireDate" type="xs:date" minOccurs="0"/>
+<xs:element name="Note2" type="xs:string" minOccurs="0"/>
+</xs:choice>
+<xs:element name="Note3" type="xs:string" minOccurs="0"/>
+<xs:element name="Note4" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ParticipantAdditions_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Addition" type="ParticipantAddition_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Participant_Type">
+<xs:sequence>
+<xs:element name="ParticipantID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:group ref="People_Data_Group" minOccurs="0"/>
+<xs:element name="ParticipantRole" type="xs:string" minOccurs="0"/>
+<xs:element name="PremiumShare" type="xs:double" minOccurs="0"/>
+<xs:element name="Status" type="xs:string" minOccurs="0"/>
+<xs:element name="Language" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="Additions" type="ParticipantAdditions_Type" minOccurs="0"/>
+<xs:element ref="PolicyAddresses" minOccurs="0"/>
+<xs:element ref="PolicyContacts" minOccurs="0"/>
+<xs:element ref="PolicyBankAccounts" minOccurs="0"/>
+<xs:element ref="PolicyCreditCards" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Participants_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Participant" type="Participant_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PassportData_Type">
+<xs:sequence>
+<xs:element name="IDType" type="ID_TYPE_TYPE" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Type of ID - passport, ID Card, driving license, other..</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="IDNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="DateOfIssue" type="xs:date" minOccurs="0"/>
+<xs:element name="PlaceOfIssue" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PayPlanInstalment_Type">
+<xs:sequence>
+<xs:element name="PlanID" type="xs:integer"/>
+<xs:element name="AnnexID" type="xs:long"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element minOccurs="0" ref="Currency"/>
+<xs:element name="DueDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="GwpDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="InstalmentPerYear" type="xs:string" minOccurs="0"/>
+<xs:element name="InvoiceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="PaidOn" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="AmntType" type="xs:string" minOccurs="0"/>
+<xs:element name="PlanType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PayPlanInstalments_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Installment" type="PayPlanInstalment_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PaymentDetail_Type">
+<xs:sequence>
+<xs:element name="DetailID" type="xs:long" minOccurs="0"/>
+<xs:element name="IndemnityType" type="xs:string"/>
+<xs:element name="PaySum" type="xs:double" minOccurs="0"/>
+<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PaymentDetails_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PaymentDetail" type="PaymentDetail_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Payment_Type">
+<xs:sequence>
+<xs:element ref="PaymentID"/>
+<xs:element minOccurs="0" ref="ReportID"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="RequestNo"/>
+<xs:element name="BenefType" type="xs:int"/>
+<xs:element name="ManID" type="xs:long"/>
+<xs:element name="PaymentNum" type="xs:int"/>
+<xs:element name="PaymentWay" type="xs:string"/>
+<xs:element name="PaySum" type="xs:double"/>
+<xs:element name="Currency" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonName_Type">
+<xs:sequence>
+<xs:element name="Given" type="xs:string" minOccurs="0"/>
+<xs:element name="Surname" type="xs:string" minOccurs="0"/>
+<xs:element name="Family" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonRelation_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="Part2ID" type="xs:long"/>
+<xs:group ref="PID_Data_Group"/>
+</xs:choice>
+<xs:element name="RelID" type="xs:integer"/>
+<xs:element name="RelName" type="xs:string"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonRelations_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PersonRelation" type="PersonRelation_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonalData_Type">
+<xs:sequence>
+<xs:element name="Name" type="PersonName_Type" minOccurs="0"/>
+<xs:element ref="PID"/>
+<xs:element name="Gender" type="GENDER_VALUE_TYPE" minOccurs="0"/>
+<xs:element name="BirthDate" type="xs:date" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Language"/>
+<xs:element minOccurs="0" ref="HomeCountry"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyAddress_Type">
+<xs:sequence>
+<xs:element name="PolicyAddressID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:choice>
+<xs:element minOccurs="0" ref="AddressID"/>
+<xs:element name="Address" type="Address_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element name="AddressPurpose" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyAddresses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyAddress" type="PolicyAddress_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyAgent_Type">
+<xs:sequence>
+<xs:element name="PolicyAgentID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:element ref="AgentNo" minOccurs="0"/>
+<xs:element name="AgentRole" type="xs:string" minOccurs="0"/>
+<xs:element name="CommShare" type="xs:double" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element ref="PolicyAddresses" minOccurs="0"/>
+<xs:element ref="PolicyContacts" minOccurs="0"/>
+<xs:element ref="PolicyBankAccounts" minOccurs="0"/>
+<xs:element ref="PolicyCreditCards" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyAgents_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Agent" type="PolicyAgent_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBankAccount_Type">
+<xs:sequence>
+<xs:element name="PolicyBankAccountID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:choice>
+<xs:element ref="BankAccID" minOccurs="0"/>
+<xs:element name="BankAccount" type="ChngeBankAccnt_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element name="AccountPurpose" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBankAccounts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyBankAccount" type="PolicyBankAccount_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyCreditCard_Type">
+<xs:sequence>
+<xs:element name="PolicyCCID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:choice>
+<xs:element ref="CardID" minOccurs="0"/>
+<xs:element name="CreditCard" type="ChngeCreditCard_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element name="CCPurpose" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyCreditCards_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyCreditCard" type="PolicyCreditCard_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBenefGroup_Type">
+<xs:sequence>
+<xs:element name="BenefGroupID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element name="GroupType" type="xs:string" minOccurs="0"/>
+<xs:element name="GroupCode" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBenefGroups_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="BenefGroup" type="PolicyBenefGroup_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBilling_Type">
+<xs:sequence>
+<xs:element name="BillingID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:element name="PaymentMode" type="xs:integer"/>
+<xs:element name="PayDueDate" type="DAY_OF_MONTH_TYPE"/>
+<xs:element ref="PaymentWay"/>
+<xs:element name="InstallmentsPeriod" type="xs:string"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyBillings_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Billing" type="PolicyBilling_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyContact_Type">
+<xs:sequence>
+<xs:element name="PolicyContactID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:choice>
+<xs:element ref="ContactID" minOccurs="0"/>
+<xs:element name="Contact" type="ChngeContact_Type" minOccurs="0"/>
+</xs:choice>
+<xs:element name="ContactPurpose" type="xs:string" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyContacts_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyContact" type="PolicyContact_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDiagnosis_Type">
+<xs:sequence>
+<xs:element name="PolDiagID" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="DiagnosisID" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DiagnosisCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="DiagnosisGroupID" type="xs:decimal" minOccurs="0"/>
+<xs:element name="DiagnosisGroupCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="GeogAreaID" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ProviderID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ProviderCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="NetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element name="NetworkCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CoverageType" type="xs:string" minOccurs="0"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element name="SettlementType" type="xs:string" minOccurs="0"/>
+<xs:element name="NetworkCoverage" type="xs:string" minOccurs="0"/>
+<xs:element name="DiagLimit" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDiagnoses_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyDiagnosis" type="PolicyDiagnosis_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDoc_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="InsuredObjectID"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="DocumentType" type="xs:string"/>
+<xs:element name="DocumentID" type="xs:long" minOccurs="0"/>
+<xs:element name="DocumentDate" type="xs:date" minOccurs="0"/>
+<xs:element name="OriginalDocument" type="xs:string" minOccurs="0"/>
+<xs:element name="OriginalDocID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element name="BeginDate" type="xs:date" minOccurs="0"/>
+<xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDocs_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyDocument" type="PolicyDoc_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDrug_Type">
+<xs:sequence>
+<xs:element name="PolDrugID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="DrugID" type="xs:integer" minOccurs="0"/>
+<xs:element name="DrugCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="DrugGroup" type="xs:integer" minOccurs="0"/>
+<xs:element name="DrugGroupCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element ref="GeogAreaID" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ProviderID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ProviderCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="NetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element name="NetworkCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CoverageType" type="xs:string" minOccurs="0"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element name="SettlementType" type="xs:string" minOccurs="0"/>
+<xs:element name="NetworkCoverage" type="xs:string" minOccurs="0"/>
+<xs:element name="DrugLimit" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyDrugs_Type">
+<xs:sequence minOccurs="1">
+<xs:element maxOccurs="unbounded" name="PolicyDrug" type="PolicyDrug_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyGatekeeper_Type">
+<xs:sequence>
+<xs:element name="PolicyGatekeeperID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element name="ContractID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ContractNo" type="xs:string"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="PackageID" type="xs:string" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyGatekeepers_Type">
+<xs:sequence minOccurs="1">
+<xs:element maxOccurs="unbounded" name="Gatekeeper" type="PolicyGatekeeper_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyGeogArea_Type">
+<xs:sequence>
+<xs:element name="PolicyAreaID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:element ref="GeogAreaID"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="PackageID" type="xs:string" minOccurs="0"/>
+<xs:element name="CoverageType" type="xs:string"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyGeogAreas_Type">
+<xs:sequence minOccurs="1">
+<xs:element maxOccurs="unbounded" name="GeographicalArea" type="PolicyGeogArea_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyNetwork_Type">
+<xs:sequence>
+<xs:element name="PolicyNetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:element name="NetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element name="NetworkCode" type="xs:string"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="PackageType" type="xs:string" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyNetworks_Type">
+<xs:sequence>
+<xs:element name="Network" type="PolicyNetwork_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyParReq_Type">
+<xs:sequence>
+<xs:element name="PolParID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="DiagnosisID" type="xs:integer" minOccurs="0"/>
+<xs:element name="DiagnosisCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="DiagnosisGroupID" type="xs:integer" minOccurs="0"/>
+<xs:element name="DiagnosisGroupCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element ref="GeogAreaID" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ProviderID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ProviderCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="NetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element name="NetworkCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="NetworkCoverage" type="xs:string" minOccurs="0"/>
+<xs:element name="ParLimit" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="CoverageType" type="xs:string" minOccurs="0"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element name="SettlementType" type="xs:string" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ServiceID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ServiceCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="SrvgrpID" type="xs:integer" minOccurs="0"/>
+<xs:element name="SrvgrpCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="DrugID" type="xs:integer" minOccurs="0"/>
+<xs:element name="DrugCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="DrugGroup" type="xs:integer" minOccurs="0"/>
+<xs:element name="DrugGroupCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="DrugDaySupply" type="xs:integer" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="ServicePlace" type="xs:string" minOccurs="0"/>
+<xs:element name="ProviderType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyParRequirements_Type">
+<xs:sequence>
+<xs:element name="ApprovalReqirement" type="PolicyParReq_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyPremium_Type">
+<xs:sequence>
+<xs:element name="EngPremID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+<xs:element name="PremiumType" type="xs:string"/>
+<xs:element name="NumInstalments" type="xs:integer"/>
+<xs:element name="Amount" type="xs:double"/>
+<xs:element ref="Currency"/>
+<xs:element name="Status" type="xs:string"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyPremiums_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Premium" type="PolicyPremium_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyProvider_Type">
+<xs:sequence>
+<xs:element name="PolicyProviderID" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:choice>
+<xs:sequence>
+<xs:element name="ProviderID" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ProviderCode" type="xs:string"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="ProviderGroupID" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ProviderGroupCode" type="xs:string"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="ContractID" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ContractNo" type="xs:string" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="PackageType" type="xs:string" minOccurs="0"/>
+<xs:element name="SettlementType" type="xs:string" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="CoverageType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyProviders_Type">
+<xs:sequence>
+<xs:element name="Provider" type="PolicyProvider_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRule_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PolicyRuleID"/>
+<xs:element name="RuleCfgID" type="xs:decimal"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsuredID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="SubGroupID" minOccurs="0"/>
+<xs:element name="PackageCode" type="xs:string" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element name="ClaimStage" type="xs:string" minOccurs="0"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element name="RqType" type="xs:string" minOccurs="0"/>
+<xs:element name="InNetwork" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element name="RuleStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="PolicyRuleAttributes" type="PolicyRuleAttrs_Type" minOccurs="0"/>
+<xs:element name="PolicyRuleValues" type="PolicyRuleValues_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRules_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyRule" type="PolicyRule_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRuleAttr_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PolicyRuleID"/>
+<xs:element name="AttrOrder" type="xs:int"/>
+<xs:element name="DefinitionType" type="xs:string"/>
+<xs:element name="AttrCode" type="xs:string" minOccurs="0"/>
+<xs:element name="ValueType" type="xs:string" minOccurs="0"/>
+<xs:element name="RuleValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="ReRuleCode" type="xs:string" minOccurs="0"/>
+<xs:element name="ValueDim" type="xs:string" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRuleAttrs_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyRuleAttribute" type="PolicyRuleAttr_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRuleValue_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PolicyRuleID"/>
+<xs:element name="RuleValue" type="xs:decimal" minOccurs="1"/>
+<xs:element name="ValueDim" type="xs:string" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element name="ValueType" type="xs:string" minOccurs="0"/>
+<xs:element name="Included" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyRuleValues_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyRuleValue" type="PolicyRuleValue_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyService_Type">
+<xs:sequence>
+<xs:element name="PolSrvID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ServiceID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ServiceCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="SrvgrpID" type="xs:integer" minOccurs="0"/>
+<xs:element name="SrvgrpCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="GroupID" minOccurs="0"/>
+<xs:element ref="GeogAreaID" minOccurs="0"/>
+<xs:choice minOccurs="0">
+<xs:sequence>
+<xs:element name="ProviderID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ProviderCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element name="NetworkID" type="xs:integer" minOccurs="0"/>
+<xs:element name="NetworkCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:choice>
+<xs:element name="CoverageType" type="xs:string" minOccurs="0"/>
+<xs:element ref="ClaimType" minOccurs="0"/>
+<xs:element name="SettlementType" type="xs:string" minOccurs="0"/>
+<xs:element name="NetworkCoverage" type="xs:string" minOccurs="0"/>
+<xs:element name="SrvLimit" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="CoverCode" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyServices_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="PolicyService" type="PolicyService_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PreexistingCondition_Type">
+<xs:sequence minOccurs="1">
+<xs:element name="PreexistID" type="xs:integer" minOccurs="0"/>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element ref="ProductCode" minOccurs="0"/>
+<xs:element ref="AnnexID" minOccurs="0"/>
+<xs:element name="DiagnosisID" type="xs:integer" minOccurs="0"/>
+<xs:element name="DiagnosisCode" type="xs:string" minOccurs="0"/>
+<xs:element name="LimitValue" type="xs:decimal" minOccurs="0"/>
+<xs:element ref="Currency" minOccurs="0"/>
+<xs:element name="WaitPeriod" type="xs:decimal" minOccurs="0"/>
+<xs:element name="PeriodDim" type="xs:string" minOccurs="0">
+<!-- Value from hst_dur_dimension: d-day(s); m-month(s);y-year(s);w-week(s) -->
+</xs:element>
+<xs:element ref="AuxAnnexID" minOccurs="0"/>
+<xs:element ref="InsrBegin" minOccurs="0"/>
+<xs:element ref="InsrEnd" minOccurs="0"/>
+<xs:element name="DRG" type="xs:integer" minOccurs="0">
+<xs:annotation>
+<xs:documentation> Get Diagnosis Group ID by Group Code </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DiagnosisGroupCode" type="xs:string" minOccurs="0"/>
+<xs:element name="Excluded" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="ConditionType" type="xs:string" minOccurs="1">
+<!-- Value from hst_preexist_condition_type (PREEXIST or CHRONIC) -->
+</xs:element>
+<xs:element name="MaxServices" type="xs:integer" minOccurs="0"/>
+<xs:element name="EffectiveDate" type="xs:date" minOccurs="0"/>
+<!-- a.username, a.registration_date -->
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PreexistingConditions_Type">
+<xs:sequence>
+<xs:element name="PreexistingCondition" type="PreexistingCondition_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Premium_Type">
+<xs:sequence>
+<xs:element name="TotalAmount" type="xs:decimal"/>
+<xs:element name="PaidAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="OutstandingAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="OverpaidAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="NextDueAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="NextDueDate" type="xs:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Question_Type">
+<xs:sequence>
+<xs:element name="ID" type="xs:string"/>
+<xs:element name="Answer" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Questionary_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Question" type="Question_Type"/>
+</xs:sequence>
+<xs:attribute name="questionaryID" type="QUESTIONARY_ID_TYPE"/>
+</xs:complexType>
+<xs:complexType name="Recapitulation_Type">
+<xs:sequence>
+<xs:element name="RecapitulationID" type="xs:integer"/>
+<xs:element name="DocSum" type="xs:double" minOccurs="0"/>
+<xs:element name="ExpertSum" type="xs:double" minOccurs="0"/>
+<xs:element name="ConfirmSum" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Recapitulations_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Recapitulation" type="Recapitulation_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegressPayment_Type">
+<xs:sequence>
+<xs:element name="ExpenseCode" type="xs:int"/>
+<xs:element ref="InsuredObjectID"/>
+<xs:element name="RegressSum" type="xs:double"/>
+<xs:element name="RegressCurrency" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegressPayments_Type">
+<xs:sequence maxOccurs="unbounded">
+<xs:element name="RegressPayment" type="RegressPayment_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RelatedPerson_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="PersonID" type="xs:integer"/>
+<xs:element name="OthersData" type="ChangeOthersData_Type"/>
+</xs:choice>
+<xs:element ref="PID"/>
+<xs:element name="PersonType" type="xs:integer"/>
+<xs:element maxOccurs="1" name="Note" type="xs:string" minOccurs="0"/>
+<xs:element ref="PolicyID" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="ProductCode"/>
+<xs:element name="IncludedPolicy" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:group ref="Change_People_Data_Group"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RelatedPersons_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="RelatedPerson" type="RelatedPerson_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RenewalCondition_Type">
+<xs:sequence>
+<xs:element name="EngRenewalID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="EngagementID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element name="RenewalMethod" type="xs:string"/>
+<xs:element name="RenewalDate" type="xs:date"/>
+<xs:element name="RenewalTime" type="xs:time" minOccurs="0"/>
+<xs:element name="RenewalEnd" type="xs:date" minOccurs="0"/>
+<xs:element name="RenewalEndTime" type="xs:time" minOccurs="0"/>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Request_Type">
+<xs:sequence>
+<xs:element ref="RequestNo"/>
+<xs:element name="RequestDate" type="xs:date"/>
+<xs:element name="RequestState" type="xs:int"/>
+<xs:element name="RequestStateDescr" type="xs:string"/>
+<xs:element name="RequestStateAux" type="xs:int"/>
+<xs:element name="RequestStateAuxDescr" type="xs:string"/>
+<xs:group ref="People_Data_Group"/>
+<xs:element name="ClaimantType" type="xs:string"/>
+<xs:element name="PaymentType" type="xs:int"/>
+<xs:element minOccurs="0" ref="InsuredAmount"/>
+<xs:element name="PaidAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="OutstandingAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="SolveWay" type="xs:string" minOccurs="0"/>
+<xs:element name="ProviderID" type="xs:int" minOccurs="0"/>
+<xs:element minOccurs="0" ref="InjuredObjects"/>
+<xs:element name="ClaimAddresses" type="ClaimAddresses_Type" minOccurs="0"/>
+<xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+<xs:element ref="CustomProperties" minOccurs="0"/>
+<xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+<xs:element name="Reports" type="ClaimReports_Type" minOccurs="0"/>
+<xs:element minOccurs="0" ref="Guilty"/>
+<xs:element ref="AnnuityRecipients" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RecipientData_Type">
+<xs:sequence>
+<xs:element ref="AuxAnnexID"/>
+<!--  only in query mode -->
+<xs:element name="AnnuityType" type="xs:string" minOccurs="0"/>
+<xs:element name="RecipientState" type="xs:string" minOccurs="0"/>
+<xs:element name="AnnualAmnt" type="xs:double" minOccurs="0"/>
+<xs:element name="AnnuityClaimAmount" type="xs:double"/>
+<xs:element name="InstallmentAmnt" type="xs:double" minOccurs="0"/>
+<xs:element ref="Currency"/>
+<xs:element name="AnnuityStartDate" type="xs:date" minOccurs="0"/>
+<xs:element name="AnnuityDuration" type="xs:int" minOccurs="0"/>
+<xs:element name="DurationDim" type="xs:string" minOccurs="0"/>
+<xs:element name="Age" type="xs:int" minOccurs="0"/>
+<xs:element name="Gender" type="xs:string" minOccurs="0"/>
+<xs:element name="DeathDate" type="xs:date" minOccurs="0"/>
+<xs:element name="GuarantyPeriod" type="xs:int" minOccurs="0"/>
+<xs:element name="GuarantyDim" type="xs:string" minOccurs="0"/>
+<xs:element name="PaymentDay" type="xs:date" minOccurs="0"/>
+<xs:element name="PaymentMode" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Requests_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Request" type="Request_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ResidentialAddress_Type">
+<xs:sequence>
+<xs:element name="QuarterName" type="xs:string" minOccurs="0"/>
+<xs:element name="QuarterID" type="xs:string" minOccurs="0"/>
+<xs:element name="StreetName" type="xs:string" minOccurs="0"/>
+<xs:element name="StreetID" type="xs:string" minOccurs="0"/>
+<xs:element name="StreetNo" type="xs:string" minOccurs="0"/>
+<xs:element name="BlockNo" type="xs:string" minOccurs="0"/>
+<xs:element name="Entrance" type="xs:string" minOccurs="0"/>
+<xs:element name="Floor" type="xs:string" minOccurs="0"/>
+<xs:element name="Apartment" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Retrocession_Type">
+<xs:sequence>
+<xs:element name="Placement" type="xs:double"/>
+<xs:element name="PlacementDim" type="xs:string"/>
+<xs:element name="Premium" type="xs:double"/>
+<xs:element name="PremiumDim" type="xs:string"/>
+<xs:element name="Commission" type="xs:double"/>
+<xs:element name="CommissionDim" type="xs:string"/>
+<xs:element ref="Currency"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Risk_Type">
+<xs:sequence>
+<xs:element ref="RiskType"/>
+<xs:element name="FranchiseType" type="xs:string" minOccurs="0"/>
+<xs:element name="FranchiseDimension" type="xs:string" minOccurs="0"/>
+<xs:element name="FranchiseValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseMin" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseMax" type="xs:decimal" minOccurs="0"/>
+<xs:element name="FranchiseCurrency" type="xs:string" minOccurs="0"/>
+<xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+<xs:element name="Territories" type="Territories_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Risks_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Risk" type="Risk_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Supplementaries_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Supplementary" type="Supplementary_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Supplementary_Type">
+<xs:sequence>
+<xs:element name="IosupplID" type="xs:long" minOccurs="0"/>
+<xs:element ref="InsuredEntity" minOccurs="1"/>
+<xs:element name="SupplDescr" type="xs:string" minOccurs="0"/>
+<xs:element name="SupplNumber" type="xs:integer" minOccurs="0"/>
+<xs:element name="SupplDate" type="xs:date" minOccurs="0"/>
+<xs:element name="SupplIV" type="xs:double" minOccurs="0"/>
+<xs:element name="AddIV" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Tax_Type">
+<xs:sequence>
+<xs:element name="TaxID" type="xs:long" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ProductCode"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:element minOccurs="0" ref="InsuredObjectID"/>
+<xs:element minOccurs="0" ref="CoverCode"/>
+<xs:element name="TaxType" type="xs:string"/>
+<xs:element name="CalcRule" type="xs:string" minOccurs="0"/>
+<xs:element name="TaxRate" type="xs:decimal"/>
+<xs:element name="TaxAmount" type="xs:decimal"/>
+<xs:element name="Included" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="Applied" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="ManualTaxRate" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="WHRule" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="FractRule" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+<xs:element name="OrderNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Taxes_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Tax" type="Tax_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TermOfSale_Type">
+<xs:sequence>
+<xs:element name="Code" type="xs:string"/>
+<xs:element name="Loading" type="xs:double" minOccurs="0"/>
+<xs:element name="LoadingDim" type="xs:string" minOccurs="0"/>
+<xs:element name="AddLoading" type="xs:double" minOccurs="0"/>
+<xs:element name="AddLoadingDim" type="xs:string" minOccurs="0"/>
+<xs:element name="ExtraLoading" type="xs:double" minOccurs="0"/>
+<xs:element name="ExtraLoadingDim" type="xs:string" minOccurs="0"/>
+<xs:element name="Apply" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TermsOfSale_Type">
+<xs:sequence minOccurs="1">
+<xs:element maxOccurs="unbounded" name="TermOfSale" type="TermOfSale_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Territories_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Territory" type="Territory_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Territory_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+<xs:choice>
+<xs:element name="TerritoryID" type="xs:string"/>
+<xs:element name="CountryID" type="xs:string"/>
+</xs:choice>
+<xs:element ref="ValidFrom" minOccurs="0"/>
+<xs:element ref="ValidFromTime" minOccurs="0"/>
+<xs:element ref="ValidTo" minOccurs="0"/>
+<xs:element ref="ValidToTime" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AuxAnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ULFundStructure_Type">
+<xs:sequence>
+<xs:element ref="ULFunds"/>
+<xs:element name="Premium" type="xs:decimal" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ULFund_Type">
+<xs:sequence>
+<xs:element name="FundID" type="xs:string"/>
+<xs:element name="FundName" type="xs:string" minOccurs="0"/>
+<xs:element name="Percent" type="PERCENT_TYPE"/>
+<xs:element minOccurs="0" ref="InsuranceBegin"/>
+<xs:element ref="InsuranceEnd" minOccurs="0"/>
+<xs:element minOccurs="0" ref="AnnexID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Userexit_Type">
+<xs:sequence>
+<xs:any processContents="lax" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="id" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="ValidityCondition_Type">
+<xs:attribute use="required" name="type" type="VALIDATION_COND_TYPE"/>
+<xs:attribute use="required" name="value" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="WfAttachmentPackage_Type">
+<xs:sequence>
+<xs:element name="AttachmentType" type="xs:int"/>
+<xs:element name="Description" type="xs:string" minOccurs="0"/>
+<xs:element name="ReferenceType" type="xs:string"/>
+<xs:element name="ReferenceID" type="xs:long" minOccurs="0"/>
+<xs:element name="ConfidentialLevel" type="xs:string" minOccurs="0"/>
+<xs:element ref="AttachmentFiles"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="WfStep_Type">
+<xs:sequence>
+<xs:element name="WfStepID" type="xs:long"/>
+<xs:element name="ProcessID" type="xs:long"/>
+<xs:element name="ProcessCode" type="xs:string"/>
+<xs:element name="StepCode" type="xs:string"/>
+<xs:element name="CurrentState" type="xs:string"/>
+<xs:element name="PrevWfStepID" type="xs:long" minOccurs="0"/>
+<xs:element name="CreateTime" type="xs:dateTime"/>
+<xs:element name="StartedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="ExecutedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="ExecutionTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="ResultCode" type="xs:string" minOccurs="0"/>
+<xs:element name="Term1" type="xs:integer" minOccurs="0"/>
+<xs:element name="Duration1" type="xs:integer" minOccurs="0"/>
+<xs:element name="Duration2" type="xs:integer" minOccurs="0"/>
+<xs:element name="MainTerm" type="xs:integer" minOccurs="0"/>
+<xs:element name="MainDuration" type="xs:integer" minOccurs="0"/>
+<xs:element name="CopyWfStepID" type="xs:long" minOccurs="0"/>
+<xs:element name="SubWfStepID" type="xs:long" minOccurs="0"/>
+<xs:element name="CanceledBy" type="xs:string" minOccurs="0"/>
+<xs:element name="CancelTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="CancelReason" type="xs:string" minOccurs="0"/>
+<xs:element name="ObjectKind" type="xs:string"/>
+<xs:element name="ObjectKey" type="xs:string"/>
+<xs:element name="ProcessState" type="xs:string"/>
+<xs:element name="ActivityCode" type="xs:string"/>
+<xs:element name="Parameters" type="xs:string" minOccurs="0"/>
+<xs:element name="StartEndFlag" type="xs:string" minOccurs="0"/>
+<xs:element name="OrgunitType" type="xs:string" minOccurs="0"/>
+<xs:element name="Term2" type="xs:integer" minOccurs="0"/>
+<xs:element name="Timout" type="xs:integer" minOccurs="0"/>
+<xs:element name="WfStage1" type="xs:string" minOccurs="0"/>
+<xs:element name="WfStage2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ReturningMessages_Type">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="ANNEX_TYPE">
+<xs:restriction base="xs:integer">
+<xs:pattern value="11|12|13|16"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ANNUITY_CALC_RULE">
+<xs:restriction base="xs:string">
+<xs:pattern value="CALCULATED|MANUALLY_ENTERED"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BOOLEAN_NUMBER_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="0|1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BOOLEAN_STRING_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="N|Y"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BOOLEAN_YES_NO_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="NO|YES"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CHANGETYPE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="FA|PREM|OVERRIDE"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="DATE_TIME_TYPE">
+<xs:union memberTypes="xs:dateTime xs:date"/>
+</xs:simpleType>
+<xs:simpleType name="DAY_OF_MONTH_TYPE">
+<xs:restriction base="xs:int">
+<xs:minInclusive value="1"/>
+<xs:maxInclusive value="31"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ENTITY_VALUE_TYPE">
+<xs:restriction base="xs:integer">
+<xs:pattern value="0|1|2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="FILTER_CONJUNCTION_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="OR|AND"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="FILTER_OPERATION_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="EQ|NEQ|LT|GT|LTEQ|GTEQ"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="GENDER_VALUE_TYPE">
+<xs:restriction base="xs:integer">
+<xs:pattern value="0|1|2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ID_TYPE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="I|P|D"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LIFE_PAYMOD_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="1|3|6|12"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LIMIT_DIMENSION_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="V|P|D"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="MIME_TYPE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="[-\w]+/[-\w\+]+"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LOC_OPER_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="ATTACH|DETACH"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="OPERATION_MODE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="I|U|D"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PENSION_AMNT_DEF_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="1|3|6|12"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PERCENT_TYPE">
+<xs:restriction base="xs:decimal">
+<xs:minInclusive value="0.00"/>
+<xs:maxInclusive value="100.00"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="POLICY_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="POLICY"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="QUESTIONARY_ID_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="policy|insuredObject"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="VALIDATION_COND_TYPE">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Validity.Max.State"/>
+<xs:enumeration value="Validity.Date"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

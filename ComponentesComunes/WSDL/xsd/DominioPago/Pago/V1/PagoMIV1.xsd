@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/MensajeIntegracion/DominioPago/PagoMI/V1"
+	xmlns:mpagpag="http://xmlns.sura.com/MensajeIntegracion/DominioPago/PagoMI/V1"
+	version="1.0" 
+	elementFormDefault="qualified"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	xmlns:dpagpag="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1">
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+	<xsd:import schemaLocation="PagoOIV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1"></xsd:import>
+	<xsd:import
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+		schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd" />
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion del mensaje de entrada
+				base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo">
+				<xsd:annotation>
+					<xsd:documentation>Contiene los datos especficos de transaccin
+						para
+						la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion correspondiente al mensaje
+				de salida base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo">
+				<xsd:annotation>
+					<xsd:documentation>Entidad que contiene los datos especficos de
+						transaccin para la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="VincularClienteInfoBancariaMsjSol"
+		type="mpagpag:VincularClienteInfoBancariaMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="VincularClienteInfoBancariaMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="Beneficiario" type="dcomcom:BeneficiarioTipo"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Pago" type="dpagpag:DetallePago"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="VincularClienteInfoBancariaMsjResp"
+		type="mpagpag:VincularClienteInfoBancariaMsjRespTipo" />
+	<xsd:complexType name="VincularClienteInfoBancariaMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="UrlPasarela" type="xsd:string"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ConfirmarPolizaClienteInsisMsjSol"
+		type="mpagpag:ConfirmarPolizaClienteInsisMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ConfirmarPolizaClienteInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="NumeroPoliza" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de la poliza
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="TipoOperacion" type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que contiene el tipo de operacion que debe ejecutar el SP</xsd:documentation>
+						</xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfirmarPolizaClienteInsisMsjResp"
+		type="mpagpag:ConfirmarPolizaClienteInsisMsjRespTipo" />
+	<xsd:complexType name="ConfirmarPolizaClienteInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+<xsd:element name="ValidarPolizaClienteInsisMsjSol"
+		type="mpagpag:ValidarPolizaClienteInsisMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ValidarPolizaClienteInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="NumeroPoliza" type="xsd:int" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que hace referencia al numero de la poliza del asegurado.</xsd:documentation>
+						</xsd:annotation></xsd:element>
+					<xsd:element name="Beneficiario"
+						type="dcomcom:BeneficiarioTipo" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+						ComplexType Beneficiario. Contiene la informacion basica del Asegurado.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ValidarPolizaClienteInsisMsjResp"
+		type="mpagpag:ValidarPolizaClienteInsisMsjRespTipo" />
+	<xsd:complexType name="ValidarPolizaClienteInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="InformacionPoliza" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que contiene la informacion de la poliza.</xsd:documentation>
+						</xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="DesvincularClienteInfoBancariaMsjSol"
+		type="mpagpag:DesvincularClienteInfoBancariaMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="DesvincularClienteInfoBancariaMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="Beneficiario" type="dcomcom:BeneficiarioTipo"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Pago" type="dpagpag:DetallePago"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DesvincularClienteInfoBancariaMsjResp"
+		type="mpagpag:DesvincularClienteInfoBancariaMsjRespTipo" />
+	<xsd:complexType name="DesvincularClienteInfoBancariaMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="UrlPasarela" type="xsd:string"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ConfirmarPagoInsisMsjSol"
+		type="mpagpag:ConfirmarPagoInsisMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ConfirmarPagoInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdPagoInsis" type="xsd:int"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificador de pago que devuelve el
+								WebService de Pago.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="Pago" type="dpagpag:DetallePago" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Usuario que realizó el pago.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfirmarPagoInsisMsjResp"
+		type="mpagpag:ConfirmarPagoInsisMsjRespTipo" />
+	<xsd:complexType name="ConfirmarPagoInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<xsd:element name="AplicarPagoInsisMsjSol"
+		type="mpagpag:AplicarPagoInsisMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AplicarPagoInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+
+					<xsd:element name="NumIdentificacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de Identificacion del Usuario.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="Pago" type="dpagpag:DetallePago" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Usuario que realizó el pago.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AplicarPagoInsisMsjResp"
+		type="mpagpag:AplicarPagoInsisMsjRespTipo" />
+	<xsd:complexType name="AplicarPagoInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="idPago" type="xsd:int" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Identificador del Pago</xsd:documentation>
+						</xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="AplicarPagoMsjSol"
+		type="mpagpag:AplicarPagoMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AplicarPagoMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeEntradaBase">
+				<xsd:sequence>
+
+					<xsd:element name="NumIdentificacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de Identificacion del Usuario.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="Pago" type="dpagpag:DetallePago" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Usuario que realizó el pago.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AplicarPagoMsjResp"
+		type="mpagpag:AplicarPagoMsjRespTipo" />
+	<xsd:complexType name="AplicarPagoMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpagpag:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="idPago" type="xsd:int" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Identificador del Pago</xsd:documentation>
+						</xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+</xsd:schema>

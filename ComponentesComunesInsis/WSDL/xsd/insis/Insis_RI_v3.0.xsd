@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+            targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+            elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <xs:element name="ReinsurerID" type="xs:long"/>
+  <xs:element name="RiBusinessLine" type="xs:string"/>
+  <xs:element name="RiClauseType" type="xs:string"/>
+  <xs:element name="RiCoverGroup" type="xs:string"/>
+  <xs:element name="RiFinancialRule" type="xs:string"/>
+  <xs:element name="RiFranchLimitID" type="xs:long"/>
+  <xs:element name="RiLayer" type="xs:integer"/>
+  <xs:element name="RiRateDimension" type="xs:string"/>
+  <xs:element name="RiRuleCode" type="xs:string"/>
+  <xs:element name="RiRuleLevel" type="RI_RULE_LEVEL_TYPE"/>
+  <xs:element name="RiRuleType" type="xs:string"/>
+  <xs:element name="RiSLLimitDimension" type="xs:string"/>
+  <xs:element name="RiTreatyID" type="xs:long"/>
+  <xs:element name="RiTreatyRuleID" type="xs:long"/>
+  <xs:element name="RiXLCapacityDimension" type="xs:string"/>
+  <xs:complexType name="RiTreatyClauses_Type">
+    <xs:sequence>
+      <xs:element name="RiTreatyClause" type="RiTreatyClause_Type"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyClause_Type">
+    <xs:sequence>
+      <xs:element ref="RiLayer"/>
+      <xs:element ref="RiClauseType"/>
+      <xs:element name="Retention" type="xs:double"/>
+      <xs:element name="RetentionCurrency" type="xs:string"/>
+      <xs:element name="SpNumberLines" minOccurs="0" type="xs:long"/>
+      <xs:element name="Limit" minOccurs="0" type="xs:decimal"/>
+      <xs:element name="ReinsShare" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CommissionFy" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CommissionRe" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="XLCapacity" type="xs:decimal" minOccurs="0"/>
+      <xs:element ref="RiXLCapacityDimension" minOccurs="0"/>
+      <xs:element name="SLLossPercent" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="SLLimit" type="xs:decimal" minOccurs="0"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="MinCededPrem" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="MinCededIV" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="AdjPremRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element ref="RiRateDimension" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyCovers_Type">
+    <xs:sequence>
+      <xs:element name="RiTreatyCover" type="RiTreatyCover_Type"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyCover_Type">
+    <xs:sequence>
+      <xs:element ref="RiCoverGroup" minOccurs="0"/>
+      <xs:element ref="ProductCode"/>
+      <xs:element name="RiCoverPackage" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CoverCode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyCoverGroups_Type">
+    <xs:sequence>
+      <xs:element name="RiTreatyCoverGroup" type="RiTreatyCoverGroup_Type"
+                  maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyCoverGroup_Type">
+    <xs:sequence>
+      <xs:element ref="RiCoverGroup"/>
+      <xs:element name="RiCoverGroupName" type="xs:string"/>
+      <xs:element ref="RiBusinessLine" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyFranchLimits_Type">
+    <xs:sequence>
+      <xs:element name="RiTreatyFranchLimit" type="RiTreatyFranchLimit_Type"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyFranchLimit_Type">
+    <xs:sequence>
+      <xs:element ref="RiFranchLimitID" minOccurs="0"/>
+      <xs:element ref="RiRuleLevel" minOccurs="0"/>
+      <xs:element ref="RiTreatyID" minOccurs="0"/>
+      <xs:element ref="RiLayer" minOccurs="0"/>
+      <xs:element ref="RiClauseType" minOccurs="0"/>
+      <xs:element ref="RiCoverGroup" minOccurs="0"/>
+      <xs:element ref="ProductCode" minOccurs="0"/>
+      <xs:element ref="CoverCode" minOccurs="0"/>
+      <xs:element ref="RiskType" minOccurs="0"/>
+      <xs:element ref="ReinsurerID" minOccurs="0"/>
+      <xs:element ref="RiFinancialRule"/>
+      <xs:element name="ItemValue" type="xs:decimal"/>
+      <xs:element ref="Currency"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyRules_Type">
+    <xs:sequence>
+      <xs:element name="RiTreatyRule" type="RiTreatyRule_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiTreatyRule_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="RiTreatyRuleID"/>
+      <xs:element ref="RiRuleLevel" minOccurs="0"/>
+      <xs:element ref="RiTreatyID" minOccurs="0"/>
+      <xs:element ref="RiLayer" minOccurs="0"/>
+      <xs:element ref="RiClauseType" minOccurs="0"/>
+      <xs:element ref="RiCoverGroup" minOccurs="0"/>
+      <xs:element ref="RiRuleType"/>
+      <xs:element ref="RiRuleCode"/>
+      <xs:element name="Description" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ReinsurerID" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RI_RULE_LEVEL_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="T|I|G|C"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

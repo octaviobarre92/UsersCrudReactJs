@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://osbsura.com/MensajeIntegracion/DominioPoliza/PolizaESB/V1"
+	version="1.0"
+	xmlns:esbpol="http://osbsura.com/MensajeIntegracion/DominioPoliza/PolizaESB/V1"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	elementFormDefault="qualified"
+	xmlns:dutidoc="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1">
+	<xsd:import
+		schemaLocation="../../../DominioUtilitario/GestionDocumental/V1/GestionDocumentalOIV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"></xsd:import>
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+
+
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+
+	<xsd:complexType name="GenerarImprimibleMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="esbpol:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element name="Documento" type="dutidoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GenerarImprimibleMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="esbpol:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="CodigoPrintOut" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero del IdCorrelation
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CodigoOperacion"
+						type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="TipoEjecucion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+
+					<xsd:element name="EmailsFrom" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="EmailsTo" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation></xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdDocInsis" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="Atributos"
+						type="esbpol:AtributosTipo" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GenerarImprimibleMsjSol"
+		type="esbpol:GenerarImprimibleMsjSolTipo" >
+		<xsd:annotation>
+			<xsd:documentation></xsd:documentation>
+		</xsd:annotation></xsd:element>
+	<xsd:element name="GenerarImprimibleMsjResp"
+		type="esbpol:GenerarImprimibleMsjRespTipo" />
+
+	<xsd:complexType name="InfoImprimibleTipo">
+		<xsd:sequence>
+			<xsd:element name="PrintOutDoc" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="NumeroAgente" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="NumeroEndoso" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="NumeroReclamo" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="SecuencialRenovacion" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation></xsd:documentation>
+				</xsd:annotation></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AtributosTipo">
+		<xsd:sequence>
+			<xsd:element name="Atributo" type="esbpol:AtributoTipo" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AtributoTipo">
+		<xsd:sequence>
+			<xsd:element name="Codigo" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Valor" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation></xsd:documentation>
+				</xsd:annotation></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

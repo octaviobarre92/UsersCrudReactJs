@@ -1,0 +1,115 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           xmlns:xdb="http://xmlns.oracle.com/xdb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!-- Service Request messages -->
+  <xs:element name="CompleteWfStepRq" type="CompleteWfStepRq_Type"/>
+  <xs:element name="CreateWfProcessRq" type="CreateWfProcessRq_Type"/>
+  <xs:element name="GetActiveWfStepRq" type="GetActiveWfStepRq_Type"/>
+  <xs:element name="RegisterWfAttachmentPackageRq" type="RegisterWfAttachmentPackageRq_Type"/>
+  <!-- Service Response messages -->
+  <xs:element name="CompleteWfStepRs" type="CompleteWfStepRs_Type"/>
+  <xs:element name="CreateWfProcessRs" type="CreateWfProcessRs_Type"/>      
+  <xs:element name="GetActiveWfStepRs" type="GetActiveWfStepRs_Type"/>  
+  <xs:element name="RegisterWfAttachmentPackageRs" type="RegisterWfAttachmentPackageRs_Type"/>
+  <xs:group name="WF_Rq_Group">
+    <xs:choice>    
+      <xs:element name="CompleteWfStepRq" type="CompleteWfStepRq_Type"/>
+      <xs:element name="CreateWfProcessRq" type="CreateWfProcessRq_Type"/>
+      <xs:element name="GetActiveWfStepRq" type="GetActiveWfStepRq_Type"/>
+      <xs:element name="RegisterWfAttachmentPackageRq" type="RegisterWfAttachmentPackageRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="WF_Rs_Group">
+    <xs:choice>            
+      <xs:element name="CompleteWfStepRs" type="CompleteWfStepRs_Type"/>
+      <xs:element name="CreateWfProcessRs" type="CreateWfProcessRs_Type"/>      
+      <xs:element name="GetActiveWfStepRs" type="GetActiveWfStepRs_Type"/>  
+      <xs:element name="RegisterWfAttachmentPackageRs" type="RegisterWfAttachmentPackageRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  <!-- Elements -->  
+  
+ 
+  <!-- Types -->
+  <xs:element name="ProcessID" type="xs:string"/>
+  <xs:element name="PorocessInstanceID" type="xs:long"/>
+  <xs:complexType name="CompleteWfStepRq_Type" xdb:SQLType="CompleteWfStepRq_Type">
+    <xs:sequence>
+      <xs:element name="WfStepID" type="xs:long"/>
+      <xs:element name="ResultCode" type="xs:string"/>
+      <xs:element name="PrivsHint" type="PRIVS_HINT_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CompleteWfStepRs_Type"
+                  xdb:SQLType="CompleteWfStepRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateWfProcessRq_Type">
+    <xs:sequence>
+      <xs:element ref="ProcessID"/>
+      <xs:element name="ProcessParameters" type="ProcessParameters_Type"
+                  minOccurs="0"/>
+      <xs:element name="Attachment" minOccurs="0" type="Attachment_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateWfProcessRs_Type"
+                  xdb:SQLType="CreateWfProcessRs_Type">
+    <xs:sequence>
+      <xs:element minOccurs="1" ref="PorocessInstanceID"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="GetActiveWfStepRq_Type"
+                  xdb:SQLType="GetActiveWfStepRq_Type">
+    <xs:sequence>
+      <xs:element name="ObjectKind" type="xs:string"/>
+      <xs:element name="ObjectKey" type="xs:string"/>
+      <xs:element name="ActivityCode" type="xs:string"/>
+      <xs:element name="ErrorHint" type="ERROR_HINT_TYPE" minOccurs="0" />
+      <xs:element name="PrivsHint" type="PRIVS_HINT_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="GetActiveWfStepRs_Type"
+                  xdb:SQLType="GetActiveWfStepRs_Type">
+    <xs:sequence>
+      <xs:element ref="WfStep" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessParameters_Type">
+    <xs:sequence>
+      <xs:any minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterWfAttachmentPackageRq_Type">
+  <xs:sequence>
+      <xs:element ref="WfAttachmentPackage" />
+    </xs:sequence>
+    
+  </xs:complexType>
+  <xs:complexType name="RegisterWfAttachmentPackageRs_Type">
+    <xs:sequence>
+      <xs:element name="WFAttachmentID" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+ <!-- simple types -->
+  <xs:simpleType name="ERROR_HINT_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="RAISE|NO_RAISE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="PRIVS_HINT_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="CHECK|NO_CHECK"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

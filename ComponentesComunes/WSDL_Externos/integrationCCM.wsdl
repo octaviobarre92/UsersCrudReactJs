@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ccm="http://sura.com.pa/integrationCCM/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="integrationCCM" targetNamespace="http://sura.com.pa/integrationCCM/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/integrationCCM/">
+      <xsd:element name="generarDocumento">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="codePO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				codePO= Es el codigo del Imprimible
+          				referenciado en INSIS y asociados a cada uno
+          				de los procesos donde se invoca este Punto de
+          				Integración del Imprimible. Nota. Recordar que
+          				estos codigos están asociado a cada proceso
+          				por cada producto. Ejemplo P0282 -
+          				Notificación de Entrega
+
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codeOper">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				codeOper= Codigo de la Operación que le va a
+          				indicar que hacer al CCM
+          				------------------------------------ 01 -
+          				Generar Imprimible Valor Obligatorio * codePO
+          				* tipoExec = "O" * listParam (Key/Value) Para
+          				esta operación se genera la siguiente
+          				respuesta:
+          				url=direccion/nombre_archivo.extension donde
+          				se encuentra ubicado el documento para que se
+          				pueda abrir por medio del explorador a traves
+          				de su visor. statusMSG= OK descMSG= "" en
+          				blanco
+
+          				02 - Generar Imprimible y Almacenar en el ECM
+          				Valor Obligatorio * codePO * tipoExec = "O/B"
+          				* listParam * idDocINSIS Para esta operación
+          				se genera la siguiente respuesta: Si el
+          				tipoExec = "O"
+          				url=direccion/nombre_archivo.extension donde
+          				se encuentra ubicado el documento para que se
+          				pueda abrir por medio del explorador a traves
+          				de su visor. statusMSG= OK descMSG= "" en
+          				blanco SINO url="" en blanco statusMSG= OK
+          				descMSG= "" en blanco
+
+          				03 - Generar Imprimible y enviar por
+          				correo-electrónico Valor Obligatorio * codePO
+          				* tipoExec = "O/B" * listParam * listEmail. 
+				       Para esta operación se genera la siguiente 
+          				respuesta: Si el tipoExec = "O"
+          				url=direccion/nombre_archivo.extension donde
+          				se encuentra ubicado el documento para que se
+          				pueda abrir por medio del explorador a traves
+          				de su visor. statusMSG= OK descMSG= "" en
+          				blanco SINO url="" en blanco statusMSG= OK
+          				descMSG= "" en blanco
+
+          				04 - Generar Imprimible, enviar por
+          				correo-electronico y almacenar doc umento(s) en
+          				el ECM Valor Obligatorio * codePO * tipoExec =
+          				"B" * listParam * idDocINSIS * listEmail Para
+          				esta operación se genera la siguiente
+          				respuesta: url="" en blanco statusMSG= OK
+          				descMSG= "" en blanco          			
+
+          				05 - Reimpresion Valor Obligatorio * codePO *
+          				tipoExec= "O" * idDocINSIS  Para esta operación
+          				se genera la siguiente respuesta:
+          				url=direccion/nombre_archivo.extension donde
+          				se encuentra ubicado el documento para que se
+          				pueda abrir por medio del explorador a traves
+          				de su visor. statusMSG= OK descMSG= "" en
+          				blanco
+</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="01"></xsd:enumeration>
+          				<xsd:enumeration value="02"></xsd:enumeration>
+          				<xsd:enumeration value="03"></xsd:enumeration>
+          				<xsd:enumeration value="04"></xsd:enumeration>
+          				<xsd:enumeration value="05"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="tipoExec">
+          		<xsd:annotation>
+          			<xsd:documentation>tipoExec= Parametro que permite generar en línea o no el documento. 
+1) O - En Líneal (Mensaje Sincrono) Este tipo de ejecución esta asociado para los codigo de operación 
+01- Generar Imprimible 
+02- Almacenar en el ECM
+03- Enviar por correo electrónico 
+05-Reimpresion del Documento
+
+2) B - Batch (Mensaje Asincrono) Este tipo de ejecución esta asociado para los codigo de operación 
+02- Almacenar en el ECM 
+03- Enviar por correo electronico 
+04- Enviar por correo electrónico y almacenar documento [codePO]
+
+Nota. Las respuesta esperada por cada ejecución esta en la descripción del campo "codeOper".</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="O"></xsd:enumeration>
+          				<xsd:enumeration value="B"></xsd:enumeration>
+                                        <xsd:enumeration value="P"></xsd:enumeration>
+                                        <xsd:enumeration value="E"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+                        <xsd:element name="listParam" type="ccm:KeyValue" minOccurs="0" maxOccurs="unbounded">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				listParam= Se usará este campo para colocar
+          				aquellos documentos referenciado a lo que se
+          				desea generar, la llave de busqueda asociada
+          				al codePO.
+
+          				Por ejemplo
+          				<!--  
+          					<key>policy</key>
+          					<value>043215678908</value>
+          					<key>annex</key>
+          					<value>04</value>
+          					<key>claims</key>
+          					<value>043508</value>
+          				-->
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                        <xsd:element name="listEmail" type="ccm:listDTO"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>listEmail= Valores para enviar info por correo electrónico - [OPTIONAL]. 
+Solo es utilizado para las operaciones 03 y 04.
+          			</xsd:documentation>
+          		</xsd:annotation>
+                        </xsd:element>
+          	<xsd:element name="idDocINSIS" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				idDocINSIS= Codigo ID que genera INSIS al
+          				momento de asociar un documento.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+<xsd:element name="listParamAdditional" type="ccm:additionalParams"
+               minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Parametros del documento de Salud.
+                  </xsd:documentation>
+               </xsd:annotation>
+                        </xsd:element>
+
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="generarDocumentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="urlDoc" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>urlDoc= Dirección URL donde el CCM ha generado el documento para su posterior visualización a través del explorador - OPTIONAL
+Ejemplo: http:\\tmp\pasaporte.pdf</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="statusMSG">
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="OK"></xsd:enumeration>
+          				<xsd:enumeration value="ERR"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descMSG" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          	</xsd:element>
+                <xsd:element name="Documento" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>DocumentoBase64</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="listDTO">
+      	<xsd:sequence>
+      		<xsd:element name="FROM" type="xsd:string" minOccurs="0" maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>From: correo remitente que se utilizará para enviar el email.
+Este correo debe ser parametrizado.
+Por ejemplo: remitente@sura.com.pa</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+      		<xsd:element name="TO" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+      			<xsd:annotation>
+      				<xsd:documentation>To: correo destinatario que se le enviará. Este dato esta asociado a la Persona (asegurado, agente, acreedor) en donde el Proceso debe dictaminar quienes son los destinatarios.
+Este correo debe ser parametrizado.
+Por ejemplo: esanchez@sura.com.pa; jrodriguez@sura.com.pa
+
+Nota. Este campo puede admitir varios correos, cada uno de ellos debe ser delimitiado por punto y coma ";".</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+
+
+
+      	</xsd:sequence>
+      </xsd:complexType>
+
+
+      <xsd:complexType name="KeyValue">
+      	<xsd:sequence>
+      		<xsd:element name="Key" type="xsd:string">
+      			<xsd:annotation>
+      				<xsd:documentation>Key= es la clave que se utilizará para llamar o buscar una informa que se generará a traves del CCM. 
+Este valor esta amarrado totalmente al codigo del PrintOut, si el Imprimible es con referencia a una emisión entonces en dicho campo se coloca la poliza.
+Este valor no puede ser estatico ni quemado para eso se coloca como un valor dinamico y en la matriz de Procesos vs Punto de Integración asociado al Producto se hace referencia de como usar el mismo
+Por ejemplo.
+key= poliza
+value= 009087653212</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+      		<xsd:element name="Value" type="xsd:string">
+      			<xsd:annotation>
+      				<xsd:documentation>Value= es el valor de la clave o key que se coloca al momento de invocar este parametro.
+Por ejemplo.
+key= poliza
+value= 009087653212</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      
+       <xsd:complexType name="additionalParams">
+         <xsd:sequence>
+            <xsd:element name="Format" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Formato del Documento. Example PDF</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Country" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Pais. Example PA</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Process" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Tipo de Proceso. Example Emision</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Business" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Tipo Negocio. Example GEN</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CorrelationID" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Identificador único. CORR-1234</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Content" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>DocumentoBase64</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SistemaOrigen" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Valor del Core de donde viene la solicitud</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+             <xsd:element name="SistemaDestino" type="xsd:string" minOccurs="0" maxOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation>Valor destino a donde va la solicitud(CCM, GWI)</xsd:documentation>
+               </xsd:annotation>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="generarDocumentoRequest">
+    <wsdl:part element="ccm:generarDocumento" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="generarDocumentoResponse">
+    <wsdl:part element="ccm:generarDocumentoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="integrationCCM">
+    <wsdl:operation name="generarDocumento">
+      <wsdl:input message="ccm:generarDocumentoRequest"/>
+      <wsdl:output message="ccm:generarDocumentoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="integrationCCMSOAP" type="ccm:integrationCCM">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="generarDocumento">
+      <soap:operation soapAction="http://sura.com.pa/integrationCCM/generarDocumento"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="integrationCCM">
+    <wsdl:documentation>Este punto de Integración tendrá la capacidad de generar los imprimibles a través del Aplicativo CCM. Y adicional de realizar otras tareas tales como (enviar notificación  por correo electrónico y almacenar documento en el Gestor Documental, por supuesto que este documento es el generado en  el CCM.</wsdl:documentation>
+    <wsdl:port binding="ccm:integrationCCMSOAP" name="integrationCCMSOAP">
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

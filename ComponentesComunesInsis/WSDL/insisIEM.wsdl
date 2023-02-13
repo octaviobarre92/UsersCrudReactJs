@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InsisIEM" targetNamespace="http://fadata.eu/soap/insis/iem"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://fadata.eu/soap/insis/iem"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis">
+    <import location="insisAbstractBase.wsdl"
+            namespace="http://fadata.eu/soap/insis"/>
+    <types>
+        <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+                   elementFormDefault="qualified">
+            <xs:include schemaLocation="xsd/insis/Insis_IEM_v3.0.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="GetProductsRqMessage">
+        <part name="payload" element="insis:GetProductsRq"/>
+    </message>
+    <message name="GetProductsRsMessage">
+        <part name="payload" element="insis:GetProductsRs"/>
+    </message>
+    <message name="GetConfigurationsRqMessage">
+        <part name="payload" element="insis:GetConfigurationsRq"/>
+    </message>
+    <message name="GetConfigurationsRsMessage">
+        <part name="payload" element="insis:GetConfigurationsRs"/>
+    </message>
+    <message name="ExportProductRqMessage">
+        <part name="payload" element="insis:ExportProductRq"/>
+    </message>
+    <message name="ExportProductRsMessage">
+        <part name="payload" element="insis:ExportProductRs"/>
+    </message>
+    <message name="ImportProductRqMessage">
+        <part name="payload" element="insis:ImportProductRq"/>
+    </message>
+    <message name="ImportProductRsMessage">
+        <part name="payload" element="insis:ImportProductRs"/>
+    </message>
+    <message name="ExportConfigurationsRqMessage">
+        <part name="payload" element="insis:ExportConfigurationsRq"/>
+    </message>
+    <message name="ExportConfigurationsRsMessage">
+        <part name="payload" element="insis:ExportConfigurationsRs"/>
+    </message>
+    <message name="ImportConfigurationsRqMessage">
+        <part name="payload" element="insis:ImportConfigurationsRq"/>
+    </message>
+    <message name="ImportConfigurationsRsMessage">
+        <part name="payload" element="insis:ImportConfigurationsRs"/>
+    </message>
+    <portType name="InsisIEMPort">
+        <operation name="getProducts">
+            <input message="tns:GetProductsRqMessage"/>
+            <output message="tns:GetProductsRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="getConfigurations">
+            <input message="tns:GetConfigurationsRqMessage"/>
+            <output message="tns:GetConfigurationsRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="exportProduct">
+            <input message="tns:ExportProductRqMessage"/>
+            <output message="tns:ExportProductRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="importProduct">
+            <input message="tns:ImportProductRqMessage"/>
+            <output message="tns:ImportProductRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="exportConfigurations">
+            <input message="tns:ExportConfigurationsRqMessage"/>
+            <output message="tns:ExportConfigurationsRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="importConfigurations">
+            <input message="tns:ImportConfigurationsRqMessage"/>
+            <output message="tns:ImportConfigurationsRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+    </portType>
+    <binding name="InsisIEMPortBinding" type="tns:InsisIEMPort">
+        <wsp:PolicyReference URI="#policy-kerberos-or-unt"/>
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getProducts">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="getConfigurations">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="exportProduct">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="importProduct">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="exportConfigurations">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="importConfigurations">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="InsisIEM">
+        <port name="InsisIEMPort" binding="tns:InsisIEMPortBinding">
+            <soap:address location="http://localhost:7001/insis-soapws/InsisIEMPort"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ecm="http://sura.com.pa/integrationECM/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="integrationECM" targetNamespace="http://sura.com.pa/integrationECM/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/integrationECM/">
+      <xsd:element name="cargarDocumento">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idDocINSIS" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>idDocINSIS= Codigo ID que genera INSIS al momento de asociar un documento.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="idUsuario" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>idUsuario= Usuario que realiza la petición o solicitud en el proceso.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="tipoDoc" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>tipoDoc= Tipo del Documento que esta asociado al catalogo de INSIS.
+Ejemplo= 
+Pasaporte
+Cedula
+Carta</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="docName" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>docName= Nombre del Documento con el que se cargará al ECM.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="docPathTmpINSIS" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>docPathTmpINSIS= Ruta temporal donde se encuentra el archivo alojado en INSIS para su respectivo uso.
+Ejemplo= /tmp/pasaporte.jpeg
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="codePersona" minOccurs="1"
+          		maxOccurs="1">
+
+          		<xsd:annotation>
+          			<xsd:documentation>codePersona - manID de la Persona (valor único) 
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="25"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cargarDocumentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idDocECM" type="xsd:string" >
+          		<xsd:annotation>
+          			<xsd:documentation>idDocECM= Codigo ID que envia el ECM con que asocia un documento dentro de su plataforma.</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="docDateCr" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>docDateCR= Fecha de creación del Documento en el ECM</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="docState">
+          		<xsd:annotation>
+          			<xsd:documentation>docState= Estado del Documento en el ECM
+A - Activo
+I - Inactivo
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="A"></xsd:enumeration>
+          				<xsd:enumeration value="I"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="docNotes" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>docNotes= Notas o Comentarios que se hagan al documento (Optional)</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="msgStatus">
+                            <xsd:annotation>
+                            	<xsd:documentation>msgStatus= Estado del Mensaje del Servicio al consumirlo</xsd:documentation>
+                            </xsd:annotation>
+                            <xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="OK"></xsd:enumeration>
+          				<xsd:enumeration value="ERR"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="msgDesc" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>msgDesc= Descripción del Error del Mensaje (Optional)</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarDocumento">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idDocECM" type="xsd:string">
+      				<xsd:annotation>
+      					<xsd:documentation>idDocECM= Codigo ID que envia el ECM con que asocia un documento dentro de su plataforma.</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      			<xsd:element name="idUsuario" type="xsd:string" minOccurs="1" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>idUsuario= Usuario que realiza la petición o solicitud de consulta al Gestor Documental.
+Nota. Este usuario es primordial para saber que persona esta realizando la solicitud.</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarDocumentoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="docPathSource" type="xsd:string">
+      				<xsd:annotation>
+      					<xsd:documentation>Path raíz donde esta el arbol de carpetas y documentos asociado al codigoPersona (manID)</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      			<xsd:element name="msgStatus">
+      				<xsd:annotation>
+      					<xsd:documentation>
+      						Status del mensaje al momento de invocar
+      						el servicio
+      					</xsd:documentation>
+      				</xsd:annotation>
+      				<xsd:simpleType>
+      					<xsd:restriction base="xsd:string">
+      						<xsd:enumeration value="OK"></xsd:enumeration>
+      						<xsd:enumeration value="ERR"></xsd:enumeration>
+      					</xsd:restriction>
+      				</xsd:simpleType>
+      			</xsd:element>
+      			<xsd:element name="msgDesc" type="xsd:string"
+      				minOccurs="0" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>
+      						Descripción del Mensaje de Error.
+      						(Optional)
+      					</xsd:documentation>
+      				</xsd:annotation>
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="cargarDocumentoRequest">
+    <wsdl:part element="ecm:cargarDocumento" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cargarDocumentoResponse">
+    <wsdl:part element="ecm:cargarDocumentoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="consultarDocumentoRequest">
+  	<wsdl:part name="parameters" element="ecm:consultarDocumento"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarDocumentoResponse">
+  	<wsdl:part name="parameters" element="ecm:consultarDocumentoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="integrationECM">
+    <wsdl:operation name="cargarDocumento">
+      <wsdl:input message="ecm:cargarDocumentoRequest"/>
+      <wsdl:output message="ecm:cargarDocumentoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultarDocumento">
+    	<wsdl:input message="ecm:consultarDocumentoRequest"></wsdl:input>
+    	<wsdl:output message="ecm:consultarDocumentoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="integrationECMSOAP" type="ecm:integrationECM">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="cargarDocumento">
+
+  		<soap:operation
+  			soapAction="http://sura.com.pa/integrationECM/cargarDocumento" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="consultarDocumento">
+
+  		<soap:operation
+  			soapAction="http://sura.com.pa/integrationECM/consultarDocumento" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="integrationECM">
+    <wsdl:port binding="ecm:integrationECMSOAP" name="integrationECMSOAP">
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

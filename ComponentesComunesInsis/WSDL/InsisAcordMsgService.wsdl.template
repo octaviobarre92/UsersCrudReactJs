@@ -1,0 +1,154 @@
+<definitions
+     name="InsisAcordMsgService"
+     targetNamespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://www.ACORD.org/Standards/AcordMsgSvc/1"
+     xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+     xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <types>
+        <xs:schema targetNamespace="http://www.ACORD.org/Standards/AcordMsgSvc/1" xmlns:tns="http://www.ACORD.org/Standards/AcordMsgSvc/1"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:soap12-enc="http://www.w3.org/2003/05/soap-encoding">
+            <xs:include schemaLocation="schema/acord/main"/>
+        </xs:schema>
+    </types>
+    <message name="CallRequest">
+        <part name="CallRqPart" element="tns:CallRq"/>
+    </message>
+    <message name="CallResponse">
+        <part name="CallRsPart" element="tns:CallRs"/>
+    </message>
+    <message name="PostRequest">
+        <part name="PostRqPart" element="tns:PostRq"/>
+    </message>
+    <message name="PostResponse">
+        <part name="PostRsPart" element="tns:PostRs"/>
+    </message>
+    <message name="StatusInRequest">
+        <part name="StatusInRqPart" element="tns:StatusInRq"/>
+    </message>
+    <message name="StatusInResponse">
+        <part name="StatusInRsPart" element="tns:StatusInRs"/>
+    </message>
+    <message name="RetrieveRequest">
+        <part name="RetrieveRqPart" element="tns:RetrieveRq"/>
+    </message>
+    <message name="RetrieveResponse">
+        <part name="RetrieveRsPart" element="tns:RetrieveRs"/>
+    </message>
+    <message name="StatusOutRequest">
+        <part name="StatusOutRqPart" element="tns:StatusOutRq"/>
+    </message>
+    <message name="StatusOutResponse">
+        <part name="StatusOutRsPart" element="tns:StatusOutRs"/>
+    </message>
+    <message name="ListInRequest">
+        <part name="ListInRqPart" element="tns:ListInRq"/>
+    </message>
+    <message name="ListOutRequest">
+        <part name="ListOutRqPart" element="tns:ListOutRq"/>
+    </message>
+    <message name="ListInResponse">
+        <part name="ListInRsPart" element="tns:ListInRs"/>
+    </message>
+    <message name="ListOutResponse">
+        <part name="ListOutRsPart" element="tns:ListOutRs"/>
+    </message>
+    <portType name="InsisAcordCall">
+        <operation name="Call">
+            <input name="CallRq" message="tns:CallRequest"/>
+            <output name="CallRs" message="tns:CallResponse"/>
+        </operation>
+    </portType>
+    <portType name="InsisAcordInbox">
+        <operation name="Post">
+            <input name="PostRq" message="tns:PostRequest"/>
+            <output name="PostRs" message="tns:PostResponse"/>
+        </operation>
+        <operation name="StatusIn">
+            <input name="StatusInRq" message="tns:StatusInRequest"/>
+            <output name="StatusInRs" message="tns:StatusInResponse"/>
+        </operation>
+    </portType>
+    <portType name="InsisAcordOutbox">
+        <operation name="Retrieve">
+            <input name="RetrieveRq" message="tns:RetrieveRequest"/>
+            <output name="RetrieveRs" message="tns:RetrieveResponse"/>
+        </operation>
+        <operation name="StatusOut">
+            <input name="StatusOutRq" message="tns:StatusOutRequest"/>
+            <output name="StatusOutRs" message="tns:StatusOutResponse"/>
+        </operation>
+    </portType>
+    <binding name="CallImplBinding" type="tns:InsisAcordCall">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Call">
+            <soap12:operation soapAction="http://www.ACORD.org/Standards/AcordMsgSvc/1/Call#CallRq" soapActionRequired="false"/>
+            <input name="CallRq">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </input>
+            <output name="CallRs">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="OutboxImplBinding" type="tns:InsisAcordOutbox">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Retrieve">
+            <soap12:operation soapAction="http://www.ACORD.org/Standards/AcordMsgSvc/1/Retrieve#RetrieveRq"
+                 soapActionRequired="false"/>
+            <input name="RetrieveRq">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </input>
+            <output name="RetrieveRs">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </output>
+        </operation>
+        <operation name="StatusOut">
+            <soap12:operation soapAction="http://www.ACORD.org/Standards/AcordMsgSvc/1/StatusOut#StatusOutRq"
+                 soapActionRequired="false"/>
+            <input name="StatusOutRq">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </input>
+            <output name="StatusOutRs">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="InboxImplBinding" type="tns:InsisAcordInbox">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Post">
+            <soap12:operation soapAction="http://www.ACORD.org/Standards/AcordMsgSvc/1/Post#PostRq" soapActionRequired="false"/>
+            <input name="PostRq">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </input>
+            <output name="PostRs">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </output>
+        </operation>
+        <operation name="StatusIn">
+            <soap12:operation soapAction="http://www.ACORD.org/Standards/AcordMsgSvc/1/StatusIn#StatusInRq"
+                 soapActionRequired="false"/>
+            <input name="StatusInRq">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </input>
+            <output name="StatusInRs">
+                <soap12:body use="literal" namespace="http://www.ACORD.org/Standards/AcordMsgSvc/1"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="InsisAcordMsgService">
+        <port name="CallImplPort" binding="tns:CallImplBinding">
+            <soap12:address location="${endpoint}"/>
+        </port>
+        <port name="InboxImplPort" binding="tns:InboxImplBinding">
+            <soap12:address location="${endpoint}"/>
+        </port>
+        <port name="OutboxImplPort" binding="tns:OutboxImplBinding">
+            <soap12:address location="${endpoint}"/>
+        </port>
+    </service>
+</definitions>

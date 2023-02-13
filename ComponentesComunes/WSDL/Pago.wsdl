@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="PagoSIV1" targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioPago/Pago/V1"
+	xmlns:mpagpag="http://xmlns.sura.com/MensajeIntegracion/DominioPago/PagoMI/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioPago/Pago/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true" name="PagoBindingSOAP"
+					originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.sura.com/MensajeIntegracion/DominioPago/PagoMI/V1"
+				schemaLocation="xsd/DominioPago/Pago/V1/PagoMIV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="VincularClienteInfoBancariaMsjSol">
+		<wsdl:part element="mpagpag:VincularClienteInfoBancariaMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="VincularClienteInfoBancariaMsjResp">
+		<wsdl:part element="mpagpag:VincularClienteInfoBancariaMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConfirmarPolizaClienteInsisMsjSol">
+		<wsdl:part element="mpagpag:ConfirmarPolizaClienteInsisMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConfirmarPolizaClienteInsisMsjResp">
+		<wsdl:part element="mpagpag:ConfirmarPolizaClienteInsisMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="DesvincularClienteInfoBancariaMsjSol">
+		<wsdl:part element="mpagpag:DesvincularClienteInfoBancariaMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="DesvincularClienteInfoBancariaMsjResp">
+		<wsdl:part element="mpagpag:DesvincularClienteInfoBancariaMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ValidarPolizaClienteInsisMsjSol">
+		<wsdl:part element="mpagpag:ValidarPolizaClienteInsisMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ValidarPolizaClienteInsisMsjResp">
+		<wsdl:part element="mpagpag:ValidarPolizaClienteInsisMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConfirmarPagoInsisMsjSol">
+		<wsdl:part element="mpagpag:ConfirmarPagoInsisMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConfirmarPagoInsisMsjResp">
+		<wsdl:part element="mpagpag:ConfirmarPagoInsisMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AplicarPagoInsisMsjSol">
+		<wsdl:part element="mpagpag:AplicarPagoInsisMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AplicarPagoInsisMsjResp">
+		<wsdl:part element="mpagpag:AplicarPagoInsisMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AplicarPagoMsjSol">
+		<wsdl:part element="mpagpag:AplicarPagoMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AplicarPagoMsjResp">
+		<wsdl:part element="mpagpag:AplicarPagoMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="PagoPortTypeSOAP">
+		<wsdl:operation name="VincularClienteInfoBancaria">
+			<wsdl:input message="tns:VincularClienteInfoBancariaMsjSol"
+				name="VincularClienteInfoBancariaRq" />
+			<wsdl:output message="tns:VincularClienteInfoBancariaMsjResp"
+				name="VincularClienteInfoBancariaRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ConfirmarPolizaClienteInsis">
+			<wsdl:input message="tns:ConfirmarPolizaClienteInsisMsjSol"
+				name="ConfirmarPolizaClienteInsisRq" />
+			<wsdl:output message="tns:ConfirmarPolizaClienteInsisMsjResp"
+				name="ConfirmarPolizaClienteInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="DesvincularClienteInfoBancaria">
+			<wsdl:input message="tns:DesvincularClienteInfoBancariaMsjSol"
+				name="DesvincularClienteInfoBancariaRq" />
+			<wsdl:output message="tns:DesvincularClienteInfoBancariaMsjResp"
+				name="DesvincularClienteInfoBancariaRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ValidarPolizaClienteInsis">
+			<wsdl:input message="tns:ValidarPolizaClienteInsisMsjSol"
+				name="ValidarPolizaClienteInsisRq" />
+			<wsdl:output message="tns:ValidarPolizaClienteInsisMsjResp"
+				name="ValidarPolizaClienteInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ConfirmarPagoInsis">
+			<wsdl:input message="tns:ConfirmarPagoInsisMsjSol" name="ConfirmarPagoInsisRq" />
+			<wsdl:output message="tns:ConfirmarPagoInsisMsjResp"
+				name="ConfirmarPagoInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="AplicarPagoInsis">
+			<wsdl:input message="tns:AplicarPagoInsisMsjSol" name="AplicarPagoInsisRq" />
+			<wsdl:output message="tns:AplicarPagoInsisMsjResp" name="AplicarPagoInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="AplicarPago">
+			<wsdl:input message="tns:AplicarPagoMsjSol" name="AplicarPagoRq" />
+			<wsdl:output message="tns:AplicarPagoMsjResp" name="AplicarPagoRs" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PagoBindingSOAP" type="tns:PagoPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="VincularClienteInfoBancaria">
+			<soap:operation style="document" />
+			<wsdl:input name="VincularClienteInfoBancariaRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="VincularClienteInfoBancariaRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConfirmarPolizaClienteInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="ConfirmarPolizaClienteInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ConfirmarPolizaClienteInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DesvincularClienteInfoBancaria">
+			<soap:operation style="document" />
+			<wsdl:input name="DesvincularClienteInfoBancariaRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DesvincularClienteInfoBancariaRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ValidarPolizaClienteInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="ValidarPolizaClienteInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ValidarPolizaClienteInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConfirmarPagoInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="ConfirmarPagoInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ConfirmarPagoInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AplicarPagoInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="AplicarPagoInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AplicarPagoInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AplicarPago">
+			<soap:operation style="document" />
+			<wsdl:input name="AplicarPagoRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AplicarPagoRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PagoSIV1">
+		<wsdl:port binding="tns:PagoBindingSOAP" name="PagoPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioPago/Pago/V1/PagoPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

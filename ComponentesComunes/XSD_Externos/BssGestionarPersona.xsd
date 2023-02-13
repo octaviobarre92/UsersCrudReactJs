@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com/GestionarCliente" targetNamespace="http://www.sura.com/GestionarCliente" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+<xsd:element name="OBJETO_PERSONA">
+      <xsd:complexType>
+         <xsd:sequence>
+         <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PERSONA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="NUMERO_IDENTIFICACION" type="xsd:string"/>
+                     <xsd:element name="NOMBRE" type="xsd:string"/>
+                     <xsd:element name="SEGUNDO_NOMBRE" type="xsd:string"/>
+                     <xsd:element name="APELLIDO" type="xsd:string"/>
+                     <xsd:element name="SEGUNDO_APELLIDO" type="xsd:string"/>
+                     <xsd:element name="SEXO" type="xsd:string"/>
+                     <xsd:element name="ESTADO_CIVIL" type="xsd:string"/>
+                     <xsd:element name="FECHA_NACIMIENTO" type="xsd:date"/>
+                     <xsd:element name="TELEFONO" type="xsd:string"/>
+                     <xsd:element name="CELULAR" type="xsd:string"/>
+                     <xsd:element name="NACIONALIDAD" type="xsd:string"/>
+                     <xsd:element name="LUGAR_TRABAJO" type="xsd:string"/>
+                     <xsd:element name="DIRECCIONES" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="TIPO" type="xsd:string"/>
+                              <xsd:element name="COD_PAIS" type="xsd:string"/>
+                              <xsd:element name="COD_PROVINCIA" type="xsd:integer"/>
+                              <xsd:element name="COD_DISTRITO" type="xsd:integer"/>
+                              <xsd:element name="COD_CORREGIMIENTO" type="xsd:integer"/>
+                              <xsd:element name="COD_BARRIO" type="xsd:string"/>
+                              <xsd:element name="CALLE" type="xsd:string"/>
+                              <xsd:element name="URBANIZACION" type="xsd:string"/>
+                              <xsd:element name="CASA" type="xsd:string"/>
+                              <xsd:element name="DIRECCION" type="xsd:string"/>
+                              <xsd:element name="TELEFONO" type="xsd:integer"/>
+                              <xsd:element name="EXTENSION" type="xsd:integer"/>
+                              <xsd:element name="EMAIL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="INFO_ACTIVIDAD_ECONOMICA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ACTIVIDAD_ECONOMICA" type="xsd:string"/>
+                              <xsd:element name="ACTIVIDAD" type="xsd:string"/>
+                              <xsd:element name="CARGO_PUBLICO" type="xsd:string"/>
+                              <xsd:element name="CARGO_OCUPADO" type="xsd:string"/>
+                              <xsd:element name="FECHA_INICIO_PEP" type="xsd:string"/>
+                              <xsd:element name="PEP_ACTUAL" type="xsd:string"/>
+                              <xsd:element name="FECHA_FIN_PEP" type="xsd:string"/>
+                              <xsd:element name="CODIGO_INGRESO_ANUAL" type="xsd:string"/>
+                              <xsd:element name="COD_OTRO_INGRESO" type="xsd:string"/>
+                              <xsd:element name="COD_PAIS_RESIDENCIA_FISCAL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="BENEFICIARIO" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NOMBRE" type="xsd:string"/>
+                              <xsd:element name="APELLIDO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_IDENTIFICACION" type="xsd:string"/>
+                              <xsd:element name="PARENTESCO" type="xsd:string"/>
+                              <xsd:element name="TIPO_PERSONA" type="xsd:string"/>
+                              <xsd:element name="FECHA_NACIMIENTO" type="xsd:string"/>
+                              <xsd:element name="SEXO" type="xsd:string"/>
+                              <xsd:element name="ADMINISTRADOR_FIDUCIARIO" type="xsd:string"/>
+                              <xsd:element name="JERARQUIA" type="xsd:string"/>
+                              <xsd:element name="PORCENTAJE_BENEFICIARIO" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+             </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

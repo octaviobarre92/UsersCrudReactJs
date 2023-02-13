@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.sura.com/MensajeIntegracion/DominioPoliza/PolizaMIN/V1"
+	version="1.0"
+	xmlns:mpolpol="http://www.sura.com/MensajeIntegracion/DominioPoliza/PolizaMIN/V1"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	elementFormDefault="qualified"
+	xmlns:dutidoc="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1">
+	<xsd:import
+		schemaLocation="../../../DominioUtilitario/GestionDocumental/V1/GestionDocumentalOIV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"></xsd:import>
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+
+
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RegistrarRoutingIdInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeSalidaBase">
+				<xsd:sequence>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="RegistrarRoutingIdInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="IdCorrelation"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero del IdCorrelation
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="RoutingKey" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero o llave del Routing
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="JobId" type="xsd:string" maxOccurs="1"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo unico generado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="StatusCCM" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Status del Mensaje gestionado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Descripcion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Texto para almacenar el startus del
+								mensaje
+								enviado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="RegistrarRoutingIdInsisMsjSol"
+		type="mpolpol:RegistrarRoutingIdInsisMsjSolTipo" />
+	<xsd:element name="RegistrarRoutingIdInsisMsjResp"
+		type="mpolpol:RegistrarRoutingIdInsisMsjRespTipo" />
+
+
+
+
+	<xsd:complexType name="ConsultarDocumentoInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeSalidaBase">
+				<xsd:sequence>
+
+					<xsd:element name="Contenido" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="IdPlantillaDoc" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="NombreDocumento" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="IdCorrelation" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="RoutingKey" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="Accion" type="xsd:string" maxOccurs="1"
+						minOccurs="0">
+					</xsd:element>
+					<xsd:element name="IdComunicacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultarDocumentoInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="NumeroPoliza"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero del IdCorrelation
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="IdPrintOutDoc" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero o llave del Routing
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CodigoUnicoPersona" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo unico generado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdentificadorPersona" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Status del Mensaje gestionado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="NumeroAgente" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Texto para almacenar el startus del
+								mensaje
+								enviado por CCM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="NumeroEndoso" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="NumeroReclamo" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="SecuencialRenovacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="EmailsFrom" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="EmailsTo" type="xsd:string"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConsultarDocumentoInsisMsjSol"
+		type="mpolpol:ConsultarDocumentoInsisMsjSolTipo" />
+	<xsd:element name="ConsultarDocumentoInsisMsjResp"
+		type="mpolpol:ConsultarDocumentoInsisMsjRespTipo" />
+
+
+	<xsd:complexType name="GenerarImprimibleMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element name="Documento" type="dutidoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GenerarImprimibleMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mpolpol:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="CodigoPrintOut" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero del IdCorrelation
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CodigoOperacion"
+						type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="TipoEjecucion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+
+					<xsd:element name="EmailsFrom" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="EmailsTo" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation></xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdDocInsis" type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation></xsd:documentation>
+						</xsd:annotation></xsd:element>
+					<xsd:element name="InfoImprimible"
+						type="mpolpol:InfoImprimibleTipo" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="InfoImprimibleCustom"
+						type="mpolpol:InfoDocumentoCustom" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GenerarImprimibleMsjSol"
+		type="mpolpol:GenerarImprimibleMsjSolTipo" >
+		<xsd:annotation>
+			<xsd:documentation></xsd:documentation>
+		</xsd:annotation></xsd:element>
+	<xsd:element name="GenerarImprimibleMsjResp"
+		type="mpolpol:GenerarImprimibleMsjRespTipo" />
+
+	<xsd:complexType name="InfoImprimibleTipo">
+		<xsd:sequence>
+			<xsd:element name="NumeroPoliza" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="CodigoCliente" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="NumeroEndoso" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="IdPersona" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="CodigoAgente" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumeroSesion" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="SecuencialPoliza" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="NumeroReclamo" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InfoDocumentoCustom">
+		<xsd:sequence>
+			<xsd:element name="Formato" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Pais" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Proceso" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Negocio" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="IdCorrelacion" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Contenido" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="OrigenSolicitud" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+                        <xsd:element name="DocName" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InsisPBM" targetNamespace="http://fadata.eu/soap/insis/pbm"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://fadata.eu/soap/insis/pbm"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis">
+    <import location="insisAbstractBase.wsdl"
+            namespace="http://fadata.eu/soap/insis"/>
+    <types>
+        <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+                   elementFormDefault="qualified">
+            <xs:include schemaLocation="xsd/insis/Insis_PBM_v3.0.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="ClearCustomerReceiptRqMessage">
+        <part name="payload" element="insis:ClearCustomerReceiptRq"/>
+    </message>
+    <message name="ClearCustomerReceiptRsMessage">
+        <part name="payload" element="insis:ClearCustomerReceiptRq"/>
+    </message>
+    <message name="GetBLCTransactionsRqMessage">
+        <part name="payload" element="insis:GetBLCTransactionsRq"/>
+    </message>
+    <message name="GetBLCTransactionsRsMessage">
+        <part name="payload" element="insis:GetBLCTransactionsRs"/>
+    </message>
+    <message name="GetPolicyOutstandingRqMessage">
+        <part name="payload" element="insis:GetPolicyOutstandingRq"/>
+    </message>
+    <message name="GetPolicyOutstandingRsMessage">
+        <part name="payload" element="insis:GetPolicyOutstandingRs"/>
+    </message>
+    <message name="ModifyPaymentPlanRqMessage">
+        <part name="payload" element="insis:ModifyPaymentPlanRq"/>
+    </message>
+    <message name="ModifyPaymentPlanRsMessage">
+        <part name="payload" element="insis:ModifyPaymentPlanRq"/>
+    </message>
+    <message name="PayPolicyOutstandingRqMessage">
+        <part name="payload" element="insis:PayPolicyOutstandingRq"/>
+    </message>
+    <message name="PayPolicyOutstandingRsMessage">
+        <part name="payload" element="insis:PayPolicyOutstandingRs"/>
+    </message>
+    <message name="RegisterBLCPaymentRqMessage">
+        <part name="payload" element="insis:RegisterBLCPaymentRq"/>
+    </message>
+    <message name="RegisterBLCPaymentRsMessage">
+        <part name="payload" element="insis:RegisterBLCPaymentRs"/>
+    </message>
+    <message name="RegisterChangePaymentPlanAnnexRqMessage">
+        <part name="payload" element="insis:RegisterChangePaymentPlanAnnexRq"/>
+    </message>
+    <message name="RegisterChangePaymentPlanAnnexRsMessage">
+        <part name="payload" element="insis:RegisterChangePaymentPlanAnnexRs"/>
+    </message>
+    <message name="ReverseCustomerReceiptRqMessage">
+        <part name="payload" element="insis:ReverseCustomerReceiptRq"/>
+    </message>
+    <message name="ReverseCustomerReceiptRsMessage">
+        <part name="payload" element="insis:ReverseCustomerReceiptRs"/>
+    </message>
+    <portType name="InsisPBMPort">
+        <operation name="clearCustomerReceipt">
+            <input message="tns:ClearCustomerReceiptRqMessage"/>
+            <output message="tns:ClearCustomerReceiptRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="getBLCTransactions">
+            <input message="tns:GetBLCTransactionsRqMessage"/>
+            <output message="tns:GetBLCTransactionsRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="getPolicyOutstanding">
+            <input message="tns:GetPolicyOutstandingRqMessage"/>
+            <output message="tns:GetPolicyOutstandingRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="modifyPaymentPlan">
+            <input message="tns:ModifyPaymentPlanRqMessage"/>
+            <output message="tns:ModifyPaymentPlanRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="payPolicyOutstanding">
+            <input message="tns:PayPolicyOutstandingRqMessage"/>
+            <output message="tns:PayPolicyOutstandingRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="registerBLCPayment">
+            <input message="tns:RegisterBLCPaymentRqMessage"/>
+            <output message="tns:RegisterBLCPaymentRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="registerChangePaymentPlanAnnex">
+            <input message="tns:RegisterChangePaymentPlanAnnexRqMessage"/>
+            <output message="tns:RegisterChangePaymentPlanAnnexRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+        <operation name="reverseCustomerReceipt">
+            <input message="tns:ReverseCustomerReceiptRqMessage"/>
+            <output message="tns:ReverseCustomerReceiptRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+    </portType>
+    <binding name="InsisPBMPortBinding" type="tns:InsisPBMPort">
+        <wsp:PolicyReference URI="#policy-kerberos-or-unt"/>
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="clearCustomerReceipt">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="getBLCTransactions">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="getPolicyOutstanding">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="modifyPaymentPlan">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="payPolicyOutstanding">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="registerBLCPayment">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="registerChangePaymentPlanAnnex">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+        <operation name="reverseCustomerReceipt">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="InsisPBM">
+        <port name="InsisPBMPort" binding="tns:InsisPBMPortBinding">
+            <soap:address location="http://localhost:7001/insis-soapws/InsisPBMPort"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1"
+	version="1.0" 
+	elementFormDefault="qualified"
+	xmlns:dsapsap="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">
+	<xsd:complexType name="ReferenciaPagoSAP">
+		<xsd:annotation>
+			<xsd:documentation>Id del numero de documento al cual se
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IdReferenciaSAP" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que hace referencia al Id de pago
+						generado por SAP.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdReferenciaPago" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica el id de referencia de pago.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MetodoPago" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Elementp que hace referencia al metodo de pago.
+						Valores permitidos C y T.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FechaRegistro" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fecha de la transaccion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumeroDocumento" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Id del documento al cual se desea aplicar una
+						accion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

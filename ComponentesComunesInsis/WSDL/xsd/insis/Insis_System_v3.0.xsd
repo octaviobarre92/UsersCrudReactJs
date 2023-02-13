@@ -1,0 +1,80 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           xmlns:xdb="http://xmlns.oracle.com/xdb" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!-- Service Request messages -->
+  <xs:element name="GetPLSQLPackageListRq"/>
+  <xs:element name="GetPLSQLPackageDescriptionRq"
+              type="GetPLSQLPackageDescriptionRq_Type"/>
+  <!-- Service Response messages -->            
+  <xs:element name="GetPLSQLPackageListRs" type="PLSQLPackageList_Type"/>
+  <xs:element name="GetPLSQLPackageDescriptionRs"
+              type="GetPLSQLPackageDescriptionRs_Type"/>            
+  <xs:group name="System_Rq_Group">
+    <xs:choice>
+      <xs:element name="GetPLSQLPackageListRq"/>
+      <xs:element name="GetPLSQLPackageDescriptionRq"
+                  type="GetPLSQLPackageDescriptionRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="System_Rs_Group">
+    <xs:choice>
+      <xs:element name="GetPLSQLPackageListRs" type="PLSQLPackageList_Type"/>
+      <xs:element name="GetPLSQLPackageDescriptionRs"
+                  type="GetPLSQLPackageDescriptionRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:element name="PackageName" type="xs:string"/>
+  <xs:complexType name="GetPLSQLPackageDescriptionRq_Type">
+    <xs:sequence>
+      <xs:element ref="PackageName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPLSQLPackageDescriptionRs_Type">
+    <xs:sequence>
+      <xs:element ref="PackageName"/>
+      <xs:element name="Procedures" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Procedure" type="PLSQLProcedure_Type"
+                        maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PLSQLArgument_Type">
+    <xs:sequence>
+      <xs:element name="ArgumentName" type="xs:string"/>
+      <xs:element name="Position" type="xs:integer"/>
+      <xs:element name="DataType" type="xs:string"/>
+      <xs:element name="DataLength" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DataPrecision" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DataScale" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Defaulted" type="BOOLEAN_STRING_TYPE"/>
+      <xs:element name="DefaultValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="InOut" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PLSQLPackageList_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded"
+                  minOccurs="0" ref="PackageName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PLSQLProcedure_Type">
+    <xs:sequence>
+      <xs:element name="ProcedureName" type="xs:string"/>
+      <xs:element name="Arguments" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Argument" type="PLSQLArgument_Type"
+                        maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

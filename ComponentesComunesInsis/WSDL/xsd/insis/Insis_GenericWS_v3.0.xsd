@@ -1,0 +1,951 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xop="http://www.w3.org/2004/08/xop/include" targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+<xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+<!--  Service Request messages  -->
+<xs:element name="BinaryAttachment" type="BinaryAttachment_Type"/>
+<xs:element name="ChainRq" type="ChainRq_Type"/>
+<xs:element name="ClearNotificationsRq" type="ClearNotificationsRq_Type"/>
+<xs:element name="CloseOpenPeriodRq" type="CloseOpenPeriodRq_Type"/>
+<xs:element name="CloseOpenDayRq" type="CloseOpenDayRq_Type"/>
+<xs:element name="DeleteQuestionaryRq" type="DeleteQuestionaryRq_Type"/>
+<xs:element name="DownloadAttachmentsRq" type="DownloadAttachmentsRq_Type"/>
+<xs:element name="DueNotificationsRq" type="DueNotificationsRq_Type"/>
+<xs:element name="InvokeSBSEventRq" type="InvokeSBSEventRq_Type"/>
+<xs:element name="GetCurrencyRateRq" type="GetCurrencyRateRq_Type"/>
+<xs:element name="GetLocalizedMessageRq" type="GetLocalizedMessageRq_Type"/>
+<xs:element name="GetOpenPeriodRq" type="GetOpenPeriodRq_Type"/>
+<xs:element name="GetOpenDayRq" type="GetOpenDayRq_Type"/>
+<xs:element name="GetParameterRq" type="GetParameterRq_Type"/>
+<xs:element name="GetQuestionaryLayoutsRq" type="GetQuestionaryLayoutsRq_Type"/>
+<xs:element name="GetUserQuestionaryRq" type="GetUserQuestionaryRq_Type"/>
+<xs:element name="ListOfValuesRq" type="ListOfValuesRq_Type">
+<xs:annotation>
+<xs:documentation>Request for List Of Values (nomenclature) from the system. The LOV is identified by its name and can be optionally filtered by applying 1 or 2 Filter Criteria. For every Filter Criteria should be specified the type of operation and value of the item ID, against which the filtering will happen. The possible operations are: - EQ: equals - NEQ: not equals (different from) - GT: greater than - LT: lower than - GTEQ: greater then or equals - LTEQ: lower then or equals</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LocalizationRq" type="LocalizationRq_Type"/>
+<xs:element name="LockOpenDayRq" type="LockOpenDayRq_Type"/>
+<xs:element name="LockOpenPeriodRq" type="LockOpenPeriodRq_Type"/>
+<xs:element name="OpenNewDayRq" type="OpenNewDayRq_Type"/>
+<xs:element name="OpenNewPeriodRq" type="OpenNewPeriodRq_Type"/>
+<xs:element name="PaginatedQueryRq" type="PaginatedQueryRq_Type"/>
+<xs:element name="PublishChainCollectionRq" type="PublishChainCollectionRq_Type"/>
+<xs:element name="PublishQuestionaryLayoutRq" type="PublishQuestionaryLayoutRq_Type"/>
+<xs:element name="QuestionaryConfigurationRq" type="QuestionaryConfigurationRq_Type"/>
+<xs:element name="RegisterFNOLSRRq" type="RegisterFNOLSRRq_Type"/>
+<xs:element name="RegisterUserQuestionaryRq" type="RegisterUserQuestionaryRq_Type"/>
+<xs:element name="RulesRq" type="RulesRq_Type"/>
+<xs:element name="SetQuestionaryConfigurationRq" type="QuestionaryConfiguration_Type"/>
+<xs:element name="SetCurrencyRateRq" type="SetCurrencyRateRq_Type"/>
+<xs:element name="UploadAttachmentsRq" type="UploadAttachmentsRq_Type"/>
+<!--  Service Response messages  -->
+<xs:element name="ChainRs" type="ChainRs_Type"/>
+<xs:element name="ClearNotificationsRs" type="ClearNotificationsRs_Type"/>
+<xs:element name="CloseOpenPeriodRs" type="CloseOpenPeriodRs_Type"/>
+<xs:element name="CloseOpenDayRs" type="CloseOpenDayRs_Type"/>
+<xs:element name="DeleteQuestionaryRs" type="DeleteQuestionaryRs_Type"/>
+<xs:element name="DownloadAttachmentsRs" type="DownloadAttachmentsRs_Type"/>
+<xs:element name="DueNotificationsRs" type="DueNotificationsRs_Type"/>
+<xs:element name="InvokeSBSEventRs" type="InvokeSBSEventRs_Type"/>
+<xs:element name="GetCurrencyRateRs" type="GetCurrencyRateRs_Type"/>
+<xs:element name="GetLocalizedMessageRs" type="xs:string"/>
+<xs:element name="GetOpenPeriodRs" type="GetOpenPeriodRs_Type"/>
+<xs:element name="GetOpenDayRs" type="GetOpenDayRs_Type"/>
+<xs:element name="GetParameterRs" type="xs:string"/>
+<xs:element name="GetQuestionaryLayoutsRs" type="GetQuestionaryLayoutsRs_Type"/>
+<xs:element name="GetUserQuestionaryRs" type="GetUserQuestionaryRs_Type"/>
+<xs:element name="ListOfValuesRs" type="ListOfValuesRs_Type">
+<xs:annotation>
+<xs:documentation>Response to List Of Values request. Can contain 0 or more items, where eache item is identified by Item ID and Item Description</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LocalizationRs" type="LocalizationRs_Type"/>
+<xs:element name="LockOpenPeriodRs" type="LockOpenPeriodRs_Type"/>
+<xs:element name="LockOpenDayRs" type="LockOpenDayRs_Type"/>
+<xs:element name="OpenNewDayRs" type="OpenNewDayRs_Type"/>
+<xs:element name="OpenNewPeriodRs" type="OpenNewPeriodRs_Type"/>
+<xs:element name="PaginatedQueryRs" type="PaginatedQueryRs_Type"/>
+<xs:element name="PublishChainCollectionRs" type="PublishChainCollectionRs_Type"/>
+<xs:element name="PublishQuestionaryLayoutRs" type="PublishQuestionaryLayoutRs_Type"/>
+<xs:element name="QuestionaryConfigurationRs" type="QuestionaryConfiguration_Type"/>
+<xs:element name="RegisterFNOLSRRs" type="RegisterFNOLSRRs_Type"/>
+<xs:element name="RegisterUserQuestionaryRs" type="RegisterUserQuestionaryRs_Type"/>
+<xs:element name="RulesRs" type="RulesRs_Type"/>
+<xs:element name="SetCurrencyRateRs" type="SetCurrencyRateRs_Type"/>
+<xs:element name="SetQuestionaryConfigurationRs" type="SetQuestionaryConfigurationRs_Type"/>
+<xs:element name="UploadAttachmentsRs" type="UploadAttachmentsRs_Type"/>
+<xs:group name="GenericWS_Rq_Group">
+<xs:choice>
+<xs:element name="ChainRq" type="ChainRq_Type"/>
+<xs:element name="ClearNotificationsRq" type="ClearNotificationsRq_Type"/>
+<xs:element name="CloseOpenPeriodRq" type="CloseOpenPeriodRq_Type"/>
+<xs:element name="CloseOpenDayRq" type="CloseOpenDayRq_Type"/>
+<xs:element name="DeleteQuestionaryRq" type="DeleteQuestionaryRq_Type"/>
+<xs:element name="DownloadAttachmentsRq" type="DownloadAttachmentsRq_Type"/>
+<xs:element name="DueNotificationsRq" type="DueNotificationsRq_Type"/>
+<xs:element name="InvokeSBSEventRq" type="InvokeSBSEventRq_Type"/>
+<xs:element name="GetCurrencyRateRq" type="GetCurrencyRateRq_Type"/>
+<xs:element name="GetLocalizedMessageRq" type="GetLocalizedMessageRq_Type"/>
+<xs:element name="GetOpenPeriodRq" type="GetOpenPeriodRq_Type"/>
+<xs:element name="GetOpenDayRq" type="GetOpenDayRq_Type"/>
+<xs:element name="GetParameterRq" type="GetParameterRq_Type"/>
+<xs:element name="GetQuestionaryLayoutsRq" type="GetQuestionaryLayoutsRq_Type"/>
+<xs:element name="GetUserQuestionaryRq" type="GetUserQuestionaryRq_Type"/>
+<xs:element name="ListOfValuesRq" type="ListOfValuesRq_Type">
+<xs:annotation>
+<xs:documentation>Request for List Of Values (nomenclature) from the system. The LOV is identified by its name and can be optionally filtered by applying 1 or 2 Filter Criteria. For every Filter Criteria should be specified the type of operation and value of the item ID, against which the filtering will happen. The possible operations are: - EQ: equals - NEQ: not equals (different from) - GT: greater than - LT: lower than - GTEQ: greater then or equals - LTEQ: lower then or equals</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LocalizationRq" type="LocalizationRq_Type"/>
+<xs:element name="LockOpenDayRq" type="LockOpenDayRq_Type"/>
+<xs:element name="LockOpenPeriodRq" type="LockOpenPeriodRq_Type"/>
+<xs:element name="OpenNewDayRq" type="OpenNewDayRq_Type"/>
+<xs:element name="OpenNewPeriodRq" type="OpenNewPeriodRq_Type"/>
+<xs:element name="PaginatedQueryRq" type="PaginatedQueryRq_Type"/>
+<xs:element name="PublishChainCollectionRq" type="PublishChainCollectionRq_Type"/>
+<xs:element name="PublishQuestionaryLayoutRq" type="PublishQuestionaryLayoutRq_Type"/>
+<xs:element name="QuestionaryConfigurationRq" type="QuestionaryConfigurationRq_Type"/>
+<xs:element name="RegisterFNOLSRRq" type="RegisterFNOLSRRq_Type"/>
+<xs:element name="RegisterUserQuestionaryRq" type="RegisterUserQuestionaryRq_Type"/>
+<xs:element name="RulesRq" type="RulesRq_Type"/>
+<xs:element name="SetQuestionaryConfigurationRq" type="QuestionaryConfiguration_Type"/>
+<xs:element name="SetCurrencyRateRq" type="SetCurrencyRateRq_Type"/>
+<xs:element name="UploadAttachmentsRq" type="UploadAttachmentsRq_Type"/>
+</xs:choice>
+</xs:group>
+<xs:group name="GenericWS_Rs_Group">
+<xs:choice>
+<xs:element name="ChainRs" type="ChainRs_Type"/>
+<xs:element name="ClearNotificationsRs" type="ClearNotificationsRs_Type"/>
+<xs:element name="CloseOpenPeriodRs" type="CloseOpenPeriodRs_Type"/>
+<xs:element name="CloseOpenDayRs" type="CloseOpenDayRs_Type"/>
+<xs:element name="DeleteQuestionaryRs" type="DeleteQuestionaryRs_Type"/>
+<xs:element name="DownloadAttachmentsRs" type="DownloadAttachmentsRs_Type"/>
+<xs:element name="DueNotificationsRs" type="DueNotificationsRs_Type"/>
+<xs:element name="InvokeSBSEventRs" type="InvokeSBSEventRs_Type"/>
+<xs:element name="GetCurrencyRateRs" type="GetCurrencyRateRs_Type"/>
+<xs:element name="GetLocalizedMessageRs" type="xs:string"/>
+<xs:element name="GetOpenPeriodRs" type="GetOpenPeriodRs_Type"/>
+<xs:element name="GetOpenDayRs" type="GetOpenDayRs_Type"/>
+<xs:element name="GetParameterRs" type="xs:string"/>
+<xs:element name="GetQuestionaryLayoutsRs" type="GetQuestionaryLayoutsRs_Type"/>
+<xs:element name="GetUserQuestionaryRs" type="GetUserQuestionaryRs_Type"/>
+<xs:element name="ListOfValuesRs" type="ListOfValuesRs_Type">
+<xs:annotation>
+<xs:documentation>Response to List Of Values request. Can contain 0 or more items, where eache item is identified by Item ID and Item Description</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LocalizationRs" type="LocalizationRs_Type"/>
+<xs:element name="LockOpenPeriodRs" type="LockOpenPeriodRs_Type"/>
+<xs:element name="LockOpenDayRs" type="LockOpenDayRs_Type"/>
+<xs:element name="OpenNewDayRs" type="OpenNewDayRs_Type"/>
+<xs:element name="OpenNewPeriodRs" type="OpenNewPeriodRs_Type"/>
+<xs:element name="PaginatedQueryRs" type="PaginatedQueryRs_Type"/>
+<xs:element name="PublishChainCollectionRs" type="PublishChainCollectionRs_Type"/>
+<xs:element name="PublishQuestionaryLayoutRs" type="PublishQuestionaryLayoutRs_Type"/>
+<xs:element name="QuestionaryConfigurationRs" type="QuestionaryConfiguration_Type"/>
+<xs:element name="RegisterFNOLSRRs" type="RegisterFNOLSRRs_Type"/>
+<xs:element name="RegisterUserQuestionaryRs" type="RegisterUserQuestionaryRs_Type"/>
+<xs:element name="RulesRs" type="RulesRs_Type"/>
+<xs:element name="SetCurrencyRateRs" type="SetCurrencyRateRs_Type"/>
+<xs:element name="SetQuestionaryConfigurationRs" type="SetQuestionaryConfigurationRs_Type"/>
+<xs:element name="UploadAttachmentsRs" type="UploadAttachmentsRs_Type"/>
+</xs:choice>
+</xs:group>
+<!--  Elements  -->
+<xs:element name="ClaimNotification" type="ClaimNotification_Type"/>
+<xs:element name="Dependees" type="Dependees_Type"/>
+<xs:element name="ListItems" type="ListItems_Type"/>
+<xs:element name="Module">
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Notifications" type="Notifications_Type"/>
+<xs:element name="OperationStatus" type="OPERATION_RESULT_TYPE"/>
+<xs:element name="PolicyNotification" type="PolicyNotification_Type"/>
+<xs:element name="QuestionaryID" type="xs:string"/>
+<xs:element name="Questionary">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="QuestionaryAnswers_Type">
+<xs:attribute name="id" type="xs:string"/>
+<xs:attribute name="user" type="xs:string"/>
+<xs:attribute name="userQID" type="xs:long"/>
+<xs:attribute name="policyID" type="xs:long"/>
+<xs:attribute name="claimID" type="xs:long"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<!--  Types  -->
+<xs:complexType name="Answer_Type">
+<xs:attribute name="questionID" use="required" type="xs:string"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="order" type="xs:integer"/>
+<xs:attribute name="page" type="xs:integer"/>
+</xs:complexType>
+<xs:complexType name="AttachmentIds_Type">
+<xs:sequence>
+<xs:element name="Id" type="xs:string" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BinaryAttachment_Type">
+<xs:sequence>
+<xs:element name="FileName" type="xs:string" minOccurs="0"/>
+<xs:element name="MimeType" type="MIME_TYPE_TYPE"/>
+<xs:element xmlns:xop="http://www.w3.org/2004/08/xop/include" name="Data" xmime:expectedContentTypes="application/octet-stream"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BinaryAttachments_Type">
+<xs:sequence>
+<xs:element name="BinaryAttachment" type="BinaryAttachment_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CallServiceBusRq_Type">
+<xs:sequence>
+<xs:element name="EventType" type="xs:string"/>
+<xs:element name="Parameter" type="ServiceBusParam_Type" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CallServiceBusRs_Type">
+<xs:sequence>
+<xs:element name="Parameter" type="ServiceBusParam_Type" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="State" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChainFile"/>
+<xs:complexType name="ChainRq_Type">
+<xs:sequence>
+<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+</xs:sequence>
+<xs:attribute name="chainID" use="required" type="xs:string"/>
+<xs:attribute name="chainFile" use="required" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="ChainRs_Type">
+<xs:sequence>
+<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChainConf_Type">
+<xs:sequence>
+<xs:element name="Chain" maxOccurs="unbounded" minOccurs="1" type="ChainCollType_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ChainCollType_Type">
+<xs:sequence>
+<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+</xs:sequence>
+<xs:attribute name="id" use="required" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="ClaimNotification_Type">
+<xs:sequence>
+<xs:element ref="ClaimNo"/>
+<xs:element ref="PolicyNo"/>
+<xs:element ref="RequestNo"/>
+<xs:element name="Documents" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClearNotificationsRq_Type">
+<xs:sequence>
+<xs:element name="UpTo" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClearNotificationsRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CrossCurrencyData_Type">
+<xs:sequence>
+<xs:element name="CurrencyInType" type="xs:string"/>
+<xs:element name="CurrencyOutType" type="xs:string"/>
+<xs:element name="SearchDate" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseOpenDayRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseOpenDayRq_Type"/>
+<xs:complexType name="CloseOpenPeriodRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CloseOpenPeriodRq_Type">
+<xs:sequence>
+<xs:element name="PeriodType" type="PERIOD_VALUE_TYPE" maxOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ContextParameters_Type">
+<xs:sequence>
+<xs:element type="Parameter_Type" name="Parameter" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CrossCurrency_Type">
+<xs:sequence>
+<xs:element name="CurrencyInType" type="xs:string"/>
+<xs:element name="CurrencyOutType" type="xs:string"/>
+<xs:element name="SearchDate" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Currency_Type">
+<xs:sequence>
+<xs:element name="CurrencyType" type="xs:string"/>
+<xs:element name="CurrencyValue" type="xs:double"/>
+<xs:element name="CurrencyQuantity" type="xs:double"/>
+<xs:element name="CurrencyDate" minOccurs="1" type="xs:date"/>
+<xs:element name="CurrencyValueBuy" minOccurs="0" type="xs:double"/>
+<xs:element name="CurrencyValueSell" type="xs:double" minOccurs="0"/>
+<xs:element name="CountryID" type="xs:string" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CurrencyUpdateResult_Type">
+<xs:sequence>
+<xs:element name="CurrencyType" type="xs:string"/>
+<xs:element name="CurrencyDate" type="xs:date"/>
+<xs:element name="CountryID" type="xs:string"/>
+<xs:element ref="OperationStatus"/>
+<xs:element name="Message" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DefinedAnswers_Type">
+<xs:choice>
+<xs:element ref="ListItems"/>
+<xs:element name="SQLQuery" type="xs:string"/>
+<xs:element name="LOVAnswers" type="LOVAnswers_Type"/>
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="DeleteQuestionaryRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DeleteQuestionaryRq_Type">
+<xs:sequence>
+<xs:element name="QuestionaryID" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Dependees_Type">
+<xs:sequence>
+<xs:element name="Dependee" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DueNotificationsRq_Type">
+<xs:sequence>
+<xs:element name="NotificationType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DownloadAttachmentsRs_Type">
+<xs:sequence>
+<xs:element name="ZIPPackage" type="ZIPPackage_Type" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DownloadAttachmentsRq_Type">
+<xs:sequence>
+<xs:element name="ReferenceID" type="ReferenceID_Type" minOccurs="1"/>
+<xs:element name="ReferenceType" type="INPUT_PARAM_TYPE" minOccurs="1"/>
+<xs:element name="ContainerType" type="CONTAINER_TYPE" minOccurs="0" nillable="true"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DueNotificationsRs_Type">
+<xs:sequence>
+<xs:element ref="Notifications" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ForAnswer_Type">
+<xs:sequence>
+<xs:element name="ReplacementQuestion" type="QuestionRef_Type" minOccurs="1" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="answer" use="required"/>
+</xs:complexType>
+<xs:complexType name="InvokeSBSEventRq_Type">
+<xs:sequence>
+<xs:element name="EventType" type="xs:string" minOccurs="1"/>
+<xs:element name="Parameters" type="ContextParameters_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InvokeSBSEventRs_Type">
+<xs:sequence>
+<xs:element name="EventType" type="xs:string" minOccurs="1"/>
+<xs:element name="Parameters" type="ContextParameters_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetCurrencyRateRq_Type">
+<xs:choice>
+<xs:element name="LocalCurrency" type="LocalCurrency_Type"/>
+<xs:element name="CrossCurrency" type="CrossCurrency_Type"/>
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="GetCurrencyRateRs_Type">
+<xs:sequence>
+<xs:element name="CurrencyRate" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetLocalizedMessageRq_Type">
+<xs:sequence>
+<xs:element name="Thema" type="xs:string"/>
+<xs:element name="MessageID" type="xs:string"/>
+<xs:element name="Arguments" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Argument" type="xs:string" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DefaultMessage" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetOpenPeriodRq_Type"/>
+<xs:complexType name="GetOpenPeriodRs_Type">
+<xs:sequence>
+<xs:element name="Default" type="Period_Type"/>
+<xs:element name="Sys" type="Period_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetOpenDayRs_Type">
+<xs:sequence>
+<xs:element name="OpenDay" type="xs:date"/>
+<xs:element name="OpenDayID" type="xs:integer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetOpenDayRq_Type">
+<xs:sequence>
+<xs:element name="PeriodID" type="xs:integer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetParameterRq_Type">
+<xs:sequence>
+<xs:element name="ParamGroup" type="xs:string"/>
+<xs:element name="ParamName" type="xs:string"/>
+<xs:element name="DefaultValue" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetQuestionaryLayoutsRq_Type">
+<xs:sequence>
+<xs:element name="UpdatedOnly" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetQuestionaryLayoutsRs_Type">
+<xs:sequence>
+<xs:element ref="QuestionaryID" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetUserQuestionaryRq_Type">
+<xs:sequence>
+<xs:element name="UserQID" type="xs:long" minOccurs="0"/>
+<xs:element name="ID" type="xs:string" minOccurs="0"/>
+<xs:element minOccurs="0" ref="ClaimID"/>
+<xs:element minOccurs="0" ref="PolicyID"/>
+<xs:element name="User" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetUserQuestionaryRs_Type">
+<xs:sequence>
+<xs:element ref="Questionary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IDComponent_Type">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="name" type="xs:string" use="required"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="Instructions_Type">
+<xs:sequence>
+<xs:element name="LoadQuestionGroup" minOccurs="0" type="ReferredGroups_Type"/>
+<xs:element name="InvokeWebService" minOccurs="0" type="WSRef_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ListItem_Type">
+<xs:sequence>
+<xs:element name="ItemID" type="xs:string"/>
+<xs:element name="ItemDescription" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ListItems_Type">
+<xs:sequence>
+<xs:element name="ListItem" type="ListItem_Type" maxOccurs="unbounded" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ListOfValuesRq_Type">
+<xs:sequence>
+<xs:element name="LOVName" type="xs:string"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="FilterCriteria"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ListOfValuesRs_Type">
+<xs:sequence>
+<xs:element minOccurs="0" ref="Dependees"/>
+<xs:element minOccurs="0" ref="ListItems"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocalizationRq_Type">
+<xs:sequence>
+<xs:element ref="Module"/>
+<xs:element name="Service" type="xs:string"/>
+<xs:element name="Field" minOccurs="0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocalizationRs_Type">
+<xs:sequence>
+<xs:element ref="ListItems" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LockOpenDayRq_Type"/>
+<xs:complexType name="LockOpenPeriodRq_Type"/>
+<xs:complexType name="LockOpenPeriodRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage" maxOccurs="1" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocalCurrency_Type">
+<xs:sequence>
+<xs:element name="CurrencyType" type="xs:string"/>
+<xs:element name="SearchDate" type="xs:date"/>
+<xs:element name="RateType" minOccurs="0">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="FIXING|BUY|SELL"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LockOpenDayRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage" minOccurs="0"/>
+<xs:element name="LockedDay" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocalCurrencyData_Type">
+<xs:sequence>
+<xs:element name="CurrencyType" type="xs:string"/>
+<xs:element name="SearchDate" type="xs:date"/>
+<xs:element name="RateType" minOccurs="0">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="FIXING|BUY|SELL"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LOVAnswers_Type">
+<xs:sequence>
+<xs:element name="DependsOn" type="QuestionRef_Type" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="lovName" use="required" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="Notification_Type">
+<xs:sequence>
+<xs:element ref="ClientPID"/>
+<xs:element ref="Contact"/>
+<xs:element ref="PolicyNotification" minOccurs="0"/>
+<xs:element ref="ClaimNotification" minOccurs="0"/>
+<xs:element name="NotificationMessage" minOccurs="0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Notifications_Type">
+<xs:sequence>
+<xs:element name="Notification" type="Notification_Type" maxOccurs="unbounded" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OnSubmit_Type">
+<xs:sequence>
+<xs:element name="TargetWebService" type="WSRef_Type"/>
+<xs:element name="Processor" type="xs:string" minOccurs="0"/>
+<xs:element name="ForwardTo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OpenNewDayRq_Type">
+<xs:sequence>
+<xs:element name="OrderDate" type="xs:date"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OpenNewDayRs_Type">
+<xs:sequence>
+<xs:element name="OrderID" type="xs:integer"/>
+<xs:element ref="ReturningMessage" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OpenNewPeriodRq_Type">
+<xs:sequence>
+<xs:group ref="OpenNewPeriodData_Group" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OpenNewPeriodRs_Type">
+<xs:sequence>
+<xs:element name="GetPeriodData" type="Period_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Parameter_Type" mixed="true">
+<xs:choice minOccurs="0">
+<xs:element name="RowSet" type="RowSetType" minOccurs="0"/>
+<xs:element name="Custom" minOccurs="0" type="xs:anyType"/>
+</xs:choice>
+<xs:attribute name="type" type="JavaClassType" default="java.lang.String"/>
+<xs:attribute name="name" type="xs:string" use="required"/>
+<xs:attribute name="refId" type="XPathType"/>
+<xs:attribute name="format" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="PaginatedQueryRq_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element name="QueryID" type="xs:string"/>
+<xs:element name="ViewID" type="ViewIDType"/>
+</xs:choice>
+<xs:element name="StartRow" type="xs:integer" minOccurs="0"/>
+<xs:element name="RowCount" minOccurs="0" type="xs:integer"/>
+<xs:element name="ResultSetID" type="xs:string" minOccurs="0"/>
+<xs:element name="FilterCriteria" minOccurs="0" type="FilterCriteria_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PaginatedQueryRs_Type">
+<xs:sequence>
+<xs:element name="TotalRowCount" type="xs:int" minOccurs="0"/>
+<xs:element name="ResultSetID" minOccurs="0" type="xs:string"/>
+<xs:element name="RowSet" type="QueryRowSet_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Period_Type">
+<xs:sequence>
+<xs:element name="PeriodId" type="xs:integer"/>
+<xs:element name="Year" type="xs:integer"/>
+<xs:element name="Quart" type="xs:integer"/>
+<xs:element name="Month" type="xs:integer"/>
+<xs:element ref="ReturningMessage" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PolicyNotification_Type">
+<xs:sequence>
+<xs:element ref="PolicyNo"/>
+<xs:element ref="ProductCode"/>
+<xs:element ref="InsuranceBegin"/>
+<xs:element ref="InsuranceEnd"/>
+<xs:element ref="Premium"/>
+<xs:element name="ConfirmRenewalUntil" type="xs:date" minOccurs="0"/>
+<xs:element name="NotificationType" type="POLICY_NOTIFICATION_TYPE"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Processing_Type">
+<xs:sequence>
+<xs:element name="Instructions" type="Instructions_Type" minOccurs="0"/>
+<xs:element name="ReplacementAnswers" minOccurs="0" type="ReplacementAnswers_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PublishChainCollectionRq_Type">
+<xs:sequence>
+<xs:element name="Configuration" type="ChainConf_Type" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PublishChainCollectionRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PublishQuestionaryLayoutRq_Type">
+<xs:sequence>
+<xs:element ref="QuestionaryID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PublishQuestionaryLayoutRs_Type">
+<xs:sequence>
+<xs:element ref="OperationStatus"/>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QueryColumn_Type" mixed="true">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="name" use="required" type="xs:string"/>
+<xs:attribute name="type" use="required" type="ANSWER_DATA_TYPE"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="QueryRow_Type">
+<xs:sequence>
+<xs:element name="Column" type="QueryColumn_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QueryRowSet_Type">
+<xs:sequence>
+<xs:element name="Row" type="QueryRow_Type" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QuestionaryAnswers_Type">
+<xs:sequence>
+<xs:element name="Answer" minOccurs="1" maxOccurs="unbounded" type="Answer_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QuestionaryConfigurationRq_Type">
+<xs:sequence>
+<xs:element ref="QuestionaryID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QuestionaryConfiguration_Type">
+<xs:sequence>
+<xs:element name="ID" type="xs:string"/>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="OnSubmit" type="OnSubmit_Type"/>
+<xs:element name="Order" type="xs:string"/>
+<xs:element name="ControllerPrecedence" type="CONTROLLER_PRECEDENCE_TYPE" minOccurs="0"/>
+<xs:element name="Questions">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Question" type="QuestionDef_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="MainGroup" type="QuestionsGroup_Type"/>
+<xs:element name="Groups" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Group" type="QuestionsGroup_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterUserQuestionaryRq_Type">
+<xs:sequence>
+<xs:element ref="Questionary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterUserQuestionaryRs_Type">
+<xs:sequence>
+<xs:element name="UserQID" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RowType">
+<xs:sequence>
+<xs:element name="Column" type="Parameter_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RowSetType">
+<xs:sequence>
+<xs:element name="Row" type="RowType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Rule_Type">
+<xs:sequence>
+<xs:choice minOccurs="0">
+<xs:element name="ID" type="xs:long"/>
+<xs:element name="Code" type="xs:string"/>
+</xs:choice>
+<xs:element name="Type" type="xs:string" minOccurs="0"/>
+<xs:element name="Parameters" type="ContextParameters_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RuleResult_Type">
+<xs:sequence>
+<xs:element name="RuleRef" type="Rule_Type"/>
+<xs:element name="Status" type="BOOLEAN_NUMBER_TYPE"/>
+<xs:element name="Message" type="xs:string" minOccurs="0"/>
+<xs:element name="Value" type="Parameter_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RuleResultCollection_Type">
+<xs:sequence>
+<xs:element name="RuleResult" type="RuleResult_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RulesCollection_Type">
+<xs:sequence>
+<xs:element name="RuleRef" type="Rule_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RulesRq_Type">
+<xs:sequence>
+<xs:element name="GlobalParameters" type="ContextParameters_Type" minOccurs="0"/>
+<xs:element name="Rules" type="RulesCollection_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RulesRs_Type">
+<xs:sequence>
+<xs:element name="Results" type="RuleResultCollection_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ServiceBusParam_Type" mixed="true">
+<xs:attribute name="name" type="xs:string" use="required"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="SetQuestionaryConfigurationRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QuestionDef_Type">
+<xs:sequence>
+<xs:element name="ID" type="xs:string"/>
+<xs:element name="Text" type="xs:string"/>
+<xs:element name="Mandatory" type="BOOLEAN_STRING_TYPE"/>
+<xs:element name="DataType" type="ANSWER_DATA_TYPE"/>
+<xs:element name="DefaultAnswer" type="xs:string" minOccurs="0"/>
+<xs:element name="Page" type="xs:integer"/>
+<xs:element name="Order" type="xs:string"/>
+<xs:element name="Hidden" type="BOOLEAN_STRING_TYPE"/>
+<xs:element name="Formatting" type="xs:string" minOccurs="0"/>
+<xs:element name="ReadOnly" type="BOOLEAN_STRING_TYPE"/>
+<xs:element name="Section" type="xs:string" minOccurs="0"/>
+<xs:element name="DefinedAnswers" minOccurs="0" type="DefinedAnswers_Type"/>
+<xs:element name="Processing" type="Processing_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="QuestionGroupRef_Type">
+<xs:attribute name="questionGroupID" use="required" type="xs:string"/>
+<xs:attribute name="answer" use="required" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="QuestionRef_Type">
+<xs:attribute name="questionID" use="required" type="xs:string"/>
+<xs:attribute name="answer" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="QuestionsGroup_Type">
+<xs:sequence>
+<xs:element name="QuestionRef" type="QuestionRef_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="id" use="optional" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="ReferenceID_Type">
+<xs:sequence>
+<xs:element name="IDComponent" type="IDComponent_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ReferredGroups_Type">
+<xs:sequence>
+<xs:element name="QuestionGroupRef" type="QuestionGroupRef_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterChainRq_Type">
+<xs:sequence>
+<xs:element name="ChainFile" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterChainRs_Type"/>
+<xs:complexType name="RegisterFNOLSRRq_Type">
+<xs:sequence>
+<xs:element ref="PolicyID"/>
+<xs:element name="EventType" type="xs:int"/>
+<xs:element name="EventDate" type="xs:date"/>
+<xs:element name="EventDescription" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterFNOLSRRs_Type">
+<xs:sequence>
+<xs:element name="SRID" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ReplacementAnswers_Type">
+<xs:sequence>
+<xs:element name="ForAnswer" maxOccurs="unbounded" type="ForAnswer_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SetCurrencyRateRs_Type">
+<xs:sequence>
+<xs:element name="CurrencyUpdateResult" type="CurrencyUpdateResult_Type" maxOccurs="unbounded" minOccurs="1"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SetCurrencyRateRq_Type">
+<xs:sequence>
+<xs:element name="Currency" minOccurs="1" maxOccurs="unbounded" type="Currency_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UploadAttachmentsRs_Type">
+<xs:sequence>
+<xs:element name="BinaryAttachments" type="AttachmentIds_Type" minOccurs="0"/>
+<xs:element name="WFAttachments" type="AttachmentIds_Type" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UploadAttachmentsRq_Type">
+<xs:sequence>
+<xs:element name="ReferenceID" type="ReferenceID_Type" minOccurs="1"/>
+<xs:element name="ReferenceType" type="INPUT_PARAM_TYPE" minOccurs="1"/>
+<xs:element name="ContainerType" type="CONTAINER_TYPE" minOccurs="0" nillable="true"/>
+<xs:element name="BinaryAttachments" type="BinaryAttachments_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ViewIDType">
+<xs:attribute name="amName" type="xs:string" use="required"/>
+<xs:attribute name="amClass" type="xs:string" use="required"/>
+<xs:attribute name="viewName" type="xs:string" use="required"/>
+</xs:complexType>
+<xs:complexType name="WSRef_Type">
+<xs:sequence>
+<xs:element name="ParamQuestion" minOccurs="0" maxOccurs="unbounded" type="QuestionRef_Type"/>
+</xs:sequence>
+<xs:attribute name="wsRef" use="required" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="ZIPPackage_Type">
+<xs:sequence>
+<xs:element name="FileName" type="xs:string"/>
+<xs:element name="MimeType" type="xs:string"/>
+<xs:element name="Data" type="xs:base64Binary" xmime:expectedContentTypes="application/zip"/>
+</xs:sequence>
+</xs:complexType>
+<xs:group name="OpenNewPeriodData_Group">
+<xs:sequence>
+<xs:element name="Year" type="xs:integer"/>
+<xs:element name="Quart" type="xs:integer"/>
+<xs:element name="Month" type="xs:integer"/>
+</xs:sequence>
+</xs:group>
+<xs:simpleType name="CHAIN_OVERRIDE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="OVERRIDE|APPEND|DENY"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CONTAINER_TYPE">
+<xs:restriction base="xs:string">
+<xs:enumeration value="BINARY_DATA"/>
+<xs:enumeration value="WF_ATTACHMENT"/>
+<xs:enumeration value="BOTH"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CONTROLLER_PRECEDENCE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="WS|CONFIG"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="INPUT_PARAM_TYPE">
+<xs:restriction base="xs:string">
+<xs:enumeration value="CLAIM"/>
+<xs:enumeration value="POLICY"/>
+<xs:enumeration value="PEOPLE"/>
+<xs:enumeration value="DOCUMENT"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="JavaClassType">
+<xs:restriction base="xs:string">
+<xs:pattern value="\w+(\.\w+)*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="OPERATION_RESULT_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="S|W|E"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PERIOD_VALUE_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="DAY|MONTH"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="POLICY_NOTIFICATION_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="TORENEW|DUEPREM|DOCWAIT|CUSTOM"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="XPathType">
+<xs:restriction base="xs:string">
+<xs:annotation>
+<xs:documentation>TODO</xs:documentation>
+</xs:annotation>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ANSWER_DATA_TYPE">
+<xs:restriction base="xs:string">
+<xs:pattern value="T|D|N"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

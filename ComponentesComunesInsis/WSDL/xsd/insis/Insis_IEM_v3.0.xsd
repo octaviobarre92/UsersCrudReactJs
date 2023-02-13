@@ -1,0 +1,140 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           xmlns:xdb="http://xmlns.oracle.com/xdb" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!-- Service Request messages -->
+  <xs:element name="GetProductsRq" type="GetProductsRq_Type"/>
+  <xs:element name="GetConfigurationsRq" type="GetConfigurationsRq_Type"/>
+  <xs:element name="ExportProductRq" type="ExportProductRq_Type"/>
+  <xs:element name="ImportProductRq" type="ImportProductRq_Type"/>
+  <xs:element name="ExportConfigurationsRq"
+              type="ExportConfigurationsRq_Type"/>
+  <xs:element name="ImportConfigurationsRq"
+              type="ImportConfigurationsRq_Type"/>
+  <!-- Service Response messages -->            
+  <xs:element name="GetProductsRs" type="GetProductsRs_Type"/>
+  <xs:element name="GetConfigurationsRs" type="GetConfigurationsRs_Type"/>
+  <xs:element name="ExportProductRs" type="ExportProductRs_Type"/>
+  <xs:element name="ImportProductRs" type="ImportProductRs_Type"/>
+  <xs:element name="ExportConfigurationsRs"
+              type="ExportConfigurationsRs_Type"/>
+  <xs:element name="ImportConfigurationsRs"
+              type="ImportConfigurationsRs_Type"/>            
+  <xs:group name="IEM_Rq_Group">
+    <xs:choice>
+      <xs:element name="GetProductsRq" type="GetProductsRq_Type"/>
+      <xs:element name="GetConfigurationsRq" type="GetConfigurationsRq_Type"/>
+      <xs:element name="ExportProductRq" type="ExportProductRq_Type"/>
+      <xs:element name="ImportProductRq" type="ImportProductRq_Type"/>
+      <xs:element name="ExportConfigurationsRq"
+                  type="ExportConfigurationsRq_Type"/>
+      <xs:element name="ImportConfigurationsRq"
+                  type="ImportConfigurationsRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="IEM_Rs_Group">
+    <xs:choice>
+      <xs:element name="GetProductsRs" type="GetProductsRs_Type"/>
+      <xs:element name="GetConfigurationsRs" type="GetConfigurationsRs_Type"/>
+      <xs:element name="ExportProductRs" type="ExportProductRs_Type"/>
+      <xs:element name="ImportProductRs" type="ImportProductRs_Type"/>
+      <xs:element name="ExportConfigurationsRs"
+                  type="ExportConfigurationsRs_Type"/>
+      <xs:element name="ImportConfigurationsRs"
+                  type="ImportConfigurationsRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  
+  <!-- referenced elements -->
+  <xs:element name="ForeignKey" type="ForeignKey_Type"/>
+  <xs:element name="Product" type="Product_Type"/>
+  <xs:element name="Table" type="Table_Type"/>
+  
+  <!-- Types -->
+  <xs:complexType name="ForeignKey_Type">
+    <xs:attribute name="name" use="required" type="xs:string"/>
+    <xs:attribute name="table" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="ForeignKeys_Type">
+    <xs:sequence>
+      <xs:element ref="ForeignKey" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetProductsRq_Type" xdb:SQLType="GetProductsRq_Type"/>
+    <xs:complexType name="GetProductsRs_Type">
+        <xs:sequence>
+            <xs:element name="Products" type="Products_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+  <xs:complexType name="GetConfigurationsRq_Type" xdb:SQLType="GetConfigurationsRq_Type"/>
+    <xs:complexType name="GetConfigurationsRs_Type">
+        <xs:sequence>
+            <xs:element name="Tables" type="Tables_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+  <xs:complexType name="ExportConfigurationsRq_Type">
+    <xs:sequence>
+      <xs:element name="Tables" type="Tables_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExportConfigurationsRs_Type"/>
+  <xs:complexType name="ImportConfigurationsRq_Type"/>
+  <xs:complexType name="ImportConfigurationsRs_Type">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExportProductRq_Type" xdb:SQLType="ExportProductRq_Type">
+      <xs:sequence>
+        <xs:element name="ID" type="xs:string"/>
+      </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExportProductRs_Type" xdb:SQLType="ExportProductRs_Type">
+      <xs:sequence>
+        <xs:element name="ProductData" type="ProductData_Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  <xs:complexType name="ImportProductRq_Type"/>
+  <xs:complexType name="ImportProductRs_Type">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Product_Type">
+        <xs:sequence>
+            <xs:element name="ID" type="xs:string"/>
+            <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Products_Type">
+        <xs:sequence>
+            <xs:element ref="Product" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+  <xs:complexType name="Table_Type">
+    <xs:sequence maxOccurs="1" minOccurs="1">
+      <xs:element name="ForeignKeys" type="ForeignKeys_Type" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Tables_Type">
+    <xs:sequence>
+      <xs:element ref="Table" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductData_Type">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" use="required"/>
+    <xs:attribute name="description"/>
+  </xs:complexType>
+  <xs:complexType name="ExportObject_Type">
+    <xs:sequence>
+      <xs:any/>
+    </xs:sequence>
+    <xs:attribute name="id" use="required"/>
+  </xs:complexType>
+</xs:schema>

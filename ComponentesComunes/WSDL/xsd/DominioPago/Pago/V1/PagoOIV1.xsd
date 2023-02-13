@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1"
+	version="1.0" 
+	elementFormDefault="qualified"
+	xmlns:dpagpag="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1">		
+
+	<xsd:complexType name="DetallePago">
+		<xsd:sequence>
+			<xsd:element name="IdTransaccion" type="xsd:int"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Numero de Referencia del Pago
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TipoPago" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica el medio de pago de la
+						transaccion (Visa, Master, etc)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FechaCobro" type="xsd:date" maxOccurs="1"
+				minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica la fecha de cobro.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CantidadCuotas" type="xsd:int"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="MontoPrimaTotal" type="xsd:double"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="InfoPolizaPago"
+				type="dpagpag:InfoPolizaPagoTipo" maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="UsuarioPago" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Sucursal" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+			</xsd:element>
+
+			<xsd:element name="Monto" type="xsd:double" maxOccurs="1"
+				minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Monto a pagar de la prima
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Referencia" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Numero de recibo del pago.</xsd:documentation>
+				</xsd:annotation></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InfoPolizaPagoTipo">
+		<xsd:sequence>
+			<xsd:element name="NumeroPoliza" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="CodigoProducto" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="FechaVigenciaInicio" type="xsd:date"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="FechaVigenciaFin" type="xsd:date" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="CCMSIVI"
+	targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioPoliza/Poliza/V1"
+	xmlns:mpolpol="http://www.sura.com/MensajeIntegracion/DominioPoliza/PolizaMIN/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioPoliza/Poliza/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true" name="PolizaBindingSOAP"
+					originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+
+			<xsd:import
+				namespace="http://www.sura.com/MensajeIntegracion/DominioPoliza/PolizaMIN/V1"
+				schemaLocation="xsd/DominioPoliza/Poliza/V1/PolizaMINV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="RegistrarRoutingIdInsisMsjSol">
+		<wsdl:part element="mpolpol:RegistrarRoutingIdInsisMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="RegistrarRoutingIdInsisMsjResp">
+		<wsdl:part element="mpolpol:RegistrarRoutingIdInsisMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConsultarDocumentoInsisMsjSol">
+		<wsdl:part element="mpolpol:ConsultarDocumentoInsisMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConsultarDocumentoInsisMsjResp">
+		<wsdl:part element="mpolpol:ConsultarDocumentoInsisMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GenerarImprimibleMsjSol">
+		<wsdl:part element="mpolpol:GenerarImprimibleMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GenerarImprimibleMsjResp">
+		<wsdl:part element="mpolpol:GenerarImprimibleMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="PolizaPortTypeSOAP">
+		<wsdl:operation name="RegistrarRoutingIdInsis">
+			<wsdl:input message="tns:RegistrarRoutingIdInsisMsjSol"
+				name="RegistrarRoutingIdInsisRq" />
+			<wsdl:output message="tns:RegistrarRoutingIdInsisMsjResp"
+				name="RegistrarRoutingIdInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarDocumentoInsis">
+			<wsdl:input message="tns:ConsultarDocumentoInsisMsjSol"
+				name="ConsultarDocumentoInsisRq" />
+			<wsdl:output message="tns:ConsultarDocumentoInsisMsjResp"
+				name="ConsultarDocumentoInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="GenerarImprimible">
+			<wsdl:input message="tns:GenerarImprimibleMsjSol"
+				name="GenerarImprimibleRq" />
+			<wsdl:output message="tns:GenerarImprimibleMsjResp"
+				name="GenerarImprimibleRs" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PolizaBindingSOAP" type="tns:PolizaPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="RegistrarRoutingIdInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="RegistrarRoutingIdInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="RegistrarRoutingIdInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarDocumentoInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="ConsultarDocumentoInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ConsultarDocumentoInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+				<wsdl:operation name="GenerarImprimible">
+			<soap:operation style="document" />
+			<wsdl:input name="GenerarImprimibleRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GenerarImprimibleRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CCMSIVI">
+		<wsdl:port binding="tns:PolizaBindingSOAP" name="PolizaPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioPoliza/Poliza/V1/PolizaPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

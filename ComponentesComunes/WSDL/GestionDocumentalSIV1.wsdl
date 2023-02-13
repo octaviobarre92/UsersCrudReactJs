@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="GestionDocumentalSIV1"
+	targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioUtilitario/GestionDocumental/V1"
+	xmlns:mdutidoc="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioUtilitario/GestionDocumental/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true"
+					name="GestionDocumentalBindingSOAP" originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"
+				schemaLocation="xsd/DominioUtilitario/GestionDocumental/V1/GestionDocumentalMIV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CargarDocumentoMsjSol">
+		<wsdl:part element="mdutidoc:CargarDocumentoMsjSol" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="CargarDocumentoMsjResp">
+		<wsdl:part element="mdutidoc:CargarDocumentoMsjResp" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AlmacenarDocumentoOnBaseMsjSol">
+		<wsdl:part element="mdutidoc:AlmacenarDocumentoOnBaseMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AlmacenarDocumentoOnBaseMsjResp">
+		<wsdl:part element="mdutidoc:AlmacenarDocumentoOnBaseMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GestionarParametrosECMInsisMsjSol">
+		<wsdl:part element="mdutidoc:GestionarParametrosECMInsisMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GestionarParametrosECMInsisMsjResp">
+		<wsdl:part element="mdutidoc:GestionarParametrosECMInsisMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ObtenerDocumentoOnBaseMsjSol">
+		<wsdl:part element="mdutidoc:ObtenerDocumentoOnBaseMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ObtenerDocumentoOnBaseMsjResp">
+		<wsdl:part element="mdutidoc:ObtenerDocumentoOnBaseMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConsultarArchivoFTPMsjSol">
+		<wsdl:part element="mdutidoc:ConsultarArchivoFTPMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ConsultarArchivoFTPMsjResp">
+		<wsdl:part element="mdutidoc:ConsultarArchivoFTPMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="EnviarDocumentoFSMsjSol">
+		<wsdl:part element="mdutidoc:EnviarDocumentoFSMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="EnviarDocumentoFSMsjResp">
+		<wsdl:part element="mdutidoc:EnviarDocumentoFSMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="GestionDocumentalPortTypeSOAP">
+		<wsdl:operation name="CargarDocumento">
+			<wsdl:input message="tns:CargarDocumentoMsjSol" name="CargarDocumentoRq" />
+			<wsdl:output message="tns:CargarDocumentoMsjResp" name="CargarDocumentoRs" />
+		</wsdl:operation>
+		<wsdl:operation name="AlmacenarDocumentoOnBase">
+			<wsdl:input message="tns:AlmacenarDocumentoOnBaseMsjSol"
+				name="AlmacenarDocumentoOnBaseRq" />
+			<wsdl:output message="tns:AlmacenarDocumentoOnBaseMsjResp"
+				name="AlmacenarDocumentoOnBaseRs" />
+		</wsdl:operation>
+		<wsdl:operation name="GestionarParametrosECMInsis">
+			<wsdl:input message="tns:GestionarParametrosECMInsisMsjSol"
+				name="GestionarParametrosECMInsisRq" />
+			<wsdl:output message="tns:GestionarParametrosECMInsisMsjResp"
+				name="GestionarParametrosECMInsisRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerDocumentoOnBase">
+			<wsdl:input message="tns:ObtenerDocumentoOnBaseMsjSol" name="ObtenerDocumentoOnBaseRq" />
+			<wsdl:output message="tns:ObtenerDocumentoOnBaseMsjResp" name="ObtenerDocumentoOnBaseRs" />
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarArchivoFTP">
+			<wsdl:input message="tns:ConsultarArchivoFTPMsjSol" name="ConsultarArchivoFTPRq" />
+			<wsdl:output message="tns:ConsultarArchivoFTPMsjResp" name="ConsultarArchivoFTPRs" />
+		</wsdl:operation>
+			<wsdl:operation name="EnviarDocumentoFS">
+			<wsdl:input message="tns:EnviarDocumentoFSMsjSol" name="EnviarDocumentoFSRq" />
+			<wsdl:output message="tns:EnviarDocumentoFSMsjResp" name="EnviarDocumentoFSRs" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GestionDocumentalBindingSOAP" type="tns:GestionDocumentalPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="CargarDocumento">
+			<soap:operation style="document" />
+			<wsdl:input name="CargarDocumentoRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CargarDocumentoRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AlmacenarDocumentoOnBase">
+			<soap:operation style="document" />
+			<wsdl:input name="AlmacenarDocumentoOnBaseRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AlmacenarDocumentoOnBaseRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GestionarParametrosECMInsis">
+			<soap:operation style="document" />
+			<wsdl:input name="GestionarParametrosECMInsisRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GestionarParametrosECMInsisRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerDocumentoOnBase">
+			<soap:operation style="document" />
+			<wsdl:input name="ObtenerDocumentoOnBaseRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ObtenerDocumentoOnBaseRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarArchivoFTP">
+			<soap:operation style="document" />
+			<wsdl:input name="ConsultarArchivoFTPRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ConsultarArchivoFTPRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+				<wsdl:operation name="EnviarDocumentoFS">
+			<soap:operation style="document" />
+			<wsdl:input name="EnviarDocumentoFSRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="EnviarDocumentoFSRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GestionDocumentalSIV1">
+		<wsdl:port binding="tns:GestionDocumentalBindingSOAP" name="GestionDocumentalPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioUtilitario/GestionDocumental/V1/GestionDocumentalPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

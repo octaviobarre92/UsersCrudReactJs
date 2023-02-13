@@ -1,0 +1,1384 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!--  Service Request messages  -->
+  <xs:element name="AcceptQuoteRq" type="RegQuoteVerRq_Type"/>
+  <xs:element name="AnnexesRq">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="AnnexesRq_Type">
+          <xs:attribute name="policyNo"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelApplicationRq" type="CancelApplicationRq_Type"/>
+  <xs:element name="ConfirmApplicationRq" type="ConfirmAppRq_Type"/>
+  <xs:element name="ConvertApplicationToPolicyRq" type="CnvrtAppToPlcyRq_Type"/>
+  <xs:element name="ConvertQuotationToApplicationRq" type="CnvrtQuotToApplRq_Type"/>
+  <xs:element name="FindClientPoliciesRq" type="FndClntPlcesRq_Type"/>
+  <xs:element name="FindEngagementRq" type="FindEngagementRq_Type"/>
+  <xs:element name="FindObjectsPoliciesRq" type="FindObjectsPoliciesRq_Type"/>
+  <xs:element name="FindPolicyByNumberRq" type="FndPlcyByNumRq_Type"/>
+  <xs:element name="GetCommissionRq" type="GetCommissionRq_Type"/>
+  <xs:element name="GetDailyFundPricesRq" type="GetDailyFundPricesRq_Type"/>
+  <xs:element name="GetPolicyDocumentsRq" type="GetPolicyDocumentsRq_Type"/>
+  <xs:element name="GetPolicyRulesRq" type="GetPolicyRulesRq_Type"/>
+  <xs:element name="InvalidateAnnexRq" type="InvalidateAnnexRq_Type"/>
+  <xs:element name="ModifyApplicationRq" type="ModifyApplRq_Type"/>
+  <xs:element name="ModifyEngagementQuoteRq" type="ModifyEngagementQuoteRq_Type"/>
+  <xs:element name="ModifyEngagementRq" type="ModifyEngagementRq_Type"/>
+  <xs:element name="PolicyRenewRq" type="PolicyRenewRq_Type"/>
+  <xs:element name="ProcessLetterOfCreditRq" type="ProcessLetterOfCreditRq_Type"/>
+  <xs:element name="RegisterAddObjAnnexRq" type="RegisterAddObjAnnexRq_Type"/>
+  <xs:element name="RegisterAddCovAnnexRq" type="RegisterAddCovAnnexRq_Type"/>
+  <xs:element name="RegisterApplicationRq" type="RegsrApplRq_Type"/>
+  <xs:element name="RegisterCancelPolicyAnnexRq" type="RegisterCancelPolicyAnnexRq_Type"/>
+  <xs:element name="RegisterCancelObjectAnnexRq" type="RegisterCancelObjectAnnexRq_Type"/>
+  <xs:element name="RegisterCancelCoverAnnexRq" type="RegisterCancelCoverAnnexRq_Type"/>
+  <xs:element name="RegisterCargoShipmentsAnnexRq" type="RegisterCargoShipmentsAnnexRq_Type"/>
+  <xs:element name="RegisterChngCovAnnexRq" type="RegisterChngCovAnnexRq_Type"/>
+  <xs:element name="RegisterChngFundDistributionAnnexRq" type="RegisterChngFundDistributionAnnexRq_Type"/>
+  <xs:element name="RegisterChngObjAnnexRq" type="RegisterChngObjAnnexRq_Type"/>
+  <xs:element name="RegisterEngagementRq" type="RegisterEngagementRq_Type"/>
+  <xs:element name="RegisterEngagementQuoteRq" type="RegisterEngagementQuoteRq_Type"/>
+  <xs:element name="RegisterInsuranceConditionAnnexRq" type="RegisterInsCondAnnexRq_Type"/>
+  <xs:element name="RegisterObjectCreditedRq" type="RegisterObjectCreditedRq_Type"/>
+  <xs:element name="RegisterObjRelatedPersonRq" type="RegisterObjRelatedPersonRq_Type"/>
+  <xs:element name="RegisterOtherChangesAnnexRq" type="RegisterOtherChangesAnnexRq_Type"/>
+  <xs:element name="RegisterPolicyCommissionRq" type="RegisterPolicyCommissionRq_Type"/>
+  <xs:element name="RegisterPolicyProlongationAnnexRq" type="RegisterPolicyProlongationAnnexRq_Type"/>
+  <xs:element name="RegisterQuotationRq" type="RegsrApplRq_Type"/>
+  <xs:element name="RegisterQuoteVersionRq" type="RegQuoteVerRq_Type"/>
+  <xs:element name="RejectQuoteRq" type="RejectQuoteRq_Type"/>
+  <xs:element name="SetPolicyRulesRq" type="SetPolicyRulesRq_Type"/>
+  <xs:element name="SubmitQuoteToClientRq" type="RegQuoteVerRq_Type"/>
+  <!--  Service Response messages  -->
+  <xs:element name="AcceptQuoteRs" type="AcceptQuoteRs_Type"/>
+  <xs:element name="AnnexesRs" type="AnnexesRs_Type"/>
+  <xs:element name="CancelApplicationRs" type="CancelApplicationRs_Type"/>
+  <xs:element name="ConfirmApplicationRs" type="ConfirmAppRs_Type"/>
+  <xs:element name="ConvertApplicationToPolicyRs" type="CnvrtAppToPlcyRs_Type"/>
+  <xs:element name="ConvertQuotationToApplicationRs" type="CnvrtQuotToApplRs_Type"/>
+  <xs:element name="FindClientPoliciesRs" type="FndClntPlcesRs_Type"/>
+  <xs:element name="FindEngagementRs" type="FindEngagementRs_Type"/>
+  <xs:element name="FindPolicyByNumberRs" type="FndPlcyByNumRs_Type"/>
+  <xs:element name="FindObjectsPoliciesRs" type="FindObjectsPoliciesRs_Type"/>
+  <xs:element name="GetCommissionRs" type="GetCommissionRs_Type"/>
+  <xs:element name="GetDailyFundPricesRs" type="GetDailyFundPricesRs_Type"/>
+  <xs:element name="GetPolicyDocumentsRs" type="GetPolicyDocumentsRs_Type"/>
+  <xs:element name="GetPolicyRulesRs" type="GetPolicyRulesRs_Type"/>
+  <xs:element name="InvalidateAnnexRs" type="InvalidateAnnexRs_Type"/>
+  <xs:element name="ModifyApplicationRs" type="RegsrApplRs_Type"/>
+  <xs:element name="ModifyEngagementQuoteRs" type="ModifyEngagementQuoteRs_Type"/>
+  <xs:element name="ModifyEngagementRs" type="ModifyEngagementRs_Type"/>
+  <xs:element name="PolicyRenewRs" type="PolicyRenewRs_Type"/>
+  <xs:element name="ProcessLetterOfCreditRs" type="ProcessLetterOfCreditRs_Type"/>
+  <xs:element name="RegisterApplicationRs" type="RegsrApplRs_Type"/>
+  <xs:element name="RegisterAddObjAnnexRs" type="RegisterAddObjAnnexRs_Type"/>
+  <xs:element name="RegisterAddCovAnnexRs" type="RegisterAddCovAnnexRs_Type"/>
+  <xs:element name="RegisterCancelPolicyAnnexRs" type="RegisterCancelPolicyAnnexRs_Type"/>
+  <xs:element name="RegisterCancelObjectAnnexRs" type="RegisterCancelObjectAnnexRs_Type"/>
+  <xs:element name="RegisterCancelCoverAnnexRs" type="RegisterCancelCoverAnnexRs_Type"/>
+  <xs:element name="RegisterCargoShipmentsAnnexRs" type="RegisterCargoShipmentsAnnexRs_Type"/>
+  <xs:element name="RegisterChngCovAnnexRs" type="RegisterChngCovAnnexRs_Type"/>
+  <xs:element name="RegisterChngObjAnnexRs" type="RegisterChngObjAnnexRs_Type"/>
+  <xs:element name="RegisterChngFundDistributionAnnexRs" type="RegisterChngFundDistributionAnnexRs_Type"/>
+  <xs:element name="RegisterEngagementRs" type="RegisterEngagementRs_Type"/>
+  <xs:element name="RegisterEngagementQuoteRs" type="RegisterEngagementQuoteRs_Type"/>
+  <xs:element name="RegisterInsuranceConditionAnnexRs" type="RegisterInsCondAnnexRs_Type"/>
+  <xs:element name="RegisterObjectCreditedRs" type="RegisterObjectCreditedRs_Type"/>
+  <xs:element name="RegisterObjRelatedPersonRs" type="RegisterObjRelatedPersonRs_Type"/>
+  <xs:element name="RegisterOtherChangesAnnexRs" type="RegisterOtherChangesAnnexRs_Type"/>
+  <xs:element name="RegisterPolicyCommissionRs">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="RegisterPolicyCommissionRs_Type"/>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterPolicyProlongationAnnexRs" type="RegisterPolicyProlongationAnnexRs_Type"/>
+  <xs:element name="RegisterQuotationRs" type="RegsrApplRs_Type"/>
+  <xs:element name="RegisterQuoteVersionRs" type="RegisterQuoteVersionRs_Type"/>
+  <xs:element name="RejectQuoteRs" type="RejectQuoteRs_Type"/>
+  <xs:element name="SetPolicyRulesRs" type="SetPolicyRulesRs_Type"/>
+  <xs:element name="SubmitQuoteToClientRs" type="SubmitQuoteToClientRs_Type"/>
+  <xs:group name="PAM_Rq_Group">
+    <xs:choice>
+      <xs:element name="AcceptQuoteRq" type="RegQuoteVerRq_Type"/>
+      <xs:element name="AnnexesRq">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="AnnexesRq_Type">
+              <xs:attribute name="policyNo"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelApplicationRq" type="CancelApplicationRq_Type"/>
+      <xs:element name="ConfirmApplicationRq" type="ConfirmAppRq_Type"/>
+      <xs:element name="ConvertApplicationToPolicyRq" type="CnvrtAppToPlcyRq_Type"/>
+      <xs:element name="ConvertQuotationToApplicationRq" type="CnvrtQuotToApplRq_Type"/>
+      <xs:element name="FindClientPoliciesRq" type="FndClntPlcesRq_Type"/>
+      <xs:element name="FindEngagementRq" type="FindEngagementRq_Type"/>
+      <xs:element name="FindObjectsPoliciesRq" type="FindObjectsPoliciesRq_Type"/>
+      <xs:element name="FindPolicyByNumberRq" type="FndPlcyByNumRq_Type"/>
+      <xs:element name="GetCommissionRq" type="GetCommissionRq_Type"/>
+      <xs:element name="GetDailyFundPricesRq" type="GetDailyFundPricesRq_Type"/>
+      <xs:element name="GetPolicyDocumentsRq" type="GetPolicyDocumentsRq_Type"/>
+      <xs:element name="GetPolicyRulesRq" type="GetPolicyRulesRq_Type"/>
+      <xs:element name="InvalidateAnnexRq" type="InvalidateAnnexRq_Type"/>
+      <xs:element name="ModifyApplicationRq" type="ModifyApplRq_Type"/>
+      <xs:element name="ModifyEngagementQuoteRq" type="ModifyEngagementQuoteRq_Type"/>
+      <xs:element name="ModifyEngagementRq" type="ModifyEngagementRq_Type"/>
+      <xs:element name="PolicyRenewRq" type="PolicyRenewRq_Type"/>
+      <xs:element name="ProcessLetterOfCreditRq" type="ProcessLetterOfCreditRq_Type"/>
+      <xs:element name="RegisterAddObjAnnexRq" type="RegisterAddObjAnnexRq_Type"/>
+      <xs:element name="RegisterAddCovAnnexRq" type="RegisterAddCovAnnexRq_Type"/>
+      <xs:element name="RegisterApplicationRq" type="RegsrApplRq_Type"/>
+      <xs:element name="RegisterCancelPolicyAnnexRq" type="RegisterCancelPolicyAnnexRq_Type"/>
+      <xs:element name="RegisterCancelObjectAnnexRq" type="RegisterCancelObjectAnnexRq_Type"/>
+      <xs:element name="RegisterCancelCoverAnnexRq" type="RegisterCancelCoverAnnexRq_Type"/>
+      <xs:element name="RegisterCargoShipmentsAnnexRq" type="RegisterCargoShipmentsAnnexRq_Type"/>
+      <xs:element name="RegisterChngCovAnnexRq" type="RegisterChngCovAnnexRq_Type"/>
+      <xs:element name="RegisterChngFundDistributionAnnexRq" type="RegisterChngFundDistributionAnnexRq_Type"/>
+      <xs:element name="RegisterChngObjAnnexRq" type="RegisterChngObjAnnexRq_Type"/>
+      <xs:element name="RegisterEngagementRq" type="RegisterEngagementRq_Type"/>
+      <xs:element name="RegisterEngagementQuoteRq" type="RegisterEngagementQuoteRq_Type"/>
+      <xs:element name="RegisterInsuranceConditionAnnexRq" type="RegisterInsCondAnnexRq_Type"/>
+      <xs:element name="RegisterObjectCreditedRq" type="RegisterObjectCreditedRq_Type"/>
+      <xs:element name="RegisterObjRelatedPersonRq" type="RegisterObjRelatedPersonRq_Type"/>
+      <xs:element name="RegisterOtherChangesAnnexRq" type="RegisterOtherChangesAnnexRq_Type"/>
+      <xs:element name="RegisterPolicyCommissionRq" type="RegisterPolicyCommissionRq_Type"/>
+      <xs:element name="RegisterPolicyProlongationAnnexRq" type="RegisterPolicyProlongationAnnexRq_Type"/>
+      <xs:element name="RegisterQuotationRq" type="RegsrApplRq_Type"/>
+      <xs:element name="RegisterQuoteVersionRq" type="RegQuoteVerRq_Type"/>
+      <xs:element name="RejectQuoteRq" type="RejectQuoteRq_Type"/>
+      <xs:element name="SetPolicyRulesRq" type="SetPolicyRulesRq_Type"/>
+      <xs:element name="SubmitQuoteToClientRq" type="RegQuoteVerRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="PAM_Rs_Group">
+    <xs:choice>
+      <xs:element name="AcceptQuoteRs" type="AcceptQuoteRs_Type"/>
+      <xs:element name="AnnexesRs" type="AnnexesRs_Type"/>
+      <xs:element name="CancelApplicationRs" type="CancelApplicationRs_Type"/>
+      <xs:element name="ConfirmApplicationRs" type="ConfirmAppRs_Type"/>
+      <xs:element name="ConvertApplicationToPolicyRs" type="CnvrtAppToPlcyRs_Type"/>
+      <xs:element name="ConvertQuotationToApplicationRs" type="CnvrtQuotToApplRs_Type"/>
+      <xs:element name="FindClientPoliciesRs" type="FndClntPlcesRs_Type"/>
+      <xs:element name="FindEngagementRs" type="FindEngagementRs_Type"/>
+      <xs:element name="FindPolicyByNumberRs" type="FndPlcyByNumRs_Type"/>
+      <xs:element name="FindObjectsPoliciesRs" type="FindObjectsPoliciesRs_Type"/>
+      <xs:element name="GetCommissionRs" type="GetCommissionRs_Type"/>
+      <xs:element name="GetDailyFundPricesRs" type="GetDailyFundPricesRs_Type"/>
+      <xs:element name="GetPolicyDocumentsRs" type="GetPolicyDocumentsRs_Type"/>
+      <xs:element name="GetPolicyRulesRs" type="GetPolicyRulesRs_Type"/>
+      <xs:element name="InvalidateAnnexRs" type="InvalidateAnnexRs_Type"/>
+      <xs:element name="ModifyApplicationRs" type="RegsrApplRs_Type"/>
+      <xs:element name="ModifyEngagementQuoteRs" type="ModifyEngagementQuoteRs_Type"/>
+      <xs:element name="ModifyEngagementRs" type="ModifyEngagementRs_Type"/>
+      <xs:element name="PolicyRenewRs" type="PolicyRenewRs_Type"/>
+      <xs:element name="ProcessLetterOfCreditRs" type="ProcessLetterOfCreditRs_Type"/>
+      <xs:element name="RegisterApplicationRs" type="RegsrApplRs_Type"/>
+      <xs:element name="RegisterAddObjAnnexRs" type="RegisterAddObjAnnexRs_Type"/>
+      <xs:element name="RegisterAddCovAnnexRs" type="RegisterAddCovAnnexRs_Type"/>
+      <xs:element name="RegisterCancelPolicyAnnexRs" type="RegisterCancelPolicyAnnexRs_Type"/>
+      <xs:element name="RegisterCancelObjectAnnexRs" type="RegisterCancelObjectAnnexRs_Type"/>
+      <xs:element name="RegisterCancelCoverAnnexRs" type="RegisterCancelCoverAnnexRs_Type"/>
+      <xs:element name="RegisterCargoShipmentsAnnexRs" type="RegisterCargoShipmentsAnnexRs_Type"/>
+      <xs:element name="RegisterChngCovAnnexRs" type="RegisterChngCovAnnexRs_Type"/>
+      <xs:element name="RegisterChngObjAnnexRs" type="RegisterChngObjAnnexRs_Type"/>
+      <xs:element name="RegisterChngFundDistributionAnnexRs" type="RegisterChngFundDistributionAnnexRs_Type"/>
+      <xs:element name="RegisterEngagementRs" type="RegisterEngagementRs_Type"/>
+      <xs:element name="RegisterEngagementQuoteRs" type="RegisterEngagementQuoteRs_Type"/>
+      <xs:element name="RegisterInsuranceConditionAnnexRs" type="RegisterInsCondAnnexRs_Type"/>
+      <xs:element name="RegisterObjectCreditedRs" type="RegisterObjectCreditedRs_Type"/>
+      <xs:element name="RegisterObjRelatedPersonRs" type="RegisterObjRelatedPersonRs_Type"/>
+      <xs:element name="RegisterOtherChangesAnnexRs" type="RegisterOtherChangesAnnexRs_Type"/>
+      <xs:element name="RegisterPolicyCommissionRs">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="RegisterPolicyCommissionRs_Type"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegisterPolicyProlongationAnnexRs" type="RegisterPolicyProlongationAnnexRs_Type"/>
+      <xs:element name="RegisterQuotationRs" type="RegsrApplRs_Type"/>
+      <xs:element name="RegisterQuoteVersionRs" type="RegisterQuoteVersionRs_Type"/>
+      <xs:element name="RejectQuoteRs" type="RejectQuoteRs_Type"/>
+      <xs:element name="SetPolicyRulesRs" type="SetPolicyRulesRs_Type"/>
+      <xs:element name="SubmitQuoteToClientRs" type="SubmitQuoteToClientRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  <!--  Referenced elements  -->
+  <xs:element name="CommissionsBalance" type="CommissionsBalance_Type"/>
+  <xs:element name="ConclusionDate" type="xs:date"/>
+  <xs:element name="ConclusionTime" type="xs:time"/>
+  <xs:element name="CusOID" type="CusOID_Type"/>
+  <xs:element name="DateCovered" type="xs:date"/>
+  <xs:element name="EffectiveTime" type="xs:time"/>
+  <xs:element name="ExpireTime" type="xs:time"/>
+  <xs:element name="InstallmentWay" type="xs:positiveInteger"/>
+  <xs:element name="IssueTime" type="xs:time"/>
+  <xs:element name="Policy" type="Policy_Type"/>
+  <xs:element name="PolicyState" type="xs:string"/>
+  <xs:element name="PolicyStateAux" type="xs:string"/>
+  <xs:element name="Printouts" type="Printouts_Type"/>
+  <xs:element name="ProductDescription" type="xs:string"/>
+  <xs:element name="RenewState" type="xs:string"/>
+  <xs:element name="RenewMode" type="xs:string"/>
+  <xs:element name="Facultatives" type="Facultatives_Type"/>
+  <!--  Types  -->
+  <xs:complexType name="AgentCommissionInfo_Type">
+    <xs:sequence>
+      <xs:element ref="AgentID"/>
+      <xs:element ref="AgentNo"/>
+      <xs:element ref="CommissionsBalance" maxOccurs="unbounded"/>
+      <xs:element name="PolicyCommissionInfo" type="PolicyCommissionInfo_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AnnexesRq_Type">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="1" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AnnexesRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelApplicationRq_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element name="ReasonID" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelApplicationRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Condition_Type">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string"/>
+      <xs:element name="Dimension" type="xs:string" minOccurs="0"/>
+      <xs:element name="Value" minOccurs="0" type="xs:string"/>
+      <xs:element ref="AnnexID" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Conditions_Type">
+    <xs:sequence>
+      <xs:element name="Condition" minOccurs="1" maxOccurs="unbounded" type="Condition_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicySurvivors_Type">
+    <xs:sequence>
+      <xs:element name="Survivor" minOccurs="1" maxOccurs="unbounded" type="PolicySurvivorsRq_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CnvrtAppToPlcyRq_Type">
+    <xs:choice>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="PolicyID"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="CnvrtQuotToApplRq_Type">
+    <xs:choice>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="PolicyID"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ConfirmAppRq_Type">
+    <xs:choice>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="PolicyID"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ConfirmAppRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CnvrtAppToPlcyRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element name="State" type="BOOLEAN_NUMBER_TYPE"/>
+      <!-- xs:element ref="Printouts" minOccurs="0"/ -->
+      <xs:element ref="ReturningMessages" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CnvrtQuotToApplRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element minOccurs="0" ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCargoShipmentsAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="PolicyShipments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCargoShipmentsAnnexRs_Type">
+    <xs:sequence>
+      <xs:element name="Shipments" type="ShipmentsRs_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShipmentsRs_Type">
+    <xs:sequence minOccurs="1">
+      <xs:element name="Shipment" type="ShipmentRs_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShipmentRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="InsuredObjectID"/>
+      <xs:element ref="ObjectID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyShipments_Type">
+    <xs:sequence minOccurs="1">
+      <xs:element name="Insured" type="PolicyShipment_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyShipment_Type">
+    <xs:sequence>
+      <xs:element ref="InsuredObjectID"/>
+      <xs:element name="Shipments" type="Shipments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Shipments_Type">
+    <xs:sequence minOccurs="1">
+      <xs:element name="Shipment" type="Shipment_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Shipment_Type">
+    <xs:sequence>
+      <xs:element name="ShipmentDoc" type="xs:string"/>
+      <xs:element name="ShipmentDate" type="xs:date"/>
+      <xs:element name="InvoiceRate" type="xs:int" minOccurs="0"/>
+      <xs:element name="InvoiceNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceValue" type="xs:double" minOccurs="0"/>
+      <xs:element name="InvoiceCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="TermsOfSale" type="TermsOfSale_Type" minOccurs="0"/>
+      <!--  <xs:element name="Vehicle" type="OVechicle_Type" minOccurs="0"/> -->
+      <xs:element name="Covers" type="ShipmentCovers_Type" minOccurs="0"/>
+      <xs:element name="LettersOfCredit" type="OperLettersOfCredit_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShipmentCovers_Type">
+    <xs:sequence minOccurs="1">
+      <xs:element name="Cover" type="ShipmentCover_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShipmentCover_Type">
+    <xs:sequence>
+      <xs:element ref="CoverCode"/>
+      <xs:element ref="InsuredAmount" minOccurs="0"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element ref="Premium" minOccurs="0"/>
+      <xs:element name="PremiumType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CusOID_Type">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="ID" type="xs:string"/>
+      <xs:element name="ObjectType" type="xs:integer"/>
+      <xs:element name="IDType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BLCCommission_Type">
+    <xs:sequence>
+      <xs:element name="BLCComPk" type="xs:long" minOccurs="0"/>
+      <xs:element name="RecipientID" type="xs:long"/>
+      <xs:element ref="PolicyID"/>
+      <xs:element name="CommType" type="xs:string" minOccurs="1"/>
+      <xs:element name="BLCPremID" type="xs:long" minOccurs="0"/>
+      <xs:element name="AmntType" type="xs:string"/>
+      <xs:element name="Amount" type="xs:double"/>
+      <xs:element name="Currency" type="xs:string"/>
+      <xs:element name="DueDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PaidOn" type="xs:date" minOccurs="0"/>
+      <xs:element name="OrderID" type="xs:long"/>
+      <xs:element name="PeriodID" type="xs:long"/>
+      <xs:element name="PayDoc" type="xs:string" minOccurs="0"/>
+      <xs:element name="Processed" type="xs:string" minOccurs="0"/>
+      <xs:element name="PremAmnt" type="xs:double" minOccurs="0"/>
+      <xs:element name="RecipientIDFrom" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BLCCommissions_Type">
+    <xs:sequence>
+      <xs:element name="BLCCommission" type="BLCCommission_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bonuses_Type">
+    <xs:sequence>
+      <xs:element name="BonusData" type="BonusData_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BonusData_Type">
+    <xs:sequence>
+      <xs:element name="AccDate" type="xs:date"/>
+      <xs:element name="CBonus" type="xs:decimal"/>
+      <xs:element name="ABonus" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommissionsBalance_Type">
+    <xs:attribute name="commissionType" type="xs:double" use="required"/>
+    <!-- xs:simpleContent>
+        <xs:extension base="xs:double">
+            <xs:attribute name="commissionType" />
+        </xs:extension>
+    </xs:simpleContent -->
+  </xs:complexType>
+  <xs:complexType name="Commissions_Type">
+    <xs:sequence>
+      <xs:element name="CommissionData" type="CommissionData_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommissionData_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="AnnexID"/>
+      <xs:element minOccurs="0" ref="CoverCode"/>
+      <xs:element name="CommissionType" type="xs:string"/>
+      <xs:element name="CommissionValue" type="xs:double"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CommDimension" type="LIMIT_DIMENSION_TYPE"/>
+      <xs:element name="OnInstall" type="BOOLEAN_STRING_TYPE"/>
+      <xs:element name="HoldCommission" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+      <xs:element ref="ValidFrom" minOccurs="0"/>
+      <xs:element ref="ValidTo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommissionSplit_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="AgentID" type="xs:integer"/>
+        <xs:element ref="AgentNo"/>
+      </xs:choice>
+      <xs:element name="CommissionPercent" type="PERCENT_TYPE" minOccurs="0"/>
+      <xs:element name="ExpenseType" type="xs:string"/>
+      <xs:element name="ExpenseScope" type="xs:string"/>
+      <xs:element name="GrossComm" type="PERCENT_TYPE" minOccurs="0"/>
+      <xs:element name="NetComm" type="PERCENT_TYPE"/>
+      <xs:element name="AdditionComm" type="PERCENT_TYPE"/>
+      <xs:element name="AdditionExp" type="xs:double"/>
+      <xs:element name="WHRule" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommissionSplits_Type">
+    <xs:sequence>
+      <xs:element name="CommissionSplit" type="CommissionSplit_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Distributions_Type">
+    <xs:sequence maxOccurs="unbounded" minOccurs="1">
+      <xs:element name="Distribution" type="Distribution_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Distribution_Type">
+    <xs:sequence>
+      <xs:element name="ExpenseType" type="xs:string"/>
+      <xs:element name="Amount" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element ref="InsrBegin" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--   -->
+  <xs:complexType name="FndPlcyByNumRsClm_Type">
+    <xs:sequence>
+      <xs:element name="ClaimNo" type="xs:string"/>
+      <xs:element name="EventType" type="xs:string"/>
+      <xs:element name="EventDate" type="xs:date"/>
+      <xs:element name="Requests" type="FndPlcyByNumRsRqsts_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindObjectsPoliciesRq_Type">
+    <xs:choice>
+      <xs:element ref="ObjectID"/>
+      <xs:element name="CustomOID" type="CustomOID_Type"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRsClms_Type">
+    <xs:sequence>
+      <xs:element name="Claim" type="FndPlcyByNumRsClm_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRsCvr_Type">
+    <xs:sequence>
+      <xs:element name="CoverDescription" type="xs:string"/>
+      <xs:element ref="InsuredAmount"/>
+      <xs:element ref="Currency"/>
+      <xs:element name="ModalPremium" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRsCvrs_Type">
+    <xs:sequence>
+      <xs:element name="Cover" type="FndPlcyByNumRsCvr_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntPlcesRq_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element ref="EntityType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntPlcesRs_Type">
+    <xs:sequence>
+      <xs:element name="Policies" type="Policies_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  *************************** FNOLRq *****************************  -->
+  <xs:complexType name="FindObjectsPoliciesRs_Type">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="Policies" type="Policies_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRsRqst_Type">
+    <xs:sequence>
+      <xs:element name="Claimant" type="xs:string"/>
+      <xs:element ref="InsuredAmount" minOccurs="0"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="RequestState" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRsRqsts_Type">
+    <xs:sequence>
+      <xs:element name="Request" type="FndPlcyByNumRsRqst_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindEngagementRq_Type">
+    <xs:choice>
+      <xs:element ref="EngagementID"/>
+      <xs:element ref="EngagementNo"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FindEngagementRs_Type">
+    <xs:sequence>
+      <xs:element name="Engagement" type="Engagement_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Engagement_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element name="Policies" type="EngagementPolicies_Type" minOccurs="0"/>
+      <xs:element name="EngagementData" type="EngagementData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPlcyByNumRs_Type">
+    <xs:sequence>
+      <xs:element name="Policy" type="Policy_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCommissionRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:choice>
+          <xs:element ref="PolicyID"/>
+          <xs:element ref="PolicyNo"/>
+        </xs:choice>
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="AgentID"/>
+            <xs:element ref="AgentNo"/>
+          </xs:choice>
+          <xs:element name="StartDate" type="xs:date"/>
+          <xs:element name="EndDate" type="xs:date"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:element name="CommissionType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCommissionRs_Type">
+    <xs:choice>
+      <xs:element name="AgentCommissionInfo" type="AgentCommissionInfo_Type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="GetDailyFundPricesRq_Type">
+    <xs:sequence>
+      <xs:element name="PriceDate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetDailyFundPricesRs_Type">
+    <xs:sequence>
+      <xs:element name="ULFundPrices" type="ULFundPrices_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyRulesRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyID"/>
+        <xs:element ref="PolicyNo"/>
+      </xs:choice>
+      <xs:element minOccurs="0" ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyRulesRs_Type">
+    <xs:sequence>
+      <xs:element name="PolicyRules" type="PolicyRules_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsuranceConditions_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID" minOccurs="0"/>
+      <xs:element ref="PolicyNo" minOccurs="0"/>
+      <xs:element name="PolicyName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PolicyRef" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="PolicyState" minOccurs="0"/>
+      <xs:element ref="PolicyStateAux" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element name="AgentID" type="xs:long"/>
+        <xs:element name="AgentNo" type="xs:string"/>
+      </xs:choice>
+      <xs:element ref="ProductCode"/>
+      <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="IssueTime" minOccurs="0"/>
+      <xs:element ref="ConclusionDate" minOccurs="0"/>
+      <xs:element ref="ConclusionTime" minOccurs="0"/>
+      <xs:element name="EffectiveDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="EffectiveTime" minOccurs="0"/>
+      <xs:element name="Duration" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="DurationUnits" type="xs:string" minOccurs="0"/>
+      <xs:element name="ExpireDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ExpireTime" minOccurs="0"/>
+      <xs:element name="Installments" minOccurs="0" type="xs:int"/>
+      <xs:element name="PaymentType" minOccurs="0" type="xs:string"/>
+      <xs:element ref="PaymentWay"/>
+      <xs:element name="Renewal" type="xs:string"/>
+      <xs:element name="TariffRule" minOccurs="0" type="xs:string"/>
+      <xs:element name="PaymentDuration" minOccurs="0" type="xs:positiveInteger"/>
+      <xs:element name="PaymentDurUnits" minOccurs="0" type="xs:string"/>
+      <xs:element name="CampaignId" minOccurs="0" type="xs:string"/>
+      <xs:element name="SalesChannelID" minOccurs="0" type="xs:long"/>
+      <xs:element name="CommonConditions" minOccurs="0" type="Conditions_Type"/>
+      <xs:element name="Endorsements" minOccurs="0" type="Endorsements_Type"/>
+      <xs:element name="Territories" minOccurs="0" type="Territories_Type"/>
+      <xs:element ref="Discounts" minOccurs="0"/>
+      <xs:element name="Questionary" minOccurs="0" type="Questionary_Type"/>
+      <xs:element name="Documents" minOccurs="0" type="DocDocuments_Type"/>
+      <xs:element ref="Taxes" minOccurs="0"/>
+      <xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+      <xs:element name="Creditors" minOccurs="0" type="ObjectsCredited_Type"/>
+      <xs:element name="BenefGroups" type="PolicyBenefGroups_Type" minOccurs="0"/>
+      <xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+      <xs:element name="Agents" type="PolicyAgents_Type" minOccurs="0"/>
+      <xs:element name="Billings" type="PolicyBillings_Type" minOccurs="0"/>
+      <xs:element name="RenewalCondition" type="RenewalCondition_Type" minOccurs="0"/>
+      <xs:element name="Premiums" type="PolicyPremiums_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="LettersOfCredit" type="OperLettersOfCredit_Type" minOccurs="0"/>
+      <xs:element name="ApprovalConditions" type="PolicyParRequirements_Type" minOccurs="0"/>
+      <xs:element name="GeographicalAreas" type="PolicyGeogAreas_Type" minOccurs="0"/>
+      <xs:element name="PolicyDiagnoses" type="PolicyDiagnoses_Type" minOccurs="0"/>
+      <xs:element name="PolicyServices" type="PolicyServices_Type" minOccurs="0"/>
+      <xs:element name="Drugs" type="PolicyDrugs_Type" minOccurs="0"/>
+      <xs:element name="Networks" minOccurs="0" type="PolicyNetworks_Type"/>
+      <xs:element name="Providers" type="PolicyProviders_Type" minOccurs="0"/>
+      <xs:element name="Gatekeepers" type="PolicyGatekeepers_Type" minOccurs="0"/>
+      <xs:element ref="Facultatives" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvAccounts_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" type="InvAccount_Type" name="InvAccount"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvestmentAccounts_Type">
+    <xs:sequence>
+      <xs:element minOccurs="1" type="InvestmentAccount_Type" name="InvestmentAccount" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EngagementData_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="EngagementID"/>
+        <xs:element ref="EngagementNo"/>
+      </xs:choice>
+      <xs:element name="EngagementType" type="xs:string" minOccurs="0"/>
+      <xs:element name="Language" type="xs:string" minOccurs="0"/>
+      <xs:element name="Communication" type="xs:string" minOccurs="0"/>
+      <xs:element ref="BeginDate" minOccurs="0"/>
+      <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="BenefGroups" type="PolicyBenefGroups_Type" minOccurs="0"/>
+      <xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+      <xs:element name="Agents" type="PolicyAgents_Type" minOccurs="0"/>
+      <xs:element name="Billings" type="PolicyBillings_Type" minOccurs="0"/>
+      <xs:element name="RenewalCondition" type="RenewalCondition_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicySurvivorsRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="SurvivorsData" type="SurvivorsPolicyData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SurvivorsPolicyData_Type">
+    <xs:sequence>
+      <xs:element name="SurvivorID" type="xs:integer" minOccurs="0"/>
+      <xs:element name="ManID" type="xs:integer" minOccurs="0"/>
+      <xs:element name="AccinsuredID" type="xs:integer" minOccurs="0"/>
+      <xs:element name="State" type="xs:integer" minOccurs="1"/>
+      <xs:element name="CoverCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="SrvPercent" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RelID" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="SurvGroup" type="xs:string" minOccurs="0"/>
+      <xs:element name="Age" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Sex" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidateAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidateAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyInsureds_Type">
+    <xs:sequence minOccurs="1">
+      <xs:element name="Insured" type="ModifyInsured_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyApplRq_Type">
+    <xs:sequence>
+      <xs:element name="Client" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="Change_People_Data_Group"/>
+            <xs:element name="ClientData" type="ClientData_Type" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="PolicyOwner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="Change_People_Data_Group"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsuranceConditions" type="ModifyInsConditions_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyInsConditions_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyNo" minOccurs="1"/>
+      <xs:element ref="PolicyID" minOccurs="0"/>
+      <xs:element name="PolicyName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PolicyRef" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:choice>
+        <xs:element ref="AgentID" minOccurs="0"/>
+        <xs:element ref="AgentNo" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="IssueTime" minOccurs="0"/>
+      <xs:element ref="ConclusionDate" minOccurs="0"/>
+      <xs:element ref="ConclusionTime" minOccurs="0"/>
+      <xs:element name="EffectiveDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="EffectiveTime" minOccurs="0"/>
+      <xs:element name="Duration" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="DurationUnits" type="xs:string" minOccurs="0"/>
+      <xs:element name="ExpireDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ExpireTime" minOccurs="0"/>
+      <xs:element name="Installments" minOccurs="0" type="xs:int"/>
+      <xs:element name="PaymentType" minOccurs="0" type="xs:string"/>
+      <xs:element ref="PaymentWay" minOccurs="0"/>
+      <xs:element name="Renewal" type="xs:string" minOccurs="0"/>
+      <xs:element name="TariffRule" minOccurs="0" type="xs:string"/>
+      <xs:element name="PaymentDuration" minOccurs="0" type="xs:positiveInteger"/>
+      <xs:element name="PaymentDurUnits" minOccurs="0" type="xs:string"/>
+      <xs:element name="CampaignId" minOccurs="0" type="xs:string"/>
+      <xs:element name="SalesChannelID" minOccurs="0" type="xs:long"/>
+      <xs:element name="CommonConditions" minOccurs="0" type="Conditions_Type"/>
+      <xs:element name="Endorsements" minOccurs="0" type="Endorsements_Type"/>
+      <xs:element name="Territories" minOccurs="0" type="Territories_Type"/>
+      <xs:element ref="Discounts" minOccurs="0"/>
+      <xs:element name="Questionary" minOccurs="0" type="Questionary_Type"/>
+      <xs:element name="Documents" minOccurs="0" type="DocDocuments_Type"/>
+      <xs:element ref="Taxes" minOccurs="0"/>
+      <xs:element name="Limits" type="Limits_Type" minOccurs="0"/>
+      <xs:element name="Creditors" minOccurs="0" type="ObjectsCredited_Type"/>
+      <xs:element name="BenefGroups" type="PolicyBenefGroups_Type" minOccurs="0"/>
+      <xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+      <xs:element name="Agents" type="PolicyAgents_Type" minOccurs="0"/>
+      <xs:element name="Billings" type="PolicyBillings_Type" minOccurs="0"/>
+      <xs:element name="RenewalCondition" type="RenewalCondition_Type" minOccurs="0"/>
+      <xs:element name="Premiums" type="PolicyPremiums_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="LettersOfCredit" type="OperLettersOfCredit_Type" minOccurs="0"/>
+      <xs:element ref="Facultatives" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EngagementPolicies_Type">
+    <xs:sequence>
+      <xs:element name="Policy" type="EngagementPolicy_Type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EngagementPolicy_Type">
+    <xs:sequence>
+      <xs:group ref="Engagement_Quote_Group" minOccurs="0"/>
+      <xs:element name="EngagementPolicyType" type="xs:string" minOccurs="0"/>
+      <xs:element name="EngPolicyTypeDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="MasterPolicyID" type="xs:long" minOccurs="0"/>
+      <xs:element ref="Insureds" minOccurs="0"/>
+      <xs:element name="InsuranceConditions" type="InsuranceConditions_Type" minOccurs="0"/>
+      <xs:element minOccurs="0" ref="Userexit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementPolicies_Type">
+    <xs:sequence>
+      <xs:element name="Policy" type="ModifyEngagementPolicy_Type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementPolicy_Type">
+    <xs:sequence>
+      <xs:group ref="Engagement_Quote_Group" minOccurs="0"/>
+      <xs:element name="EngagementPolicyType" type="xs:string" minOccurs="0"/>
+      <xs:element minOccurs="0" name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="InsuranceConditions" type="ModifyInsConditions_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EngPolicies_Type">
+    <xs:sequence>
+      <xs:element name="Policy" type="EngPolicy_Type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EngPolicy_Type">
+    <xs:sequence>
+      <xs:element name="QuoteID" minOccurs="0" type="xs:long"/>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element name="Installments" minOccurs="0" type="Installments_Type"/>
+      <!-- xs:element ref="Printouts" minOccurs="0"/ -->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Policies_Type">
+    <xs:sequence>
+      <xs:element ref="Policy" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Policy_Type">
+    <xs:sequence>
+      <xs:element name="Client" type="Client_Type"/>
+      <xs:element ref="Insureds" minOccurs="0"/>
+      <xs:element name="PolicyOwner" type="Client_Type" minOccurs="0"/>
+      <xs:element name="InsuranceConditions" type="InsuranceConditions_Type"/>
+      <xs:element name="InvAccounts" type="InvAccounts_Type" minOccurs="0"/>
+      <xs:element name="Installments" minOccurs="0" type="Installments_Type"/>
+      <xs:element name="PaymentPlan" minOccurs="0" type="PayPlanInstalments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyRenewRq_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="RenewState"/>
+      <xs:element ref="RenewMode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyRenewRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessLetterOfCreditRq_Type">
+    <xs:sequence>
+      <xs:element ref="LettersOfCredit" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessLetterOfCreditRs_Type">
+    <xs:sequence>
+      <xs:element ref="LettersOfCredit" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Printout_Type">
+    <xs:sequence>
+      <xs:element name="DocumentName" type="xs:string" minOccurs="0"/>
+      <xs:element name="URL" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Printouts_Type">
+    <xs:sequence>
+      <xs:element name="Printout" type="Printout_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAddObjAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyID"/>
+        <xs:element ref="PolicyNo"/>
+      </xs:choice>
+      <xs:element type="Insureds_Type" name="Insureds"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAddObjAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAddCovAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyBonus_Type">
+    <xs:sequence>
+      <xs:element name="LPTransID" type="xs:long"/>
+      <xs:element name="AccDate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyBonuses_Type">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Bonus" type="PolicyBonus_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyCommissionInfo_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element maxOccurs="unbounded" ref="CommissionsBalance"/>
+      <xs:element name="Due" type="BLCCommissions_Type" minOccurs="0"/>
+      <xs:element name="Paid" type="BLCCommissions_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PolicyCommissions_Type">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="PolicyCommissionID" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyDocumentsRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyID"/>
+        <xs:element ref="PolicyNo"/>
+      </xs:choice>
+      <xs:element ref="AnnexID" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPolicyDocumentsRs_Type">
+    <xs:sequence>
+      <xs:element ref="DocInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--   -->
+  <xs:complexType name="RegsrApplRq_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element ref="Insureds" minOccurs="0"/>
+      <xs:element name="PolicyOwner" type="Client_Type" minOccurs="0"/>
+      <xs:element name="InsuranceConditions" type="InsuranceConditions_Type"/>
+      <xs:element minOccurs="0" ref="Userexit"/>
+    </xs:sequence>
+    <xs:attribute name="suppressPremiumCalculation" type="xs:boolean"/>
+    <xs:attribute name="confirmApplication" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="RegsrApplRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element name="Installments" minOccurs="0" type="Installments_Type"/>
+      <xs:element name="PaymentPlan" minOccurs="0" type="PayPlanInstalments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterEngagementRq_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element name="Policies" type="EngagementPolicies_Type"/>
+      <xs:element name="EngagementData" type="EngagementData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterEngagementRs_Type">
+    <xs:sequence>
+      <xs:element ref="EngagementID"/>
+      <xs:element ref="EngagementNo"/>
+      <xs:element name="Policies" type="EngPolicies_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterEngagementQuoteRq_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element name="Policies" type="EngagementPolicies_Type"/>
+      <xs:element name="EngagementData" type="EngagementData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterEngagementQuoteRs_Type">
+    <xs:sequence>
+      <xs:element ref="EngagementID"/>
+      <xs:element ref="EngagementNo"/>
+      <xs:element name="Policies" type="EngPolicies_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementRq_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element name="Policies" type="ModifyEngagementPolicies_Type"/>
+      <xs:element name="EngagementData" type="EngagementData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementRs_Type">
+    <xs:sequence>
+      <xs:element ref="EngagementID"/>
+      <xs:element ref="EngagementNo"/>
+      <xs:element name="Policies" type="EngPolicies_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementQuoteRq_Type">
+    <xs:sequence>
+      <xs:element ref="Client"/>
+      <xs:element name="Policies" type="ModifyEngagementPolicies_Type"/>
+      <xs:element name="EngagementData" type="EngagementData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModifyEngagementQuoteRs_Type">
+    <xs:sequence>
+      <xs:element ref="EngagementID"/>
+      <xs:element ref="EngagementNo"/>
+      <xs:element name="Policies" type="EngPolicies_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngFundDistributionAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyID"/>
+        <xs:element ref="PolicyNo"/>
+      </xs:choice>
+      <xs:element name="InvestmentAccounts" type="InvestmentAccounts_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngFundDistributionAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--   -->
+  <xs:complexType name="RegisterPolicyDocRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngObjAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngObjAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngCovAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAddCovAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterChngCovAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterInsCondAnnexRq_Type">
+    <xs:annotation>
+      <xs:documentation>Insureds structure is used only when service is executed in context of manual prolongation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="PaymentType" type="xs:string" minOccurs="0"/>
+      <!-- xs:element ref="PaymentWay" minOccurs="0"/>
+      <xs:element name="Renewal" type="BOOLEAN_NUMBER_TYPE" minOccurs="0"/ -->
+      <xs:element name="Duration" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="DurationUnits" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentDuration" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="PaymentDurationUnits" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ValidTo" minOccurs="0"/>
+      <xs:element name="Insureds" type="ModifyInsureds_Type" minOccurs="0"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterPolicyProlongationAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterInsCondAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelPolicyAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelPolicyAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterOtherChangesAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+      <!--  commented because documents policy level are processed for insured object -->
+      <!-- <xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/> -->
+      <xs:element name="Participants" type="Participants_Type" minOccurs="0"/>
+      <xs:element name="Agents" minOccurs="0" type="PolicyAgents_Type"/>
+      <xs:element name="BenefGroups" minOccurs="0" type="PolicyBenefGroups_Type"/>
+      <xs:element name="Billings" minOccurs="0" type="PolicyBillings_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+      <xs:element minOccurs="0" ref="Userexit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterOtherChangesAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterPolicyProlongationAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelObjectAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelObjectAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelCoverAnnexRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="Insureds" type="ModifyInsureds_Type"/>
+      <xs:element name="Annex" type="Annex_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCancelCoverAnnexRs_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyID"/>
+      <xs:element ref="AnnexID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterObjectCreditedRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:choice>
+          <xs:element ref="PolicyNo" minOccurs="0"/>
+          <xs:element ref="PolicyID" minOccurs="0"/>
+        </xs:choice>
+        <xs:sequence>
+          <xs:element ref="ObjectID" minOccurs="0"/>
+          <xs:element ref="ObjectType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:choice>
+        <xs:element name="CreditorID" type="xs:long"/>
+        <xs:element name="NewCreditor" type="NewCreditor_Type"/>
+      </xs:choice>
+      <xs:element name="Amount" type="xs:double" minOccurs="0"/>
+      <xs:element name="LendDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ExpireDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="InterestRate" type="xs:double" minOccurs="0"/>
+      <xs:element name="NumOfInstallments" type="xs:int" minOccurs="0"/>
+      <xs:element name="Installment" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterObjectCreditedRs_Type">
+    <xs:sequence>
+      <xs:element name="CreditorID" type="xs:long"/>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterObjRelatedPersonRq_Type">
+    <xs:sequence>
+      <xs:element ref="ObjectID"/>
+      <xs:element name="RelatedPerson" type="RelatedPerson_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterObjRelatedPersonRs_Type">
+    <xs:sequence>
+      <xs:element ref="ObjectID"/>
+      <xs:element name="AddressID" type="xs:integer" minOccurs="0"/>
+      <xs:element ref="PolicyID" minOccurs="0"/>
+      <xs:element ref="AnnexID" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterPolicyCommissionRq_Type">
+    <xs:sequence>
+      <xs:element ref="PolicyNo"/>
+      <xs:element name="Commissions" type="Commissions_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterPolicyCommissionRs_Type">
+    <xs:sequence>
+      <xs:element name="PolicyCommissions" type="PolicyCommissions_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegQuoteVerRq_Type">
+    <xs:sequence>
+      <xs:element name="EngagementID" type="xs:long"/>
+      <xs:choice>
+        <xs:element name="QuoteID" type="xs:long"/>
+        <xs:element name="QuoteNo" type="xs:string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RejectQuoteRq_Type">
+    <xs:sequence>
+      <xs:element name="EngagementID" type="xs:long"/>
+      <xs:choice>
+        <xs:element name="QuoteID" type="xs:long"/>
+        <xs:element name="QuoteNo" type="xs:string"/>
+      </xs:choice>
+      <xs:element name="Reason" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterQuoteVersionRs_Type">
+    <xs:sequence>
+      <xs:element name="QuoteID" type="xs:long"/>
+      <xs:element name="QuoteNo" type="xs:string"/>
+      <xs:element name="QuoteVer" type="xs:string"/>
+      <xs:element name="OrgQuoteID" type="xs:long"/>
+      <xs:element name="Status" type="xs:string"/>
+      <xs:element name="Policy" type="Policy_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubmitQuoteToClientRs_Type">
+    <xs:sequence>
+      <xs:element name="QuoteID" type="xs:long"/>
+      <xs:element name="QuoteNo" type="xs:string"/>
+      <xs:element name="DateSubmitted" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AcceptQuoteRs_Type">
+    <xs:sequence>
+      <xs:element name="PolicyID" type="xs:long"/>
+      <xs:element name="PolicyNo" type="xs:string"/>
+      <xs:element name="DateAccepted" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RejectQuoteRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SaleChannel_Type">
+    <xs:sequence>
+      <xs:element name="ChannelType" type="xs:string"/>
+      <xs:element name="ChannelSubtype" type="xs:string" minOccurs="0"/>
+      <xs:element name="AddressID" minOccurs="0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SaleChannels_Type">
+    <xs:sequence>
+      <xs:element name="SaleChannel" minOccurs="1" maxOccurs="unbounded" type="SaleChannel_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetPolicyRulesRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="PolicyID"/>
+      </xs:choice>
+      <xs:element name="PolicyRules" type="PolicyRules_Type"/>
+    </xs:sequence>
+    <xs:attribute name="suppressPremiumCalculation" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="SetPolicyRulesRs_Type">
+    <xs:sequence>
+      <xs:element name="PolicyRules" type="PolicyRules_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ULFundPrices_Type">
+    <xs:sequence>
+      <xs:element name="ULFundPrice" type="ULFundPrice_Type" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ULFundPrice_Type">
+    <xs:sequence>
+      <xs:element name="FundID" type="xs:string"/>
+      <xs:element name="PriceDate" type="xs:date"/>
+      <xs:element name="PriceType" type="xs:string"/>
+      <xs:element name="Price" type="xs:decimal"/>
+      <xs:element name="UnitPriceID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

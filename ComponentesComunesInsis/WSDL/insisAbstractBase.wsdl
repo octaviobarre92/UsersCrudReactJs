@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InsisAbstractBase"
+             targetNamespace="http://fadata.eu/soap/insis"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://fadata.eu/soap/insis/acm"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512">
+    <wsp:UsingPolicy wsu:Required="true"/>         
+    <wsp:Policy wsu:Id="policy-kerberos-or-unt" Name="http://fadata.eu/ws-policy/policy-kerberos-or-unt">  
+        <wsp:ExactlyOne>
+            <!-- UsernameToken 1.1  --> 
+            <wsp:All>
+                <sp:SupportingTokens>  
+                    <wsp:Policy>  
+                        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/AlwaysToRecipient">  
+                            <wsp:Policy>  
+                                <sp:WssUsernameToken11/>  
+                            </wsp:Policy>  
+                        </sp:UsernameToken>  
+                    </wsp:Policy>  
+                </sp:SupportingTokens>
+            </wsp:All>
+            
+            <!-- Kerberos Token  --> 
+            <wsp:All>
+                <sp:SupportingTokens>  
+                    <wsp:Policy>  
+                        <sp:KerberosToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/AlwaysToRecipient">
+                            <wsp:Policy>
+                                <sp:WssGssKerberosV5ApReqToken11/>
+                            </wsp:Policy>
+                        </sp:KerberosToken>
+                    </wsp:Policy>  
+                </sp:SupportingTokens>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <types>
+        <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+            <xs:include schemaLocation="xsd/insis/Insis_BaseTypes_v3.0.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="ErrorMessage">
+        <part name="payload" element="insis:Error"/>
+    </message>
+</definitions>

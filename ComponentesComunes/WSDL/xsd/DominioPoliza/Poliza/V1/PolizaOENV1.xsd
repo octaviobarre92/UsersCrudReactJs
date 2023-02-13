@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+	targetNamespace="http://www.sura.com/ObjetoEmpresarial/DominioPoliza/Poliza/V1"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.sura.com/ObjetoEmpresarial/DominioPoliza/Poliza/V1"
+	xmlns:dpolpol="http://www.sura.com/ObjetoEmpresarial/DominioPoliza/Poliza/V1" xmlns:Q1="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1">
+	
+
+
+    <xsd:import schemaLocation="../../../DominioPago/Pago/V1/PagoOIV1.xsd" namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioPago/Pago/V1"></xsd:import>
+    <xsd:complexType name="PolizaTipo">
+        <xsd:annotation>
+        	<xsd:documentation>Numero Poliza Caratula</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+        	<xsd:element name="NumeroPoliza" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Numero de la poliza
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="TipoPoliza" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Tipo de Poliza
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="Periodicidad" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Periodicidad de la poliza.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="NumeroPolizaCaratula" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        	</xsd:element>
+        	<xsd:element name="NumeroSolicitud" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Numero de solicitud al cual esta asociada la
+        				poliza
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="CodigoCliente" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Codigo Cliente asociado a la poliza.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        	<xsd:element name="EstadoPoliza" type="xsd:string"
+        		maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Estado de ña poliza.
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+            <xsd:element name="VigenciaInicial" type="xsd:date" maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>Vigencia inicial de la poliza.</xsd:documentation>
+        		</xsd:annotation></xsd:element>
+            <xsd:element name="VigenciaFinal" type="xsd:date" maxOccurs="1" minOccurs="0">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Vigencia de la Poliza
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="InsisACM" targetNamespace="http://fadata.eu/soap/insis/acm"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://fadata.eu/soap/insis/acm"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis">
+    <import location="insisAbstractBase.wsdl"
+            namespace="http://fadata.eu/soap/insis"/>
+    <types>
+        <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+                   elementFormDefault="qualified">
+            <xs:include schemaLocation="xsd/insis/Insis_ACM_v3.0.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="GetEmployeeAgentStatusRqMessage">
+        <part name="payload" element="insis:GetEmployeeAgentStatusRq"/>
+    </message>
+    <message name="GetEmployeeAgentStatusRsMessage">
+        <part name="payload" element="insis:GetEmployeeAgentStatusRs"/>
+    </message>
+    <portType name="InsisACMPort">
+        <operation name="getEmployeeAgentStatus">
+            <input message="tns:GetEmployeeAgentStatusRqMessage"/>
+            <output message="tns:GetEmployeeAgentStatusRsMessage"/>
+            <fault name="Error" message="ibase:ErrorMessage"/>
+        </operation>
+    </portType>
+    <binding name="InsisACMPortBinding" type="tns:InsisACMPort">
+        <wsp:PolicyReference URI="#policy-kerberos-or-unt"/>
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getEmployeeAgentStatus">
+            <soap:operation style="document" soapAction="process"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Error">
+                <soap:fault use="literal" name="Error"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="InsisACM">
+        <port name="InsisACMPort" binding="tns:InsisACMPortBinding">
+            <soap:address location="http://localhost:7001/insis-soapws/InsisACMPort"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,1158 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!--  Service Request messages  -->
+  <xs:element name="CalculateClaimServiceRq" type="CalculateClaimServiceRq_Type"/>
+  <xs:element name="CalculateClaimIndemnityRq" type="CalculateClaimIndemnityRq_Type"/>
+  <xs:element name="CancelClaimObjectRq" type="CancelClaimObjectRq_Type"/>
+  <xs:element name="CancelClaimPaymentRq" type="CancelClaimPaymentRq_Type"/>
+  <xs:element name="CancelClaimRequestRq" type="CancelClaimRequestRq_Type"/>
+  <xs:element name="CancelClaimRq" type="CancelClaimRq_Type"/>
+  <xs:element name="ConfirmClaimPaymentRq" type="ConfirmClaimPaymentRq_Type"/>
+  <xs:element name="ConfirmClaimServiceRq" type="ConfirmClaimServiceRq_Type"/>
+  <xs:element name="FindClaimHltRq" type="FindClaimRq_Type"/>
+  <xs:element name="FindClaimRq" type="FindClaimRq_Type"/>
+  <xs:element name="FindPolicyClaimsRq" type="FindPolicyClaimsRq_Type"/>
+  <xs:element name="FNOLRq" type="RegisterClaimNotifRq_Type"/>
+  <xs:element name="GetClaimDocumentsRq" type="GetClaimDocumentsRq_Type"/>
+  <xs:element name="InvalidateClaimRequestRq" type="InvalidateClaimRequestRq_Type"/>
+  <xs:element name="RegisterClaimRq" type="RegisterClaimRq_Type"/>
+  <xs:element name="RegisterClaimDocRq" type="RegisterClaimDocsRq_Type"/>
+  <xs:element name="RegisterClaimEvaluationRq" type="RegisterClaimEvaluationRq_Type"/>
+  <xs:element name="RegisterClaimExpenseRq" type="RegisterClaimExpenseRq_Type"/>
+  <xs:element name="RegisterClaimHltRq" type="RegisterClaimHltRq_Type"/>
+  <xs:element name="RegisterClaimPaymentRq" type="RegisterClaimPaymentRq_Type"></xs:element>
+  <xs:element name="RegisterClaimRegressRq" type="RegisterClaimRegressRq_Type"/>
+  <!--  not used in v10
+  <xs:element name="RegisterClaimWorkflowRq" type="RegisterClaimWorkflowRq_Type"/>
+   -->
+  <xs:element name="UpdateClaimRq" type="UpdateClaimRq_Type"/>
+  <!--  Service Response messages  -->
+  <xs:element name="CalculateClaimServiceRs" type="CalculateClaimServiceRs_Type"/>
+  <xs:element name="CalculateClaimIndemnityRs" type="CalculateClaimIndemnityRs_Type"/>
+  <xs:element name="CancelClaimObjectRs" type="CancelClaimObjectRs_Type"/>
+  <xs:element name="CancelClaimPaymentRs" type="CancelClaimPaymentRs_Type"/>
+  <xs:element name="CancelClaimRequestRs" type="CancelClaimRequestRs_Type"/>
+  <xs:element name="CancelClaimRs" type="CancelClaimRs_Type"/>
+  <xs:element name="ConfirmClaimPaymentRs" type="ConfirmClaimPaymentRs_Type"/>
+  <xs:element name="ConfirmClaimServiceRs" type="ConfirmClaimServiceRs_Type"/>
+  <xs:element name="FindClaimHltRs" type="FindClaimHltRs_Type"/>
+  <xs:element name="FindClaimRs" type="FindClaimRs_Type"/>
+  <xs:element name="FindPolicyClaimsRs" type="FindPolicyClaimsRs_Type"/>
+  <xs:element name="FNOLRs" type="FNOLRs_Type"/>
+  <xs:element name="GetClaimDocumentsRs" type="GetClaimDocumentsRs_Type"/>
+  <xs:element name="InvalidateClaimRequestRs" type="InvalidateClaimRequestRs_Type"/>
+  <xs:element name="RegisterClaimRs" type="RegisterClaimRs_Type"/>
+  <xs:element name="RegisterClaimDocRs" type="RegisterClaimDocRs_Type"/>
+  <xs:element name="RegisterClaimEvaluationRs" type="RegisterClaimEvaluationRs_Type"/>
+  <xs:element name="RegisterClaimExpenseRs" type="RegisterClaimExpenseRs_Type"/>
+  <xs:element name="RegisterClaimHltRs" type="RegisterClaimHltRs_Type"/>
+  <xs:element name="RegisterClaimPaymentRs" type="RegisterClaimPaymentRs_Type"/>
+  <xs:element name="RegisterClaimRegressRs" type="RegisterClaimRegressRs_Type"/>
+  <xs:element name="UpdateClaimRs" type="UpdateClaimRs_Type"/>
+  <xs:group name="ClaimHlt_Group">
+    <xs:sequence>
+      <xs:element ref="CardNo" minOccurs="0"/>
+      <xs:element ref="CardID" minOccurs="0"/>
+      <xs:element ref="PolicyNo" minOccurs="0"/>
+      <xs:element ref="ProductCode" minOccurs="0"/>
+      <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ClaimType" minOccurs="0"/>
+      <xs:element name="EventType" type="xs:int" minOccurs="0"/>
+      <xs:element name="EventDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EventTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+      <xs:element name="DeathDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="MemberInfo" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Requests" type="DetailClaimHltRequests_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="CSM_Rq_Group">
+    <xs:choice>
+      <xs:element name="CalculateClaimServiceRq" type="CalculateClaimServiceRq_Type"/>
+      <xs:element name="CalculateClaimIndemnityRq" type="CalculateClaimIndemnityRq_Type"/>
+      <xs:element name="CancelClaimObjectRq" type="CancelClaimObjectRq_Type"/>
+      <xs:element name="CancelClaimPaymentRq" type="CancelClaimPaymentRq_Type"/>
+      <xs:element name="CancelClaimRequestRq" type="CancelClaimRequestRq_Type"/>
+      <xs:element name="CancelClaimRq" type="CancelClaimRq_Type"/>
+      <xs:element name="ConfirmClaimPaymentRq" type="ConfirmClaimPaymentRq_Type"/>
+      <xs:element name="ConfirmClaimServiceRq" type="ConfirmClaimServiceRq_Type"/>
+      <xs:element name="FindClaimHltRq" type="FindClaimRq_Type"/>
+      <xs:element name="FindClaimRq" type="FindClaimRq_Type"/>
+      <xs:element name="FindPolicyClaimsRq" type="FindPolicyClaimsRq_Type"/>
+      <xs:element name="FNOLRq" type="RegisterClaimNotifRq_Type"/>
+      <xs:element name="GetClaimDocumentsRq" type="GetClaimDocumentsRq_Type"/>
+      <xs:element name="InvalidateClaimRequestRq" type="InvalidateClaimRequestRq_Type"/>
+      <xs:element name="RegisterClaimRq" type="RegisterClaimRq_Type"/>
+      <xs:element name="RegisterClaimDocRq" type="RegisterClaimDocsRq_Type"/>
+      <xs:element name="RegisterClaimHltRq" type="RegisterClaimHltRq_Type"/>
+      <xs:element name="RegisterClaimEvaluationRq" type="RegisterClaimEvaluationRq_Type"/>
+      <xs:element name="RegisterClaimExpenseRq" type="RegisterClaimExpenseRq_Type"/>
+      <xs:element name="RegisterClaimPaymentRq" type="RegisterClaimPaymentRq_Type"></xs:element>
+      <xs:element name="RegisterClaimRegressRq" type="RegisterClaimRegressRq_Type"/>
+      <!--  not used in v10
+      <xs:element name="RegisterClaimWorkflowRq" type="RegisterClaimWorkflowRq_Type"/>
+       -->
+      <xs:element name="UpdateClaimRq" type="UpdateClaimRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="CSM_Rs_Group">
+    <xs:choice>
+      <xs:element name="CalculateClaimServiceRs" type="CalculateClaimServiceRs_Type"/>
+      <xs:element name="CalculateClaimIndemnityRs" type="CalculateClaimIndemnityRs_Type"/>
+      <xs:element name="CancelClaimObjectRs" type="CancelClaimObjectRs_Type"/>
+      <xs:element name="CancelClaimPaymentRs" type="CancelClaimPaymentRs_Type"/>
+      <xs:element name="CancelClaimRequestRs" type="CancelClaimRequestRs_Type"/>
+      <xs:element name="CancelClaimRs" type="CancelClaimRs_Type"/>
+      <xs:element name="ConfirmClaimPaymentRs" type="ConfirmClaimPaymentRs_Type"/>
+      <xs:element name="ConfirmClaimServiceRs" type="ConfirmClaimServiceRs_Type"/>
+      <xs:element name="FindClaimHltRs" type="FindClaimHltRs_Type"/>
+      <xs:element name="FindClaimRs" type="FindClaimRs_Type"/>
+      <xs:element name="FindPolicyClaimsRs" type="FindPolicyClaimsRs_Type"/>
+      <xs:element name="FNOLRs" type="FNOLRs_Type"/>
+      <xs:element name="GetClaimDocumentsRs" type="GetClaimDocumentsRs_Type"/>
+      <xs:element name="InvalidateClaimRequestRs" type="InvalidateClaimRequestRs_Type"/>
+      <xs:element name="RegisterClaimRs" type="RegisterClaimRs_Type"/>
+      <xs:element name="RegisterClaimDocRs" type="RegisterClaimDocRs_Type"/>
+      <xs:element name="RegisterClaimHltRs" type="RegisterClaimHltRs_Type"/>
+      <xs:element name="RegisterClaimEvaluationRs" type="RegisterClaimEvaluationRs_Type"/>
+      <xs:element name="RegisterClaimExpenseRs" type="RegisterClaimExpenseRs_Type"/>
+      <xs:element name="RegisterClaimPaymentRs" type="RegisterClaimPaymentRs_Type"/>
+      <xs:element name="RegisterClaimRegressRs" type="RegisterClaimRegressRs_Type"/>
+      <xs:element name="UpdateClaimRs" type="UpdateClaimRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="CreateClaim_Group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="CardNo"/>
+        <xs:element ref="CardID"/>
+      </xs:choice>
+      <xs:element ref="ClaimNo" minOccurs="0"/>
+      <!-- The date on which the Insurance Company was informed about the claim UploadDate, filled in automatically with the system open date -->
+      <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ClaimType" minOccurs="0"/>
+      <xs:element name="EventType" type="xs:int" minOccurs="0"/>
+      <xs:element name="EventDate" type="xs:date"/>
+      <xs:element name="EventTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+      <xs:element name="DeathDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Requests" type="RegClaimsHltRq_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="CreateClaim_From_PAR_Group">
+    <xs:sequence>
+      <xs:element name="ParNo" type="xs:string"/>
+      <xs:element name="ParRequestNo" type="xs:int"/>
+      <xs:element ref="ClaimNo" minOccurs="0"/>
+      <xs:element ref="RequestNo" minOccurs="0"/>
+      <xs:element name="Utilize" type="ClaimServicesUtilize_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="ClaimRequest_Group">
+    <xs:sequence>
+      <xs:element ref="ClaimID" minOccurs="0"/>
+      <xs:element name="RequestDate" type="xs:date" minOccurs="0"/>
+      <xs:element minOccurs="0" name="RequestSum" type="xs:decimal"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="DueDate" type="xs:date" minOccurs="0"/>
+      <xs:choice>
+        <xs:element ref="ClaimantID" minOccurs="1"/>
+        <xs:group ref="People_Data_Group" minOccurs="1"/>
+      </xs:choice>
+      <xs:element ref="ClaimantType" minOccurs="1"/>
+      <xs:element name="PaymentType" type="xs:int" minOccurs="0"/>
+      <xs:element ref="ProviderID" minOccurs="0"/>
+      <xs:element name="SolveWay" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="UpdateClaimRequest_Group">
+    <xs:sequence>
+      <xs:element ref="RequestNo"/>
+      <xs:element name="RequestDate" type="xs:date" minOccurs="0"/>
+      <xs:element minOccurs="0" name="RequestSum" type="xs:decimal"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="DueDate" type="xs:date" minOccurs="0"/>
+      <xs:choice>
+        <xs:element ref="ClaimantID" minOccurs="0"/>
+        <xs:group ref="PID_Data_Group" minOccurs="0"/>
+      </xs:choice>
+      <xs:element ref="ClaimantType" minOccurs="0"/>
+      <xs:element name="PaymentType" type="xs:int" minOccurs="0"/>
+      <xs:element ref="ProviderID" minOccurs="0"/>
+      <xs:element name="SolveWay" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="CardNo" type="xs:string"/>
+  <xs:element name="ClaimDscrFracts" type="DetailClaimDscrFracts_Type"/>
+  <xs:element name="ClaimantType" type="xs:int"/>
+  <xs:element name="ClaimServiceSeq" type="xs:long"/>
+  <xs:element name="SeconradyDiagnosisID" type="xs:long"/>
+  <xs:element name="SeconradyDiagnosisCode" type="xs:string"/>
+  <xs:element name="NetworkID" type="xs:long"/>
+  <xs:element name="NetworkCode" type="xs:string"/>
+  <xs:element name="PrimaryDiagnosisID" type="xs:long"/>
+  <xs:element name="PrimaryDiagnosisCode" type="xs:string"/>
+  <xs:element name="PrimaryDiagnosisGroupID" type="xs:long"/>
+  <xs:element name="PrimaryDiagnosisGroupCode" type="xs:string"/>
+  <xs:element name="ProviderID" type="xs:long"/>
+  <xs:element name="ProviderCode" type="xs:string"/>
+  <xs:element name="ProviderContractID" type="xs:long"/>
+  <xs:element name="ProviderContractNo" type="xs:string"/>
+  <xs:complexType name="CalculateClaimServiceRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimNo"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element ref="ClaimServiceSeq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CalculateClaimIndemnityRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimObjectSeq"/>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element name="ClaimIndemnity" type="CalcClaimIndemnity_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimObjectRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimObjSeq"/>
+      <xs:element ref="RefuseCode"/>
+      <xs:element ref="RefuseDate"/>
+      <xs:element ref="RefuseLetter"/>
+      <xs:element ref="RefuseComment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimObjectRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element ref="RefuseCode"/>
+      <xs:element ref="RefuseDate"/>
+      <xs:element ref="RefuseLetter"/>
+      <xs:element ref="RefuseComment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimPaymentRq_Type">
+    <xs:choice>
+      <xs:element ref="ReportID"/>
+      <xs:group ref="ClaimReport_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimPaymentRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmClaimPaymentRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ReportID"/>
+        <xs:group ref="ClaimReport_Group"/>
+      </xs:choice>
+      <xs:element name="ConfirmDate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmClaimPaymentRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmClaimServiceRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimServiceSeq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmClaimServiceRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimRequestRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element ref="RequestNo"/>
+      <xs:element ref="RefuseCode"/>
+      <xs:element ref="RefuseDate"/>
+      <xs:element ref="RefuseLetter"/>
+      <xs:element ref="RefuseComment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelClaimRequestRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CalcClaimIndemnity_Type">
+    <xs:sequence>
+      <xs:element name="IndemnityType" type="xs:integer"/>
+      <xs:element name="ConvertDateType" type="xs:int" minOccurs="0"/>
+      <xs:element name="ConvertDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="CalculateDate" type="xs:date"/>
+      <xs:element name="PaySum" type="xs:double" minOccurs="0"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="CorrectReason" type="xs:string" minOccurs="0"/>
+      <xs:element name="OverLimit" type="xs:int" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimWorkflowRequest_Type">
+    <xs:sequence>
+      <xs:group ref="ClaimRequest_Group"/>
+      <xs:element name="Injureds" type="Injureds_Type"/>
+      <xs:element name="Reports" type="ClaimReports_Type" minOccurs="0"/>
+      <xs:element name="Refusal" type="Refusal_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimRqReg_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID" minOccurs="0"/>
+      <xs:element minOccurs="0" name="RequestSum" type="xs:decimal"/>
+      <xs:element ref="Currency" minOccurs="0"/>
+      <xs:element name="DueDate" type="xs:date" minOccurs="0"/>
+      <xs:choice>
+        <xs:element ref="ClaimantID" minOccurs="1"/>
+        <xs:element ref="PID" minOccurs="1"/>
+      </xs:choice>
+      <xs:element ref="ClaimantType" minOccurs="1"/>
+      <xs:element ref="ProviderID" minOccurs="0"/>
+      <xs:element name="SolveWay" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CalculateClaimServiceRs_Type">
+    <xs:sequence>
+      <xs:element name="ConfirmedQuantity" type="xs:int"/>
+      <xs:element name="ConfirmedPrice" type="xs:decimal"/>
+      <xs:element name="ConfirmedAmount" type="xs:decimal"/>
+      <xs:element name="ConfirmedCurrency" type="xs:string"/>
+      <xs:element name="EligibleAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="GrossPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="PriceDiscount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="SubrAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element ref="ClaimDscrFracts" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CalculateClaimIndemnityRs_Type">
+    <xs:sequence>
+      <xs:element name="ClaimIndemSeq" type="xs:long"/>
+      <xs:element name="CalculatedAmount" type="xs:double"/>
+      <xs:element name="PaymentAmount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDiagnoses_Type">
+    <xs:sequence>
+      <xs:element name="SecondaryDiagnosis" type="ClaimDiagnosis_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDiagnosis_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="SeconradyDiagnosisID"/>
+        <xs:element ref="SeconradyDiagnosisCode"/>
+      </xs:choice>
+      <xs:element name="DiagnosisType" type="xs:string"/>
+      <xs:element name="IsPreexist" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDoc_Type">
+    <xs:sequence>
+      <xs:element name="DocumentID" type="xs:string"/>
+      <xs:element name="DocumentNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocumentName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocumentSerial" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocState" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DocumentDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DocumentValidTo" type="xs:date" minOccurs="0"/>
+      <xs:element name="ReceiveDate" minOccurs="0" type="xs:date"/>
+      <xs:element name="CertifyEvent" type="xs:string" minOccurs="0"/>
+      <xs:element name="Description" minOccurs="0" type="xs:string"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDocs_Type">
+    <xs:sequence>
+      <xs:element name="Document" type="ClaimDoc_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDocsRs_Type">
+    <xs:sequence>
+      <xs:element name="Document" type="DocSeqType_type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimDscr_Type">
+    <xs:sequence>
+      <xs:element name="ActivityType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ActivityCode" type="xs:string"/>
+      <xs:element name="ServiceDate" type="xs:date"/>
+      <xs:element name="ServiceDateTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="ServiceDateTo" type="xs:date" minOccurs="0"/>
+      <xs:element name="ServiceDateToTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="TreatmentGroup" type="xs:string" minOccurs="0"/>
+      <xs:element name="DoctorCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DoctorName" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestedQuantity" type="xs:int"/>
+      <xs:element name="RequestedPrice" type="xs:decimal"/>
+      <xs:element name="RequestedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RequestedCurrency" type="xs:string"/>
+      <xs:element name="CollectedPatientShare" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedQuantity" type="xs:int" minOccurs="0"/>
+      <xs:element name="ConfirmedPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ManualControl" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="DscrType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ServicePlace" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CoverCode" minOccurs="0"/>
+      <xs:element name="ToothSegment" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothSurface" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothNumber" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugPrescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugOriginPrescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugStrenght" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DrugStrenghtDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugUnits" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugUnitDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugPacking" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugPackingDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugPackingTotal" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugDaysSupply" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugDosagePerDay" type="xs:int" minOccurs="0"/>
+      <xs:element name="SecondaryDiagnoses" type="ClaimDiagnoses_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimEvaluation_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimObjectSeq"/>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element name="ExpertID" type="xs:integer"/>
+      <xs:element name="InspectionDate" type="xs:date"/>
+      <xs:element name="ExpertiseAmount" type="xs:decimal"/>
+      <xs:element name="ExpertiseCurrency" type="xs:string"/>
+      <xs:element ref="LossSize" minOccurs="0"/>
+      <xs:element name="ActualValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ActualCurrency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimHlt_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimNo"/>
+      <xs:element ref="ClaimID"/>
+      <xs:group ref="ClaimHlt_Group" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClaimServicesUtilize_Type">
+    <xs:sequence>
+      <xs:element name="ParClaimServiceSeq" type="xs:long" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimHltRequests_Type">
+    <xs:sequence>
+      <xs:element name="Request" type="DetailClaimHltRequest_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimHltRequest_Type">
+    <xs:sequence>
+      <xs:element ref="RequestNo"/>
+      <xs:element ref="ProviderID" minOccurs="0"/>
+      <xs:element ref="ProviderCode" minOccurs="0"/>
+      <xs:element name="ProviderName" minOccurs="0" type="xs:string"/>
+      <xs:element ref="ProviderContractID" minOccurs="0"/>
+      <xs:element ref="ProviderContractNo" minOccurs="0"/>
+      <xs:element name="LicenceNumber" minOccurs="0" type="xs:string"/>
+      <xs:element ref="NetworkID" minOccurs="0"/>
+      <xs:element ref="NetworkCode" minOccurs="0"/>
+      <xs:element name="NetworkName" minOccurs="0" type="xs:string"/>
+      <xs:element name="RequestType" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestTypeName" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestDate" type="xs:date" minOccurs="0"/>
+      <xs:element ref="PrimaryDiagnosisID" minOccurs="0"/>
+      <xs:element ref="PrimaryDiagnosisCode" minOccurs="0"/>
+      <xs:element name="PrimaryDiagnosisName" type="xs:string" minOccurs="0"/>
+      <xs:element ref="PrimaryDiagnosisGroupID" minOccurs="0"/>
+      <xs:element ref="PrimaryDiagnosisGroupCode" minOccurs="0"/>
+      <xs:element name="PrimaryDiagnosisGroupName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimTypeName" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InvoiceCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceID" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ServicePlace" type="xs:string" minOccurs="0"/>
+      <xs:element name="ParClaimNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestState" type="xs:int" minOccurs="0"/>
+      <xs:element name="RequestStateDescr" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestStateAux" type="xs:int" minOccurs="0"/>
+      <xs:element name="RequestStateAuxDescr" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdmissionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="AdmissionTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="DischargeDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DischargeTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="ExpectedAdmissionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Explanation" type="xs:string" minOccurs="0"/>
+      <xs:element name="SecondaryDiagnoses" type="DetailClaimDiagnoses_Type" minOccurs="0"/>
+      <xs:element name="SecondaryOpinion" type="DetailSecondaryOpinion_Type" minOccurs="0"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="ClaimServices" type="DetailClaimHltServices_Type" minOccurs="0"/>
+      <xs:element name="Documents" type="DocDocuments_Type" minOccurs="0"/>
+      <xs:element name="InjuredObjects" type="DetailInjuredObjects_Type" minOccurs="0"/>
+      <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+      <xs:element name="Reports" type="ClaimReports_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimHltServices_Type">
+    <xs:sequence>
+      <xs:element name="ClaimService" type="DetailClaimDscr_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimDscrFracts_Type">
+    <xs:sequence>
+      <xs:element name="ClaimDscrFract" type="DetailClaimDscrFract_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimDscrFract_Type">
+    <xs:sequence>
+      <xs:element name="FractSeq" type="xs:long"/>
+      <xs:element name="RuleID" type="xs:long" minOccurs="0"/>
+      <xs:element name="FractType" type="xs:string" minOccurs="0"/>
+      <xs:element name="RuleType" type="xs:string" minOccurs="0"/>
+      <xs:element name="AmountDed" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="AmountLeft" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InternalDescr" type="xs:string" minOccurs="0"/>
+      <xs:element name="PublicDescr" type="xs:string" minOccurs="0"/>
+      <xs:element name="Apply" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimDscr_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimServiceSeq"/>
+      <xs:element name="ActivityType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ActivityID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ActivityCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ActivityName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ServiceDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ServiceDateTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="ServiceDateTo" type="xs:date" minOccurs="0"/>
+      <xs:element name="ServiceDateToTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="TreatmentGroupID" type="xs:long" minOccurs="0"/>
+      <xs:element name="TreatmentGroupCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TreatmentGroupName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DoctorCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DoctorName" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestedQuantity" type="xs:int" minOccurs="0"/>
+      <xs:element name="RequestedPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RequestedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RequestedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CollectedPatientShare" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedQuantity" type="xs:int" minOccurs="0"/>
+      <xs:element name="ConfirmedPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ConfirmedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ConvertClaimID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ConvertRequestID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ConvertServiceSeq" type="xs:long" minOccurs="0"/>
+      <xs:element name="ParClaimID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ParRequestID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ParServiceSeq" type="xs:long" minOccurs="0"/>
+      <xs:element name="ManualControl" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="DscrType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ServicePlace" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CoverCode" minOccurs="0"/>
+      <xs:element name="CoverName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothSegment" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothSegmentName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothSurface" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothSurfaceName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ToothNumber" type="xs:int" minOccurs="0"/>
+      <xs:element name="ToothName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugPrescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugOriginPrescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugStrenght" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DrugStrenghtDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugUnits" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugUnitDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugPacking" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugPackingDim" type="xs:string" minOccurs="0"/>
+      <xs:element name="DrugPackingTotal" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugDaysSupply" type="xs:int" minOccurs="0"/>
+      <xs:element name="DrugDosagePerDay" type="xs:int" minOccurs="0"/>
+      <xs:element name="ServiceState" type="xs:int" minOccurs="0"/>
+      <xs:element name="ServiceStateName" type="xs:string" minOccurs="0"/>
+      <xs:element name="SecondaryDiagnoses" type="DetailClaimDiagnoses_Type" minOccurs="0"/>
+      <xs:element ref="ClaimDscrFracts" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimDiagnoses_Type">
+    <xs:sequence>
+      <xs:element name="SecondaryDiagnosis" type="DetailClaimDiagnosis_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailClaimDiagnosis_Type">
+    <xs:sequence>
+      <xs:element ref="SeconradyDiagnosisID" minOccurs="0"/>
+      <xs:element ref="SeconradyDiagnosisCode" minOccurs="0"/>
+      <xs:element name="SeconradyDiagnosisName" minOccurs="0" type="xs:string"/>
+      <xs:element name="DiagnosisType" type="xs:string" minOccurs="0"/>
+      <xs:element name="IsPreexist" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailSecondaryOpinion_Type">
+    <xs:sequence>
+      <xs:element name="ProviderOpinion" type="DetailProviderOpinion_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailProviderOpinion_Type">
+    <xs:sequence>
+      <xs:element ref="ProviderID" minOccurs="0"/>
+      <xs:element ref="ProviderCode" minOccurs="0"/>
+      <xs:element name="ProviderName" type="xs:string" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailInjuredObjects_Type">
+    <xs:sequence>
+      <xs:element name="InjuredObject" type="DetailInjuredObject_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DetailInjuredObject_Type">
+    <xs:sequence>
+      <xs:element name="ObjectData" type="InsuredEntity_Type" minOccurs="0"/>
+      <xs:element ref="ClaimObjSeq" minOccurs="0"/>
+      <xs:element name="InitialReserve" type="xs:decimal" minOccurs="0"/>
+      <xs:element minOccurs="0" ref="Currency"/>
+      <xs:element name="InsuredData" type="InsuredData_Type" minOccurs="0"/>
+      <xs:element name="Expenses" type="ClaimExpenses_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocSeqType_type">
+    <xs:sequence>
+      <xs:element name="DocSeqNo" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindClaimRq_Type">
+    <xs:choice>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="ClaimNo"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FindClaimRs_Type">
+    <xs:sequence>
+      <xs:element ref="Claim"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindClaimHltRs_Type">
+    <xs:sequence>
+      <xs:element name="Claim" type="ClaimHlt_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindPolicyClaimsRq_Type">
+    <xs:choice>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="PolicyID"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FindPolicyClaimsRs_Type">
+    <xs:sequence>
+      <xs:element ref="Claims"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FNOLRq_Type">
+    <xs:sequence>
+      <xs:element name="NotifDate" type="xs:date"/>
+      <xs:choice>
+        <xs:element ref="PolicyID"/>
+        <xs:element ref="PolicyNo"/>
+      </xs:choice>
+      <xs:element ref="ClaimID" minOccurs="0"/>
+      <xs:element name="EventDate" type="xs:date"/>
+      <xs:element name="EventType" type="xs:int"/>
+      <xs:element name="EventTime" type="xs:date" minOccurs="0"/>
+      <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+      <xs:element name="EventDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="EventCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="AddressID" type="xs:long" minOccurs="0"/>
+      <xs:element name="ClaimantType" type="xs:long"/>
+      <xs:choice>
+        <xs:element name="ClaimantID" type="xs:long"/>
+        <xs:element ref="PID"/>
+      </xs:choice>
+      <xs:element name="ClaimComment" type="xs:string" minOccurs="0"/>
+      <xs:element name="NotifState" type="xs:long" minOccurs="0"/>
+      <xs:element name="InjObjects" type="InjObjects_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FNOLRs_Type">
+    <xs:sequence>
+      <xs:element name="NotifID" type="xs:long"/>
+      <xs:element ref="ReturningMessages" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetClaimDocumentsRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element ref="RequestNo" minOccurs="0"/>
+      <xs:element ref="ClaimObjSeq" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetClaimDocumentsRs_Type">
+    <xs:sequence>
+      <xs:element ref="DocInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GuiltyPerson_Type">
+    <xs:choice>
+      <xs:element ref="ManID"/>
+      <xs:sequence>
+        <xs:element ref="PID"/>
+        <xs:element ref="EntityType"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Injured_Type">
+    <xs:sequence>
+      <xs:element name="InjuredObject" type="InjuredObject_Type"/>
+      <xs:element name="Documents" type="NewRegisterClaimDocs_Type" minOccurs="1"/>
+      <!-- xs:element name="AnnuityData" type="AnnuityData_Type" minOccurs="0"/ -->
+      <xs:element name="Evaluation" type="NewClaimEvaluation_Type" minOccurs="0"/>
+      <xs:element name="ClaimIndemnities" type="ClaimIndemnities_Type" minOccurs="0"/>
+      <xs:element name="Expenses" type="ClaimExpenses_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Injureds_Type">
+    <xs:sequence>
+      <xs:element name="Injured" maxOccurs="unbounded" type="Injured_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidateClaimRequestRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element ref="RequestNo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidateClaimRequestRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NewClaimEvaluation_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ExpertID"/>
+        <xs:element ref="PID"/>
+      </xs:choice>
+      <xs:element name="InspectionDate" type="xs:date"/>
+      <xs:element name="ExpertiseAmount" type="xs:decimal"/>
+      <xs:element name="ExpertiseCurrency" type="xs:string"/>
+      <xs:element ref="LossSize" minOccurs="0"/>
+      <xs:element name="ActualValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ActualCurrency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NewRegisterClaimDocs_Type">
+    <xs:sequence>
+      <xs:element name="Document" type="NewRegisterClaimDoc_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NewRegisterClaimDoc_Type">
+    <xs:sequence>
+      <xs:element ref="DocID"/>
+      <xs:element name="DocNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DocState" type="xs:integer"/>
+      <xs:element name="Description" minOccurs="0" type="xs:string"/>
+      <xs:element name="DateReceived" minOccurs="0" type="xs:date"/>
+      <xs:element name="CertifyEvent" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProviderOpinion_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ProviderID"/>
+        <xs:element ref="ProviderCode"/>
+      </xs:choice>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegClaimHltRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ProviderID" minOccurs="0"/>
+        <xs:element ref="ProviderCode" minOccurs="0"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element ref="ProviderContractID" minOccurs="0"/>
+        <xs:element ref="ProviderContractNo" minOccurs="0"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element ref="NetworkID" minOccurs="0"/>
+        <xs:element ref="NetworkCode" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="RequestType" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestDate" type="xs:date" minOccurs="0"/>
+      <!--  TransactionDate -->
+      <xs:choice>
+        <xs:element ref="PrimaryDiagnosisID"/>
+        <xs:element ref="PrimaryDiagnosisCode"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element ref="PrimaryDiagnosisGroupID" minOccurs="0"/>
+        <xs:element ref="PrimaryDiagnosisGroupCode" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="ClaimType" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InvoiceCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceID" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoiceDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ServicePlace" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdmissionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="AdmissionTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="DischargeDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DischargeTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="ExpectedAdmissionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Explanation" type="xs:string" minOccurs="0"/>
+      <xs:element name="SecondaryDiagnoses" type="ClaimDiagnoses_Type" minOccurs="0"/>
+      <xs:element name="SecondaryOpinion" type="SecondaryOpinion_Type" minOccurs="0"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="ClaimServices" type="RegClaimHltServices_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegClaimHltServices_Type">
+    <xs:sequence>
+      <xs:element name="ClaimService" type="ClaimDscr_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegClaimRq_Type">
+    <xs:sequence>
+      <xs:group ref="ClaimRequest_Group"/>
+      <xs:element minOccurs="0" name="InjuredObjects" type="InjuredObjectsData_Type"/>
+      <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+      <xs:element ref="Guilty" minOccurs="0"/>
+      <xs:element ref="AnnuityRecipients" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Refusal_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID" minOccurs="0"/>
+      <xs:element ref="RequestNo" minOccurs="0"/>
+      <xs:element ref="ClaimObjSeq" minOccurs="0"/>
+      <xs:element name="Reason" type="xs:int"/>
+      <xs:element name="Date" type="xs:date"/>
+      <xs:element name="Letter" type="xs:string"/>
+      <xs:element name="Comment" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimExpenseRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID" minOccurs="1"/>
+      <xs:element ref="RequestNo" minOccurs="1"/>
+      <xs:element ref="ClaimObjSeq" minOccurs="1"/>
+      <xs:element name="Expenses" type="ClaimExpenses_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimExpenseRs_Type">
+    <xs:sequence>
+      <xs:element name="Expenses" type="ClaimExpenses_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimRegressRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element ref="RequestNo"/>
+      <xs:element name="GuiltyPerson" type="GuiltyPerson_Type"/>
+      <xs:element name="RegressDate" type="xs:date"/>
+      <xs:element ref="Installments" minOccurs="0"/>
+      <xs:element name="RegressPayments" type="RegressPayments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimWorkflowRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimNo" minOccurs="0"/>
+      <xs:element ref="PolicyNo" minOccurs="0"/>
+      <xs:element ref="ProductCode" minOccurs="0"/>
+      <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ClaimType"/>
+      <xs:element ref="CauseID" minOccurs="1"/>
+      <xs:element name="EventType" type="xs:integer"/>
+      <xs:element name="EventDate" type="xs:date"/>
+      <xs:element name="EventDescription" type="xs:string"/>
+      <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+      <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+      <xs:element ref="StaffID" minOccurs="0"/>
+      <xs:element name="SrcInsurer" minOccurs="0" type="xs:int"/>
+      <xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimComment" minOccurs="0" type="xs:string"/>
+      <xs:element name="Requests">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Request" type="ClaimWorkflowRequest_Type" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="Guilty" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimRq_Type">
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="NotificationID" type="xs:integer"/>
+        <xs:element ref="RequestNo"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element ref="ClaimNo" minOccurs="0"/>
+        <xs:element ref="PolicyNo"/>
+        <xs:element ref="ProductCode" minOccurs="0"/>
+        <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+        <xs:element ref="ClaimType"/>
+        <xs:element ref="CauseID" minOccurs="1"/>
+        <xs:element name="EventType" type="xs:integer"/>
+        <xs:element name="EventDate" type="xs:date"/>
+        <xs:element name="EventTime" type="xs:time" minOccurs="0"/>
+        <xs:element name="EventDescription" type="xs:string"/>
+        <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+        <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+        <xs:element ref="StaffID" minOccurs="0"/>
+        <xs:element name="SrcInsurer" minOccurs="0" type="xs:int"/>
+        <xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+        <xs:element name="ClaimComment" minOccurs="0" type="xs:string"/>
+        <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+        <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+        <xs:element ref="CustomProperties" minOccurs="0"/>
+        <xs:element name="Requests" type="RegClaimsRq_Type" minOccurs="1"/>
+        <!-- <xs:element ref="ClaimInfo" minOccurs="0"/> -->
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimHltRq_Type">
+    <xs:choice>
+      <xs:group ref="CreateClaim_From_PAR_Group"/>
+      <xs:group ref="CreateClaim_Group"/>
+    </xs:choice>
+    <xs:attribute name="isPAR" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimNotifRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimNo" minOccurs="0"/>
+      <xs:element ref="PolicyNo"/>
+      <xs:element ref="ProductCode" minOccurs="0"/>
+      <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ClaimType"/>
+      <xs:element ref="CauseID" minOccurs="1"/>
+      <xs:element name="EventType" type="xs:integer"/>
+      <xs:element name="EventDate" type="xs:date"/>
+      <xs:element name="EventTime" type="xs:time" minOccurs="0"/>
+      <xs:element name="EventDescription" type="xs:string"/>
+      <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+      <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+      <xs:element ref="StaffID" minOccurs="0"/>
+      <xs:element name="SrcInsurer" minOccurs="0" type="xs:int"/>
+      <xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimComment" minOccurs="0" type="xs:string"/>
+      <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Requests" type="RegClaimsRq_Type" minOccurs="1"/>
+      <!--  <xs:element ref="ClaimNo" minOccurs="0"/>
+          <xs:element ref="PolicyNo" minOccurs="0"/>
+          <xs:element ref="ProductCode" minOccurs="0"/>
+          <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+          <xs:element ref="ClaimType"/>
+          <xs:element ref="CauseID" minOccurs="1"/>
+          <xs:element name="EventType" type="xs:integer"/>
+          <xs:element name="EventDate" type="xs:date"/>
+          <xs:element name="EventDescription" type="xs:string"/>
+          <xs:element name="EventCountry" minOccurs="0" type="xs:string"/>
+          <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+          <xs:element ref="StaffID" minOccurs="0"/>
+          <xs:element name="SrcInsurer" minOccurs="0" type="xs:int"/>
+          <xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+          <xs:element name="ClaimComment" minOccurs="0" type="xs:string"/>
+          <xs:element name="Requests" type="RegClaimsRq_Type" minOccurs="1"/>       -->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegClaimsHltRq_Type">
+    <xs:sequence>
+      <xs:element name="Request" type="RegClaimHltRq_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegClaimsRq_Type">
+    <xs:sequence>
+      <xs:element name="Request" type="RegClaimRq_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimRs_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="ClaimNo"/>
+      <xs:element ref="ReturningMessages" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimHltRs_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="ClaimNo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimDocsRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element ref="ClaimObjectSeq" minOccurs="0"/>
+      <xs:element name="Documents" type="DocDocuments_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimDocRs_Type">
+    <xs:sequence>
+      <!-- xs:element name="ClaimState" type="xs:int"/ -->
+      <xs:element name="Documents" type="ClaimDocsRs_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimEvaluationRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimObjectSeq"/>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:choice>
+        <xs:group ref="PID_Data_Group"/>
+        <xs:element ref="ManID"/>
+      </xs:choice>
+      <xs:element name="InspectionDate" type="xs:date"/>
+      <xs:element name="ExpertiseAmount" type="xs:decimal"/>
+      <xs:element name="ExpertiseCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="Measure" type="xs:string" minOccurs="0"/>
+      <xs:element ref="LossSize" minOccurs="0"/>
+      <xs:element name="ActualValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ActualCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="TaxesValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RecordType" type="xs:string" minOccurs="0"/>
+      <xs:element name="RecordStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="SumConfirmedBy" type="xs:string" minOccurs="0"/>
+      <xs:element name="SumConfirmTime" type="xs:date" minOccurs="0"/>
+      <xs:element name="InvoiceNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="InspectionType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimDamageList" type="ClaimDamageList_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimEvaluationRs_Type">
+    <xs:sequence>
+      <xs:element name="InspectionNo" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimPaymentRq_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element name="Reports" type="ClaimReports_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimPaymentRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClaimRegressRs_Type">
+    <xs:sequence>
+      <xs:element ref="ClaimID"/>
+      <xs:element ref="RequestNo"/>
+      <xs:element ref="RegressID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SecondaryOpinion_Type">
+    <xs:sequence>
+      <xs:element name="ProviderOpinion" type="ProviderOpinion_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateClaimReqsRq_Type">
+    <xs:sequence>
+      <xs:element name="Request" type="UpdateClaimReqRq_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateClaimReqRq_Type">
+    <xs:sequence>
+      <xs:group ref="UpdateClaimRequest_Group"/>
+      <xs:element minOccurs="0" name="InjuredObjects" type="InjuredObjectsData_Type"/>
+      <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Questionary" type="Questionary_Type" minOccurs="0"/>
+      <xs:element ref="Guilty" minOccurs="0"/>
+      <xs:element ref="AnnuityRecipients" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="doConvert" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="UpdateClaimRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ClaimID"/>
+        <xs:element ref="ClaimNo"/>
+      </xs:choice>
+      <xs:element name="ClaimStarted" type="xs:date" minOccurs="0"/>
+      <xs:element ref="ClaimType" minOccurs="0"/>
+      <xs:element ref="CauseID" minOccurs="0"/>
+      <xs:element name="EventType" type="xs:integer" minOccurs="0"/>
+      <xs:element name="EventDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EventDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="EventCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="EventPlace" type="xs:string" minOccurs="0"/>
+      <xs:element ref="StaffID" minOccurs="0"/>
+      <xs:element name="ScrInsurer" type="xs:int" minOccurs="0"/>
+      <xs:element name="SrcClaimID" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimComment" type="xs:string" minOccurs="0"/>
+      <xs:element name="ClaimAddresses" minOccurs="0" type="ClaimAddresses_Type"/>
+      <xs:element name="Participants" type="ClaimParticipants_Type" minOccurs="0"/>
+      <xs:element ref="CustomProperties" minOccurs="0"/>
+      <xs:element name="Requests" type="UpdateClaimReqsRq_Type" minOccurs="0"/>
+      <!-- <xs:element ref="ClaimInfo" minOccurs="0"/> -->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateClaimRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="NoClaimBonus_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="NOY|NOC|LR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PROCESS_ANNUITY_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="CONF|CANCEL"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

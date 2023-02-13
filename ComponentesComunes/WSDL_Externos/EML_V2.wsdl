@@ -1,0 +1,121 @@
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sura.com.pa/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://sura.com.pa/">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://sura.com.pa/">
+<s:import namespace="http://microsoft.com/wsdl/types/"/>
+<s:element name="Medical_Evaluationrq">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="INS_OBJ_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="OBJ_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="PID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="MAN_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="SEX" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="BIRTHDATE" type="s:dateTime"/>
+<s:element minOccurs="1" maxOccurs="1" name="POLICY_NO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="DATE_START" type="s:dateTime"/>
+<s:element minOccurs="1" maxOccurs="1" name="DATE_END" type="s:dateTime"/>
+<s:element minOccurs="1" maxOccurs="1" name="INSR_TYPE" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ANNEX_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="OBJ_STATUS_EVAL" type="s:int"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="Medical_EvaluationrqResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Medical_EvaluationrqResult" type="tns:Respuesta_evaluacion"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="Respuesta_evaluacion">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="INS_OBJ_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="OBJ_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="PID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="POLICY_NO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ANNEX_ID" type="s:long"/>
+<s:element minOccurs="1" maxOccurs="1" name="OBJ_STATUS_EVAL" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NOTES" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="APROBADO_RECARGO" type="tns:E3"/>
+<s:element minOccurs="0" maxOccurs="1" name="APROBADO_EXCLUSION" type="tns:E4"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="E3">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="VALUE" type="s:float"/>
+<s:element minOccurs="0" maxOccurs="1" name="APPLY" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TARIFF_DISC" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CALC_MODE" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="E4">
+	<s:sequence>
+		<s:element minOccurs="0" maxOccurs="unbounded" name="ICD" type="tns:ICD"/>
+		<s:element minOccurs="0" maxOccurs="unbounded" name="SERVICES" type="tns:SERVICES"/>
+	</s:sequence>
+</s:complexType>
+<s:complexType name="ICD">
+	<s:sequence>
+		<s:element minOccurs="1" maxOccurs="1" name="DIAGNOSIS_CODE" type="s:string"/>
+		<s:element minOccurs="0" maxOccurs="1" name="DIAG_EXCL" type="s1:char"/>
+	</s:sequence>
+</s:complexType>
+<s:complexType name="SERVICES">
+	<s:sequence>
+		<s:element minOccurs="1" maxOccurs="1" name="SERVICE_CODE" type="s:string"/>
+		<s:element minOccurs="0" maxOccurs="1" name="SERVICE_NAME" type="s:string"/>
+		<s:element minOccurs="0" maxOccurs="1" name="SERVICES_EXCL" type="s:string"/>
+	</s:sequence>
+</s:complexType>
+</s:schema>
+<s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+<s:simpleType name="char">
+<s:restriction base="s:unsignedShort"/>
+</s:simpleType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="Medical_EvaluationrqSoapIn">
+<wsdl:part name="parameters" element="tns:Medical_Evaluationrq"/>
+</wsdl:message>
+<wsdl:message name="Medical_EvaluationrqSoapOut">
+<wsdl:part name="parameters" element="tns:Medical_EvaluationrqResponse"/>
+</wsdl:message>
+<wsdl:portType name="Medical_EvaluationSoap">
+<wsdl:operation name="Medical_Evaluationrq">
+<wsdl:input message="tns:Medical_EvaluationrqSoapIn"/>
+<wsdl:output message="tns:Medical_EvaluationrqSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="Medical_EvaluationSoap" type="tns:Medical_EvaluationSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Medical_Evaluationrq">
+<soap:operation soapAction="http://sura.com.pa/Medical_Evaluationrq" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="Medical_EvaluationSoap12" type="tns:Medical_EvaluationSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Medical_Evaluationrq">
+<soap12:operation soapAction="http://sura.com.pa/Medical_Evaluationrq" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Medical_Evaluation">
+<wsdl:port name="Medical_EvaluationSoap" binding="tns:Medical_EvaluationSoap">
+<soap:address location="https://localhost:44339/Controllers/Medical_Evaluation.asmx"/>
+</wsdl:port>
+<wsdl:port name="Medical_EvaluationSoap12" binding="tns:Medical_EvaluationSoap12">
+<soap12:address location="https://localhost:44339/Controllers/Medical_Evaluation.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

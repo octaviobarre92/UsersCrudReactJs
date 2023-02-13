@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1"
+	version="1.0" elementFormDefault="qualified"
+	xmlns:dprobpm="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	xmlns:dpropro="http://www.sura.com/ObjetoEmpresarial/DominioProceso/Proceso/V1">
+	<xsd:import
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+		schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd" />
+		<xsd:import
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioProceso/Proceso/V1"
+		schemaLocation="ProcesoOENV1.xsd" />
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion del mensaje de entrada
+				base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo">
+				<xsd:annotation>
+					<xsd:documentation>Contiene los datos especficos de transaccin
+						para
+						la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion correspondiente al mensaje
+				de salida base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo">
+				<xsd:annotation>
+					<xsd:documentation>Entidad que contiene los datos especficos de
+						transaccin para la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CrearActividadBPMMsjSol" type="dprobpm:CrearActividadBPMMsjSolTipo" />
+	<xsd:complexType name="CrearActividadBPMMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="TipoActividad" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation>
+								Elemento que hace referencia al tipo de
+								documento de Onbase
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="AsuntoActividad" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								The OnBase Keyword to map a Workflow
+								Queue
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="IdUsuario" type="xsd:string" />
+					<xsd:element name="IdProceso" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificador del proceso
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdPersona" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificador de Persona.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="NumPoliza" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de póliza.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TipoReferencia" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Tipo de Referencia.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="NumReferencia" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de Referencia.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdDocumental" type="xsd:int"
+						maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="IdPlantillaActividad" type="xsd:string" maxOccurs="1" minOccurs="0">
+                    	<xsd:annotation>
+                    		<xsd:documentation>Plantilla utilizada para obtener los campos necesarios para crear la actividad. </xsd:documentation>
+                    	</xsd:annotation></xsd:element>
+                    <xsd:element name="ParametrosActividad"
+						type="dcomcom:ParametrosActividadTipo" maxOccurs="1"
+						minOccurs="0">
+                        <xsd:annotation>
+                        	<xsd:documentation>Parametros relacionados para la creación de la actividad.</xsd:documentation></xsd:annotation>
+                    </xsd:element>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CrearActividadBPMMsjResp" type="dprobpm:CrearActividadBPMMsjRespTipo" />
+	<xsd:complexType name="CrearActividadBPMMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element name="IdActividad" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Identificador de la actividad generada.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ActualizarActividadBPMMsjSol"
+		type="dprobpm:ActualizarActividadBPMMsjSolTipo" />
+	<xsd:complexType name="ActualizarActividadBPMMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeEntradaBase">
+				<xsd:sequence>
+
+					<xsd:element maxOccurs="1" minOccurs="0" name="IdActividad"
+						type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Elemento que indica el tipo reporte. 1
+								para
+								POS, 2 para BG-EXPRESS
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="IdUsuario" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificador del usuario.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CodigoEstado" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Elemento que indica el codigo del estado
+								de la
+								actividad
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CodigoSubEstado" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que indica el codigo sub estado de la
+								activid
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ActualizarActividadBPMMsjResp"
+		type="dprobpm:ActualizarActividadBPMMsjRespTipo" />
+	<xsd:complexType name="ActualizarActividadBPMMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeSalidaBase">
+				<xsd:sequence>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ObtenerReferenciaBPMMsjSol" type="dprobpm:ObtenerReferenciaBPMMsjSolTipo" />
+	<xsd:complexType name="ObtenerReferenciaBPMMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeEntradaBase">
+				<xsd:sequence>
+
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="NumeroPoliza" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								Elemento que indica el numero de póliza
+								del asegurado.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="IdentificacionCliente"
+						type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de indentificacion del cliente.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+
+					<xsd:element name="TipoReferencia" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Tipo de Referencia vinculado al proceso.
+								Por ejemplo: Cotización, Emision,
+								Renovación, Endosos, No Aplica.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdUsuario" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificacion Usuario.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdProceso" type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Id del proceso asociado a la
+								configuración de la actividad.</xsd:documentation></xsd:annotation></xsd:element>
+					<xsd:element name="IdPlantillaActividad" type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Plantilla utilizada para obtener los campos necesarios para crear la actividad. </xsd:documentation></xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObtenerReferenciaBPMMsjResp" type="dprobpm:ObtenerReferenciaBPMMsjRespTipo" />
+	<xsd:complexType name="ObtenerReferenciaBPMMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dprobpm:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element name="IdUsuario" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo del Usuario registrado a nivel
+								del LDAP
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ReferenciaActividad"
+						type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Elemento que contiene la información de
+								la referencia
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdTipoDocumental" type="xsd:int"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Tipo de Documento o Proceso vinculado en
+								estos momento solo se enviará el codigo
+								104
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:element name="ConfiguracionesActividad" type="dpropro:ConfiguracionesActividadTipo" maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

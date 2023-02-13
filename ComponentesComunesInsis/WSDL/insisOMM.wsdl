@@ -1,0 +1,726 @@
+<!--  Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.  -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fadata.eu/soap/insis/omm" xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:ibase="http://fadata.eu/soap/insis" name="InsisOMM" targetNamespace="http://fadata.eu/soap/insis/omm">
+<import location="insisAbstractBase.wsdl" namespace="http://fadata.eu/soap/insis"/>
+<types>
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+<xs:include schemaLocation="xsd/insis/Insis_OMM_v3.0.xsd"/>
+</xs:schema>
+</types>
+<message name="FindObjectRqMessage">
+<part name="payload" element="insis:FindObjectRq"/>
+</message>
+<message name="FindObjectRsMessage">
+<part name="payload" element="insis:FindObjectRs"/>
+</message>
+<message name="ModifyObjectAccInsuredRqMessage">
+<part name="payload" element="insis:ModifyObjectAccInsuredRq"/>
+</message>
+<message name="ModifyObjectAccInsuredRsMessage">
+<part name="payload" element="insis:ModifyObjectAccInsuredRs"/>
+</message>
+<message name="ModifyObjectAddEquipRqMessage">
+<part name="payload" element="insis:ModifyObjectAddEquipRq"/>
+</message>
+<message name="ModifyObjectAddEquipRsMessage">
+<part name="payload" element="insis:ModifyObjectAddEquipRs"/>
+</message>
+<message name="ModifyObjectAgricultureRqMessage">
+<part name="payload" element="insis:ModifyObjectAgricultureRq"/>
+</message>
+<message name="ModifyObjectAgricultureRsMessage">
+<part name="payload" element="insis:ModifyObjectAgricultureRs"/>
+</message>
+<message name="ModifyObjectCarRqMessage">
+<part name="payload" element="insis:ModifyObjectCarRq"/>
+</message>
+<message name="ModifyObjectCarRsMessage">
+<part name="payload" element="insis:ModifyObjectCarRs"/>
+</message>
+<message name="ModifyObjectCAREARRqMessage">
+<part name="payload" element="insis:ModifyObjectCAREARRq"/>
+</message>
+<message name="ModifyObjectCAREARRsMessage">
+<part name="payload" element="insis:ModifyObjectCAREARRs"/>
+</message>
+<message name="ModifyObjectCargoRqMessage">
+<part name="payload" element="insis:ModifyObjectCargoRq"/>
+</message>
+<message name="ModifyObjectCargoRsMessage">
+<part name="payload" element="insis:ModifyObjectCargoRs"/>
+</message>
+<message name="ModifyObjectGroupRqMessage">
+<part name="payload" element="insis:ModifyObjectGroupRq"/>
+</message>
+<message name="ModifyObjectGroupRsMessage">
+<part name="payload" element="insis:ModifyObjectGroupRs"/>
+</message>
+<message name="ModifyObjectLiabilityRqMessage">
+<part name="payload" element="insis:ModifyObjectLiabilityRq"/>
+</message>
+<message name="ModifyObjectLiabilityRsMessage">
+<part name="payload" element="insis:ModifyObjectLiabilityRs"/>
+</message>
+<message name="ModifyObjectLossRqMessage">
+<part name="payload" element="insis:ModifyObjectLossRq"/>
+</message>
+<message name="ModifyObjectLossRsMessage">
+<part name="payload" element="insis:ModifyObjectLossRs"/>
+</message>
+<message name="ModifyObjectOwnersRqMessage">
+<part name="payload" element="insis:ModifyObjectOwnersRq"/>
+</message>
+<message name="ModifyObjectOwnersRsMessage">
+<part name="payload" element="insis:ModifyObjectOwnersRs"/>
+</message>
+<message name="ModifyObjectPlaneRqMessage">
+<part name="payload" element="insis:ModifyObjectPlaneRq"/>
+</message>
+<message name="ModifyObjectPlaneRsMessage">
+<part name="payload" element="insis:ModifyObjectPlaneRs"/>
+</message>
+<message name="ModifyObjectPropertyRqMessage">
+<part name="payload" element="insis:ModifyObjectPropertyRq"/>
+</message>
+<message name="ModifyObjectPropertyRsMessage">
+<part name="payload" element="insis:ModifyObjectPropertyRs"/>
+</message>
+<message name="ModifyObjectTrainRqMessage">
+<part name="payload" element="insis:ModifyObjectTrainRq"/>
+</message>
+<message name="ModifyObjectTrainRsMessage">
+<part name="payload" element="insis:ModifyObjectTrainRs"/>
+</message>
+<message name="ModifyObjectVesselRqMessage">
+<part name="payload" element="insis:ModifyObjectVesselRq"/>
+</message>
+<message name="ModifyObjectVesselRsMessage">
+<part name="payload" element="insis:ModifyObjectVesselRs"/>
+</message>
+<message name="RegisterObjectAccInsuredRqMessage">
+<part name="payload" element="insis:RegisterObjectAccInsuredRq"/>
+</message>
+<message name="RegisterObjectAccInsuredRsMessage">
+<part name="payload" element="insis:RegisterObjectAccInsuredRs"/>
+</message>
+<message name="RegisterObjectAddEquipRqMessage">
+<part name="payload" element="insis:RegisterObjectAddEquipRq"/>
+</message>
+<message name="RegisterObjectAddEquipRsMessage">
+<part name="payload" element="insis:RegisterObjectAddEquipRs"/>
+</message>
+<message name="RegisterObjectAnimalRqMessage">
+<part name="payload" element="insis:RegisterObjectAnimalRq"/>
+</message>
+<message name="RegisterObjectAnimalRsMessage">
+<part name="payload" element="insis:RegisterObjectAnimalRs"/>
+</message>
+<message name="RegisterObjectCAREARRqMessage">
+<part name="payload" element="insis:RegisterObjectCAREARRq"/>
+</message>
+<message name="RegisterObjectCAREARRsMessage">
+<part name="payload" element="insis:RegisterObjectCAREARRs"/>
+</message>
+<message name="RegisterObjectCargoRqMessage">
+<part name="payload" element="insis:RegisterObjectCargoRq"/>
+</message>
+<message name="RegisterObjectCargoRsMessage">
+<part name="payload" element="insis:RegisterObjectCargoRs"/>
+</message>
+<message name="RegisterObjectCarRqMessage">
+<part name="payload" element="insis:RegisterObjectCarRq"/>
+</message>
+<message name="RegisterObjectCarRsMessage">
+<part name="payload" element="insis:RegisterObjectCarRs"/>
+</message>
+<message name="RegisterObjectCropRqMessage">
+<part name="payload" element="insis:RegisterObjectCropRq"/>
+</message>
+<message name="RegisterObjectCropRsMessage">
+<part name="payload" element="insis:RegisterObjectCropRs"/>
+</message>
+<message name="RegisterObjectGroupRqMessage">
+<part name="payload" element="insis:RegisterObjectGroupRq"/>
+</message>
+<message name="RegisterObjectGroupRsMessage">
+<part name="payload" element="insis:RegisterObjectGroupRs"/>
+</message>
+<message name="RegisterObjectLiabilityRqMessage">
+<part name="payload" element="insis:RegisterObjectLiabilityRq"/>
+</message>
+<message name="RegisterObjectLiabilityRsMessage">
+<part name="payload" element="insis:RegisterObjectLiabilityRs"/>
+</message>
+<message name="RegisterObjectLossRqMessage">
+<part name="payload" element="insis:RegisterObjectLossRq"/>
+</message>
+<message name="RegisterObjectLossRsMessage">
+<part name="payload" element="insis:RegisterObjectLossRs"/>
+</message>
+<message name="RegisterObjectOwnersRqMessage">
+<part name="payload" element="insis:RegisterObjectOwnersRq"/>
+</message>
+<message name="RegisterObjectOwnersRsMessage">
+<part name="payload" element="insis:RegisterObjectOwnersRs"/>
+</message>
+<message name="RegisterObjectPersonRqMessage">
+<part name="payload" element="insis:RegisterObjectPersonRq"/>
+</message>
+<message name="RegisterObjectPersonRsMessage">
+<part name="payload" element="insis:RegisterObjectPersonRs"/>
+</message>
+<message name="RegisterObjectPropertyRqMessage">
+<part name="payload" element="insis:RegisterObjectPropertyRq"/>
+</message>
+<message name="RegisterObjectPropertyRsMessage">
+<part name="payload" element="insis:RegisterObjectPropertyRs"/>
+</message>
+<message name="RegisterObjectTrainRqMessage">
+<part name="payload" element="insis:RegisterObjectTrainRq"/>
+</message>
+<message name="RegisterObjectTrainRsMessage">
+<part name="payload" element="insis:RegisterObjectTrainRs"/>
+</message>
+<message name="RegisterObjectVesselRqMessage">
+<part name="payload" element="insis:RegisterObjectVesselRq"/>
+</message>
+<message name="RegisterObjectVesselRsMessage">
+<part name="payload" element="insis:RegisterObjectVesselRs"/>
+</message>
+<portType name="InsisOMMPort">
+<operation name="findObject">
+<input message="tns:FindObjectRqMessage"/>
+<output message="tns:FindObjectRqMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectAccInsured">
+<input message="tns:ModifyObjectAccInsuredRqMessage"/>
+<output message="tns:ModifyObjectAccInsuredRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectAddEquip">
+<input message="tns:ModifyObjectAddEquipRqMessage"/>
+<output message="tns:ModifyObjectAddEquipRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectAgriculture">
+<input message="tns:ModifyObjectAgricultureRqMessage"/>
+<output message="tns:ModifyObjectAgricultureRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectAnimal">
+<input message="tns:ModifyObjectAgricultureRqMessage"/>
+<output message="tns:ModifyObjectAgricultureRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectCar">
+<input message="tns:ModifyObjectCarRqMessage"/>
+<output message="tns:ModifyObjectCarRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectCAREAR">
+<input message="tns:ModifyObjectCAREARRqMessage"/>
+<output message="tns:ModifyObjectCAREARRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectCargo">
+<input message="tns:ModifyObjectCargoRqMessage"/>
+<output message="tns:ModifyObjectCargoRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectGroup">
+<input message="tns:ModifyObjectGroupRqMessage"/>
+<output message="tns:ModifyObjectGroupRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectLiability">
+<input message="tns:ModifyObjectLiabilityRqMessage"/>
+<output message="tns:ModifyObjectLiabilityRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectLoss">
+<input message="tns:ModifyObjectLossRqMessage"/>
+<output message="tns:ModifyObjectLossRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectOwners">
+<input message="tns:ModifyObjectOwnersRqMessage"/>
+<output message="tns:ModifyObjectOwnersRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectPlane">
+<input message="tns:ModifyObjectPlaneRqMessage"/>
+<output message="tns:ModifyObjectPlaneRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectProperty">
+<input message="tns:ModifyObjectPropertyRqMessage"/>
+<output message="tns:ModifyObjectPropertyRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectTrain">
+<input message="tns:ModifyObjectTrainRqMessage"/>
+<output message="tns:ModifyObjectTrainRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="modifyObjectVessel">
+<input message="tns:ModifyObjectVesselRqMessage"/>
+<output message="tns:ModifyObjectVesselRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectAccInsured">
+<input message="tns:RegisterObjectAccInsuredRqMessage"/>
+<output message="tns:RegisterObjectAccInsuredRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectAddEquip">
+<input message="tns:RegisterObjectAddEquipRqMessage"/>
+<output message="tns:RegisterObjectAddEquipRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectAnimal">
+<input message="tns:RegisterObjectAnimalRqMessage"/>
+<output message="tns:RegisterObjectAnimalRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectCAREAR">
+<input message="tns:RegisterObjectCAREARRqMessage"/>
+<output message="tns:RegisterObjectCAREARRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectCargo">
+<input message="tns:RegisterObjectCargoRqMessage"/>
+<output message="tns:RegisterObjectCargoRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectCar">
+<input message="tns:RegisterObjectCarRqMessage"/>
+<output message="tns:RegisterObjectCarRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectCrop">
+<input message="tns:RegisterObjectCropRqMessage"/>
+<output message="tns:RegisterObjectCropRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectGroup">
+<input message="tns:RegisterObjectGroupRqMessage"/>
+<output message="tns:RegisterObjectGroupRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectLiability">
+<input message="tns:RegisterObjectLiabilityRqMessage"/>
+<output message="tns:RegisterObjectLiabilityRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectLoss">
+<input message="tns:RegisterObjectLossRqMessage"/>
+<output message="tns:RegisterObjectLossRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectOwners">
+<input message="tns:RegisterObjectOwnersRqMessage"/>
+<output message="tns:RegisterObjectOwnersRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectPerson">
+<input message="tns:RegisterObjectPersonRqMessage"/>
+<output message="tns:RegisterObjectPersonRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectProperty">
+<input message="tns:RegisterObjectPropertyRqMessage"/>
+<output message="tns:RegisterObjectPropertyRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectTrain">
+<input message="tns:RegisterObjectTrainRqMessage"/>
+<output message="tns:RegisterObjectTrainRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+<operation name="registerObjectVessel">
+<input message="tns:RegisterObjectVesselRqMessage"/>
+<output message="tns:RegisterObjectVesselRsMessage"/>
+<fault name="Error" message="ibase:ErrorMessage"/>
+</operation>
+</portType>
+<binding name="InsisOMMPortBinding" type="tns:InsisOMMPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="findObject">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectAccInsured">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectAddEquip">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectAgriculture">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectAnimal">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectCar">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectCAREAR">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectCargo">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectGroup">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectLiability">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectLoss">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectOwners">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectPlane">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectProperty">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectTrain">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="modifyObjectVessel">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectAccInsured">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectAddEquip">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectAnimal">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectCAREAR">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectCargo">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectCar">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectCrop">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectGroup">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectLiability">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectLoss">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectOwners">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectPerson">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectProperty">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectTrain">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+<operation name="registerObjectVessel">
+<soap:operation style="document" soapAction="process"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Error">
+<soap:fault use="literal" name="Error"/>
+</fault>
+</operation>
+</binding>
+<service name="InsisOMM">
+<port name="InsisOMMPort" binding="tns:InsisOMMPortBinding">
+<soap:address location="https://ws.pa.sura.uat.ctplc.ltd:9074/insisws/InsisOMMPort"/>
+</port>
+</service>
+</definitions>

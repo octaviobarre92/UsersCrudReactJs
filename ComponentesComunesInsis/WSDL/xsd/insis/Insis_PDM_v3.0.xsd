@@ -1,0 +1,1050 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           xmlns:xdb="http://xmlns.oracle.com/xdb" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" 
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+  <!-- Service Request messages -->
+  <xs:element name="ChangeAgentInfoRq" type="ChangeAgentInfoRq_Type"/>
+  <xs:element name="ChangeBankInfoRq" type="ChangeBankInfoRq_Type"/>
+  <xs:element name="ChangeCreditorInfoRq" type="ChangeCreditorInfoRq_Type"/>
+  <xs:element name="ChangeClientInfoRq" type="ChngeClntInfoRq_Type"/>
+  <xs:element name="ChangeExpertInfoRq" type="ChangeExpertInfoRq_Type"/>
+  <xs:element name="ChangeInsurerInfoRq" type="ChangeInsurerInfoRq_Type"/>
+  <xs:element name="ChangePersonInfoRq" type="ChangePersonInfoRq_Type"/>
+  <xs:element name="ChangeStaffInfoRq" type="ChangeStaffInfoRq_Type"/>
+  <xs:element name="ChangeOfficeInfoRq" type="ChangeOfficeInfoRq_Type"/>
+  <xs:element name="ChangeOthersInfoRq" type="ChangeOthersInfoRq_Type"/>
+  
+  <xs:element name="FindClientByPIDRq" type="FndClntByPIDRq_Type"/>
+  <xs:element name="FindPersonByPIDRq" type="FndPersonByPIDRq_Type"/>
+  
+  <xs:element name="GetPeopleDocumentsRq" type="GetPeopleDocumentsRq_Type"/>
+  
+  <xs:element name="RegisterAgentRq" type="RegsrAgentRq_Type"/>
+  <xs:element name="RegisterCreditorRq" type="RegisterCreditorRq_Type"/>
+  <xs:element name="RegisterExpertRq" type="RegisterExpertRq_Type"/>
+  <xs:element name="RegisterNewBankRq" type="RegisterNewBankRq_Type"/>
+  <xs:element name="RegisterNewClientRq" type="RegisterClientRq_Type"/>
+  <!--not supported
+    xs:element name="RegisterNewEmployeeRq" type="RegisterNewEmployeeRq_Type"/-->
+  <xs:element name="RegisterNewInsurerRq" type="RegisterNewInsurerRq_Type"/>
+  <xs:element name="RegisterNewOfficeRq" type="RegisterNewOfficeRq_Type"/>
+  <xs:element name="RegisterNewOthersRq" type="RegisterNewOthersRq_Type"/>
+  <xs:element name="RegisterNewPersonRq" type="RegisterNewPersonRq_Type"/>
+  <xs:element name="RegisterNewPersonRoleRq" type="RegisterNewPersonRoleRq_Type"/>
+  <xs:element name="RegisterNewStaffRq" type="RegisterNewStaffRq_Type"/>
+  <!-- not supported
+  xs:element name="RegisterNewSurvivorsRq" type="RegisterNewSurvivorsRq_Type"/-->
+  <xs:element name="RemovePersonRoleRq" type="RemovePersonRoleRq_Type"/>
+
+  <xs:element name="RetrieveAgentInfoRq" type="RetrieveAgentInfoRq_Type"/>
+  <xs:element name="RetrieveBankInfoRq" type="RetrieveBankInfoRq_Type"/>
+  <xs:element name="RetrieveCreditorInfoRq" type="RetrieveCreditorInfoRq_Type"/>
+  <xs:element name="RetrieveExpertInfoRq" type="RetrieveExpertInfoRq_Type"/>
+  <xs:element name="RetrieveInsurerInfoRq"
+              type="RetrieveInsurerInfoRq_Type"/>
+  <xs:element name="RetrieveOfficeInfoRq" type="RetrieveOfficeInfoRq_Type"/>
+  <xs:element name="RetrieveOthersInfoRq" type="RetrieveOthersInfoRq_Type"/>
+  <!-- not supported, use FindPersonByPID
+     xs:element name="RetrievePersonInfoRq" type="RetrievePersonInfoRq_Type"/-->
+  <xs:element name="RetrieveStaffInfoRq" type="RetrieveStaffInfoRq_Type"/>
+  <!-- Service Response messages -->
+  <xs:element name="ChangeAgentInfoRs" type="ChangeAgentInfoRs_Type"/>
+  <xs:element name="ChangeBankInfoRs" type="ChangeBankInfoRs_Type"/>
+  <xs:element name="ChangeCreditorInfoRs" type="ChangeCreditorInfoRs_Type"/>
+  <xs:element name="ChangeClientInfoRs" type="ChngeClntInfoRs_Type" />
+  <xs:element name="ChangeExpertInfoRs" type="ChangeExpertInfoRs_Type"/>
+  <xs:element name="ChangeInsurerInfoRs" type="ChangeInsurerInfoRs_Type"/>
+  <xs:element name="ChangePersonInfoRs" type="ChangePersonInfoRs_Type"/>
+  <xs:element name="ChangeStaffInfoRs" type="ChangeStaffInfoRs_Type"/>
+  <xs:element name="ChangeOfficeInfoRs" type="ChangeOfficeInfoRs_Type"/>
+  <xs:element name="ChangeOthersInfoRs" type="ChangeOthersInfoRs_Type"/>
+  <xs:element name="FindClientByPIDRs" type="FndClntByPIDRs_Type"/>
+  <xs:element name="FindPersonByPIDRs" type="FndPersonByPIDRs_Type"/>
+  <xs:element name="GetPeopleDocumentsRs" type="GetPeopleDocumentsRs_Type"/>
+  <xs:element name="RegisterAgentRs" type="RegsrAgentRs_Type"/>
+  <xs:element name="RegisterNewBankRs" type="RegisterNewBankRs_Type"/>
+  <xs:element name="RegisterCreditorRs" type="RegisterCreditorRs_Type"/>
+  <xs:element name="RegisterExpertRs" type="RegisterExpertRs_Type"/>
+  <xs:element name="RegisterNewClientRs" type="RegsrNewClntRs_Type" />
+  <xs:element name="RegisterNewEmployeeRs" type="RegisterNewEmployeeRs_Type"/>
+  <xs:element name="RegisterNewInsurerRs" type="RegisterNewInsurerRs_Type"/>
+  <xs:element name="RegisterNewOfficeRs" type="RegisterNewOfficeRs_Type"/>
+  <xs:element name="RegisterNewOthersRs" type="RegisterNewOthersRs_Type"/>
+  <xs:element name="RegisterNewPersonRs" type="RegisterNewPersonRs_Type"/>
+  <xs:element name="RegisterNewPersonRoleRs" type="RegisterNewPersonRoleRs_Type"/>
+  <xs:element name="RegisterNewStaffRs" type="RegisterNewStaffRs_Type"/>
+  <xs:element name="RegisterNewSurvivorsRs" type="RegisterNewSurvivorsRs_Type"/>
+  <xs:element name="RemovePersonRoleRs" type="RemovePersonRoleRs_Type"/>
+  <xs:element name="RetrieveAgentInfoRs" type="RetrieveAgentInfoRs_Type"/>      
+  <xs:element name="RetrieveBankInfoRs" type="RetrieveBankInfoRs_Type"/>
+  <xs:element name="RetrieveCreditorInfoRs" type="RetrieveCreditorInfoRs_Type"/>
+  <xs:element name="RetrieveExpertInfoRs" type="RetrieveExpertInfoRs_Type"/>
+  <xs:element name="RetrieveInsurerInfoRs" type="RetrieveInsurerInfoRs_Type"/>
+  <xs:element name="RetrieveOfficeInfoRs" type="RetrieveOfficeInfoRs_Type"/>
+  <xs:element name="RetrieveOthersInfoRs" type="RetrieveOthersInfoRs_Type"/>
+  <!-- not supported, use FindPersonByPID
+    xs:element name="RetrievePersonInfoRs" type="RetrievePersonInfoRs_Type"/-->
+  <xs:element name="RetrieveStaffInfoRs" type="RetrieveStaffInfoRs_Type"/>
+  <xs:group name="PDM_Rq_Group">
+    <xs:choice>
+      <xs:element name="ChangeAgentInfoRq" type="ChangeAgentInfoRq_Type"/>
+      <xs:element name="ChangeBankInfoRq" type="ChangeBankInfoRq_Type"/>
+      <xs:element name="ChangeCreditorInfoRq" type="ChangeCreditorInfoRq_Type"/>
+      <xs:element name="ChangeClientInfoRq" type="ChngeClntInfoRq_Type"/>
+      <xs:element name="ChangeExpertInfoRq" type="ChangeExpertInfoRq_Type"/>
+      <xs:element name="ChangeInsurerInfoRq" type="ChangeInsurerInfoRq_Type"/>
+      <xs:element name="ChangePersonInfoRq" type="ChangePersonInfoRq_Type"/>
+      <xs:element name="ChangeStaffInfoRq" type="ChangeStaffInfoRq_Type"/>
+      <xs:element name="ChangeOfficeInfoRq" type="ChangeOfficeInfoRq_Type"/>
+      <xs:element name="ChangeOthersInfoRq" type="ChangeOthersInfoRq_Type"/>
+      
+      <xs:element name="FindClientByPIDRq" type="FndClntByPIDRq_Type"/>
+      <xs:element name="FindPersonByPIDRq" type="FndPersonByPIDRq_Type"/>
+      
+      <xs:element name="GetPeopleDocumentsRq" type="GetPeopleDocumentsRq_Type"/>
+      
+      <xs:element name="RegisterAgentRq" type="RegsrAgentRq_Type"/>
+      <xs:element name="RegisterCreditorRq" type="RegisterCreditorRq_Type"/>
+      <xs:element name="RegisterExpertRq" type="RegisterExpertRq_Type"/>
+      <xs:element name="RegisterNewBankRq" type="RegisterNewBankRq_Type"/>
+      <xs:element name="RegisterNewClientRq" type="RegisterClientRq_Type"/>
+      
+      <!-- not supported
+         xs:element name="RegisterNewEmployeeRq" type="RegisterNewEmployeeRq_Type"/-->
+      <xs:element name="RegisterNewInsurerRq" type="RegisterNewInsurerRq_Type"/>
+      <xs:element name="RegisterNewOfficeRq" type="RegisterNewOfficeRq_Type"/>
+      <xs:element name="RegisterNewOthersRq" type="RegisterNewOthersRq_Type"/>
+      <xs:element name="RegisterNewPersonRq" type="RegisterNewPersonRq_Type"/>
+      <xs:element name="RegisterNewPersonRoleRq" type="RegisterNewPersonRoleRq_Type"/>
+      <xs:element name="RegisterNewStaffRq" type="RegisterNewStaffRq_Type"/>
+      <!--xs:element name="RegisterNewSurvivorsRq" type="RegisterNewSurvivorsRq_Type"/-->
+      <xs:element name="RemovePersonRoleRq" type="RemovePersonRoleRq_Type"/>
+
+      <xs:element name="RetrieveAgentInfoRq" type="RetrieveAgentInfoRq_Type"/>
+      <xs:element name="RetrieveBankInfoRq" type="RetrieveBankInfoRq_Type"/>
+      <xs:element name="RetrieveCreditorInfoRq" type="RetrieveCreditorInfoRq_Type"/>
+      <xs:element name="RetrieveExpertInfoRq" type="RetrieveExpertInfoRq_Type"/>
+      <xs:element name="RetrieveInsurerInfoRq"
+                  type="RetrieveInsurerInfoRq_Type"/>
+      <xs:element name="RetrieveOfficeInfoRq" type="RetrieveOfficeInfoRq_Type"/>
+      <xs:element name="RetrieveOthersInfoRq" type="RetrieveOthersInfoRq_Type"/>
+      <!--xs:element name="RetrievePersonInfoRq" type="RetrievePersonInfoRq_Type"/-->
+      <xs:element name="RetrieveStaffInfoRq" type="RetrieveStaffInfoRq_Type"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="PDM_Rs_Group">
+    <xs:choice>
+      <xs:element name="ChangeAgentInfoRs" type="ChangeAgentInfoRs_Type"/>
+      <xs:element name="ChangeBankInfoRs" type="ChangeBankInfoRs_Type"/>
+      <xs:element name="ChangeCreditorInfoRs" type="ChangeCreditorInfoRs_Type"/>
+      <xs:element name="ChangeClientInfoRs" type="ChngeClntInfoRs_Type" />
+      <xs:element name="ChangeExpertInfoRs" type="ChangeExpertInfoRs_Type"/>
+      <xs:element name="ChangeInsurerInfoRs" type="ChangeInsurerInfoRs_Type"/>
+      <xs:element name="ChangePersonInfoRs" type="ChangePersonInfoRs_Type"/>
+      <xs:element name="ChangeStaffInfoRs" type="ChangeStaffInfoRs_Type"/>
+      <xs:element name="ChangeOfficeInfoRs" type="ChangeOfficeInfoRs_Type"/>
+      <xs:element name="ChangeOthersInfoRs" type="ChangeOthersInfoRs_Type"/>
+      <xs:element name="FindClientByPIDRs" type="FndClntByPIDRs_Type"/>
+      <xs:element name="FindPersonByPIDRs" type="FndPersonByPIDRs_Type"/>
+      <xs:element name="GetPeopleDocumentsRs" type="GetPeopleDocumentsRs_Type"/>
+      <xs:element name="RegisterAgentRs" type="RegsrAgentRs_Type"/>
+      <xs:element name="RegisterNewBankRs" type="RegisterNewBankRs_Type"/>
+      <xs:element name="RegisterCreditorRs" type="RegisterCreditorRs_Type"/>
+      <xs:element name="RegisterExpertRs" type="RegisterExpertRs_Type"/>
+      <xs:element name="RegisterNewClientRs" type="RegsrNewClntRs_Type" />
+      <!--xs:element name="RegisterNewEmployeeRs" type="RegisterNewEmployeeRs_Type"/-->
+      <xs:element name="RegisterNewInsurerRs" type="RegisterNewInsurerRs_Type"/>
+      <xs:element name="RegisterNewOfficeRs" type="RegisterNewOfficeRs_Type"/>
+      <xs:element name="RegisterNewOthersRs" type="RegisterNewOthersRs_Type"/>
+      <xs:element name="RegisterNewPersonRs" type="RegisterNewPersonRs_Type"/>
+      <xs:element name="RegisterNewPersonRoleRs" type="RegisterNewPersonRoleRs_Type"/>
+      <xs:element name="RegisterNewStaffRs" type="RegisterNewStaffRs_Type"/>
+      <!--xs:element name="RegisterNewSurvivorsRs" type="RegisterNewSurvivorsRs_Type"/-->
+      <xs:element name="RemovePersonRoleRs" type="RemovePersonRoleRs_Type"/>
+      <xs:element name="RetrieveAgentInfoRs" type="RetrieveAgentInfoRs_Type"/>      
+      <xs:element name="RetrieveBankInfoRs" type="RetrieveBankInfoRs_Type"/>
+      <xs:element name="RetrieveCreditorInfoRs" type="RetrieveCreditorInfoRs_Type"/>
+      <xs:element name="RetrieveExpertInfoRs" type="RetrieveExpertInfoRs_Type"/>
+      <xs:element name="RetrieveInsurerInfoRs" type="RetrieveInsurerInfoRs_Type"/>
+      <xs:element name="RetrieveOfficeInfoRs" type="RetrieveOfficeInfoRs_Type"/>
+      <xs:element name="RetrieveOthersInfoRs" type="RetrieveOthersInfoRs_Type"/>
+      <!--xs:element name="RetrievePersonInfoRs" type="RetrievePersonInfoRs_Type"/-->
+      <xs:element name="RetrieveStaffInfoRs" type="RetrieveStaffInfoRs_Type"/>
+    </xs:choice>
+  </xs:group>
+  
+  <xs:group name="Insured_Or_Policy_Info_Group">
+     <xs:choice>
+        <xs:element name="InsuredID" type="xs:integer"/>
+        <xs:element name="PolicyID"  type="xs:integer"/>
+        <xs:element name="PolicyNo"  type="xs:string" />
+      </xs:choice>
+  </xs:group>
+    
+  <xs:element name="AgentData" type="AgentData_Type"/>
+  <xs:element name="ChangeAgentData" type="ChangeAgentData_Type"/>
+  <xs:complexType name="AccountSaleChannel_Type">
+    <xs:sequence>        
+        <xs:element name="ChannelID" type="xs:integer"  minOccurs="0"/>
+        <xs:element name="ChannelName" type="xs:string"/>
+        <xs:element name="ChannelPID" type="xs:string"/>
+        <xs:element name="ChannelType" type="xs:string" />
+        <xs:element name="ChannelSubtype" type="xs:string" />
+        <xs:element name="MainChannelID" type="xs:integer" minOccurs="0"/>       
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgentData_Type" xdb:SQLType="AgentData_Type">
+    <xs:sequence>
+      <xs:element name="AgentId" type="xs:string" minOccurs="0"/>
+      <xs:element ref="AgentNo"/>
+      <xs:element name="ManId" type="xs:string" minOccurs="0"/>
+      <xs:element name="AgentType" type="xs:integer"/>
+      <xs:element name="QualificationLevel" type="xs:string"/>
+      <xs:element name="HireDate" type="xs:date" minOccurs="1"/>
+      <xs:element name="FireDate" minOccurs="0" type="xs:date"/>
+      <xs:element name="OfficeNo" type="xs:string" minOccurs="1"/>
+      <xs:element name="DefaultAgent" type="xs:string"/>
+      <xs:element name="AgentState" type="xs:string"/>
+      <xs:choice>
+        <xs:element name="MainAgentID" minOccurs="0" type="xs:integer"/>
+        <xs:element name="MainAgentNo" type="xs:string" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="ContractType" minOccurs="0" type="xs:string"/>
+      <xs:element name="ContractMonths" minOccurs="0" type="xs:integer"/>
+      <xs:element name="AccountNo" minOccurs="0" type="xs:string"/>
+      <xs:element name="PrevJobConfirmDate" minOccurs="0" type="xs:string"/>
+      <xs:element name="Notes" minOccurs="0" type="xs:string"/>
+      <xs:element name="OldAgentNo" minOccurs="0" type="xs:string"/>
+      <xs:element name="LeavingReason" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Agents_Type">
+    <xs:sequence>
+      <xs:element name="AgentID" type="xs:integer" maxOccurs="unbounded"
+                  minOccurs="1" xdb:SQLType="NUMBER"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BankData_Type">
+    <xs:sequence>
+      <xs:element name="BankID" minOccurs="0" type="xs:long"/>
+      <xs:element ref="ManID" minOccurs="0"/>
+      <xs:element name="BankCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="SWIFTCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="MainBankID" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeAgentData_Type" xdb:SQLType="AgentData_Type">
+    <xs:sequence>
+      <xs:element name="AgentId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AgentNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="ManId" type="xs:string" minOccurs="0"/>
+      <xs:element name="AgentType" type="xs:integer" minOccurs="0"
+                  maxOccurs="1"/>
+      <xs:element name="QualificationLevel" type="xs:string" minOccurs="0"
+                  maxOccurs="1"/>
+      <xs:element name="HireDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="FireDate" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="OfficeNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="DefaultAgent" type="xs:string" minOccurs="0"
+                  maxOccurs="1"/>
+      <xs:element name="AgentState" type="xs:string" minOccurs="0"/>
+      <xs:choice>
+        <xs:element name="MainAgentID" minOccurs="0" type="xs:integer"
+                    nillable="true"/>
+        <xs:element name="MainAgentNo" type="xs:string" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="ContractType" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="ContractMonths" minOccurs="0" type="xs:integer" nillable="true"/>
+      <xs:element name="AccountNo" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="PrevJobConfirmDate" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="Notes" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="OldAgentNo" minOccurs="0" type="xs:string" nillable="true"/>
+      <xs:element name="LeavingReason" minOccurs="0" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="ChangeAgentInfoRq_Type" xdb:SQLType="ChangeAgentInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="ChangeAgentData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeAgentInfoRs_Type"
+                  xdb:SQLType="ChangeAgentInfoRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeBankData_Type">
+    <xs:sequence>
+      <xs:element name="BankID" minOccurs="0" type="xs:long"/>
+      <xs:element ref="ManID" minOccurs="0"/>
+      <xs:element name="BankCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="SWIFTCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="MainBankID" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeBankInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0"/>
+      <xs:element name="BankData" type="ChangeBankData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeBankInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeCreditorInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0"/>
+      <xs:element name="CreditorData" minOccurs="0" type="CreditorData_Type"/>        
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeCreditorInfoRs_Type">
+    <xs:sequence>
+      <xs:element name="CreditorID" type="xs:long"/>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeExpertInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ExpertData" type="ChangeExpertData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeExpertInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="ChangeOfficeInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group"/>
+      <xs:element name="OfficeData" type="ChangeOfficeData_Type"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ChangeOfficeInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="ChangeExpertData_Type">
+    <xs:sequence>
+      <xs:element ref="ExpertID" 
+                  minOccurs="0"/>
+      <xs:element name="ManID" type="xs:integer" xdb:SQLType="NUMBER" 
+                  minOccurs="0"/>
+      <xs:element name="Qualification" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="ContractNo" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <xs:element name="BeginDate" type="xs:date" 
+                  minOccurs="0"/>          
+      <xs:element name="EndDate" type="xs:date" 
+                  minOccurs="0"/>          
+      <xs:element name="Notes" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeInsurerData_Type">
+    <xs:sequence>
+      <xs:element ref="InsurerID" minOccurs="0"/>
+      <xs:element ref="ManID" minOccurs="0"/>
+      <xs:element name="InsurerType" type="xs:string" minOccurs="0"/>
+      <xs:element name="CurrentInsurer" type="BOOLEAN_NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="RegNum" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeInsurerInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0"/>
+      <xs:element name="InsurerData" type="ChangeInsurerData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeInsurerInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeStaffData_Type">
+    <xs:sequence>
+      <xs:element minOccurs="1" ref="StaffID" maxOccurs="1"/>
+      <xs:element name="Occupation" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="MaxQualLevel" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element ref="OfficeID" xdb:SQLType="NUMBER" minOccurs="0"/>
+      <xs:element name="PeriodID" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="FlManyPeriods" type="BOOLEAN_NUMBER_TYPE"
+                  xdb:SQLType="NUMBER" minOccurs="0"/>
+      <xs:element name="Senior" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="UserAccount" type="UserAccount_Type" 
+                  minOccurs="0"/>
+      <xs:element name="Agents" type="Agents_Type" minOccurs="0"/>
+      <xs:element name="Products" type="ProductsPDM_Type" minOccurs="0"/>
+      <xs:element name="DBRoles" type="DBRoles_Type" minOccurs="0"/>
+      <xs:element name="Operations" type="Operations_Type" minOccurs="0"/>
+      <xs:element name="Offices" type="Offices_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeStaffInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0"/>
+      <xs:element name="StaffData" type="ChangeStaffData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeStaffInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChngeClntInfoRq_Type"
+                  xdb:SQLType="ChngeClntInfoRq_Type">
+     <xs:sequence>
+      <xs:group ref="Change_People_Data_Group"/>
+      <xs:element name="ClientData" type="ClientData_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChngeClntInfoRs_Type"
+                  xdb:SQLType="ChngeClntInfoRs_Type">
+    <xs:sequence>
+      <xs:element ref="ReturningMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeOfficeData_Type">
+    <xs:sequence>
+      <xs:element ref="OfficeID" minOccurs="0"/>
+      <xs:element name="OfficeNo" type="xs:string" minOccurs="1"/>
+      <xs:choice>
+        <xs:element name="ParentOfficeID" minOccurs="0" type="xs:long"/>
+        <xs:element name="ParentOfficeNo" type="xs:string" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="DefaultOffice" minOccurs="0"
+                  type="BOOLEAN_NUMBER_TYPE"/>
+      <xs:element name="OfficeCategory" type="xs:integer" minOccurs="0"/>
+      <xs:element name="GLNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="RegionID" minOccurs="0" type="xs:integer"/>
+      <xs:element name="CountryID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeOthersInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group" minOccurs="0"/>
+      <xs:element name="OthersData" type="ChangeOthersData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangeOthersInfoRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangePersonInfoRq_Type"
+                  xdb:SQLType="ChangePersonInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChangePersonInfoRs_Type"
+                  xdb:SQLType="ChangePersonInfoRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DBRoles_Type">
+    <xs:sequence>
+      <xs:element name="DBRole" type="xs:string" minOccurs="1"
+                  maxOccurs="unbounded" xdb:SQLType="VARCHAR2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExpertData_Type">
+    <xs:sequence>
+      <xs:element ref="ExpertID" 
+                  minOccurs="0"/>
+      <xs:element name="ManID" type="xs:long" xdb:SQLType="NUMBER" 
+                  minOccurs="0"/>
+      <xs:element name="Qualification" type="xs:long" xdb:SQLType="NUMBER"/>
+      <xs:element name="ContractNo" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <xs:element name="BeginDate" type="xs:date" 
+                  minOccurs="0"/>          
+      <xs:element name="EndDate" type="xs:date" 
+                  minOccurs="0"/>          
+      <xs:element name="Notes" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntByPIDRq_Type" xdb:SQLType="FndClntByPIDRq_Type">
+    <xs:sequence>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntByPIDRs_Type" xdb:SQLType="FndClntByPIDRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="ClientData" type="ClientData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntByPIDRsAddrses_Type"
+                  xdb:SQLType="FndClntByPIDRsAddrses_Type">
+    <xs:sequence>
+      <xs:element name="Address" type="FndClntByPIDRsAddrs_Type"
+                  maxOccurs="unbounded"
+                  xdb:SQLCollType="FndClntByPIDRsAddrs_Coll"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndClntByPIDRsAddrs_Type"
+                  xdb:SQLType="FndClntByPIDRsAddrs_Type">
+    <xs:sequence>
+      <xs:element name="Country" type="xs:string" minOccurs="0"/>
+      <xs:element name="CountryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="State" type="xs:string" minOccurs="0"/>
+      <xs:element name="CountryState" type="xs:string" minOccurs="0"/>
+      <xs:element name="Region" type="xs:string" minOccurs="0"/>
+      <xs:element name="StateRegion" type="xs:string" minOccurs="0"/>
+      <xs:element name="City" type="xs:string" minOccurs="0"/>
+      <xs:element name="CityCode" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ResidentialAddress"/>
+      <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="AddressType" type="xs:string"/>
+      <xs:element name="Address" type="xs:string" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPersonByPIDRq_Type" xdb:SQLType="FndPersonByPIDRq_Type">
+    <xs:sequence>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FndPersonByPIDRs_Type" xdb:SQLType="FndPersonByPIDRs_Type">
+    <xs:sequence>
+        <xs:group ref="People_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <xs:complexType name="GetPeopleDocumentsRq_Type">   
+      <xs:sequence>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPeopleDocumentsRs_Type">
+    <xs:sequence>
+      <xs:element ref="DocInfo" />     
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="InsurerData_Type">
+    <xs:sequence>
+      <xs:element ref="InsurerID" minOccurs="0"/>
+      <xs:element ref="ManID" minOccurs="0"/>
+      <xs:element name="InsurerType" type="xs:string"/>
+      <xs:element name="CurrentInsurer" type="BOOLEAN_NUMBER_TYPE"/>
+      <xs:element name="RegNum" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Offices_Type">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" ref="OfficeID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OfficeData_Type">
+    <xs:sequence>
+      <xs:element ref="OfficeID" minOccurs="0"/>
+      <xs:element name="OfficeNo" type="xs:string" minOccurs="1"/>
+      <xs:choice>
+        <xs:element name="ParentOfficeID" minOccurs="0" type="xs:long"/>
+        <xs:element name="ParentOfficeNo" type="xs:string" minOccurs="0"/>
+      </xs:choice>
+      <xs:element name="DefaultOffice" minOccurs="0"
+                  type="BOOLEAN_NUMBER_TYPE"/>
+      <xs:element name="OfficeCategory" type="xs:integer"/>
+      <xs:element name="GLNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="RegionID" minOccurs="0" type="xs:integer"/>
+      <xs:element name="CountryID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Operations_Type">
+    <xs:sequence>
+      <xs:element name="Operation" type="Operation_Type" minOccurs="1"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Operation_Type">
+    <xs:sequence>
+      <xs:element name="OperationID" type="xs:string" xdb:SQLType="VARCHAR2"/>
+      <xs:element name="PermissionLevel" type="xs:integer"
+                  xdb:SQLType="NUMBER"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OthersData_Type">
+    <xs:sequence>
+      <xs:element name="AddressID" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="ManID" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="AddressType" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="1"/>
+      <!--  <xs:element name="ChangeDate" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>     -->
+      <xs:element name="ChangeDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Notes" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <!--     <xs:element name="OOP1" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <xs:element name="OOP2" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <xs:element name="OOP3" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>
+      <xs:element name="OOP4" type="xs:string" xdb:SQLType="VARCHAR2"
+                  minOccurs="0"/>   -->
+      <!--  <xs:element name="AccessLevelGranted" type="xs:integer"
+                  xdb:SQLType="NUMBER" minOccurs="0"/>
+      <xs:element name="Agents" type="Agents_Type" minOccurs="0"/>
+      <xs:element name="Products" type="ProductsPDM_Type" minOccurs="0"/>
+      <xs:element name="DBRoles" type="DBRoles_Type" minOccurs="0"/>
+      <xs:element name="Operations" type="Operations_Type" minOccurs="0"/>
+      <xs:element name="Offices" type="Offices_Type" minOccurs="0"/>  -->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OthersByPID_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element ref="EntityType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductsPDM_Type">
+    <xs:sequence>
+      <xs:element name="Product" type="ProductPDM_Type" minOccurs="1"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductPDM_Type">
+    <xs:sequence>
+      <xs:element name="InsrType" type="xs:integer" xdb:SQLType="NUMBER"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterClientRq_Type"
+                  xdb:SQLType="RegisterClientRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="ClientData" type="ClientData_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCreditorRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterCreditorRs_Type">
+    <xs:sequence>
+      <xs:element name="CreditorID" type="xs:long"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterExpertRq_Type"
+                  xdb:SQLType="RegisterAgentRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="ExpertData" type="ExpertData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterExpertRs_Type" xdb:SQLType="RegisterExpertRs_Type">
+    <xs:sequence>
+      <xs:element name="ExpertID" type="xs:long" minOccurs="1"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewBankRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="BankData" type="BankData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewBankRs_Type">
+    <xs:sequence>
+      <xs:element ref="BankID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewInsurerRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="InsurerData" type="InsurerData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewInsurerRs_Type">
+    <xs:sequence>
+      <xs:element ref="InsurerID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewPersonRq_Type"
+                  xdb:SQLType="RegisterNewPersonRq_Type">
+    <xs:sequence>
+      <xs:group ref="Change_People_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewPersonRoleRq_Type"
+                  xdb:SQLType="RegisterNewPersonRoleRq_Type">
+    <xs:sequence>
+      <xs:element name="Roles" minOccurs="1"
+                  type="Roles_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RemovePersonRoleRq_Type">
+    <xs:sequence>
+      <xs:element name="Roles" type="Roles_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewEmployeeRq_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ManID"/>
+        <xs:element ref="PID"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element name="CompanyID" type="xs:long"/>
+        <xs:element name="CustomerID" type="xs:string"/>
+      </xs:choice>
+      <xs:element name="Occupation" type="xs:int" minOccurs="1"/>
+      <xs:element name="EmployeeNo" minOccurs="0" type="xs:string"/>
+      <xs:element name="Status" type="xs:string" minOccurs="0"/>
+      <xs:element name="GroupID" type="xs:int" minOccurs="0"/>
+      <xs:element name="Salary" type="xs:double" minOccurs="0"/>
+      <xs:element name="Designation" type="xs:string" minOccurs="0"/>
+      <xs:element name="BeginDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewEmployeeRs_Type">
+    <xs:sequence>
+      <xs:element name="EmployeeID" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewPersonRs_Type"
+                  xdb:SQLType="RegisterNewPersonRs_Type">
+    <xs:sequence>
+      <xs:element name="ManId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewPersonRoleRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RemovePersonRoleRs_Type">
+    <xs:sequence>
+      <xs:element name="ReturningMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewStaffRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="StaffData" type="StaffData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewStaffRs_Type">
+    <xs:sequence>
+      <xs:element ref="StaffID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="RegisterNewOfficeRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="OfficeData" type="OfficeData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewOfficeRs_Type">
+    <xs:sequence>
+      <xs:element ref="OfficeID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- others -->
+  <xs:complexType name="RegisterNewOthersRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="OthersData" type="ChangeOthersData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewOthersRs_Type">
+    <xs:sequence>
+      <xs:element ref="AddressID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+ 
+  <!--  survivors   -->
+  <xs:complexType name="RegisterNewSurvivorsRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="SurvivorsData" type="SurvivorsData_Type" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterNewSurvivorsRs_Type">
+    <xs:sequence>
+      <xs:element ref="SurvivorID"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegsrAgentRq_Type" xdb:SQLType="RegsrAgentRq_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element ref="AgentData"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegsrAgentRs_Type" xdb:SQLType="RegsrAgentRs_Type">
+    <xs:sequence>
+      <xs:element name="AgentId" type="xs:string" minOccurs="1"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegsrNewClntRq_Type" xdb:SQLType="RegsrNewClntRq_Type"/>
+  <xs:complexType name="RegsrNewClntRs_Type" xdb:SQLType="RegsrNewClntRs_Type">
+    <xs:sequence>
+      <xs:element name="ClientID" type="xs:integer" xdb:SQLType="NUMBER"/>
+      <xs:element ref="ManID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveAgentInfo_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element minOccurs="0"
+                  maxOccurs="1" ref="EntityType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveAgentInfoRq_Type">
+    <xs:choice>
+      <xs:element name="AgentId" type="xs:string"/>
+      <xs:element name="AgentNo" type="xs:string"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RetrieveAgentInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element ref="AgentData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveBankInfoRq_Type">
+    <xs:choice>
+      <xs:element ref="BankID"/>
+      <xs:element name="SWIFTCode" type="xs:string"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RetrieveBankInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="BankData" type="BankData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveCreditorInfoRq_Type">
+    <xs:choice>
+      <xs:element name="CreditorID" type="xs:long"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RetrieveCreditorInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="CreditorID" type="xs:long"/>
+      <xs:element name="Notes" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveExpertInfoRq_Type">
+    <xs:choice>
+      <xs:element name="ExpertID" type="xs:long"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RetrieveInsurerInfoRq_Type">
+    <xs:choice>
+      <xs:element ref="InsurerID"/>
+      <xs:element name="RegNum" type="xs:string"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RetrievePersonInfoRq_Type"
+                  xdb:SQLType="RetrievePersonInfoRq_Type">
+    <xs:sequence>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrievePersonInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveStaffInfoRq_Type">
+    <xs:choice>
+      <xs:element name="StaffID" type="xs:integer"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+  
+   <xs:complexType name="RetrieveOfficeInfoRq_Type">
+    <xs:choice>
+      <xs:element name="OfficeID" type="xs:long"/>
+      <xs:element name="OfficeNo" type="xs:string" minOccurs="1"/>
+      <xs:group ref="PID_Data_Group"/>
+    </xs:choice>
+  </xs:complexType>
+
+  
+   <!--   RetrieveOthersInfoRq_Type   -->
+  <xs:complexType name="RetrieveOthersInfoRq_Type">
+    <xs:choice>
+      <xs:element name="AddressID" type="xs:integer"/>
+      <xs:sequence>
+        <xs:group ref="PID_Data_Group"/>
+        <xs:element ref="AddressType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="RetrieveStaffInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="StaffData" type="StaffData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveExpertInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="ExpertData" type="ExpertData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrieveInsurerInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="InsurerData" type="InsurerData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <xs:complexType name="RetrieveOfficeInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="OfficetData" type="OfficeData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  
+  <!--   RetrieveOthersInfoRs_Type   -->
+  <xs:complexType name="RetrieveOthersInfoRs_Type">
+    <xs:sequence>
+      <xs:group ref="People_Data_Group"/>
+      <xs:element name="OthersData" type="OthersData_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Rights_Type">
+    <xs:sequence>
+      <xs:element name="Right" type="RIGHT_TYPE" minOccurs="1"
+                  maxOccurs="unbounded" xdb:SQLType="VARCHAR2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Role_Type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="ManID"/>        
+        <xs:group ref="PID_Data_Group"/>        
+      </xs:choice>
+      <xs:element name="RoleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Roles_Type">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Role" type="Role_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StaffByPID_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element ref="EntityType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <!--     OthersByPID_Type     -->
+  
+  <!--     SurvivorsByPID_Type    -->  
+  <xs:complexType name="SurvivorsByPID_Type">
+    <xs:sequence>
+      <xs:element ref="PID"/>
+      <xs:element ref="EntityType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="StaffData_Type">
+    <xs:sequence>
+      <xs:element
+                  minOccurs="0" ref="StaffID"/>
+      <xs:element name="ManID" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="Occupation" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="MaxQualLevel" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element ref="OfficeID" xdb:SQLType="NUMBER" minOccurs="0"/>
+      <xs:element name="PeriodID" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="FlManyPeriods" type="BOOLEAN_NUMBER_TYPE" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="Senior" type="xs:integer" xdb:SQLType="NUMBER"
+                  minOccurs="0"/>
+      <xs:element name="UserAccount" type="UserAccount_Type" 
+                  minOccurs="0"/>
+      <xs:element name="Agents" type="Agents_Type" minOccurs="0"/>
+      <xs:element name="Products" type="ProductsPDM_Type" minOccurs="0"/>
+      <xs:element name="DBRoles" type="DBRoles_Type" minOccurs="0"/>
+      <xs:element name="Offices" type="Offices_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+    <!--         OthersData_Type            -->
+  
+  <!--         SurvivorsData_Type            -->
+  <xs:complexType name="SurvivorsData_Type">
+    <xs:sequence>
+      <xs:element name="SurvivorID" type="xs:integer"    minOccurs="0"/>
+      <xs:element name="ManID" type="xs:integer"         minOccurs="0"/>
+      <xs:group ref="Insured_Or_Policy_Info_Group"/>   
+      <xs:element name="AccinsuredID" type="xs:integer"  minOccurs="0"/>   
+      <xs:element name="State" type="xs:integer"      minOccurs="1"/>    
+      <xs:element name="CoverCode" type="xs:string"      minOccurs="0"/>   
+      <xs:element name="SrvPercent" type="xs:decimal"    minOccurs="0"/>   
+      <xs:element name="RelID" type="xs:integer"         minOccurs="0"/>   
+      <xs:element name="Notes" type="xs:string"          minOccurs="0"/>   
+      <xs:element name="SurvGroup" type="xs:string"      minOccurs="0"/>  
+      <xs:element name="Age" type="xs:integer"           minOccurs="0"/>  
+      <xs:element name="Sex" type="xs:integer"           minOccurs="0"/>             
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserAccount_Type">
+    <xs:sequence>
+        <xs:element name="Username" type="xs:string"/>
+        <xs:element name="EMail" type="xs:string"/>
+        <xs:element name="Country" type="xs:string" minOccurs="0"/>
+        <xs:element name="Language" type="xs:string" minOccurs="0"/>
+        <xs:element name="LockAccount" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+        <xs:element name="LockAccountDate" type="xs:date" minOccurs="0"/>
+        <xs:element name="ChangePwd" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+        <xs:element name="PwdExpireDate" type="xs:date" minOccurs="0"/>
+        <xs:element name="RecreateUserInLdap" type="BOOLEAN_STRING_TYPE" minOccurs="0"/>
+        <xs:element name="SaleChannel" type="AccountSaleChannel_Type"  minOccurs="0"/>
+    </xs:sequence>        
+  </xs:complexType>
+  <xs:simpleType name="RIGHT_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="R|W|RW|WR"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,993 @@
+<!--  Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.  -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fadata.eu/soap/insis/pam"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis" name="InsisPAM"
+             targetNamespace="http://fadata.eu/soap/insis/pam">
+  <import location="insisAbstractBase.wsdl" namespace="http://fadata.eu/soap/insis"/>
+  <types>
+    <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+      <xs:include schemaLocation="xsd/insis/Insis_PAM_v3.0.xsd"/>
+    </xs:schema>
+  </types>
+  <message name="AcceptQuoteRqMessage">
+    <part name="payload" element="insis:AcceptQuoteRq"/>
+  </message>
+  <message name="AcceptQuoteRsMessage">
+    <part name="payload" element="insis:AcceptQuoteRq"/>
+  </message>
+  <message name="CancelApplicationRqMessage">
+    <part name="payload" element="insis:CancelApplicationRq"/>
+  </message>
+  <message name="CancelApplicationRsMessage">
+    <part name="payload" element="insis:CancelApplicationRs"/>
+  </message>
+  <message name="ConfirmApplicationRqMessage">
+    <part name="payload" element="insis:ConfirmApplicationRq"/>
+  </message>
+  <message name="ConfirmApplicationRsMessage">
+    <part name="payload" element="insis:ConfirmApplicationRs"/>
+  </message>
+  <message name="ConvertApplicationToPolicyRqMessage">
+    <part name="payload" element="insis:ConvertApplicationToPolicyRq"/>
+  </message>
+  <message name="ConvertApplicationToPolicyRsMessage">
+    <part name="payload" element="insis:ConvertApplicationToPolicyRs"/>
+  </message>
+  <message name="ConvertQuotationToApplicationRqMessage">
+    <part name="payload" element="insis:ConvertQuotationToApplicationRq"/>
+  </message>
+  <message name="ConvertQuotationToApplicationRsMessage">
+    <part name="payload" element="insis:ConvertQuotationToApplicationRs"/>
+  </message>
+  <message name="FindClientPoliciesRqMessage">
+    <part name="payload" element="insis:FindClientPoliciesRq"/>
+  </message>
+  <message name="FindClientPoliciesRsMessage">
+    <part name="payload" element="insis:FindClientPoliciesRs"/>
+  </message>
+  <message name="FindEngagementRqMessage">
+    <part name="payload" element="insis:FindEngagementRq"/>
+  </message>
+  <message name="FindEngagementRsMessage">
+    <part name="payload" element="insis:FindEngagementRs"/>
+  </message>
+  <message name="FindObjectsPoliciesRqMessage">
+    <part name="payload" element="insis:FindObjectsPoliciesRq"/>
+  </message>
+  <message name="FindObjectsPoliciesRsMessage">
+    <part name="payload" element="insis:FindObjectsPoliciesRs"/>
+  </message>
+  <message name="FindPolicyByNumberRqMessage">
+    <part name="payload" element="insis:FindPolicyByNumberRq"/>
+  </message>
+  <message name="FindPolicyByNumberRsMessage">
+    <part name="payload" element="insis:FindPolicyByNumberRs"/>
+  </message>
+  <message name="GetCommissionRqMessage">
+    <part name="payload" element="insis:GetCommissionRq"/>
+  </message>
+  <message name="GetCommissionRsMessage">
+    <part name="payload" element="insis:GetCommissionRs"/>
+  </message>
+  <message name="GetDailyFundPricesRqMessage">
+    <part name="payload" element="insis:GetDailyFundPricesRq"/>
+  </message>
+  <message name="GetDailyFundPricesRsMessage">
+    <part name="payload" element="insis:GetDailyFundPricesRs"/>
+  </message>
+  <message name="GetPolicyDocumentsRqMessage">
+    <part name="payload" element="insis:GetPolicyDocumentsRq"/>
+  </message>
+  <message name="GetPolicyDocumentsRsMessage">
+    <part name="payload" element="insis:GetPolicyDocumentsRs"/>
+  </message>
+  <message name="GetPolicyRulesRqMessage">
+    <part name="payload" element="insis:GetPolicyRulesRq"/>
+  </message>
+  <message name="GetPolicyRulesRsMessage">
+    <part name="payload" element="insis:GetPolicyRulesRs"/>
+  </message>
+  <message name="InvalidateAnnexRqMessage">
+    <part name="payload" element="insis:InvalidateAnnexRq"/>
+  </message>
+  <message name="InvalidateAnnexRsMessage">
+    <part name="payload" element="insis:InvalidateAnnexRs"/>
+  </message>
+  <message name="ModifyApplicationRqMessage">
+    <part name="payload" element="insis:ModifyApplicationRq"/>
+  </message>
+  <message name="ModifyApplicationRsMessage">
+    <part name="payload" element="insis:ModifyApplicationRs"/>
+  </message>
+  <message name="ModifyEngagementQuoteRqMessage">
+    <part name="payload" element="insis:ModifyEngagementQuoteRq"/>
+  </message>
+  <message name="ModifyEngagementQuoteRsMessage">
+    <part name="payload" element="insis:ModifyEngagementQuoteRs"/>
+  </message>
+  <message name="ModifyEngagementRqMessage">
+    <part name="payload" element="insis:ModifyEngagementRq"/>
+  </message>
+  <message name="ModifyEngagementRsMessage">
+    <part name="payload" element="insis:ModifyEngagementRs"/>
+  </message>
+  <message name="PolicyRenewRqMessage">
+    <part name="payload" element="insis:PolicyRenewRq"/>
+  </message>
+  <message name="PolicyRenewRsMessage">
+    <part name="payload" element="insis:PolicyRenewRs"/>
+  </message>
+  <message name="ProcessLetterOfCreditRqMessage">
+    <part name="payload" element="insis:ProcessLetterOfCreditRq"/>
+  </message>
+  <message name="ProcessLetterOfCreditRsMessage">
+    <part name="payload" element="insis:ProcessLetterOfCreditRs"/>
+  </message>
+  <message name="RegisterAddObjAnnexRqMessage">
+    <part name="payload" element="insis:RegisterAddObjAnnexRq"/>
+  </message>
+  <message name="RegisterAddObjAnnexRsMessage">
+    <part name="payload" element="insis:RegisterAddObjAnnexRs"/>
+  </message>
+  <message name="RegisterAddCovAnnexRqMessage">
+    <part name="payload" element="insis:RegisterAddCovAnnexRq"/>
+  </message>
+  <message name="RegisterAddCovAnnexRsMessage">
+    <part name="payload" element="insis:RegisterAddCovAnnexRs"/>
+  </message>
+  <message name="RegisterApplicationRqMessage">
+    <part name="payload" element="insis:RegisterApplicationRq"/>
+  </message>
+  <message name="RegisterApplicationRsMessage">
+    <part name="payload" element="insis:RegisterApplicationRs"/>
+  </message>
+  <message name="RegisterCancelPolicyAnnexRqMessage">
+    <part name="payload" element="insis:RegisterCancelPolicyAnnexRq"/>
+  </message>
+  <message name="RegisterCancelPolicyAnnexRsMessage">
+    <part name="payload" element="insis:RegisterCancelPolicyAnnexRs"/>
+  </message>
+  <message name="RegisterCancelObjectAnnexRqMessage">
+    <part name="payload" element="insis:RegisterCancelObjectAnnexRq"/>
+  </message>
+  <message name="RegisterCancelObjectAnnexRsMessage">
+    <part name="payload" element="insis:RegisterCancelObjectAnnexRs"/>
+  </message>
+  <message name="RegisterCancelCoverAnnexRqMessage">
+    <part name="payload" element="insis:RegisterCancelCoverAnnexRq"/>
+  </message>
+  <message name="RegisterCancelCoverAnnexRsMessage">
+    <part name="payload" element="insis:RegisterCancelCoverAnnexRs"/>
+  </message>
+  <message name="RegisterCargoShipmentsAnnexRqMessage">
+    <part name="payload" element="insis:RegisterCargoShipmentsAnnexRq"/>
+  </message>
+  <message name="RegisterCargoShipmentsAnnexRsMessage">
+    <part name="payload" element="insis:RegisterCargoShipmentsAnnexRs"/>
+  </message>
+  <message name="RegisterChngCovAnnexRqMessage">
+    <part name="payload" element="insis:RegisterChngCovAnnexRq"/>
+  </message>
+  <message name="RegisterChngCovAnnexRsMessage">
+    <part name="payload" element="insis:RegisterChngCovAnnexRs"/>
+  </message>
+  <message name="RegisterChngFundDistributionAnnexRqMessage">
+    <part name="payload" element="insis:RegisterChngFundDistributionAnnexRq"/>
+  </message>
+  <message name="RegisterChngFundDistributionAnnexRsMessage">
+    <part name="payload" element="insis:RegisterChngFundDistributionAnnexRs"/>
+  </message>
+  <message name="RegisterChngObjAnnexRqMessage">
+    <part name="payload" element="insis:RegisterChngObjAnnexRq"/>
+  </message>
+  <message name="RegisterChngObjAnnexRsMessage">
+    <part name="payload" element="insis:RegisterChngObjAnnexRs"/>
+  </message>
+  <message name="RegisterEngagementRqMessage">
+    <part name="payload" element="insis:RegisterEngagementRq"/>
+  </message>
+  <message name="RegisterEngagementRsMessage">
+    <part name="payload" element="insis:RegisterEngagementRs"/>
+  </message>
+  <message name="RegisterEngagementQuoteRqMessage">
+    <part name="payload" element="insis:RegisterEngagementQuoteRq"/>
+  </message>
+  <message name="RegisterEngagementQuoteRsMessage">
+    <part name="payload" element="insis:RegisterEngagementQuoteRs"/>
+  </message>
+  <message name="RegisterInsuranceConditionAnnexRqMessage">
+    <part name="payload" element="insis:RegisterInsuranceConditionAnnexRq"/>
+  </message>
+  <message name="RegisterInsuranceConditionAnnexRsMessage">
+    <part name="payload" element="insis:RegisterInsuranceConditionAnnexRs"/>
+  </message>
+  <message name="RegisterObjectCreditedRqMessage">
+    <part name="payload" element="insis:RegisterObjectCreditedRq"/>
+  </message>
+  <message name="RegisterObjectCreditedRsMessage">
+    <part name="payload" element="insis:RegisterObjectCreditedRs"/>
+  </message>
+  <message name="RegisterObjRelatedPersonRqMessage">
+    <part name="payload" element="insis:RegisterObjRelatedPersonRq"/>
+  </message>
+  <message name="RegisterObjRelatedPersonRsMessage">
+    <part name="payload" element="insis:RegisterObjRelatedPersonRs"/>
+  </message>
+  <message name="RegisterOtherChangesAnnexRqMessage">
+    <part name="payload" element="insis:RegisterOtherChangesAnnexRq"/>
+  </message>
+  <message name="RegisterOtherChangesAnnexRsMessage">
+    <part name="payload" element="insis:RegisterOtherChangesAnnexRs"/>
+  </message>
+  <message name="RegisterPolicyCommissionRqMessage">
+    <part name="payload" element="insis:RegisterPolicyCommissionRq"/>
+  </message>
+  <message name="RegisterPolicyCommissionRsMessage">
+    <part name="payload" element="insis:RegisterPolicyCommissionRs"/>
+  </message>
+  <message name="RegisterPolicyProlongationAnnexRqMessage">
+    <part name="payload" element="insis:RegisterPolicyProlongationAnnexRq"/>
+  </message>
+  <message name="RegisterPolicyProlongationAnnexRsMessage">
+    <part name="payload" element="insis:RegisterPolicyProlongationAnnexRs"/>
+  </message>
+  <message name="RegisterQuotationRqMessage">
+    <part name="payload" element="insis:RegisterQuotationRq"/>
+  </message>
+  <message name="RegisterQuotationRsMessage">
+    <part name="payload" element="insis:RegisterQuotationRs"/>
+  </message>
+  <message name="RegisterQuoteVersionRqMessage">
+    <part name="payload" element="insis:RegisterQuoteVersionRq"/>
+  </message>
+  <message name="RegisterQuoteVersionRsMessage">
+    <part name="payload" element="insis:RegisterQuoteVersionRs"/>
+  </message>
+  <message name="RejectQuoteRqMessage">
+    <part name="payload" element="insis:RejectQuoteRq"/>
+  </message>
+  <message name="RejectQuoteRsMessage">
+    <part name="payload" element="insis:RejectQuoteRs"/>
+  </message>
+  <message name="SetPolicyRulesRqMessage">
+    <part name="payload" element="insis:SetPolicyRulesRq"/>
+  </message>
+  <message name="SetPolicyRulesRsMessage">
+    <part name="payload" element="insis:SetPolicyRulesRs"/>
+  </message>
+  <message name="SubmitQuoteToClientRqMessage">
+    <part name="payload" element="insis:SubmitQuoteToClientRq"/>
+  </message>
+  <message name="SubmitQuoteToClientRsMessage">
+    <part name="payload" element="insis:SubmitQuoteToClientRs"/>
+  </message>
+  <portType name="InsisPAMPort">
+    <operation name="acceptQuote">
+      <input message="tns:AcceptQuoteRqMessage"/>
+      <output message="tns:AcceptQuoteRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="cancelApplication">
+      <input message="tns:CancelApplicationRqMessage"/>
+      <output message="tns:CancelApplicationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="confirmApplication">
+      <input message="tns:ConfirmApplicationRqMessage"/>
+      <output message="tns:ConfirmApplicationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="convertApplicationToPolicy">
+      <input message="tns:ConvertApplicationToPolicyRqMessage"/>
+      <output message="tns:ConvertApplicationToPolicyRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="convertQuotationToApplication">
+      <input message="tns:ConvertQuotationToApplicationRqMessage"/>
+      <output message="tns:ConvertQuotationToApplicationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findClientPolicies">
+      <input message="tns:FindClientPoliciesRqMessage"/>
+      <output message="tns:FindClientPoliciesRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findEngagement">
+      <input message="tns:FindEngagementRqMessage"/>
+      <output message="tns:FindEngagementRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findObjectsPolicies">
+      <input message="tns:FindObjectsPoliciesRqMessage"/>
+      <output message="tns:FindObjectsPoliciesRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findPolicyByNumber">
+      <input message="tns:FindPolicyByNumberRqMessage"/>
+      <output message="tns:FindPolicyByNumberRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="getCommission">
+      <input message="tns:GetCommissionRqMessage"/>
+      <output message="tns:GetCommissionRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="getDailyFundPrices">
+      <input message="tns:GetDailyFundPricesRqMessage"/>
+      <output message="tns:GetDailyFundPricesRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="getPolicyDocuments">
+      <input message="tns:GetPolicyDocumentsRqMessage"/>
+      <output message="tns:GetPolicyDocumentsRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="getPolicyRules">
+      <input message="tns:GetPolicyRulesRqMessage"/>
+      <output message="tns:GetPolicyRulesRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="invalidateAnnex">
+      <input message="tns:InvalidateAnnexRqMessage"/>
+      <output message="tns:InvalidateAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="modifyApplication">
+      <input message="tns:ModifyApplicationRqMessage"/>
+      <output message="tns:ModifyApplicationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="modifyEngagementQuote">
+      <input message="tns:ModifyEngagementQuoteRqMessage"/>
+      <output message="tns:ModifyEngagementQuoteRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="modifyEngagement">
+      <input message="tns:ModifyEngagementRqMessage"/>
+      <output message="tns:ModifyEngagementRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="policyRenew">
+      <input message="tns:PolicyRenewRqMessage"/>
+      <output message="tns:PolicyRenewRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="processLetterOfCredit">
+      <input message="tns:ProcessLetterOfCreditRqMessage"/>
+      <output message="tns:ProcessLetterOfCreditRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerAddObjAnnex">
+      <input message="tns:RegisterAddObjAnnexRqMessage"/>
+      <output message="tns:RegisterAddObjAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerAddCovAnnex">
+      <input message="tns:RegisterAddCovAnnexRqMessage"/>
+      <output message="tns:RegisterAddCovAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerApplication">
+      <input message="tns:RegisterApplicationRqMessage"/>
+      <output message="tns:RegisterApplicationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerCancelPolicyAnnex">
+      <input message="tns:RegisterCancelPolicyAnnexRqMessage"/>
+      <output message="tns:RegisterCancelPolicyAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerCancelObjectAnnex">
+      <input message="tns:RegisterCancelObjectAnnexRqMessage"/>
+      <output message="tns:RegisterCancelObjectAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerCancelCoverAnnex">
+      <input message="tns:RegisterCancelCoverAnnexRqMessage"/>
+      <output message="tns:RegisterCancelCoverAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerCargoShipmentsAnnex">
+      <input message="tns:RegisterCargoShipmentsAnnexRqMessage"/>
+      <output message="tns:RegisterCargoShipmentsAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerChngCovAnnex">
+      <input message="tns:RegisterChngCovAnnexRqMessage"/>
+      <output message="tns:RegisterChngCovAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerChngFundDistributionAnnex">
+      <input message="tns:RegisterChngFundDistributionAnnexRqMessage"/>
+      <output message="tns:RegisterChngFundDistributionAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerChngObjAnnex">
+      <input message="tns:RegisterChngObjAnnexRqMessage"/>
+      <output message="tns:RegisterChngObjAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerEngagement">
+      <input message="tns:RegisterEngagementRqMessage"/>
+      <output message="tns:RegisterEngagementRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerEngagementQuote">
+      <input message="tns:RegisterEngagementQuoteRqMessage"/>
+      <output message="tns:RegisterEngagementQuoteRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerInsuranceConditionAnnex">
+      <input message="tns:RegisterInsuranceConditionAnnexRqMessage"/>
+      <output message="tns:RegisterInsuranceConditionAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerObjectCredited">
+      <input message="tns:RegisterObjectCreditedRqMessage"/>
+      <output message="tns:RegisterObjectCreditedRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerObjRelatedPerson">
+      <input message="tns:RegisterObjRelatedPersonRqMessage"/>
+      <output message="tns:RegisterObjRelatedPersonRqMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerOtherChangesAnnex">
+      <input message="tns:RegisterOtherChangesAnnexRqMessage"/>
+      <output message="tns:RegisterOtherChangesAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerPolicyCommission">
+      <input message="tns:RegisterPolicyCommissionRqMessage"/>
+      <output message="tns:RegisterPolicyCommissionRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerPolicyProlongationAnnex">
+      <input message="tns:RegisterPolicyProlongationAnnexRqMessage"/>
+      <output message="tns:RegisterPolicyProlongationAnnexRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerQuotation">
+      <input message="tns:RegisterQuotationRqMessage"/>
+      <output message="tns:RegisterQuotationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerQuoteVersion">
+      <input message="tns:RegisterQuoteVersionRqMessage"/>
+      <output message="tns:RegisterQuoteVersionRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="rejectQuote">
+      <input message="tns:RejectQuoteRqMessage"/>
+      <output message="tns:RejectQuoteRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="setPolicyRules">
+      <input message="tns:SetPolicyRulesRqMessage"/>
+      <output message="tns:SetPolicyRulesRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="submitQuoteToClient">
+      <input message="tns:SubmitQuoteToClientRqMessage"/>
+      <output message="tns:SubmitQuoteToClientRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+  </portType>
+  <binding name="InsisPAMPortBinding" type="tns:InsisPAMPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="acceptQuote">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="cancelApplication">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="confirmApplication">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="convertApplicationToPolicy">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="convertQuotationToApplication">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findClientPolicies">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findEngagement">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findPolicyByNumber">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findObjectsPolicies">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="getCommission">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="getDailyFundPrices">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="getPolicyDocuments">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="getPolicyRules">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="invalidateAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="modifyApplication">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="modifyEngagementQuote">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="modifyEngagement">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="policyRenew">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="processLetterOfCredit">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerAddObjAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerAddCovAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerApplication">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerCancelPolicyAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerCancelObjectAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerCancelCoverAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerCargoShipmentsAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerChngCovAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerChngFundDistributionAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerChngObjAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerEngagement">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerEngagementQuote">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerInsuranceConditionAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerObjectCredited">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerObjRelatedPerson">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerOtherChangesAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerPolicyCommission">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerPolicyProlongationAnnex">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerQuotation">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerQuoteVersion">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="rejectQuote">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="setPolicyRules">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="submitQuoteToClient">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="InsisPAM">
+    <port name="InsisPAMPort" binding="tns:InsisPAMPortBinding">
+      <soap:address location="https://ws.pa.sura.uat.ctplc.ltd:9074/insisws/InsisPAMPort"/>
+    </port>
+  </service>
+</definitions>

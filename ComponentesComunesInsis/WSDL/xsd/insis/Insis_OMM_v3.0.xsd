@@ -1,0 +1,570 @@
+<!--  Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.  -->
+<xs:schema xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+<xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+<!--  Service Request messages  -->
+<xs:element name="FindObjectRq" type="FindObjectRq_Type"/>
+<xs:element name="ModifyObjectAccInsuredRq" type="ModifyObjectAccInsuredRq_Type"/>
+<xs:element name="ModifyObjectAddEquipRq" type="ModifyObjectAddEquipRq_Type"/>
+<xs:element name="ModifyObjectAgricultureRq" type="ModifyObjectAgricultureRq_Type"/>
+<xs:element name="ModifyObjectAnimalRq" type="ModifyObjectAnimalRq_Type"/>
+<xs:element name="ModifyObjectCarRq" type="ModifyObjectCarRq_Type"/>
+<xs:element name="ModifyObjectCAREARRq" type="ModifyObjectCAREARRq_Type"/>
+<xs:element name="ModifyObjectCargoRq" type="ModifyObjectCargoRq_Type"/>
+<xs:element name="ModifyObjectGroupRq" type="ModifyObjectGroupRq_Type"/>
+<xs:element name="ModifyObjectLiabilityRq" type="ModifyObjectLiabilityRq_Type"/>
+<xs:element name="ModifyObjectLossRq" type="ModifyObjectLossRq_Type"/>
+<xs:element name="ModifyObjectOwnersRq" type="ModifyObjectOwnersRq_Type"/>
+<xs:element name="ModifyObjectPlaneRq" type="ModifyObjectPlaneRq_Type"/>
+<xs:element name="ModifyObjectPropertyRq" type="ModifyObjectPropertyRq_Type"/>
+<xs:element name="ModifyObjectTrainRq" type="ModifyObjectTrainRq_Type"/>
+<xs:element name="ModifyObjectVesselRq" type="ModifyObjectVesselRq_Type"/>
+<xs:element name="RegisterObjectAccInsuredRq" type="RegisterObjectAccInsuredRq_Type"/>
+<xs:element name="RegisterObjectAddEquipRq" type="RegisterObjectAddEquipRq_Type"/>
+<xs:element name="RegisterObjectAirplaneRq" type="RegisterObjectAirplaneRq_Type"/>
+<xs:element name="RegisterObjectAnimalRq" type="RegisterObjectAnimalRq_Type"/>
+<xs:element name="RegisterObjectCAREARRq" type="RegisterObjectCAREARRq_Type"/>
+<xs:element name="RegisterObjectCargoRq" type="RegisterObjectCargoRq_Type"/>
+<xs:element name="RegisterObjectCarRq" type="RegisterObjectCarRq_Type"/>
+<xs:element name="RegisterObjectCropRq" type="RegisterObjectCropRq_Type"/>
+<xs:element name="RegisterObjectGroupRq" type="RegisterObjectGroupRq_Type"/>
+<xs:element name="RegisterObjectLiabilityRq" type="RegisterObjectLiabilityRq_Type"/>
+<xs:element name="RegisterObjectLossRq" type="RegisterObjectLossRq_Type"/>
+<xs:element name="RegisterObjectOwnersRq" type="RegisterObjectOwnersRq_Type"/>
+<xs:element name="RegisterObjectPersonRq" type="RegisterObjectPersonRq_Type"/>
+<xs:element name="RegisterObjectPropertyRq" type="RegisterObjectPropertyRq_Type"/>
+<xs:element name="RegisterObjectTrainRq" type="RegisterObjectTrainRq_Type"/>
+<xs:element name="RegisterObjectVesselRq" type="RegisterObjectVesselRq_Type"/>
+<!--  Service Response messages  -->
+<xs:element name="FindObjectRs" type="FindObjectsRs_Type"/>
+<xs:element name="ModifyObjectRs" type="ModifyObjectRs_Type"/>
+<xs:element name="ModifyObjectAccInsuredRs" type="ModifyObjectAccInsuredRs_Type"/>
+<xs:element name="ModifyObjectAgricultureRs" type="ModifyObjectAgricultureRs_Type"/>
+<xs:element name="ModifyObjectAnimalRs" type="ModifyObjectAnimalRs_Type"/>
+<xs:element name="ModifyObjectAddEquipRs" type="ModifyObjectAddEquipRs_Type"/>
+<xs:element name="ModifyObjectCarRs" type="ModifyObjectCarRs_Type"/>
+<xs:element name="ModifyObjectCAREARRs" type="ModifyObjectCAREARRs_Type"/>
+<xs:element name="ModifyObjectCargoRs" type="ModifyObjectCargoRs_Type"/>
+<xs:element name="ModifyObjectGroupRs" type="ModifyObjectGroupRs_Type"/>
+<xs:element name="ModifyObjectLiabilityRs" type="ModifyObjectLiabilityRs_Type"/>
+<xs:element name="ModifyObjectLossRs" type="ModifyObjectLossRs_Type"/>
+<xs:element name="ModifyObjectOwnersRs" type="ModifyObjectOwnersRs_Type"/>
+<xs:element name="ModifyObjectPlaneRs" type="ModifyObjectPlaneRs_Type"/>
+<xs:element name="ModifyObjectPropertyRs" type="ModifyObjectPropertyRs_Type"/>
+<xs:element name="ModifyObjectTrainRs" type="ModifyObjectTrainRs_Type"/>
+<xs:element name="ModifyObjectVesselRs" type="ModifyObjectVesselRs_Type"/>
+<xs:element name="RegisterObjectAccInsuredRs" type="RegisterObjectAccInsuredRs_Type"/>
+<xs:element name="RegisterObjectAddEquipRs" type="RegisterObjectAddEquipRs_Type"/>
+<xs:element name="RegisterObjectAirplaneRs" type="RegisterObjectAirplaneRs_Type"/>
+<xs:element name="RegisterObjectAnimalRs" type="RegisterObjectAnimalRs_Type"/>
+<xs:element name="RegisterObjectCAREARRs" type="RegisterObjectCAREARRs_Type"/>
+<xs:element name="RegisterObjectCargoRs" type="RegisterObjectCargoRs_Type"/>
+<xs:element name="RegisterObjectCarRs" type="RegisterObjectCarRs_Type"/>
+<xs:element name="RegisterObjectCropRs" type="RegisterObjectCropRs_Type"/>
+<xs:element name="RegisterObjectGroupRs" type="RegisterObjectGroupRs_Type"/>
+<xs:element name="RegisterObjectLiabilityRs" type="RegisterObjectLiabilityRs_Type"/>
+<xs:element name="RegisterObjectLossRs" type="RegisterObjectLossRs_Type"/>
+<xs:element name="RegisterObjectOwnersRs" type="RegisterObjectOwnersRs_Type"/>
+<xs:element name="RegisterObjectPersonRs" type="RegisterObjectPersonRs_Type"/>
+<xs:element name="RegisterObjectPropertyRs" type="RegisterObjectPropertyRs_Type"/>
+<xs:element name="RegisterObjectTrainRs" type="RegisterObjectTrainRs_Type"/>
+<xs:element name="RegisterObjectVesselRs" type="RegisterObjectVesselRs_Type"/>
+<xs:group name="OMM_Rq_Group">
+<xs:choice>
+<xs:element name="FindObjectRq" type="FindObjectRq_Type"/>
+<xs:element name="ModifyObjectAccInsuredRq" type="ModifyObjectAccInsuredRq_Type"/>
+<xs:element name="ModifyObjectAddEquipRq" type="ModifyObjectAddEquipRq_Type"/>
+<xs:element name="ModifyObjectAgricultureRq" type="ModifyObjectAgricultureRq_Type"/>
+<xs:element name="ModifyObjectAnimalRq" type="ModifyObjectAnimalRq_Type"/>
+<xs:element name="ModifyObjectCarRq" type="ModifyObjectCarRq_Type"/>
+<xs:element name="ModifyObjectCAREARRq" type="ModifyObjectCAREARRq_Type"/>
+<xs:element name="ModifyObjectCargoRq" type="ModifyObjectCargoRq_Type"/>
+<xs:element name="ModifyObjectGroupRq" type="ModifyObjectGroupRq_Type"/>
+<xs:element name="ModifyObjectLiabilityRq" type="ModifyObjectLiabilityRq_Type"/>
+<xs:element name="ModifyObjectLossRq" type="ModifyObjectLossRq_Type"/>
+<xs:element name="ModifyObjectOwnersRq" type="ModifyObjectOwnersRq_Type"/>
+<xs:element name="ModifyObjectPlaneRq" type="ModifyObjectPlaneRq_Type"/>
+<xs:element name="ModifyObjectPropertyRq" type="ModifyObjectPropertyRq_Type"/>
+<xs:element name="ModifyObjectTrainRq" type="ModifyObjectTrainRq_Type"/>
+<xs:element name="ModifyObjectVesselRq" type="ModifyObjectVesselRq_Type"/>
+<xs:element name="RegisterObjectAccInsuredRq" type="RegisterObjectAccInsuredRq_Type"/>
+<xs:element name="RegisterObjectAddEquipRq" type="RegisterObjectAddEquipRq_Type"/>
+<xs:element name="RegisterObjectAirplaneRq" type="RegisterObjectAirplaneRq_Type"/>
+<xs:element name="RegisterObjectAnimalRq" type="RegisterObjectAnimalRq_Type"/>
+<xs:element name="RegisterObjectCAREARRq" type="RegisterObjectCAREARRq_Type"/>
+<xs:element name="RegisterObjectCargoRq" type="RegisterObjectCargoRq_Type"/>
+<xs:element name="RegisterObjectCarRq" type="RegisterObjectCarRq_Type"/>
+<xs:element name="RegisterObjectCropRq" type="RegisterObjectCropRq_Type"/>
+<xs:element name="RegisterObjectGroupRq" type="RegisterObjectGroupRq_Type"/>
+<xs:element name="RegisterObjectLiabilityRq" type="RegisterObjectLiabilityRq_Type"/>
+<xs:element name="RegisterObjectLossRq" type="RegisterObjectLossRq_Type"/>
+<xs:element name="RegisterObjectOwnersRq" type="RegisterObjectOwnersRq_Type"/>
+<xs:element name="RegisterObjectPersonRq" type="RegisterObjectPersonRq_Type"/>
+<xs:element name="RegisterObjectPropertyRq" type="RegisterObjectPropertyRq_Type"/>
+<xs:element name="RegisterObjectTrainRq" type="RegisterObjectTrainRq_Type"/>
+<xs:element name="RegisterObjectVesselRq" type="RegisterObjectVesselRq_Type"/>
+</xs:choice>
+</xs:group>
+<xs:group name="OMM_Rs_Group">
+<xs:choice>
+<xs:element name="FindObjectRs" type="FindObjectsRs_Type"/>
+<xs:element name="ModifyObjectRs" type="ModifyObjectRs_Type"/>
+<xs:element name="ModifyObjectAccInsuredRs" type="ModifyObjectAccInsuredRs_Type"/>
+<xs:element name="ModifyObjectAgricultureRs" type="ModifyObjectAgricultureRs_Type"/>
+<xs:element name="ModifyObjectAnimalRs" type="ModifyObjectAnimalRs_Type"/>
+<xs:element name="ModifyObjectAddEquipRs" type="ModifyObjectAddEquipRs_Type"/>
+<xs:element name="ModifyObjectCarRs" type="ModifyObjectCarRs_Type"/>
+<xs:element name="ModifyObjectCAREARRs" type="ModifyObjectCAREARRs_Type"/>
+<xs:element name="ModifyObjectCargoRs" type="ModifyObjectCargoRs_Type"/>
+<xs:element name="ModifyObjectGroupRs" type="ModifyObjectGroupRs_Type"/>
+<xs:element name="ModifyObjectLiabilityRs" type="ModifyObjectLiabilityRs_Type"/>
+<xs:element name="ModifyObjectLossRs" type="ModifyObjectLossRs_Type"/>
+<xs:element name="ModifyObjectOwnersRs" type="ModifyObjectOwnersRs_Type"/>
+<xs:element name="ModifyObjectPlaneRs" type="ModifyObjectPlaneRs_Type"/>
+<xs:element name="ModifyObjectPropertyRs" type="ModifyObjectPropertyRs_Type"/>
+<xs:element name="ModifyObjectTrainRs" type="ModifyObjectTrainRs_Type"/>
+<xs:element name="ModifyObjectVesselRs" type="ModifyObjectVesselRs_Type"/>
+<xs:element name="RegisterObjectAccInsuredRs" type="RegisterObjectAccInsuredRs_Type"/>
+<xs:element name="RegisterObjectAddEquipRs" type="RegisterObjectAddEquipRs_Type"/>
+<xs:element name="RegisterObjectAirplaneRs" type="RegisterObjectAirplaneRs_Type"/>
+<xs:element name="RegisterObjectAnimalRs" type="RegisterObjectAnimalRs_Type"/>
+<xs:element name="RegisterObjectCAREARRs" type="RegisterObjectCAREARRs_Type"/>
+<xs:element name="RegisterObjectCargoRs" type="RegisterObjectCargoRs_Type"/>
+<xs:element name="RegisterObjectCarRs" type="RegisterObjectCarRs_Type"/>
+<xs:element name="RegisterObjectCropRs" type="RegisterObjectCropRs_Type"/>
+<xs:element name="RegisterObjectGroupRs" type="RegisterObjectGroupRs_Type"/>
+<xs:element name="RegisterObjectLiabilityRs" type="RegisterObjectLiabilityRs_Type"/>
+<xs:element name="RegisterObjectLossRs" type="RegisterObjectLossRs_Type"/>
+<xs:element name="RegisterObjectOwnersRs" type="RegisterObjectOwnersRs_Type"/>
+<xs:element name="RegisterObjectPersonRs" type="RegisterObjectPersonRs_Type"/>
+<xs:element name="RegisterObjectPropertyRs" type="RegisterObjectPropertyRs_Type"/>
+<xs:element name="RegisterObjectTrainRs" type="RegisterObjectTrainRs_Type"/>
+<xs:element name="RegisterObjectVesselRs" type="RegisterObjectVesselRs_Type"/>
+</xs:choice>
+</xs:group>
+<xs:complexType name="FindObjectRq_Type">
+<xs:sequence>
+<xs:choice>
+<xs:element ref="ObjectID"/>
+<xs:element ref="CustomOID"/>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAccInsuredRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OAccidentInsured" type="ChngAccidentInsured_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAccInsuredRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAddEquipRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OAdditionalEquipment" type="ChngAdditionalEquipment_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAddEquipRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FindObjectsRs_Type">
+<xs:sequence>
+<xs:element name="Objects" type="Objects_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Objects_Type">
+<xs:sequence>
+<xs:element name="Object" type="ModifyInsuredEntity_Type" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAgricultureRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OAgriculture" type="ChngAgriculture_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAnimalRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OAnimal" type="ChngAnimal_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAnimalRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectAgricultureRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCargoRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OCargo" type="ChngCargo_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCargoRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCarRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OCar" type="ChngCar_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCarRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCAREARRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OPropBri" type="ChngPropBri_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectCAREARRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectGroupRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OInsuredGroups" type="ChngInsuredGroups_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectGroupRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectLiabilityRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OLiability" type="ChngLiability_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectLiabilityRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectLossRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OLoss" type="ChngLoss_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectLossRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectOwnersRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectOwnersRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectPlaneRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OPlane" type="ChngPlane_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectPlaneRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectPropertyRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OProperty" type="ChngProperty_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectPropertyRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectTrainRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OTrain" type="ChngTrain_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectTrainRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectVesselRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OShip" type="ChngShip_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ModifyObjectVesselRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAccInsuredRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OAccidentInsured"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAccInsuredRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAddEquipRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OAdditionalEquipment"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAddEquipRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAirplaneRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OPlane"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAirplaneRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAnimalRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OAnimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectAnimalRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCAREARRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OPropBri"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCAREARRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCargoRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OCargo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCargoRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCarRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element name="OCar" type="OCar_Type"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCarRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCropRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OAgriculture"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectCropRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectGroupRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OInsuredGroups"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectGroupRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectLiabilityRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OLiability"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectLiabilityRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectLossRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OLoss"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectLossRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectOwnersRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID"/>
+<xs:element ref="Owners"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectOwnersRs_Type">
+<xs:sequence>
+<xs:element ref="ReturningMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectPersonRq_Type">
+<xs:sequence>
+<xs:element ref="OPerson"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectPersonRs_Type">
+<xs:sequence>
+<xs:element name="InsuredID" type="xs:integer" minOccurs="0"/>
+<xs:element name="ManID" type="xs:integer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectPropertyRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OProperty"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectPropertyRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectTrainRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OTrain"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectTrainRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectVesselRq_Type">
+<xs:sequence>
+<xs:element ref="ObjectID" minOccurs="0"/>
+<xs:element ref="ObjectType"/>
+<xs:element ref="Owners" minOccurs="0"/>
+<xs:element ref="OShip"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RegisterObjectVesselRs_Type">
+<xs:sequence>
+<xs:element ref="InsuredObjectID" minOccurs="0"/>
+<xs:element ref="ObjectID"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

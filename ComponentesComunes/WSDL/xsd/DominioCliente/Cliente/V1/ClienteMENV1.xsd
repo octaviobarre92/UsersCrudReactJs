@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.sura.com/MensajeIntegracion/DominioCliente/ClienteMEN/V1"
+	version="1.0"
+	xmlns:mclicli="http://www.sura.com/MensajeIntegracion/DominioCliente/ClienteMEN/V1"
+	xmlns:dcliper="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+	xmlns:dcliubi="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V2"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	elementFormDefault="qualified" >
+	<xsd:import schemaLocation="../../Ubicacion/V2/UbicacionOENV2.xsd"
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Ubicacion/V2"></xsd:import>
+	<xsd:import schemaLocation="../../Persona/V1/PersonaOENV1.xsd"
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"></xsd:import>
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+
+	<xsd:complexType name="ValidarRiesgoClienteMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mclicli:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element name="NivelRiesgo" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation></xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ValidarRiesgoClienteMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="mclicli:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="IdPersona"
+						type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="TipoIdentificacion" type="xsd:string" />
+					<xsd:element name="ActividadEconomica" type="dcliper:ActividadEconomicaTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="Ocupacion" type="dcliper:OcupacionTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="Direccion" type="dcliubi:DireccionTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="PoliticamenteExpuesto" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="FamiliarPEP" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="IdProducto" type="xsd:int"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="PrimaAnual" type="xsd:double"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="FormaPago" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation></xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IngresoAnual" type="xsd:double" maxOccurs="1" minOccurs="0"></xsd:element>
+                                        <xsd:element name="Canales" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Canal de entrada de la peticion</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element 
+		name="ValidarRiesgoClienteMsjSol" type="mclicli:ValidarRiesgoClienteMsjSolTipo" />
+	<xsd:element 
+		name="ValidarRiesgoClienteMsjResp" type="mclicli:ValidarRiesgoClienteMsjRespTipo" />
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

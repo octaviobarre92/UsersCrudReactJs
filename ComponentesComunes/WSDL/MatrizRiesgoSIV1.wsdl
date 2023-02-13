@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="MatrizRiesgoSIV1"
+	targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioRiesgo/Riesgo/V1"
+	xmlns:mclicli="http://www.sura.com/MensajeIntegracion/DominioCliente/ClienteMEN/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioRiesgo/Riesgo/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true" name="RiesgoBindingSOAP"
+					originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+
+			<xsd:import
+				namespace="http://www.sura.com/MensajeIntegracion/DominioCliente/ClienteMEN/V1"
+				schemaLocation="xsd/DominioCliente/Cliente/V1/ClienteMENV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ValidarRiesgoClienteMsjSol">
+		<wsdl:part element="mclicli:ValidarRiesgoClienteMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ValidarRiesgoClienteMsjResp">
+		<wsdl:part element="mclicli:ValidarRiesgoClienteMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="RiesgoPortTypeSOAP">
+		<wsdl:operation name="ValidarRiesgoCliente">
+			<wsdl:input message="tns:ValidarRiesgoClienteMsjSol" name="ValidarRiesgoClienteRq" />
+			<wsdl:output message="tns:ValidarRiesgoClienteMsjResp"
+				name="ValidarRiesgoClienteRs" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RiesgoBindingSOAP" type="tns:RiesgoPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="ValidarRiesgoCliente">
+			<soap:operation style="document" />
+			<wsdl:input name="ValidarRiesgoClienteRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ValidarRiesgoClienteRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MatrizRiesgoSIV1">
+		<wsdl:port binding="tns:RiesgoBindingSOAP" name="PagoPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioRiesgo/Riesgo/V1/RiesgoPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	

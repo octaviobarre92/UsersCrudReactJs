@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sura.com.pa/crearDatosBasicosSiniestro/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="crearDatosBasicosSiniestro" targetNamespace="http://sura.com.pa/crearDatosBasicosSiniestro/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/crearDatosBasicosSiniestro/">
+      <xsd:element name="CrearDatosBasicosSiniestro">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idEnvio" minOccurs="0" maxOccurs="1" 
+				type="xsd:int">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero Unico que debe enviar la Fuente para
+          				identificar el mensaje.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoSucursalAseguradora" type="xsd:int" 
+				minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>descripción= Código de la 
+					Sucursal de la Aseguradora donde se registro la Poliza</xsd:documentation>
+          		</xsd:annotation>
+			</xsd:element>
+                <xsd:element name="numSiniestro" minOccurs="1" maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Este campo representa el numero
+          				de Siniestro/Reclamo.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="numSolicitud" minOccurs="0"
+          		maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Numero de Solicitud asociada al
+          				Siniestro/Reclamo.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="idProducto" minOccurs="1"
+          		maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= ID del Producto. Esta vinculado
+          				al Ramo del Producto (Catalogo de Productos).
+          				Este debe ser el codigo del Producto.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="polizaCliente" minOccurs="1"
+          		maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Este campo representa el numero
+          				de la Póliza del Cliente.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaReclamo" type="xsd:dateTime"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Fecha en que se registra el
+          				reclamo o denuncia en el Sistema Formato=
+          				YYYY-MM-DD hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaSiniestro" type="xsd:dateTime"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Fecha de Cuando Ocurrió el
+          				Siniestro. Formato= YYYY-MM-DD hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaAgendaTaller" type="xsd:dateTime"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Fecha Cita programada desde el
+          				Call Center. Formato= YYYY-MM-DD
+          				hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaCreacionPresupuesto"
+          		type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Fecha creación cuando se realiza
+          				la primera valoración (Listado de piezas) o
+          				fecha información Liquidación. Formato=
+          				YYYY-MM-DD hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaEntradaTaller" type="xsd:dateTime"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción= Fecha Real de la Entrada al
+          				Taller. Formato= YYYY-MM-DD hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="fechaEstimadaSalidaTaller"
+          		type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Fecha estimada de la salida del
+          				taller. Formato= YYYY-MM-DD hh:mm:ss[.nnn]
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="diasReparacion" type="xsd:int"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Dias estimado de reparacion del
+          				Vehiculo(lo que arroje el Baremo)
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="ciudadSiniestro" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Código de la Sucursal donde se
+          				genero el Siniestro.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="ciudadAtencion" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Código de la Ciudad donde se
+          				atendio el siniestro.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="nomTaller" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Nombre del Taller.
+          				[Codigo][Descripcion].
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="idTaller" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= ID ó RUC del Taller
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="idEvaluador" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Código Perito (RUC Liquidador)
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="nomEvaluador" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= nombre del Perito (Nombre
+          				Liquidador).
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="500"></xsd:maxLength>
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="indicadorFraude" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Porcentaje de Fraude
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="estado" type="xsd:string" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codigo asociado al Estado que se
+          				maneja en INSIS. Suministrar Catalogo al
+          				Proveedor
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="subEstado" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codigo asociado al Estado
+          				Auxiliar que se maneja en INSIS. Suministrar
+          				Catalogo al Proveedor
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="estadoCartera" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Estado de Cartera
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:maxLength value="50"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+
+          	<xsd:element name="direccionEvento"
+          		type="tns:DireccionEvento" maxOccurs="unbounded"
+          		minOccurs="0">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Es la direción del evento donde
+          				ocurre el Siniestro. Se coloco como arreglo ya
+          				que podemos poseer una dirección con mas de
+          				250 caracteres y se separarían.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="moneda" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripción: Moneda del Pais Valor por
+          				Defecto= PAB
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:pattern value="PAB"></xsd:pattern>
+          				<xsd:maxLength value="170"></xsd:maxLength>
+          				<xsd:minLength value="1"></xsd:minLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="numPlaca" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Numero de la Placa
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="codigoVin" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Numero del VIN(chasis)
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="descVehiculo" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Se define que deberá mostrarse la
+          				marca|modelo|versión o año del Vehiculo. Todo
+          				se concatena y se separa por el caracter "|"
+          				pipe.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="100"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="codigoVehiculo" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= codigo del Vehiculo Unico que
+          				entrega la ATT. Este campo no se utiliza.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="modeloVehiculo" type="xsd:string"
+          		minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Año del compra del vehiculo
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoMotor" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Referencia o codigo del motor del
+          				vehiculo.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="tipoVehiculo" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Tipo de servicio (particular o
+          				público). Catalogo que se debe proporcionar al
+          				Proveedor.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="tipoServicio" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Tipo de placa y/o vehiculo sea
+          				publico o particular
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="50"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="Coberturas" type="tns:Coberturas"
+          		maxOccurs="unbounded" minOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Arreglo de Coberturas afectadas
+          				por Objeto. Es decir, por cada Objeto se
+          				afecto "n" cantidad de coberturas.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="tipoIdentificacion" minOccurs="1"
+          		maxOccurs="1" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= tipo de Identificación de la
+          				Persona (Propietario del vehículo). Validar
+          				con el Catalogo de Persona
+          			</xsd:documentation>
+          		</xsd:annotation>
+
+          	</xsd:element>
+          	<xsd:element name="idPropietario" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Cedula o RUC de la Persona
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="25"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="nomPropietario" minOccurs="1"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= nombre de la Persona
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:minLength value="1"></xsd:minLength>
+          				<xsd:maxLength value="60"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="dirPropietario" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= dirección principal de la persona
+          				asegurada
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="300"></xsd:maxLength>
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          	<xsd:element name="telPropietario" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Telefono Principal de la Persona
+          				Asegurada. Formato tal cual como se presenta
+          				al Hoy en el CORE
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="30"></xsd:maxLength>
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="celPropietario" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Celular Principal de la Persona
+          				Asegurada. Formato tal cual como se presenta
+          				al Hoy en el CORE
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:maxLength value="30"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="emailPropietario" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= correo electrónico principal de
+          				la Persona Asegurada Si es mas de un email
+          				principal, favor separar el mismo con ";"
+          				punto y coma.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoSegmentoClte" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codificacion que maneja para
+          				separar los distintos segmento donde se
+          				encuentra el cliente. Catalogo que debe ser
+          				suministrado al Proveedor
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descSegmentoClte" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= descripcio o definicion del
+          				codigo de Segmento al cual pertenece el
+          				Cliente o Propietario.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="60"></xsd:maxLength>
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="codigoSegmentoClte1" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codificacion que maneja para
+          				separar los distintos segmento donde se
+          				encuentra el cliente. Catalogo que debe ser
+          				suministrado al Proveedor. Si se manejan otros
+          				segmentos del cual se desee enviar relacionado
+          				a ese Cliente.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="descSegmentoClte1" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= descripcio o definicion del
+          				codigo de Segmento al cual pertenece el
+          				Cliente o Propietario.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoSegmentoClte2" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codificacion que maneja para
+          				separar los distintos segmento donde se
+          				encuentra el cliente. Catalogo que debe ser
+          				suministrado al Proveedor. Si se manejan otros
+          				segmentos del cual se desee enviar relacionado
+          				a ese Cliente.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="descSegmentoClte2" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= descripcio o definicion del
+          				codigo de Segmento al cual pertenece el
+          				Cliente o Propietario.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+
+          	<xsd:element name="codigoSegmentoClte3" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Codificacion que maneja para
+          				separar los distintos segmento donde se
+          				encuentra el cliente. Catalogo que debe ser
+          				suministrado al Proveedor. Si se manejan otros
+          				segmentos del cual se desee enviar relacionado
+          				a ese Cliente.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="descSegmentoClte3" type="xsd:string"
+          		minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= descripcio o definicion del
+          				codigo de Segmento al cual pertenece el
+          				Cliente o Propietario.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="codigoComprtmntClte" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Calificación del cliente para la
+          				aseguradora. Catalogo que se debe proporcionar
+          				al Proveedor.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descComprtmntClte" minOccurs="0"
+          		maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Descripción del código de la
+          				calificación del cliente
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="60"></xsd:maxLength>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="influenciador" minOccurs="0"
+          		maxOccurs="1">
+
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= Calificación del cliente desde la
+          				aseguradora Valores S: Si N: NO
+
+          				Valor por defecto "N".
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="1"></xsd:maxLength>
+          				<xsd:pattern value="S"></xsd:pattern>
+          				<xsd:pattern value="N"></xsd:pattern>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrearDatosBasicosSiniestroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="statusMsg" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= estado o status del envio del
+          				mensaje
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:maxLength value="20"></xsd:maxLength>
+          				<xsd:pattern value="OK"></xsd:pattern>
+          				<xsd:pattern value="ERR"></xsd:pattern>
+          				<xsd:pattern value="ErrorTecnico"></xsd:pattern>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descMSG" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				descripcion= descripcion técnica del mensaje
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="idEnvio" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>descripcion= id generado por ORBIK al momento de enviar el mensaje(numAviso).</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="Coberturas">
+                <xsd:annotation>
+                	<xsd:documentation>descripcion= Arreglo de Coberturas</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence>
+      		<xsd:element name="idCobertura" minOccurs="1"
+      			maxOccurs="1">
+                        <xsd:annotation>
+                        	<xsd:documentation>descripcion= Codigo de la Cobertura
+Suministrar codigos al Proveedor.</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+      				<xsd:restriction base="xsd:string">
+      					<xsd:minLength value="1"></xsd:minLength>
+      					<xsd:maxLength value="20"></xsd:maxLength>
+      				</xsd:restriction>
+      			</xsd:simpleType>
+      		</xsd:element>
+      		<xsd:element name="valorAsegurado" type="xsd:double" minOccurs="1" maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>descripcion= Valor comercial del vehiculo o monto asegurado por cobertura. Manejar con la cantidad de decimales que contempla INSIS</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+      		<xsd:element name="montoMaxReparacion"
+      			type="xsd:double" minOccurs="0" maxOccurs="1">
+                        <xsd:annotation>
+                        	<xsd:documentation>descripcion= Tope de reparación (Core de la aseguradora desde la poliza)</xsd:documentation>
+                        </xsd:annotation>
+      		</xsd:element>
+      		<xsd:element name="valorDeducible" type="xsd:double" minOccurs="0" maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>descripcion= monto del deducible por cobertura. Manejar con la cantidad de decimales que contempla INSIS.
+Valor que debe pagar el asegurado.  (Monto Fijo)</xsd:documentation>
+      			</xsd:annotation></xsd:element>
+      		<xsd:element name="tipoDeducible" type="xsd:string" minOccurs="0" maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>Forma de pago es por mes o dia
+M= Mes
+D= Día</xsd:documentation></xsd:annotation></xsd:element>
+      		<xsd:element name="numSalrDedcbl" minOccurs="0"
+      			maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>
+      					descripcion= Identifica Cuantos SMLV debe
+      					pagar - No se manejará en SURA.
+      				</xsd:documentation>
+      			</xsd:annotation>
+      			<xsd:simpleType>
+      				<xsd:restriction base="xsd:double">
+
+
+      				</xsd:restriction>
+      			</xsd:simpleType>
+      		</xsd:element>
+      		<xsd:element name="porcentajeDeducible" minOccurs="0"
+      			maxOccurs="1">
+      			<xsd:annotation>
+      				<xsd:documentation>
+      					descripcion= porcentaje que del monto a pagar
+      					por cobertura. Este valor se define a nivel
+      					del ProcessBook y esta amarrado a la cobertura
+      					no todas las coberturas estan manejadas por
+      					monto fijo algunas si contemplan el porcentaje
+      					a nivel de tarifa. 2 dígitos ejemplo (70%,
+      					50%)
+      				</xsd:documentation>
+      			</xsd:annotation>
+      			<xsd:simpleType>
+      				<xsd:restriction base="xsd:double">
+
+
+      				</xsd:restriction>
+      			</xsd:simpleType>
+      		</xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      
+    
+      <xsd:complexType name="DireccionEvento">
+                <xsd:annotation>
+                	<xsd:documentation>descripcion= Arreglo de Direcciones del Evento</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence>
+                	<xsd:element name="dirEvento" minOccurs="0"
+                		maxOccurs="1">
+                		<xsd:annotation>
+                			<xsd:documentation>
+                				Este campo representa un arreglo
+                				mulitple de n cantidad de registro con
+                				un limite maximo de caracteres de 250
+                				caracteres.
+                			</xsd:documentation>
+                		</xsd:annotation>
+                		<xsd:simpleType>
+                			<xsd:restriction base="xsd:string">
+                				<xsd:maxLength value="250"></xsd:maxLength>
+
+                			</xsd:restriction>
+                		</xsd:simpleType>
+                	</xsd:element>
+
+                </xsd:sequence>
+      </xsd:complexType>
+    
+    
+    
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CrearDatosBasicosSiniestroRequest">
+    <wsdl:part element="tns:CrearDatosBasicosSiniestro" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CrearDatosBasicosSiniestroResponse">
+    <wsdl:part element="tns:CrearDatosBasicosSiniestroResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="crearDatosBasicosSiniestro">
+    <wsdl:operation name="CrearDatosBasicosSiniestro">
+      <wsdl:input message="tns:CrearDatosBasicosSiniestroRequest"/>
+      <wsdl:output message="tns:CrearDatosBasicosSiniestroResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="crearDatosBasicosSiniestroSOAP" type="tns:crearDatosBasicosSiniestro">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CrearDatosBasicosSiniestro">
+      <soap:operation soapAction="http://sura.com.pa/crearDatosBasicosSiniestro/CrearDatosBasicosSiniestro"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="crearDatosBasicosSiniestro">
+    <wsdl:port binding="tns:crearDatosBasicosSiniestroSOAP" name="crearDatosBasicosSiniestroSOAP">
+      <wsdl:documentation>Servicio de tipo Consumo que permitirá registrar la apertura o creación del Siniestro en SuboCOL. 
+En definición del Proveedor es Encabezado del Aviso. 
+Se utilizo el documento suministrado en este caso el archivo &quot;crearDatosBasicosSiniestro.wadl&quot;.
+1- Protocolo del Servicio: SOAP.
+2- El servicio que es expuesto por el proveedor permite Crear y Modificar. La opcion por defecto es de CREAR (C)
+3- Servicio que pertenece al proceso PC025 - Reclamaciones Auto.
+4- Servicio SINCRONO
+
+</wsdl:documentation>
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

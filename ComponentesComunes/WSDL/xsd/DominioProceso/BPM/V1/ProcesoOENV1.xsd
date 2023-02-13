@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+	targetNamespace="http://www.sura.com/ObjetoEmpresarial/DominioProceso/Proceso/V1"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.sura.com/ObjetoEmpresarial/DominioProceso/Proceso/V1"
+	xmlns:dpropro="http://www.sura.com/ObjetoEmpresarial/DominioProceso/Proceso/V1">
+	
+   <xsd:complexType name="ConfiguracionesActividadTipo">
+        <xsd:annotation>
+        	<xsd:documentation>Utilizado para conocer las configuraciones de las actividades para ser creadas.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="ConfiguracionActividad" type="dpropro:ConfiguracionActividadTipo" maxOccurs="unbounded" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Objeto que contiene las configuraciones que necesita la actividad para ser creada. </xsd:documentation>
+				</xsd:annotation></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConfiguracionActividadTipo">
+		<xsd:annotation>
+			<xsd:documentation>
+				Objeto que contiene las configuraciones que necesita la
+				actividad para ser creada.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+            <xsd:element name="IdClave" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Id del keyword.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+            <xsd:element name="NombreClave" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+                <xsd:annotation>
+                	<xsd:documentation>Valor que se le enviara al</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

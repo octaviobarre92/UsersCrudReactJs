@@ -1,0 +1,533 @@
+<!--  Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.  -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fadata.eu/soap/insis/csm"
+             xmlns:insis="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+             xmlns:ibase="http://fadata.eu/soap/insis" name="InsisCSM"
+             targetNamespace="http://fadata.eu/soap/insis/csm">
+  <import location="insisAbstractBase.wsdl" namespace="http://fadata.eu/soap/insis"/>
+  <types>
+    <xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/" elementFormDefault="qualified">
+      <xs:include schemaLocation="xsd/insis/Insis_CSM_v3.0.xsd"/>
+    </xs:schema>
+  </types>
+  <message name="CalculateClaimServiceRqMessage">
+    <part name="payload" element="insis:CalculateClaimServiceRq"/>
+  </message>
+  <message name="CalculateClaimServiceRsMessage">
+    <part name="payload" element="insis:CalculateClaimServiceRs"/>
+  </message>
+  <message name="CalculateClaimIndemnityRqMessage">
+    <part name="payload" element="insis:CalculateClaimIndemnityRq"/>
+  </message>
+  <message name="CalculateClaimIndemnityRsMessage">
+    <part name="payload" element="insis:CalculateClaimIndemnityRs"/>
+  </message>
+  <message name="CancelClaimObjectRqMessage">
+    <part name="payload" element="insis:CancelClaimObjectRq"/>
+  </message>
+  <message name="CancelClaimObjectRsMessage">
+    <part name="payload" element="insis:CancelClaimObjectRs"/>
+  </message>
+  <message name="CancelClaimPaymentRqMessage">
+    <part name="payload" element="insis:CancelClaimPaymentRq"/>
+  </message>
+  <message name="CancelClaimPaymentRsMessage">
+    <part name="payload" element="insis:CancelClaimPaymentRs"/>
+  </message>
+  <message name="CancelClaimRequestRqMessage">
+    <part name="payload" element="insis:CancelClaimRequestRq"/>
+  </message>
+  <message name="CancelClaimRequestRsMessage">
+    <part name="payload" element="insis:CancelClaimRequestRs"/>
+  </message>
+  <message name="CancelClaimRqMessage">
+    <part name="payload" element="insis:CancelClaimRq"/>
+  </message>
+  <message name="CancelClaimRsMessage">
+    <part name="payload" element="insis:CancelClaimRs"/>
+  </message>
+  <message name="ConfirmClaimPaymentRqMessage">
+    <part name="payload" element="insis:ConfirmClaimPaymentRq"/>
+  </message>
+  <message name="ConfirmClaimPaymentRsMessage">
+    <part name="payload" element="insis:ConfirmClaimPaymentRs"/>
+  </message>
+  <message name="ConfirmClaimServiceRqMessage">
+    <part name="payload" element="insis:ConfirmClaimServiceRq"/>
+  </message>
+  <message name="ConfirmClaimServiceRsMessage">
+    <part name="payload" element="insis:ConfirmClaimServiceRs"/>
+  </message>
+  <message name="FindClaimRqMessage">
+    <part name="payload" element="insis:FindClaimRq"/>
+  </message>
+  <message name="FindClaimRsMessage">
+    <part name="payload" element="insis:FindClaimRs"/>
+  </message>
+  <message name="FindClaimHltRqMessage">
+    <part name="payload" element="insis:FindClaimHltRq"/>
+  </message>
+  <message name="FindClaimHltRsMessage">
+    <part name="payload" element="insis:FindClaimHltRs"/>
+  </message>
+  <message name="FindPolicyClaimsRqMessage">
+    <part name="payload" element="insis:FindPolicyClaimsRq"/>
+  </message>
+  <message name="FindPolicyClaimsRsMessage">
+    <part name="payload" element="insis:FindPolicyClaimsRs"/>
+  </message>
+  <message name="FNOLRqMessage">
+    <part name="payload" element="insis:FNOLRq"/>
+  </message>
+  <message name="FNOLRsMessage">
+    <part name="payload" element="insis:FNOLRs"/>
+  </message>
+  <message name="GetClaimDocumentsRqMessage">
+    <part name="payload" element="insis:GetClaimDocumentsRq"/>
+  </message>
+  <message name="GetClaimDocumentsRsMessage">
+    <part name="payload" element="insis:GetClaimDocumentsRs"/>
+  </message>
+  <message name="InvalidateClaimRequestRqMessage">
+    <part name="payload" element="insis:InvalidateClaimRequestRq"/>
+  </message>
+  <message name="InvalidateClaimRequestRsMessage">
+    <part name="payload" element="insis:InvalidateClaimRequestRs"/>
+  </message>
+  <message name="RegisterClaimRqMessage">
+    <part name="payload" element="insis:RegisterClaimRq"/>
+  </message>
+  <message name="RegisterClaimRsMessage">
+    <part name="payload" element="insis:RegisterClaimRs"/>
+  </message>
+  <message name="RegisterClaimHltRqMessage">
+    <part name="payload" element="insis:RegisterClaimHltRq"/>
+  </message>
+  <message name="RegisterClaimHltRsMessage">
+    <part name="payload" element="insis:RegisterClaimHltRs"/>
+  </message>
+  <message name="RegisterClaimDocRqMessage">
+    <part name="payload" element="insis:RegisterClaimDocRq"/>
+  </message>
+  <message name="RegisterClaimDocRsMessage">
+    <part name="payload" element="insis:RegisterClaimDocRs"/>
+  </message>
+  <message name="RegisterClaimEvaluationRqMessage">
+    <part name="payload" element="insis:RegisterClaimEvaluationRq"/>
+  </message>
+  <message name="RegisterClaimEvaluationRsMessage">
+    <part name="payload" element="insis:RegisterClaimEvaluationRs"/>
+  </message>
+  <message name="RegisterClaimExpenseRqMessage">
+    <part name="payload" element="insis:RegisterClaimExpenseRq"/>
+  </message>
+  <message name="RegisterClaimExpenseRsMessage">
+    <part name="payload" element="insis:RegisterClaimExpenseRs"/>
+  </message>
+  <message name="RegisterClaimPaymentRqMessage">
+    <part name="payload" element="insis:RegisterClaimPaymentRq"/>
+  </message>
+  <message name="RegisterClaimPaymentRsMessage">
+    <part name="payload" element="insis:RegisterClaimPaymentRs"/>
+  </message>
+  <message name="RegisterClaimRegressRqMessage">
+    <part name="payload" element="insis:RegisterClaimRegressRq"/>
+  </message>
+  <message name="RegisterClaimRegressRsMessage">
+    <part name="payload" element="insis:RegisterClaimRegressRs"/>
+  </message>
+  <message name="UpdateClaimRqMessage">
+    <part name="payload" element="insis:UpdateClaimRq"/>
+  </message>
+  <message name="UpdateClaimRsMessage">
+    <part name="payload" element="insis:UpdateClaimRs"/>
+  </message>
+  <portType name="InsisCSMPort">
+    <operation name="calculateClaimService">
+      <input message="tns:CalculateClaimServiceRqMessage"/>
+      <output message="tns:CalculateClaimServiceRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="calculateClaimIndemnity">
+      <input message="tns:CalculateClaimIndemnityRqMessage"/>
+      <output message="tns:CalculateClaimIndemnityRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="cancelClaimObject">
+      <input message="tns:CancelClaimObjectRqMessage"/>
+      <output message="tns:CancelClaimObjectRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="cancelClaimPayment">
+      <input message="tns:CancelClaimPaymentRqMessage"/>
+      <output message="tns:CancelClaimPaymentRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="cancelClaimRequest">
+      <input message="tns:CancelClaimRequestRqMessage"/>
+      <output message="tns:CancelClaimRequestRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="cancelClaim">
+      <input message="tns:CancelClaimRqMessage"/>
+      <output message="tns:CancelClaimRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="confirmClaimPayment">
+      <input message="tns:ConfirmClaimPaymentRqMessage"/>
+      <output message="tns:ConfirmClaimPaymentRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="confirmClaimService">
+      <input message="tns:ConfirmClaimServiceRqMessage"/>
+      <output message="tns:ConfirmClaimServiceRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findClaim">
+      <input message="tns:FindClaimRqMessage"/>
+      <output message="tns:FindClaimRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findClaimHlt">
+      <input message="tns:FindClaimHltRqMessage"/>
+      <output message="tns:FindClaimHltRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="findPolicyClaims">
+      <input message="tns:FindPolicyClaimsRqMessage"/>
+      <output message="tns:FindPolicyClaimsRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="FNOL">
+      <input message="tns:FNOLRqMessage"/>
+      <output message="tns:FNOLRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="getClaimDocuments">
+      <input message="tns:GetClaimDocumentsRqMessage"/>
+      <output message="tns:GetClaimDocumentsRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="invalidateClaimRequest">
+      <input message="tns:InvalidateClaimRequestRqMessage"/>
+      <output message="tns:InvalidateClaimRequestRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaim">
+      <input message="tns:RegisterClaimRqMessage"/>
+      <output message="tns:RegisterClaimRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimHlt">
+      <input message="tns:RegisterClaimHltRqMessage"/>
+      <output message="tns:RegisterClaimHltRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimDoc">
+      <input message="tns:RegisterClaimDocRqMessage"/>
+      <output message="tns:RegisterClaimDocRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimEvaluation">
+      <input message="tns:RegisterClaimEvaluationRqMessage"/>
+      <output message="tns:RegisterClaimEvaluationRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimExpense">
+      <input message="tns:RegisterClaimExpenseRqMessage"/>
+      <output message="tns:RegisterClaimExpenseRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimPayment">
+      <input message="tns:RegisterClaimPaymentRqMessage"/>
+      <output message="tns:RegisterClaimPaymentRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="registerClaimRegress">
+      <input message="tns:RegisterClaimRegressRqMessage"/>
+      <output message="tns:RegisterClaimRegressRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+    <operation name="updateClaim">
+      <input message="tns:UpdateClaimRqMessage"/>
+      <output message="tns:UpdateClaimRsMessage"/>
+      <fault name="Error" message="ibase:ErrorMessage"/>
+    </operation>
+  </portType>
+  <binding name="InsisCSMPortBinding" type="tns:InsisCSMPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="calculateClaimService">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="calculateClaimIndemnity">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="cancelClaimObject">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="cancelClaimPayment">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="cancelClaimRequest">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="cancelClaim">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="confirmClaimPayment">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="confirmClaimService">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findClaim">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findClaimHlt">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="findPolicyClaims">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="FNOL">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="getClaimDocuments">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="invalidateClaimRequest">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaim">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimHlt">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimDoc">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimEvaluation">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimExpense">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimPayment">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="registerClaimRegress">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+    <operation name="updateClaim">
+      <soap:operation style="document" soapAction="process"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Error">
+        <soap:fault use="literal" name="Error"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="InsisCSM">
+    <port name="InsisCSMPort" binding="tns:InsisCSMPortBinding">
+      <soap:address location="https://ws.pa.sura.uat.ctplc.ltd:9074/insisws/InsisCSMPort"/>
+    </port>
+  </service>
+</definitions>

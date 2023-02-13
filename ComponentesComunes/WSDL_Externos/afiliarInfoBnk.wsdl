@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:afb="http://sura.com.pa/afiliarInfoBnk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="afiliarInfoBnk" targetNamespace="http://sura.com.pa/afiliarInfoBnk/">
+  <wsdl:documentation></wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/afiliarInfoBnk/">
+      <xsd:element name="vincularInfoBnk">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="idCliente" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>idCliente= identificado unico de la Persona (Cedula/RUC/Pasaporte) del Cliente o Asegurado de la Póliza</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="nomCliente" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>nomCliente= Nombre del Cliente o Asegurado</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="medioPago" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>medioPago= parametro que debe tener los distintos medio de pago. Este parametro esta asociado al Catalogo de INISIS (Medio de Pago)
+Ejemplo
+* Tarjeta de Crédito(VISA,MASTERCARD)
+* Tarjeta Debito (ACH, HCIS).</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+                        <xsd:element name="emailCliente" type="xsd:string" minOccurs="0" maxOccurs="1">
+                        	<xsd:annotation>
+                        		<xsd:documentation>emailCliente= email del Cliente o Asegurado de la Póliza. (Correo principal del Cliente)</xsd:documentation>
+                        	</xsd:annotation></xsd:element>
+                        <xsd:element name="numPoliza" type="xsd:string" minOccurs="0" maxOccurs="1">
+                        	<xsd:annotation>
+                        		<xsd:documentation>numPoliza= numero de la Poliza</xsd:documentation>
+                        	</xsd:annotation></xsd:element>
+          	<xsd:element name="codeProducto" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>codeProducto= codigo del Producto (OPTIONAL) 
+Nota. Catalogo de INSIS</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="vigIni" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>vigIni= Fecha de Emision de la Póliza (OPTIONAL)
+Formato: YYYYMMDD</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="vigFin" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>vigFin= Fecha de Vencimiento de la Póliza (OPTIONAL)
+Formato: YYYYMMDD</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="feCobro" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>feCobro= Fecha de Cobro de la Poliza - Formato YYYYMMDD (OPTIONAL)</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+                        <xsd:element name="cantCuota" type="xsd:int" minOccurs="0" maxOccurs="1">
+                        	<xsd:annotation>
+                        		<xsd:documentation>cantCuota= cantidad de Cuotas Pactadas a la Poliza (OPTIONAL)</xsd:documentation>
+                        	</xsd:annotation></xsd:element>
+                        <xsd:element name="primaTotal" type="xsd:float" minOccurs="0" maxOccurs="1">
+                        	<xsd:annotation>
+                        		<xsd:documentation>primaTotal= Prima total de la Poliza incluido impuesto (OPTIONAL)</xsd:documentation>
+                        	</xsd:annotation></xsd:element>
+                        <xsd:element name="idUsuario" type="xsd:string" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>idUsuario= usuario de insis que esta ejecutando el proceso.</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          	<xsd:element name="idOperacion" minOccurs="1" maxOccurs="1">
+                            <xsd:annotation>
+                            	<xsd:documentation>idOperacion= Operaciones con el que se va a ingresar la información a la Pasarela
+(03) Servicio Completo </xsd:documentation>
+                            </xsd:annotation>
+                            <xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="01"></xsd:enumeration>
+          				<xsd:enumeration value="02"></xsd:enumeration>
+          				<xsd:enumeration value="03"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vincularInfoBnkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="urlPasarela" type="xsd:string"
+          		minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>urlPasarela= dirección de host de la Pasarela concatenado con el idSession y el idCliente todo encriptado con tipo AES.
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          	<xsd:element name="msgStatus" minOccurs="1" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>msgStatus= Estatus del Mensaje
+          			</xsd:documentation>
+          		</xsd:annotation>
+          		<xsd:simpleType>
+          			<xsd:restriction base="xsd:string">
+          				<xsd:enumeration value="OK"></xsd:enumeration>
+          				<xsd:enumeration value="ERR"></xsd:enumeration>
+          			</xsd:restriction>
+          		</xsd:simpleType>
+          	</xsd:element>
+          	<xsd:element name="descMSG" type="xsd:string" minOccurs="0" maxOccurs="1">
+          		<xsd:annotation>
+          			<xsd:documentation>descMSG= descripción del mensaje de Error (optional)</xsd:documentation>
+          		</xsd:annotation></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="desvincularInfoBnk">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idCliente" type="xsd:string" minOccurs="1" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>idCliente= identificado unico de la Persona (Cedula/RUC/Pasaporte) del Cliente o Asegurado de la Póliza</xsd:documentation></xsd:annotation></xsd:element>
+      			<xsd:element name="numPoliza" type="xsd:string" minOccurs="1" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>numPoliza= numero de la Poliza</xsd:documentation></xsd:annotation></xsd:element>
+      			<xsd:element name="medioPago" type="xsd:string" minOccurs="1" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>medioPago= parametro que debe tener los distintos medio de pago. Este parametro esta asociado al Catalogo de INISIS (Medio de Pago)</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="desvincularInfoBnkResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="msgStatus" minOccurs="1" maxOccurs="1">
+                            <xsd:annotation>
+                            	<xsd:documentation>msgStatus= Estatus del Mensaje</xsd:documentation>
+                            </xsd:annotation>
+                            <xsd:simpleType>
+      					<xsd:restriction base="xsd:string">
+      						<xsd:enumeration value="OK"></xsd:enumeration>
+      						<xsd:enumeration value="ERR"></xsd:enumeration>
+      					</xsd:restriction>
+      				</xsd:simpleType>
+      			</xsd:element>
+      			<xsd:element name="descMSG" type="xsd:string" minOccurs="0" maxOccurs="1">
+      				<xsd:annotation>
+      					<xsd:documentation>descMSG= Descripcion del Error de Mensaje (OPTIONAL)</xsd:documentation>
+      				</xsd:annotation></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="vincularInfoBnkRequest">
+    <wsdl:part element="afb:vincularInfoBnk" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vincularInfoBnkResponse">
+    <wsdl:part element="afb:vincularInfoBnkResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="desvincularInfoBnkRequest">
+  	<wsdl:part name="parameters" element="afb:desvincularInfoBnk"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="desvincularInfoBnkResponse">
+  	<wsdl:part name="parameters" element="afb:desvincularInfoBnkResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="afiliarInfoBnk">
+    <wsdl:documentation></wsdl:documentation>
+    <wsdl:operation name="vincularInfoBnk">
+      <wsdl:documentation>Este metodo permite la vinculación directa del Cliente vs Poliza a la Pasarela de Pago.</wsdl:documentation>
+      <wsdl:input message="afb:vincularInfoBnkRequest"/>
+      <wsdl:output message="afb:vincularInfoBnkResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="desvincularInfoBnk">
+    	<wsdl:documentation>Este metodo permite la desvinculación directa de la Poliza vs Cliente en a Pasarela de Pago.</wsdl:documentation>
+    	<wsdl:input message="afb:desvincularInfoBnkRequest"></wsdl:input>
+    	<wsdl:output message="afb:desvincularInfoBnkResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>  
+  <wsdl:binding name="afiliarInfoBnkSOAP" type="afb:afiliarInfoBnk">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>    
+    <wsdl:operation name="vincularInfoBnk">
+      <soap:operation soapAction="http://sura.com.pa/afiliarInfoBnk/vincularInfoBnk"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="desvincularInfoBnk">
+      <soap:operation soapAction="http://sura.com.pa/afiliarInfoBnk/desvincularInfoBnk"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>    
+  </wsdl:binding>  
+  <wsdl:service name="afiliarInfoBnk">
+    <wsdl:port binding="afb:afiliarInfoBnkSOAP" name="afiliarInfoBnkSOAP">
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

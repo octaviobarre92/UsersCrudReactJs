@@ -1,0 +1,567 @@
+<xs:schema targetNamespace="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           xmlns:xdb="http://xmlns.oracle.com/xdb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/"
+           elementFormDefault="qualified">
+    <xs:include schemaLocation="Insis_BaseTypes_v3.0.xsd"/>
+    <!-- Service Request messages -->
+    <xs:element name="ClearCustomerReceiptRq"
+                type="ClearCustomerReceiptRq_Type"/>  
+    <xs:element name="GetBLCTransactionsRq"
+                type="GetBLCTransactionsRq_Type"/>
+    <xs:element name="GetPolicyOutstandingRq"
+                type="GetPlcyOutstnRq_Type"/>
+    <xs:element name="ModifyPaymentPlanRq"
+                type="ModifyPaymentPlanRq_Type"/>
+    <xs:element name="PayPolicyOutstandingRq"
+                type="PayPlcyOutstnRq_Type"/>
+    <xs:element name="RegisterBLCPaymentRq"
+                type="RegisterBLCPaymentRq_Type"/>
+    <xs:element name="RegisterChangePaymentPlanAnnexRq"
+                type="RegisterChangePaymentPlanAnnexRq_Type"/>
+    <xs:element name="ReverseCustomerReceiptRq"
+                type="ReverseCustomerReceiptRq_Type"/>             
+    <!-- Service Response messages -->
+    <xs:element name="ClearCustomerReceiptRs"
+                type="ClearCustomerReceiptRs_Type"/>  
+    <xs:element name="GetBLCTransactionsRs"
+                type="GetBLCTransactionsRs_Type"/>
+    <xs:element name="GetPolicyOutstandingRs"
+                type="GetPlcyOutstnRs_Type"/>
+    <xs:element name="ModifyPaymentPlanRs"
+                type="ModifyPaymentPlanRs_Type"/>
+    <xs:element name="PayPolicyOutstandingRs"
+                type="PayPlcyOutstnRs_Type"/>
+    <xs:element name="RegisterBLCPaymentRs"
+                type="RegisterBLCPaymentRs_Type"/>        
+    <xs:element name="RegisterChangePaymentPlanAnnexRs"
+                type="RegisterChangePaymentPlanAnnexRs_Type"/>
+    <xs:element name="ReverseCustomerReceiptRs"
+                type="ReverseCustomerReceiptRs_Type"/>             
+    <xs:group name="PBM_Rq_Group">
+        <xs:choice>            
+            <xs:element name="ClearCustomerReceiptRq"
+                        type="ClearCustomerReceiptRq_Type"/>           
+            <xs:element name="GetBLCTransactionsRq"
+                        type="GetBLCTransactionsRq_Type"/>
+            <xs:element name="GetPolicyOutstandingRq"
+                        type="GetPlcyOutstnRq_Type"/>           
+            <xs:element name="ModifyPaymentPlanRq"
+                        type="ModifyPaymentPlanRq_Type"/>
+            <xs:element name="PayPolicyOutstandingRq"
+                        type="PayPlcyOutstnRq_Type"/>           
+            <xs:element name="RegisterBLCPaymentRq"
+                        type="RegisterBLCPaymentRq_Type"/>
+            <xs:element name="RegisterChangePaymentPlanAnnexRq"
+                        type="RegisterChangePaymentPlanAnnexRq_Type"/>
+            <xs:element name="ReverseCustomerReceiptRq"
+                        type="ReverseCustomerReceiptRq_Type"/>            
+        </xs:choice>
+    </xs:group>
+    <xs:group name="PBM_Rs_Group">
+        <xs:choice>            
+            <xs:element name="ClearCustomerReceiptRs"
+                        type="ClearCustomerReceiptRs_Type"/>  
+            <xs:element name="GetBLCTransactionsRs"
+                        type="GetBLCTransactionsRs_Type"/>
+            <xs:element name="GetPolicyOutstandingRs"
+                        type="GetPlcyOutstnRs_Type"/>           
+            <xs:element name="ModifyPaymentPlanRs"
+                        type="ModifyPaymentPlanRs_Type"/>
+            <xs:element name="PayPolicyOutstandingRs"
+                        type="PayPlcyOutstnRs_Type"/>            
+            <xs:element name="RegisterBLCPaymentRs"
+                        type="RegisterBLCPaymentRs_Type"/>
+            <xs:element name="RegisterChangePaymentPlanAnnexRs"
+                        type="RegisterChangePaymentPlanAnnexRs_Type"/>
+            <xs:element name="ReverseCustomerReceiptRs"
+                        type="ReverseCustomerReceiptRs_Type"/>            
+        </xs:choice>
+    </xs:group>
+    <!-- Elements -->
+    <xs:element name="Outstanding" type="xs:decimal"/>
+    <!-- Types -->
+    <xs:group name="BLC_Receipt_Info_Group">
+        <xs:sequence>
+                <xs:element name="ReceiptID" type="xs:long" minOccurs="0"/>
+                <xs:element name="LegalEntity" type="xs:string" minOccurs="0"/>
+                        <xs:element name="VoucherPrefix" type="xs:string" minOccurs="0"/>
+                        <xs:element name="VoucherNumber" type="xs:string" minOccurs="0"/>
+                        <xs:element name="VoucherSuffix" type="xs:string" minOccurs="0"/>
+                        <xs:element name="OrganisationUnit" type="xs:string" minOccurs="0"/>
+                        <xs:element name="PaymentPrefix" type="xs:string" minOccurs="0"/>
+                        <xs:element name="PaymentNumber" type="xs:string" minOccurs="0"/>
+                        <xs:element name="PaymentSuffix" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DocumentTypeCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="BLCParty_Type">
+        <xs:sequence>
+            <xs:element name="PartyID" type="xs:long" minOccurs="0"/>
+            <xs:group ref="PID_Data_Group"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BLCPayer_Type">
+        <xs:sequence>
+            <xs:element name="PayerID" type="xs:long" minOccurs="0"/>
+            <xs:group ref="PID_Data_Group" minOccurs="0"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BLCTransaction_Type">
+        <xs:sequence>
+            <xs:element name="DocID" type="xs:integer"/>
+            <xs:element name="DocPrefix" type="xs:string"/>
+            <xs:element name="DocNumber" type="xs:string"/>
+            <xs:element name="DocSuffix" type="xs:string"/>
+            <xs:element name="DocType" type="xs:string"/>
+            <xs:element name="LegalEntityId" type="xs:integer"/>
+            <xs:element name="LegalEntityName" type="xs:string"/>
+            <xs:element name="LegalEntityAccCode" type="xs:string"/>
+            <xs:element name="OperatingUnitOrgId" type="xs:integer"/>
+            <xs:element name="OperatingUnitName" type="xs:string"/>
+            <xs:element name="OperatingUnitAccCode" type="xs:string"/>
+            <xs:element name="OfficeID" type="xs:string"/>
+            <xs:element name="DocClass" type="xs:string"/>
+            <xs:element name="DocStatus" type="xs:string"/>
+            <xs:element name="DocIssueDate" type="xs:date"/>
+            <xs:element name="DocDueDate" type="xs:date"/>
+            <xs:element name="TrxID" type="xs:integer"/>
+            <xs:element name="TrxLineNumber" type="xs:integer"/>
+            <xs:element name="TrxType" type="xs:string"/>
+            <xs:element name="TrxTypeName" type="xs:string"/>
+            <xs:element name="TrxDueDate" type="xs:date"/>
+            <xs:element name="TrxClass" type="xs:string"/>
+            <xs:element name="TrxStatus" type="xs:string"/>
+            <xs:element name="TrxPaidSatus" type="xs:string"/>
+            <xs:element name="TrxDate" type="xs:date"/>
+            <xs:element name="TrxCurrency" type="xs:string"/>
+            <xs:element name="RateType" type="xs:string"/>
+            <xs:element name="RateDate" type="xs:date"/>
+            <xs:element name="TrxAmount" type="xs:decimal"/>
+            <xs:element name="TrxOpenBalance" type="xs:decimal"/>
+            <xs:element name="AccountID" type="xs:integer"/>
+            <xs:element name="PartyID" type="xs:string"/>
+            <xs:element name="PartyName" type="xs:string"/>
+            <xs:element name="PartyIdentityType" type="xs:string"/>
+            <xs:element name="PartyIdentityRef" type="xs:string"/>
+            <xs:element name="BillToSite" type="xs:string"/>
+            <xs:element name="PartyRole" type="xs:string"/>
+            <xs:element name="Profile" type="xs:string"/>
+            <xs:element name="BillingItemID" type="xs:integer"/>
+            <xs:element name="ItemType" type="xs:string"/>
+            <xs:element name="Source" type="xs:string"/>
+            <xs:element name="Agreement" type="xs:string"/>
+            <xs:element name="Component" type="xs:string"/>
+            <xs:element name="Detail" type="xs:string"/>
+            <xs:element name="BillCurrency" type="xs:string"/>
+            <xs:element name="TrxLastUpdatedBy" type="xs:string"/>
+            <xs:element name="TrxLastUpdateDate" type="xs:dateTime"/>
+            <xs:element name="TrxCreatedBy" type="xs:string"/>
+            <xs:element name="TrxCreatedDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BLCTransactions_Type">
+        <xs:sequence>
+            <xs:element name="Transaction" type="BLCTransaction_Type"
+                        maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelPremiumRq_Type">
+        <xs:sequence>
+            <xs:element name="InstallID" type="xs:long" minOccurs="1"/>
+            <xs:element name="CancelForm" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelPremiumRs_Type">
+        <xs:sequence>
+            <xs:element name="IsCancelled" type="xs:string"/>
+            <xs:element name="Message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelReceivablePaymentRq_Type">
+        <xs:sequence>
+            <xs:element name="InvoiceID" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ClearCustomerReceiptRq_Type">
+        <xs:sequence>
+            <xs:element name="ReceiptId" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="LegalEntity" type="xs:string" minOccurs="0"/>
+            <xs:element name="OrganisationUnit" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherSuffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentSufix" type="xs:string" minOccurs="0"/>
+            <xs:element name="DocumentTypeCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="ClearedOn" type="xs:date" minOccurs="0"/>
+            <xs:element name="OurBankAccCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+            <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="Rate" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="RateType" type="xs:string" minOccurs="0"/>
+            <xs:element name="RateDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+            <xs:element name="Statement" type="xs:string" minOccurs="0"/>
+            <xs:element name="Line" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="Data" type="xs:string" minOccurs="0"/>
+            <xs:element name="ExecuteConfirm" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ClearCustomerReceiptRs_Type">
+        <xs:sequence>
+            <xs:element name="ClearingId" type="xs:decimal" />
+            <xs:element name="ReturnStatus" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReverseCustomerReceiptRs_Type">
+        <xs:sequence>
+            <xs:element name="PaymentId" type="xs:decimal" />
+            <xs:element name="ReturnStatus" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelReceivablePaymentRs_Type">
+        <xs:sequence>
+            <xs:element name="ReturnMessage" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateBLCReceiptRq_Type">
+        <xs:sequence>
+            <xs:element name="LegalEntityID" type="xs:integer" minOccurs="0"/>
+            <xs:element name="LegalEntity" type="xs:string" minOccurs="0"/>
+            <xs:element name="OrganisationUnitID" type="xs:integer" minOccurs="0"/>
+            <xs:element name="OrganisationUnit" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentSuffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="UsageName" type="xs:string" minOccurs="0"/>
+            <xs:element name="UsageAccClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="PayWay" type="xs:string" minOccurs="0"/>
+            <xs:element name="ValueDate" type="xs:date"/>
+            <xs:element name="OurBankAccount" type="xs:string" minOccurs="0"/>
+            <xs:element name="TheirBankCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="TheirBankAccount" type="xs:string" minOccurs="0"/>
+            <xs:element ref="Currency" minOccurs="1"/>
+            <xs:element name="Amount" type="xs:double"/>
+            <xs:element name="Rate" type="xs:double" minOccurs="0"/>
+            <xs:element name="RateType" type="xs:string" minOccurs="0"/>
+            <xs:element name="RateDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="Party" type="BLCParty_Type"/>
+            <xs:element name="Payer" type="BLCPayer_Type" minOccurs="0"/>
+            <xs:group ref="BLC_Billing_Ref_Group" minOccurs="0"/>
+            <xs:element name="CustomProperties" type="CustomProperties_Type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Possible custom properties for receipt (FieldName |
+                        Description | Field Value):</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Remittances" type="CreateBLCRemittancesRq_Type"
+                        minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateBLCRemittanceRq_Type">
+        <xs:sequence>
+            <xs:group ref="BLC_Receipt_Info_Group"/>
+            <xs:element name="ValueDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="Amount" type="xs:double"/>
+            <xs:element name="WithheldAmount" type="xs:double" minOccurs="0"/>
+            <xs:group ref="BLC_Billing_Ref_Group"/>
+            <xs:element name="CustomProperties" type="CustomProperties_Type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Possible custom properties for receipt (FieldName |
+                        Description | Field Value):</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateBLCRemittancesRq_Type">
+        <xs:sequence>
+            <xs:element name="Remittance" type="CreateBLCRemittanceRq_Type"
+                        maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateBLCRemittancesRs_Type">
+        <xs:sequence>
+            <xs:element name="RemittanceID" type="xs:long"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetBLCTransactionsRq_Type">
+        <xs:sequence>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element name="DocID" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="DocType" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:minLength value="1"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="BillingItemID" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="Agreement" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element name="TrxID" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="TrxDueDateFrom" type="xs:date" minOccurs="0"/>
+                    <xs:element name="TrxDueDateTo" type="xs:date" minOccurs="0"/>
+                    <xs:element name="Party" type="BLCParty_Type"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:element name="TrxType" type="xs:string" minOccurs="0"/>
+            <xs:element name="TrxCurrency" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetBLCTransactionsRs_Type">
+        <xs:sequence>
+            <xs:element name="Transactions" type="BLCTransactions_Type"
+                        maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetPlcyOutstnRq_Type"
+                    xdb:SQLType="GetPlcyOutstnRq_Type">
+        <xs:sequence>
+            <xs:element ref="PolicyNo"/>
+            <xs:element name="ToDate" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetPlcyOutstnRs_Type"
+                    xdb:SQLType="GetPlcyOutstnRs_Type">
+        <xs:sequence>
+            <xs:element ref="Outstanding"/>
+            <xs:element ref="Currency"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetReceivableDetailsRq_Type">
+        <xs:sequence>
+            <xs:element name="InvoiceID" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetReceivableDetailsRs_Type">
+        <xs:sequence>
+            <xs:element name="ReceivableDetails" type="ReceivableDetails_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetReceivableRequestsRq_Type"/>
+    <xs:complexType name="GetReceivableRequestsRs_Type">
+        <xs:sequence>
+            <xs:element name="ReceivableInvoices" type="ReceivableInvoices_Type"
+                        minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InvoiceReceivableDetails_Type">
+        <xs:sequence>
+            <xs:element name="InvoiceID" type="xs:integer"/>
+            <xs:element name="PreminstID" type="xs:integer"/>
+            <xs:element ref="PolicyID"/>
+            <xs:element name="InvoiceAmount" type="xs:double"/>
+            <xs:element name="CurrencyAmount" type="xs:double"/>
+            <xs:element name="Currency" type="xs:string"/>
+            <xs:element name="CurrencyRate" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ModifyPaymentPlanRq_Type">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element ref="PolicyID"/>
+                <xs:element ref="PolicyNo"/>
+            </xs:choice>
+            <xs:element name="PaymentPlan" type="PayPlanInstalments_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ModifyPaymentPlanRs_Type">
+        <xs:sequence>
+            <xs:element name="PaymentPlan" type="PayPlanInstalments_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PaymPlanInstallment_Type">
+        <xs:sequence>
+            <xs:element name="Amount" type="xs:decimal" minOccurs="1"
+                        maxOccurs="1"/>
+            <xs:element name="DueDate" type="xs:date" minOccurs="1"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PaymPlanInstallments_Type">
+        <xs:sequence>
+            <xs:element name="Installment" type="PaymPlanInstallment_Type"
+                        minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayPlcyOutstnRq_Type"
+                    xdb:SQLType="PayPlcyOutstnRq_Type">
+        <xs:sequence>
+            <xs:element ref="PolicyNo"/>
+            <xs:element name="InstallmentAmount" type="xs:decimal"/>
+            <xs:element ref="Currency"/>
+            <xs:element ref="InstallmentType"/>
+            <xs:element name="InstallmentDate" type="xs:date"/>
+            <xs:element ref="PaymentWay"/>
+            <xs:element name="Voucher" type="xs:string"/>
+            <xs:element name="VoucherDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayPlcyOutstnRs_Type"
+                    xdb:SQLType="PayPlcyOutstnRs_Type">
+        <xs:sequence>
+            <xs:element ref="Result"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayPremiumRq_Type">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element ref="PolicyID"/>
+                <xs:element ref="PolicyNo"/>
+            </xs:choice>
+            <xs:element name="PolicyLot" type="xs:string" minOccurs="0"/>
+            <xs:element name="VoucherDate" type="xs:date"/>
+            <xs:element name="VoucherNo" type="xs:string"/>
+            <xs:element name="InstallAmount" type="xs:decimal"/>
+            <xs:element name="PaymentWay" type="xs:string" minOccurs="0"/>
+            <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+            <xs:choice>
+                <xs:element name="AgentID" type="xs:integer" minOccurs="0"/>
+                <xs:element name="AgentNo" type="xs:string" minOccurs="0"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayPremiumRs_Type">
+        <xs:sequence>
+            <xs:element name="IsPaid" type="BOOLEAN_NUMBER_TYPE"/>
+            <xs:element name="InstallID" type="xs:integer"/>
+            <xs:element name="ReturningMessage" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayReceivableRequestRq_Type">
+        <xs:sequence>
+            <xs:element name="InvoiceID" type="xs:integer"/>
+            <xs:element name="Amount" minOccurs="0" type="xs:integer"/>
+            <xs:element name="Currency" maxOccurs="1" minOccurs="0"
+                        type="xs:string"/>
+            <xs:element name="PaymentDate" minOccurs="0" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PayReceivableRequestRs_Type">
+        <xs:sequence>
+            <xs:element name="ReturnMessage" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReceivableDetails_Type">
+        <xs:sequence>
+            <xs:element name="InvoiceDetails"
+                        type="InvoiceReceivableDetails_Type" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReceivableInvoice_Type">
+        <xs:sequence minOccurs="0">
+            <xs:element name="InvoiceID" type="xs:integer"/>
+            <xs:element name="InvoiceDate" type="xs:date"/>
+            <xs:element name="PayerID" type="xs:integer"/>
+            <xs:element name="PayerPID" type="xs:string"/>
+            <xs:element name="DueDate" type="xs:date"/>
+            <xs:element name="InvoiceType" type="xs:string"/>
+            <xs:element name="BillType" type="xs:string"/>
+            <xs:element name="InvoiceAmount" type="xs:double"/>
+            <xs:element name="InvoiceCurrency" type="xs:string"/>
+            <xs:element name="InvoiceCurrencyRate" type="xs:integer"/>
+            <xs:element name="InvoicePeriodID" type="xs:integer"/>
+            <xs:element name="InvoiceOrderID" type="xs:integer"/>
+            <xs:element name="PaidAmount" type="xs:double" minOccurs="1"
+                        default="000"/>
+            <xs:element name="RefInvoiceID" type="xs:integer" minOccurs="1"
+                        default="000"/>
+            <xs:element name="GenerationDate" type="xs:date"/>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="InvoiceNO" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReceivableInvoices_Type">
+        <xs:sequence>
+            <xs:element name="Invoice" type="ReceivableInvoice_Type"
+                        minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegisterBLCPaymentRq_Type">
+        <xs:sequence>
+            <xs:element name="Receipt" type="CreateBLCReceiptRq_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegisterBLCPaymentRs_Type">
+        <xs:sequence>
+            <xs:element name="ReceiptID" type="xs:long"/>
+            <xs:element name="VoucherPrefix" type="xs:string"/>
+            <xs:element name="VoucherNumber" type="xs:string"/>
+            <xs:element name="VoucherSuffix" type="xs:string"/>
+            <xs:element name="Remittances" type="CreateBLCRemittancesRs_Type"
+                        minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegisterChangePaymentPlanAnnexRq_Type">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element ref="PolicyID" maxOccurs="1"/>
+                <xs:element ref="PolicyNo" maxOccurs="1"/>
+            </xs:choice>
+            <xs:choice minOccurs="0">
+                <xs:element name="Currency" type="xs:string" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="NumInstallments" type="xs:integer" minOccurs="0"
+                            maxOccurs="1"/>
+            </xs:choice>
+            <xs:element name="PlanType" type="xs:string" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="Installments" type="PaymPlanInstallments_Type"
+                        minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Annex" type="Annex_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="RegisterChangePaymentPlanAnnexRs_Type">
+        <xs:sequence>            
+            <xs:element ref="PolicyID" />
+            <xs:element ref="AnnexID" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReverseCustomerReceiptRq_Type">
+        <xs:sequence>
+            <xs:element name="ReceiptId" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="LegalEntity" type="xs:string" minOccurs="0"/>
+            <xs:element name="OrganisationUnit" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="VaucherSuffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="PaymentSufix" type="xs:string" minOccurs="0"/>
+            <xs:element name="DcoumentTypeCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+            <xs:element name="ReasonCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="ReversedOn" type="xs:date" minOccurs="0" /> 
+        </xs:sequence>
+    </xs:complexType>
+    <xs:group name="BLC_Billing_Ref_Group">
+        <xs:sequence>
+            <xs:element name="MatchingClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="DocumentID" type="xs:integer" minOccurs="0"/>
+            <xs:element name="DocumentPrefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="DocumentNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="DocumentSuffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="DocumentType" type="xs:string" minOccurs="0"/>
+            <xs:element name="TrxID" type="xs:integer" minOccurs="0"/>
+            <xs:element name="TrxLineNumber" type="xs:long" minOccurs="0"/>
+            <xs:element name="Agreement" type="xs:string" minOccurs="0"/>
+            <xs:element name="Activity" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>
+
