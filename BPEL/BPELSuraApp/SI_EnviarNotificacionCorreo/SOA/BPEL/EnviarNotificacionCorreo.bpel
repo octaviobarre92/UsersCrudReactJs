@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Sep 13 23:01:17 COT 2021
+  Author:  Soaint
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="EnviarNotificacionCorreo"
+               targetNamespace="http://sura.com.pa/BPELSuraApp/SI_EnviarNotificacionCorreo"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://sura.com.pa/BPELSuraApp/SI_EnviarNotificacionCorreo"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://sura.com.pa/enviarNotificacion/"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://sura.com.pa/enviarNotificacion/" location="../WSDLs/EnviarNotificacionWrapper.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="enviarnotificacioncorreo" partnerLinkType="ns1:EnviarNotificacionCorreo" myRole="EnviarNotificacion"/>
+    <partnerLink name="EnviarNotif" partnerLinkType="ns1:EnviarNotif" partnerRole="EnviarNotificacion"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="ns1:EnviarNotificacionRequest"/>
+    <variable name="EnviarNotificacionRq" messageType="ns1:EnviarNotificacionRequest"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in EnviarNotificacionCorreo.wsdl) -->
+    <receive name="receiveInput" partnerLink="enviarnotificacioncorreo" portType="ns1:EnviarNotificacion" operation="EnviarNotificacion" variable="inputVariable" createInstance="yes"/>
+    <assign name="Assign1">
+      <copy>
+        <from>$inputVariable.parameters</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$EnviarNotificacionRq.parameters</to>
+      </copy>
+    </assign>
+    <invoke name="EnviarNotificacion" bpelx:invokeAsDetail="no" partnerLink="EnviarNotif"
+            portType="ns1:EnviarNotificacion" operation="EnviarNotificacion" inputVariable="EnviarNotificacionRq"/>
+  </sequence>
+</process>

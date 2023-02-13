@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+
+    <composite faultPolicy="policy1"/>
+
+    <component faultPolicy="policy1">
+        <name>BPELProcesarPago</name>
+    </component>
+
+    <reference faultPolicy="policy1">
+        <name>ConsultarPCPremium</name>
+    </reference>
+
+    <reference faultPolicy="policy1">
+        <name>ConsultarNumeroPC</name>
+    </reference>
+
+    <reference faultPolicy="policy1">
+        <name>SI_CrearDetallePC</name>
+    </reference>
+
+    <reference faultPolicy="policy1">
+        <name>FinalizarPCPremium</name>
+    </reference>
+
+    <reference faultPolicy="policy1">
+        <name>AplicarPagoSAP</name>
+    </reference>
+</faultPolicyBindings>

@@ -1,0 +1,196 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Oct 22 17:49:27 COT 2021
+  Author:  davidsotillo
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELGenerarActividadDocumento"
+               targetNamespace="http://xmlns.oracle.com/BPELSuraApp/GestionarActividadDocumento/BPELGenerarActividadDocumento"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/BPELSuraApp/GestionarActividadDocumento/BPELGenerarActividadDocumento"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://sura.com.pa/GestionarActividadDocumento/"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsGestionarActividadDocumento"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsGenerarActividadDocumento"
+         xmlns:ns4="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsErrorQueue"
+         xmlns:ns5="http://sura.com.pa/CargarDocumentoGAD/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns6="http://sura.com.pa/CrearActividadGAD/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns7="http://sura.com.pa/ActividadParam/">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://sura.com.pa/ActividadParam/" location="../Schemas/ActividadParam.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/GestionarActividadDocumento/jmsGenerarActividadDocumento"
+          location="../WSDLs/jmsGenerarActividadDocumento.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <import namespace="http://sura.com.pa/CrearActividadGAD/" location="../WSDLs/Exp_CrearActividadGADPS.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://sura.com.pa/GestionarActividadDocumento/"
+          location="../Schemas/GenerarActividadDocumentoRq.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://sura.com.pa/CargarDocumentoGAD/" location="../WSDLs/Exp_CargarDocumentoGADPS.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://schemas.oracle.com/bpel/extension" location="../WSDLs/RuntimeFault.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="jmsGenerarActividadDocumento" partnerLinkType="ns3:GenerarActividadDocumento_Consume_Message_plt"
+                 myRole="GenerarActividadDocumento_Consume_Message_role"/>
+    <partnerLink name="jmsErrorQueue" partnerLinkType="ns4:Produce_Message_plt"
+                 myRole="Produce_Message_role"/>
+    <partnerLink name="ExpCrearActividadGAD" partnerLinkType="ns6:ExpCrearActividadGAD"
+                 partnerRole="CrearActividadGAD"/>
+    <partnerLink name="ExpCargarDocumentoGAD" partnerLinkType="ns5:ExpCargarDocumentoGAD"
+                 partnerRole="CargarDocumentoGAD"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="ExpCrearDocumentoGACInput" messageType="ns5:CargarDocumentoGADRequest"/>
+    <variable name="inputVariable" messageType="ns3:GenerarActividadDocumento_Consume_Message_msg"/>
+    <variable name="Exp_CrearActividadGADInput" element="ns6:CrearActividadGADReq"/>
+    <variable name="Exp_CrearActividadGADOutput" element="ns6:CrearActividadGADResp"/>
+    <variable name="IdActividad" type="xsd:string"/>
+    <variable name="Exp_CrearDocumentoGADOuput" element="ns5:CargarDocumentoGADResp"/>
+    <variable name="errorAssign" type="xsd:string"/>
+    <variable name="nombreActividadParam" type="xsd:string"/>
+    <variable name="idActividadParam" type="xsd:string"/>
+    <variable name="actividadParam" element="ns7:ActividadParam"/>
+  </variables>
+  <faultHandlers>
+    <catch bpelx:name="SendMessageToErrorQueue" faultName="ns6:CrearActividadGADFaultMsg" faultVariable="faultVariable"
+           faultMessageType="ns6:CrearActividadGADFault">
+      <invoke name="ErrorQueue" partnerLink="jmsErrorQueue"
+              portType="ns4:Produce_Message_ptt" operation="Produce_Message" inputVariable="inputVariable"
+              bpelx:invokeAsDetail="no"/>
+    </catch>
+  </faultHandlers>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in BPELGenerarActividadDocumento.wsdl) -->
+    <receive name="receiveInput" variable="inputVariable" createInstance="yes"
+             partnerLink="jmsGenerarActividadDocumento" portType="ns3:GenerarActividadDocumento_Consume_Message_ptt"
+             operation="GenerarActividadDocumento_Consume_Message"/>
+    <assign name="Transformation1">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/JMS_To_Exp_CrearActividadGAD.xsl", $inputVariable.body)</from>
+        <to variable="Exp_CrearActividadGADInput"/>
+      </copy>
+    </assign>
+    <invoke name="Invoke_Exp_CrearActividadGAD"
+            inputVariable="Exp_CrearActividadGADInput"
+            outputVariable="Exp_CrearActividadGADOutput" bpelx:invokeAsDetail="no" partnerLink="ExpCrearActividadGAD"
+            portType="ns6:CrearActividadGAD" operation="CrearActividadGAD"/>
+    <if name="IF_STATUS_ACTIVIDAD">
+      <condition>xp20:compare($Exp_CrearActividadGADOutput/ns6:STATUS/ns6:CODIGO,'200') = 0</condition>
+      <sequence name="Sequence1">
+        <assign name="Assign_IdActividad">
+          <copy>
+            <from>$Exp_CrearActividadGADOutput/ns6:IdActividad</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$IdActividad</to>
+          </copy>
+        </assign>
+        <assign name="Asssign_ActividadParam">
+          <copy>
+            <from>$IdActividad</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$actividadParam/ns7:valor</to>
+          </copy>
+          <copy>
+            <from>'110'</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$actividadParam/ns7:id</to>
+          </copy>
+          <copy>
+            <from>'idDoc'</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$actividadParam/ns7:nombre</to>
+          </copy>
+        </assign>
+        <forEach parallel="no" counterName="N" name="ForEach">
+          <startCounterValue>1</startCounterValue>
+          <finalCounterValue>count($inputVariable.body/ns1:Documentos/ns1:Documento)</finalCounterValue>
+          <scope name="Scope1">
+            <variables>
+              <variable name="CrearDocumentoGADRequest" element="ns5:CargarDocumentoGADReq"/>
+              <variable name="currentDocumentRequest" messageType="ns3:GenerarActividadDocumento_Consume_Message_msg"/>
+            </variables>
+            <faultHandlers>
+              <catch faultName="ns5:CargarDocumentoGADFaultMsg" faultVariable="cargarDocumentoGADFaultMsg"
+                     faultElement="ns5:CargarDocumentoGADFaultMsg"><invoke name="ErrorQueueCargarDocumento" partnerLink="jmsErrorQueue"
+                                                                           portType="ns4:Produce_Message_ptt"
+                                                                           operation="Produce_Message" 
+                                                                           inputVariable="CrearDocumentoGADRequest"
+                                                                           xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+                                                                           xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+                                                                           bpelx:invokeAsDetail="no"/></catch>
+            </faultHandlers>
+            <sequence>
+              <assign name="Assign_Current_Document">
+                <copy>
+                  <from>$inputVariable.body/ns1:CABECERA</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$currentDocumentRequest.body/ns1:CABECERA</to>
+                </copy>
+                <copy>
+                  <from>$inputVariable.body/ns1:Documentos/ns1:Documento[$N]</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$currentDocumentRequest.body/ns1:Documentos/ns1:Documento</to>
+                </copy>
+              </assign>
+              <assign name="Transformation2">
+                <bpelx:annotation>
+                  <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doXSLTransformForDoc("../Transformations/JMS_To_Exp_CargarDocumentoGAD.xsl", $currentDocumentRequest.body, "actividadParam", $actividadParam)</from>
+                  <to variable="CrearDocumentoGADRequest"/>
+                </copy>
+              </assign>
+              <invoke name="ExpCrearDocumentoGAD"
+                      inputVariable="CrearDocumentoGADRequest"
+                      outputVariable="Exp_CrearDocumentoGADOuput" bpelx:invokeAsDetail="no"
+                      partnerLink="ExpCargarDocumentoGAD" portType="ns5:CargarDocumentoGAD"
+                      operation="CargarDocumentoGAD"/>
+            </sequence>
+          </scope>
+        </forEach>
+      </sequence>
+    </if>
+  </sequence>
+</process>

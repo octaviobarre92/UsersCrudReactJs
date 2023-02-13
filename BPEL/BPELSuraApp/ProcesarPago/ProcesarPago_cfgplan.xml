@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns:edl="http://schemas.oracle.com/events/edl" xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="ProcesarPago">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         
+      </import>
+      <service name="jmsProcesarPago">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="jca">
+            <property name="useRejectedMessageRecovery">
+               <replace>true</replace>
+            </property>
+         </binding>
+      </service>
+      <property name="productVersion">
+         <replace>12.2.1.3.0.170820</replace>
+      </property>
+      <property name="compositeID">
+         <replace>5bc7079e-4166-483f-8249-7fb6b75f45e6</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <component name="BPELProcesarPago">
+         <property name="bpel.config.oneWayDeliveryPolicy">
+            <replace>async.persist</replace>
+         </property>
+      </component>
+      <reference name="ConsultarPCPremium">
+         <binding type="rest">
+        <attribute name="location">
+               <replace>http://ptysoaprep1.segurossura.com.pa:17011</replace>
+            </attribute>
+         </binding>
+      </reference>
+      <reference name="ConsultarNumeroPC">
+         <binding type="rest">
+         <attribute name="location">
+               <replace>http://ptysoaprep1.segurossura.com.pa:17011</replace>
+            </attribute>
+         </binding>
+      </reference>
+      <reference name="SI_CrearDetallePC">
+         <binding type="rest">
+         <attribute name="location">
+               <replace>http://ptysoaprep1.segurossura.com.pa:17011</replace>
+            </attribute>
+         </binding>
+      </reference>
+      <reference name="FinalizarPCPremium">
+         <binding type="rest">
+         <attribute name="location">
+               <replace>http://ptysoaprep1.segurossura.com.pa:17011</replace>
+            </attribute>
+         </binding>
+      </reference>
+      <reference name="AplicarPagoSAP">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://suramericana.sapweb.tesoreria.recaudos#wsdl.endpoint(OUT_CrearDocumentoLegacyService/HTTP_Port)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/wsdl-APLICAR-PAGO-SAP.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://suramericana.sapweb.tesoreria.recaudos#wsdl.endpoint(OUT_CrearDocumentoLegacyService/HTTPS_Port)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>WSDLs/wsdl-APLICAR-PAGO-SAP.wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+   </composite>
+
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for JMS adapter: 
+	<jca:property name="DestinationName"><replace>jms/DemoSupplierTopic</replace></jca:property>
+	<jca:property name="TimeToLive"><replace>0</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="Adapters/jmsProcesarPago_jms.jca|Schemas/GuardarFacturaSAPService.wsdl|Schemas/ProcesarPagoRq.xsd|Schemas/RqCrearDetallePC.xsd|Schemas/RqFinalizarPC.xsd|Schemas/RsConsultarNumeroPC.xsd|Schemas/RsConsultarPcPremium.xsd|Schemas/RsCrearDetallePC.xsd|WSDLs/BPELProcesarPago.wsdl|WSDLs/jmsProcesarPago.wsdl|WSDLs/RuntimeFault.wsdl|WSDLs/wsdl-APLICAR-PAGO-SAP.wsdl|WSDLs/wsdl-APLICAR-PAGO-SAPWrapper.wsdl">
+   </wsdlAndSchema>
+</SOAConfigPlan>

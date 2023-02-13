@@ -1,0 +1,35 @@
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-01-16 17:59:05.237/2.066 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/C:/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2020-01-16 17:59:05.265/2.095 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/C:/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2020-01-16 17:59:05.270/2.100 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2020-01-16 17:59:05.278/2.108 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2020-01-16 17:59:05.280/2.110 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2020-01-16 17:59:05.281/2.111 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+
+Oracle Coherence Version 12.2.1.4.0 Build 74888
+ Grid Edition: Development mode
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+2020-01-16 17:59:06.243/3.074 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): The cluster name has not been configured, a value of "dsotillo's cluster" has been automatically generated
+2020-01-16 17:59:07.036/3.867 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.ExtensibleConfigurableCacheFactory
+Jan 16, 2020 5:59:08 PM oracle.soa.scac.ValidateComposite loadWSDLs
+WARNING: Validating WSDLs from WSDLManager....  with option UseSoaInfraMds:false
+Jan 16, 2020 5:59:08 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.
+Schema validation failed with exception "null"
+oracle.xml.parser.schema.XSDException
+	at oracle.xml.parser.schema.XSDBuilder.buildSchema(XSDBuilder.java:1143)
+	at oracle.xml.parser.schema.XSDBuilder.build(XSDBuilder.java:636)
+	at oracle.soa.scac.ValidationFaultUtil.validateSourceWithSchema(ValidationFaultUtil.java:182)
+	at oracle.soa.scac.ValidationFaultUtil.validateWithSchema(ValidationFaultUtil.java:241)
+	at oracle.soa.scac.ValidationFaultUtil.validateWithSchema(ValidationFaultUtil.java:225)
+	at oracle.soa.scac.ValidateComposite.validateFaultPolicy(ValidateComposite.java:1413)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:613)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:586)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:234)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:215)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:207)
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0

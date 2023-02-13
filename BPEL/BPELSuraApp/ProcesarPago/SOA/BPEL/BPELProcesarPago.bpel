@@ -1,0 +1,448 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Jan 09 21:00:39 PST 2020
+  Author:  oracle
+  Purpose: BPEL Process for event subscription
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELProcesarPago"
+         targetNamespace="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:ns1="http://xmlns.oracle.com/e2e-1201-composites/ProcesarPago/EventDefinition1"
+         xmlns:ns2="http://TargetNamespace.com/jmsProcesarPago"
+         xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/jms/e2e-1201-composites/ProcesarPago/jmsProcesarPago"
+         xmlns:ns4="json"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:ns0="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:ns5="http://TargetNamespace.com/ConsultarPcPremium"
+         xmlns:ns6="http://TargetNamespace.com/CrearDetallePC" xmlns:ns7="http://TargetNamespace.com/ConsultarNumeroPC"
+         xmlns:ns8="http://TargetNamespace.com/FinalizarPC"
+         xmlns:ns9="http://suramericana.servicioscompartidos.contabilidad.causcontable"
+         xmlns:ns10="http://suramericana.sapweb.tesoreria.recaudos">
+    <import namespace="http://schemas.oracle.com/bpel/extension" location="../WSDLs/RuntimeFault.wsdl"
+            importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://TargetNamespace.com/FinalizarPC" location="../Schemas/RqFinalizarPC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/CrearDetallePC" location="../Schemas/RsCrearDetallePC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/ConsultarNumeroPC" location="../Schemas/RsConsultarNumeroPC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/CrearDetallePC" location="../Schemas/RqCrearDetallePC.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://TargetNamespace.com/ConsultarPcPremium" location="../Schemas/RsConsultarPcPremium.xsd"
+            importType="http://www.w3.org/2001/XMLSchema"/>
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/e2e_1201_composites/ProcesarPago/BPELProcesarPago" location="../WSDLs/BPELProcesarPago.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="jmsProcesarPago" partnerLinkType="ns3:ConsumirMensajeProcesarPago_plt"
+                     myRole="ConsumirMensajeProcesarPago_role"/>
+        <partnerLink name="ConsultarPCPremium" bpelx:wadl="yes"/>
+        <partnerLink name="ConsultarNumeroPC" bpelx:wadl="yes"/>
+        <partnerLink name="SI_CrearDetallePC" bpelx:wadl="yes"/>
+        <partnerLink name="FinalizarPCPremium" bpelx:wadl="yes"/>
+        <partnerLink name="AplicarPagoSAP" partnerLinkType="ns10:AplicarPagoSAP"
+                     partnerRole="OUT_CrearDocumentoLegacy"/>
+    </partnerLinks>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="procesarPagoIN" element="ns2:Root-Element"/>
+        <variable name="MsgProcesarPagoRq"
+                  element="ns2:Root-Element"/>
+        <variable name="in" bpelx:json="string">
+            <from>'test'</from>
+        </variable>
+        <variable name="JsonOut_ObtenerPCPremium" bpelx:json="string"/>
+        <variable name="T_RsConsultarNumeroPC" type="xsd:string"/>
+        <variable name="RsConsultarPCPremium" type="xsd:string"/>
+        <variable name="RsConsultarNumeroPC" element="ns5:RsConsultarPCPremium"/>
+        <variable name="T_RqCrearDetallePC" type="xsd:string"/>
+        <variable name="RqCrearDetallePC" element="ns6:RqCrearDetallePC"/>
+        <variable name="Ramo" type="xsd:string">
+           
+        </variable>
+        <variable name="SubRamo" type="xsd:string">
+           
+        </variable>
+        <variable name="Poliza" type="xsd:string">
+           
+        </variable>
+        <variable name="Secuencia" type="xsd:string">
+            
+        </variable>
+        <variable name="TOUT_RqCrearDetallePC" type="xsd:string"/>
+        <variable name="NumeroPC" type="xsd:string"/>
+        <variable name="TOUT_ObtenerPCPremium" element="ns5:RsConsultarPCPremium"/>
+        <variable name="JsonOutConsultarNumeroPC" bpelx:json="string"/>
+        <variable name="JsonOut_CrearDetallePC" type="xsd:string"/>
+        <variable name="T_OUTRsCrearDetallePC" element="ns6:RsCrearDetallePC"/>
+        <variable name="RqFinalizarPC" element="ns8:RqFinalizarPC"/>
+        <variable name="RsFinalizarPC" bpelx:json="string"/>
+        <variable name="Translate1_OutputVar_1" element="ns7:RsConsultarNumeroPC"/>
+        <variable name="AUX" bpelx:json="string"/>
+        <variable name="T_IN_ConsularNumeroPC" type="xsd:string"/>
+        <variable name="Variable1" type="xsd:string"/>
+        <variable name="numeroPoliza" type="xsd:string"/>
+        <variable name="RqObtenerPCPremium" bpelx:json="string"/>
+        <variable name="FaultVariable" bpelx:json="string"/>
+        <variable name="RqAplicarPagoSAP" messageType="ns10:CrearRecaudoLegacyReq"/>
+        <variable name="C_ProcesoSap" type="xsd:string">
+            <from>'PANAMA_PAGOS_AUTOMAT'</from>
+        </variable>
+        <variable name="C_Moneda" type="xsd:string">
+            <from>'PAB'</from>
+        </variable>
+        <variable name="C_CuentaACH" type="xsd:string">
+            <from>'1007400021'</from>
+        </variable>
+        <variable name="C_CuentaTDC" type="xsd:string">
+            <from>'1007401841'</from>
+        </variable>
+        <variable name="RsAplicarPagoSAP" messageType="ns10:RespuestaRecaudoLegacyRes"/>
+    </variables>
+    <faultHandlers>
+        <catchAll>
+            <exit name="Exit"/>
+        </catchAll>
+    </faultHandlers>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in BPELProcesarPago.wsdl) -->
+        <receive name="RecibirMsg" partnerLink="jmsProcesarPago" portType="ns3:ConsumirMensajeProcesarPago_ptt"
+                 operation="ConsumirMensajeProcesarPago" variable="MsgProcesarPagoRq" createInstance="yes"/>
+        <assign name="IniVar">
+            <copy>
+                <from>$MsgProcesarPagoRq.body/ns2:NUMERO_POLIZA</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$numeroPoliza</to>
+            </copy>
+            <copy>
+                <from expressionLanguage="javascript">$numeroPoliza.substring(0,1)</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Ramo</to>
+            </copy>
+            <copy>
+                <from expressionLanguage="javascript">$numeroPoliza.substring(1,2)</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$SubRamo</to>
+            </copy>
+            <copy>
+                <from expressionLanguage="javascript">$numeroPoliza.substring(3,5)</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Poliza</to>
+            </copy>
+            <copy>
+                <from expressionLanguage="javascript">$numeroPoliza.substring(8,1)</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Secuencia</to>
+            </copy>
+        </assign>
+        <if name="If_CORE">
+            <documentation>
+                <![CDATA[Premium]]>
+            </documentation>
+            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($MsgProcesarPagoRq.body/ns2:CORE, 'P') = 0</condition>
+            <sequence>
+                <scope name="Scope1">
+                    <faultHandlers>
+                        <catchAll>
+                            <throw name="ThrowPremium" faultName="bpelx:assertFailure"/>
+                        </catchAll>
+                    </faultHandlers>
+                    <sequence>
+                        <invoke name="ConsultarNumeroPC" partnerLink="ConsultarNumeroPC"
+                                inputVariable="T_RsConsultarNumeroPC" outputVariable="JsonOutConsultarNumeroPC"
+                                bpelx:method="ConsultarNumeroPC" bpelx:invokeAsDetail="no">
+                            <bpelx:toProperties>
+                                <bpelx:toProperty name="rest.query.ESTADO">'1'</bpelx:toProperty>
+                                <bpelx:toProperty name="rest.query.FECHA">$MsgProcesarPagoRq.body/ns2:CABECERA/ns2:FECHA_PROCESAMIENTO</bpelx:toProperty>
+                                <bpelx:toProperty name="rest.query.PROCESO">$MsgProcesarPagoRq.body/ns2:LOTE</bpelx:toProperty>
+                                <bpelx:toProperty name="rest.query.TIPO_AJUSTE">'PAD'</bpelx:toProperty>
+                            </bpelx:toProperties>
+                        </invoke>
+                        <assign name="AsignarMensajeEntrada">
+                            <copy>
+                                <from expressionLanguage="javascript">process.JsonOutConsultarNumeroPC</from>
+                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$T_IN_ConsularNumeroPC</to>
+                            </copy>
+                        </assign>
+                        <assign name="ConsultarNumeroPCRespuesta">
+                            <bpelx:annotation>
+                                <bpelx:pattern>translate</bpelx:pattern>
+                            </bpelx:annotation>
+                            <copy>
+                                <from>ora:doTranslateFromNative(string($T_IN_ConsularNumeroPC), 'Schemas/RsConsultarNumeroPC.xsd', 'RsConsultarNumeroPC', 'DOM')</from>
+                                <to>$RsConsultarNumeroPC</to>
+                            </copy>
+                        </assign>
+                        <if name="IfCodigoExitoConsultarNumeroPC">
+                            <condition expressionLanguage="javascript">process.JsonOutConsultarNumeroPC.respuesta.codigo == '200'</condition>
+                            <sequence name="Sequence1">
+                                <if name="IfPCExiste">
+                                    <condition expressionLanguage="javascript">process.JsonOutConsultarNumeroPC.informacion_numeropc.NUMERO_DE_AJUSTE != null</condition>
+                                    <sequence name="Sequence2">
+                                        <assign name="AsignarNumeroPC">
+                                            <copy>
+                                                <from expressionLanguage="javascript">process.JsonOutConsultarNumeroPC.informacion_numeropc.NUMERO_DE_AJUSTE</from>
+                                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:NUMERO_PC</to>
+                                            </copy>
+                                            <copy>
+                                                <from expressionLanguage="javascript">process.JsonOutConsultarNumeroPC.informacion_numeropc.NUMERO_DE_AJUSTE</from>
+                                                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$NumeroPC</to>
+                                            </copy>
+                                        </assign>
+                                    </sequence>
+                                    <else>
+                                        <sequence name="Sequence3">
+                                            <invoke name="ObtenerPCPremium" partnerLink="ConsultarPCPremium"
+                                                    bpelx:method="ConsultarPCPremium"
+                                                    inputVariable="T_RsConsultarNumeroPC"
+                                                    outputVariable="JsonOut_ObtenerPCPremium" bpelx:invokeAsDetail="no">
+                                                <bpelx:toProperties>
+                                                    <bpelx:toProperty name="rest.query.OBSERVACION">$MsgProcesarPagoRq.body/ns2:LOTE</bpelx:toProperty>
+                                                </bpelx:toProperties>
+                                            </invoke>
+                                            <if name="IfCodigoExitoObtenerNumeroPC">
+                                                <condition expressionLanguage="javascript">process.JsonOut_ObtenerPCPremium.respuesta.codigo == '200'</condition>
+                                                <assign name="AsignarNumeroPC">
+                                                    <copy>
+                                                        <from expressionLanguage="javascript">process.JsonOut_ObtenerPCPremium.respuesta.numerO_PC</from>
+                                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$NumeroPC</to>
+                                                    </copy>
+                                                </assign>
+                                                <else>
+                                                    <sequence name="Sequence6">
+                                                        <throw name="FaultObtenerNumeroPC"
+                                                               faultName="bpelx:assertFailure"/>
+                                                    </sequence>
+                                                </else>
+                                            </if>
+                                        </sequence>
+                                    </else>
+                                </if>
+                                <assign name="AsignarCrearDetallePC">
+                                    <copy>
+                                        <from>$Ramo</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:RAMO</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$NumeroPC</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:NUMERO_PC</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$SubRamo</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:SUBRAMO</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$Poliza</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:POLIZA</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$Secuencia</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:SECUENCIA</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$MsgProcesarPagoRq.body/ns2:REFERENCIA</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:NUMERO_DE_REFERENCIA</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$MsgProcesarPagoRq.body/ns2:FECHA</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:FECHA_REFERENCIA</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$MsgProcesarPagoRq.body/ns2:CABECERA/ns2:FECHA_TRANSACCION</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:FECHA_TRANSACCION</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$Poliza</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqCrearDetallePC/ns6:POLIZA</to>
+                                    </copy>
+                                </assign>
+                                <assign name="CrearDetallePC">
+                                    <bpelx:annotation>
+                                        <bpelx:pattern>translate</bpelx:pattern>
+                                    </bpelx:annotation>
+                                    <copy>
+                                        <from>ora:doTranslateToNative($RqCrearDetallePC, 'Schemas/RqCrearDetallePC.xsd', 'RqCrearDetallePC', 'STRING')</from>
+                                        <to>$TOUT_RqCrearDetallePC</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="CrearDetalle" partnerLink="SI_CrearDetallePC"
+                                        inputVariable="TOUT_RqCrearDetallePC" outputVariable="JsonOut_CrearDetallePC"
+                                        bpelx:method="CrearDetallePC" bpelx:invokeAsDetail="no"/>
+                                <if name="IfCodigoExitoCrearDetalle">
+                                    <condition expressionLanguage="javascript">process.JsonOut_CrearDetallePC.respuesta.codigo == '200'</condition>
+                                    <sequence name="Sequence5">
+                                        <if name="IfRegistroFinal">
+                                            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($MsgProcesarPagoRq.body/ns2:REGISTRO_FINAL, 'true') = 0</condition>
+                                            <sequence name="Sequence4">
+                                                <assign name="AsignarFinalizarPC">
+                                                    <copy>
+                                                        <from>$NumeroPC</from>
+                                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqFinalizarPC/ns8:NUMERO_PC</to>
+                                                    </copy>
+                                                    <copy>
+                                                        <from>'C'</from>
+                                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqFinalizarPC/ns8:CODIGO_COBRADOR</to>
+                                                    </copy>
+                                                </assign>
+                                                <invoke name="InvokeFinalizarPC" partnerLink="FinalizarPCPremium"
+                                                        bpelx:method="FinalizarPC" inputVariable="RqFinalizarPC"
+                                                        outputVariable="RsFinalizarPC" bpelx:invokeAsDetail="no"/>
+                                                <if name="IfCodigoExitoFinalizarPC">
+                                                    <condition expressionLanguage="javascript">process.RsFinalizarPC.respuesta.codigo == '200'</condition>
+                                                    <sequence name="Sequence13">
+                                                        <empty name="OK"/>
+                                                    </sequence>
+                                                    <else>
+                                                        <sequence name="Sequence12">
+                                                            <throw name="ThrowFinalizarPC"
+                                                                   faultName="bpelx:assertFailure"/>
+                                                        </sequence>
+                                                    </else>
+                                                </if>
+                                            </sequence>
+                                            <else>
+                                                <sequence name="Sequence8">
+                                                    <empty name="RegistroFinalFalse"/>
+                                                </sequence>
+                                            </else>
+                                        </if>
+                                    </sequence>
+                                    <else>
+                                        <sequence name="Sequence7">
+                                            <throw name="ThrowCrearDetalle" faultName="bpelx:assertFailure"/>
+                                        </sequence>
+                                    </else>
+                                </if>
+                            </sequence>
+                            <else>
+                                <sequence>
+                                    <throw name="ThrowConsultarNumeroPC" faultName="bpelx:assertFailure"/>
+                                </sequence>
+                            </else>
+                        </if>
+                    </sequence>
+                </scope>
+            </sequence>
+            <else>
+                <documentation>
+                    <![CDATA[Natural]]>
+                </documentation>
+                <sequence name="Sequence10">
+                    <scope name="Scope2">
+                        <faultHandlers>
+                            <catchAll>
+                                <throw name="ThrowNatural" faultName="bpelx:assertFailure"/>
+                            </catchAll>
+                        </faultHandlers>
+                        <sequence name="Sequence11">
+                            <assign name="InitVar">
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$C_ProcesoSap</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Proceso</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>xp20:current-date()</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/FechaDocumento</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$C_Moneda</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Moneda</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>xp20:current-date()</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/FechaContabilizacion</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$MsgProcesarPagoRq.body/ns2:REFERENCIA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Referencia</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$MsgProcesarPagoRq.body/ns2:TIPO_CUENTA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Cuenta</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$MsgProcesarPagoRq.body/ns2:MONTO</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Importe</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$MsgProcesarPagoRq.body/ns2:FECHA</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/FechaValor</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$Poliza</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Poliza</to>
+                                </copy>
+                                <copy>
+                                    <from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">'3000'</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/SociedadBancos</to>
+                                </copy>
+                                <copy ignoreMissingFromData="yes">
+                                    <from>$MsgProcesarPagoRq.body/ns2:ASIGNACION</from>
+                                    <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Asignacion</to>
+                                </copy>
+                            </assign>
+                            <if name="IfTipoCuenta">
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:compare($MsgProcesarPagoRq.body/ns2:TIPO_CUENTA, 'A') = 0</condition>
+                                <assign name="VariablesACH">
+                                    <copy>
+                                        <from>'A_PAGOS_SIGMA'</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Texto</to>
+                                    </copy>
+                                    <copy>
+                                        <from>$C_CuentaACH</from>
+                                        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Cuenta</to>
+                                    </copy>
+                                </assign>
+                                <else>
+                                    <assign name="VariablesTDC">
+                                        <copy>
+                                            <from>$C_CuentaTDC</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Cuenta</to>
+                                        </copy>
+                                        <copy>
+                                            <from>'T_PAGOS_SIGMA'</from>
+                                            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$RqAplicarPagoSAP.CrearRecaudoLegacyReq/Texto</to>
+                                        </copy>
+                                    </assign>
+                                </else>
+                            </if>
+                            <invoke name="InvokeAplicarPagoSAP" partnerLink="AplicarPagoSAP"
+                                    portType="ns10:OUT_CrearDocumentoLegacy" operation="S_CrearDocumentoLegacy"
+                                    inputVariable="RqAplicarPagoSAP"
+                                    outputVariable="RsAplicarPagoSAP" bpelx:invokeAsDetail="no"/>
+                            <if name="IfSAPExito">
+                                <condition>xp20:compare($RsAplicarPagoSAP.RespuestaRecaudoLegacyRes/cdMensaje,'OK') = 0</condition>
+                                <empty name="OK"/>
+                                <else>
+                                    <throw name="ThrowSAP" faultName="bpelx:assertFailure"/>
+                                </else>
+                            </if>
+                        </sequence>
+                    </scope>
+                </sequence>
+            </else>
+        </if>
+    </sequence></process>
