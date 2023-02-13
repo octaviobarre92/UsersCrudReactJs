@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/TipoDeDatos/V1"
+	xmlns:dcomtipdat="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/TipoDeDatos/V1">
+	<xs:simpleType name="ModoCatalogoTipo">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INC"></xs:enumeration>
+			<xs:enumeration value="EXC"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

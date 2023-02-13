@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"
+	version="1.0"
+	elementFormDefault="qualified"
+	xmlns:dutidoc="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1">
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+	<xsd:complexType name="DocumentoTipo">
+		<xsd:sequence>
+			<xsd:element name="IdDocumentoECM" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Identificador del Documento en ECM
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdDocumentoINSIS" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Identificador del documento en Insis
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Nombre" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Nombre del Documento
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TipoDocumento" type="dcomcom:CatalogoTipo"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica el tipo de Documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica la extesion del documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdUltimaRevision" type="xsd:int"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Identificador de la ultima revisión del
+						documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comentario" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Comentarios del documento
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FechaCreacion" type="xsd:dateTime"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que indica la Fecha de creación del
+						documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UrlPathINSIS" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Path Source del documento
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UrlPathTempINSIS" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="EstadoDocumento" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Elemento que indica el estado del documento
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumeroPaginas" type="xsd:int"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Paginas" type="dutidoc:PaginasTipo"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DocumentosTipo">
+		<xsd:sequence>
+			<xsd:element name="Documento" type="dutidoc:DocumentoTipo"
+				maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaginasTipo">
+        <xsd:annotation>
+        	<xsd:documentation>Id del Formato de la pagina</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+
+			<xsd:element name="Pagina" type="dutidoc:PaginaTipo"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+		<xsd:complexType name="PalabraClaveTipo">
+		<xsd:sequence>
+            <xsd:element name="IdParametro" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identificador del parametro.</xsd:documentation>
+				</xsd:annotation></xsd:element>
+            <xsd:element name="Nombre" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+                <xsd:annotation>
+                	<xsd:documentation>Nombre de la propiedad</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+			<xsd:element name="Valor" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+                <xsd:annotation>
+                	<xsd:documentation>Valor de la propiedad.</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PalabrasClaveTipo">
+		<xsd:sequence>
+			<xsd:element name="Atributo" type="dutidoc:PalabraClaveTipo" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+
+
+	<xsd:complexType name="PaginaTipo">
+		<xsd:sequence>
+			<xsd:element name="Contenido" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Elemento que contiene el contenido de la pagina.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdFormato" type="xsd:int" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formato de la pagina</xsd:documentation></xsd:annotation></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

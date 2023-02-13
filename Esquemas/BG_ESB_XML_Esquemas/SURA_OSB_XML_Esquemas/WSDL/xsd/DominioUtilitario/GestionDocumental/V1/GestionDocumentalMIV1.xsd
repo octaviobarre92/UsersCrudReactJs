@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"
+	xmlns:dutidoc="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"
+	version="1.0" elementFormDefault="qualified"
+	xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+	xmlns:dutigdoc="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"
+	xmlns:dpropro="http://xmlns.sura.com/ObjetoIntegracion/DominioProceso/Proceso/V1">
+	<xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"></xsd:import>
+	<xsd:import schemaLocation="GestionDocumentalOIV1.xsd"
+		namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioUtilitario/GestionDocumental/V1"></xsd:import>
+	<xsd:import
+		namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"
+		schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd" />
+	<xsd:complexType name="MensajeEntradaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion del mensaje de entrada
+				base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol"
+				type="dcomcom:CabeceraSolTipo">
+				<xsd:annotation>
+					<xsd:documentation>Contiene los datos especficos de transaccin
+						para
+						la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeSalidaBase">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacion correspondiente al mensaje
+				de salida base.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp"
+				type="dcomcom:CabeceraRespTipo">
+				<xsd:annotation>
+					<xsd:documentation>Entidad que contiene los datos especficos de
+						transaccin para la cabecera de la solicitud.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConfiguracionesDocumentosOnBaseTipo">
+		<xsd:sequence>
+			<xsd:element name="ConfiguracionDocumentoOnBase"
+				type="dutidoc:ConfiguracionDocumentoOnBaseTipo" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConfiguracionDocumentoOnBaseTipo">
+		<xsd:sequence>
+			<xsd:element name="NombreTipoDocumento" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Tipo Documental al cual pertenece el
+						documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NombreGrupo" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Grupo del Documento. ATM o Reportes -
+						Sistema CNB
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NombreReporte" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Reporte de Documento.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NombreDocumento" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Documento.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NombreCampoBusqueda" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Elemento que indica el nombre del campo
+						Busqueda. Comercio / Empresa / OperacionComext
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CargarDocumentoMsjSol" type="dutidoc:CargarDocumentoMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Cedula o pasaporte de la persona.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CargarDocumentoMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdentificacionPersona" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdUsuario" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Identificacion usuario.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Documento" type="dutigdoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+                                        <xsd:element name="TipoOperacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Tipo de Operacion que recibe el SP.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CargarDocumentoMsjResp" type="dutidoc:CargarDocumentoMsjRespTipo" />
+	<xsd:complexType name="CargarDocumentoMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Documento"
+						type="dutigdoc:DocumentoTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+	<xsd:element name="AlmacenarDocumentoOnBaseMsjSol"
+		type="dutidoc:AlmacenarDocumentoOnBaseMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Identificador del cliente
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AlmacenarDocumentoOnBaseMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdDocumental" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="Atributos" type="dutigdoc:PalabrasClaveTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="Paginas" type="dutigdoc:PaginasTipo"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AlmacenarDocumentoOnBaseMsjResp"
+		type="dutidoc:AlmacenarDocumentoOnBaseMsjRespTipo" />
+	<xsd:complexType name="AlmacenarDocumentoOnBaseMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Documento"
+						type="dutigdoc:DocumentoTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="GestionarParametrosECMInsisMsjSol"
+		type="dutidoc:GestionarParametrosECMInsisMsjSolTipo" />
+	<xsd:complexType name="GestionarParametrosECMInsisMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdentificacionPersona" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Numero de cedula o pasaporte del cliente
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdUsuario" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Identificacion usuario.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Documento" type="dutigdoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="TipoOperacion" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que indica el tipo de operación que
+								se debe ejecutar.
+
+								C- Insertar
+								R- Seleccionar (Consultar)
+								U- Actualizar
+								D- Eliminar
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GestionarParametrosECMInsisMsjResp"
+		type="dutidoc:GestionarParametrosECMInsisMsjRespTipo" />
+	<xsd:complexType name="GestionarParametrosECMInsisMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="TipoDocumental" type="xsd:int" />
+					<xsd:element name="Parametros"
+						type="dutigdoc:PalabrasClaveTipo" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="IdFormato" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo de los distintos tipos de
+								extensión para el ECM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IdDocEcm" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo del ECM Generado (Este valor será
+								temporal (Random) dependiendo del tipo
+								de operación (solo aplica para la
+								operación D)
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Accion" type="xsd:int"
+						maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Codigo que se le indica al OSB que
+								servicio utilizar: 1- Se utiliza el
+								camino corto, es decir el servicio
+								&quot;DocRetrieve&quot; 2- Se utiliza el
+								camino largo, es decir el servicio
+								&quot;DocQuery&quot;
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OnbasePath" type="xsd:string" maxOccurs="1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Elemento que contiene la informacion del documento que necesita leer onbase</xsd:documentation>
+						</xsd:annotation></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObtenerDocumentoOnBaseMsjSol"
+		type="dutidoc:ObtenerDocumentoOnBaseMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Identificador del cliente
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ObtenerDocumentoOnBaseMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="IdDocumento" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObtenerDocumentoOnBaseMsjResp"
+		type="dutidoc:ObtenerDocumentoOnBaseMsjRespTipo" />
+	<xsd:complexType name="ObtenerDocumentoOnBaseMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Documento"
+						type="dutigdoc:DocumentoTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+		<xsd:element name="ConsultarArchivoFTPMsjSol"
+		type="dutidoc:ConsultarArchivoFTPMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Identificador del cliente
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ConsultarArchivoFTPMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="Documento" type="dutigdoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConsultarArchivoFTPMsjResp"
+		type="dutidoc:ConsultarArchivoFTPMsjRespTipo" />
+	<xsd:complexType name="ConsultarArchivoFTPMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="Documento"
+						type="dutigdoc:DocumentoTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="EnviarDocumentoFSMsjSol"
+		type="dutidoc:EnviarDocumentoFSMsjSolTipo">
+		<xsd:annotation>
+			<xsd:documentation>Identificador del cliente
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="EnviarDocumentoFSMsjSolTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeEntradaBase">
+				<xsd:sequence>
+					<xsd:element name="Documento" type="dutigdoc:DocumentoTipo"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EnviarDocumentoFSMsjResp"
+		type="dutidoc:EnviarDocumentoFSMsjRespTipo" />
+	<xsd:complexType name="EnviarDocumentoFSMsjRespTipo">
+		<xsd:complexContent>
+			<xsd:extension base="dutidoc:MensajeSalidaBase">
+				<xsd:sequence>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

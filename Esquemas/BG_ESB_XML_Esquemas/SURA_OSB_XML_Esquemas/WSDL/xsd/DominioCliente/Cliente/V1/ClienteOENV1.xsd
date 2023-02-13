@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+	targetNamespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Cliente/V1"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Cliente/V1"
+	xmlns:dclicli="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Cliente/V1"
+	xmlns:dcliper="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+	xmlns:dcomcomban="http://www.sura.com/ObjetoEmpresarial/DominioComun/ComunBanco/V1"
+	xmlns:dcuefir="http://www.sura.com/ObjetoEmpresarial/DominioCuenta/Firma/V1"
+	xmlns:duticomban="http://www.sura.com/ObjetoEmpresarial/DominioUtilitario/ComunBanco/V1">
+	<xsd:import schemaLocation="../../Persona/V1/PersonaOENV1.xsd"
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"></xsd:import>
+	<xsd:import
+		namespace="http://www.sura.com/ObjetoEmpresarial/DominioCliente/Persona/V1"
+		schemaLocation="../../Persona/V1/PersonaOENV1.xsd" />
+
+	<xsd:complexType name="ClienteTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin basica de un
+				cliente de sura.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="PoliticamenteExpuesto" type="dclicli:PoliticamenteExpuestoTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TipoCompaniaTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el valor catalogo de los
+				Tipos de Compania.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del tipo de compania.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del tipo de compania.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="EstadoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el valor catlogo de los
+				Estados de Cliente.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Es el identificador unico del Estado del
+						cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Estado del Cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="GrupoEconomicoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el Grupo Economico del
+				cliente.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Grupo Economico del
+						cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Compania"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Ente Juridico.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Estado"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Estado de la entidad del Grupo Economico.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del Grupo Economico.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Representante"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Ente Natural asociado
+						como representante.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="RUC"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Numero de Registro Unico de Contribuyentes.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="ClienteJuridicoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacin bsica de cualquier cliente
+				jurdico del banco.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dclicli:ClienteTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="PersonaJuridica"
+						type="dcliper:PersonaJuridicaTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="TipoCompania"
+						type="dclicli:TipoCompaniaTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ClienteNaturalTipo">
+		<xsd:annotation>
+			<xsd:documentation>Contiene la informacin basica de cualquier Cliente
+				Natural del banco.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dclicli:ClienteTipo">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0"
+						name="TipoClienteNatural" type="dclicli:TipoClienteNaturalTipo" />
+					<xsd:element maxOccurs="1" minOccurs="0" name="PersonaNatural"
+						type="dcliper:PersonaNaturalTipo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="RelacionGrupoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la Relacion del Grupo con el
+				cliente.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Relacion Grupo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Descripcion"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Descripcion de la Relacion Grupo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Relacion"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Relacion Grupo.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="TipoEnte"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Es el tipo del ente al que pertenece la Relacion
+						Grupo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="TipoClienteNaturalTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el valor catlogo de los Tipos
+				de Cliente Natural.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del tipo de cliente natural.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre del tipo de cliente natural
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="CalificacionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Indica la Calificacion que el banco le da a un
+				Cliente.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico de la Calificacion del
+						Cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre correspondiente a la Calificacion del
+						Cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="PoliticamenteExpuestoTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la informacin de los
+				Politicamente Expuesto.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Identificador unico del Politicamente Expuesto
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de Politicamente Expuesto
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="ClasificacionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el valor catlogo de la
+				Clasificacin del Cliente.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Es el identificador unico de la Clasificacin del
+						cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Clasificacin del Cliente.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+
+	<xsd:complexType name="RelacionTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene el valor catlogo de la
+				Relacin del Cliente con el Banco.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Codigo"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Es el identificador unico de la Relacin del
+						cliente con el Banco.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="FechaInicio"
+				type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>Fecha de Inicio de la Relacin del Cliente con el
+						Banco.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Nombre de la Relacin del Cliente con el Banco.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="TitularesTipo">
+		<xsd:annotation>
+			<xsd:documentation>Entidad que contiene la lista de titulares
+				asociados a un producto
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Titular" type="TitularTipo" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TitularTipo">
+		<xsd:annotation>
+			<xsd:documentation>
+				Entidad que contiene la informacin bsica de un
+				titular
+				de un producto
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EsPrincipal" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Indica si el titular principal del producto
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EsTitularEnvio" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Indica si al titular se le deben enviar los
+						estados de cuenta del producto
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RolTitular" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Rol que cumple el titular en el producto. Los
+						posibles valores varan segn el producto.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TipoTiularidad" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Tipo de titularidad. Los posibles valores est
+						dados por la tabla 494 (cc_ctitularidad) del
+						catlogo.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="ClienteNatural" type="ClienteNaturalTipo"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="ClienteJuridico" type="ClienteJuridicoTipo"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

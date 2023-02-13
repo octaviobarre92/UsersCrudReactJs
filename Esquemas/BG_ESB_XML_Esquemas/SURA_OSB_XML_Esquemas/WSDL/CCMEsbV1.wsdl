@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="CCMEsbV1"
+	targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioPoliza/PolizaESB/V1"
+	xmlns:osbpol="http://osbsura.com/MensajeIntegracion/DominioPoliza/PolizaESB/V1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioPoliza/PolizaESB/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<binding hasEncoding="false" imported="true" name="CcmBindingSOAP"
+					originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://osbsura.com/MensajeIntegracion/DominioPoliza/PolizaESB/V1"
+				schemaLocation="xsd/DominioPoliza/Poliza/V1/PolizaESBV1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="GenerarImprimibleMsjSol">
+		<wsdl:part element="osbpol:GenerarImprimibleMsjSol"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GenerarImprimibleMsjResp">
+		<wsdl:part element="osbpol:GenerarImprimibleMsjResp"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="CcmPortTypeSOAP">
+		<wsdl:operation name="GenerarImprimible">
+			<wsdl:input message="tns:GenerarImprimibleMsjSol"
+				name="GenerarImprimibleRq" />
+			<wsdl:output message="tns:GenerarImprimibleMsjResp"
+				name="GenerarImprimibleRs" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CcmBindingSOAP" type="tns:CcmPortTypeSOAP">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GenerarImprimible">
+			<soap:operation style="document" />
+			<wsdl:input name="GenerarImprimibleRq">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GenerarImprimibleRs">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CCMEsbV1">
+		<wsdl:port binding="tns:CcmBindingSOAP" name="CcmPortSOAP">
+			<soap:address
+				location="http://xmlns.sura.com/DominioPoliza/Poliza/V1/CcmPortSOAP" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>	
