@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='main']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='if'][@name='If1']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='condition']</loc>
+      <line>99</line>
+      <col/>
+      <file>BPEL/BPEL_GestionarVoucher.bpel</file>
+      <name>BPEL/BPEL_GestionarVoucher.bpel</name>
+      <fix>Make sure that the expression in &lt;bpel:condition> is a boolean expression.</fix>
+      <msg>The expression $SP_ConsultarPolizaXProceso_sp_consulta_poliza_x ... in &lt;bpel:condition> is not a boolean expression.</msg>
+   </Fault>
+</Faults>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+
+    <composite faultPolicy="policyRemote"/>
+
+    <component faultPolicy="policyRemote">
+        <name>BPELGenerarActividadDocumento</name>
+    </component>
+
+    <reference faultPolicy="policyRemote">
+        <name>ExpCrearActividadGAD</name>
+    </reference>
+
+    <reference faultPolicy="policyRemote">
+        <name>ExpCargarDocumentoGAD</name>
+    </reference>
+</faultPolicyBindings>

@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://suramericana.sapweb.tesoreria.recaudos" targetNamespace="http://suramericana.sapweb.tesoreria.recaudos" elementFormDefault="unqualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="CrearRecaudoLegacyReq">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="Proceso" type="xsd:string"/>
+            <xsd:element name="FechaDocumento" type="xsd:string"/>
+            <xsd:element name="FechaContabilizacion" type="xsd:string"/>
+            <xsd:element name="Moneda" type="xsd:string"/>            
+            <xsd:element name="Referencia" type="xsd:string"/>
+            <xsd:element name="Cuenta" type="xsd:string"/>
+            <xsd:element name="Importe" type="xsd:string"/>
+            <xsd:element name="FechaValor" type="xsd:string"/>
+            <xsd:element name="Texto" type="xsd:string"/>
+            <xsd:element name="Poliza" type="xsd:string"/>
+            <xsd:element name="SociedadBancos" type="xsd:string"/>
+            <xsd:element name="Cheque" type="xsd:string"/>
+            <xsd:element name="Librador" type="xsd:string"/>
+            <xsd:element name="ClaveBanco" type="xsd:string"/>
+            <xsd:element name="Division" type="xsd:string"/>
+            <xsd:element name="Usuario" type="xsd:string"/>
+            <!--xsd:element name="CentroCostos" type="xsd:string"/-->
+            <xsd:element name="Asignacion" type="xsd:string"/>
+            <xsd:element name="CuentaLegacy" type="xsd:string"/>            
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

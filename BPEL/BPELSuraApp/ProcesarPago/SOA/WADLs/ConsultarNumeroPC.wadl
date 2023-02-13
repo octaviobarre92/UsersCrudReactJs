@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="ConsultarNumeroPC">RestReference</doc>
+   <resources>
+      <resource path="/SI_ConsultarNumeroPC/SI_ConsultarNumeroPCPS">
+         <method name="GET" soa:name="ConsultarNumeroPC">
+            <request>
+               <param name="FECHA" style="query" type="xsd:string"/>
+               <param name="TIPO_AJUSTE" style="query" type="xsd:string"/>
+               <param name="PROCESO" style="query" type="xsd:string"/>
+               <param name="ESTADO" style="query" type="xsd:string"/>
+            </request>
+            <response>
+               <representation mediaType="application/json"/>
+            </response>
+            <response>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

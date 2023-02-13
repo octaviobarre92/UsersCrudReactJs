@@ -1,0 +1,169 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Dec 15 15:30:30 COT 2020
+  Author:  davidsotillo
+  Type: BPEL 2.0 Process
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPEL_GestionarVoucher"
+         targetNamespace="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_GestionarVoucher/BPEL_GestionarVoucher"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_GestionarVoucher/BPEL_GestionarVoucher"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/ServiciosIntegracionSURA/BPEL_GestionarVoucher/sp_consulta_poliza_x_proceso"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_consulta_poliza_x_proceso"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="json">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/ServiciosIntegracionSURA/BPEL_GestionarVoucher/BPEL_GestionarVoucher" location="../WSDLs/BPEL_GestionarVoucher.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="bpel_gestionarvoucher_client" partnerLinkType="client:BPEL_GestionarVoucher" myRole="BPEL_GestionarVoucherProvider" partnerRole="BPEL_GestionarVoucherRequester"/>
+        <partnerLink name="sp_consulta_poliza_x_proceso" partnerLinkType="ns1:sp_consulta_poliza_x_proceso_plt"
+                     partnerRole="sp_consulta_poliza_x_proceso_role"/>
+        <partnerLink name="Exp_CrearVoucher" bpelx:wadl="yes"/>
+        <partnerLink name="Exp_ModificarVoucher" bpelx:wadl="yes"/>
+        <partnerLink name="Exp_ActualizarTransaccionBD" bpelx:wadl="yes"/>
+        <partnerLink name="Exp_GestionarTransaccionPremium" bpelx:wadl="yes"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:BPEL_GestionarVoucherRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:BPEL_GestionarVoucherResponseMessage"/>
+        <variable name="SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_InputVariable"
+                  messageType="ns1:args_in_msg"/>
+        <variable name="SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_OutputVariable"
+                  messageType="ns1:args_out_msg"/>
+        <variable name="GestionarVoucherMsgReq" bpelx:json="string"/>
+    </variables>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in BPEL_GestionarVoucher.wsdl) -->
+        <receive name="receiveInput" partnerLink="bpel_gestionarvoucher_client" portType="client:BPEL_GestionarVoucher" operation="process" variable="inputVariable" createInstance="yes"/>
+        <assign name="TIN_SP">
+            <copy>
+                <from expressionLanguage="javascript">process.GestionarVoucherMsgReq.GESTION</from>
+                <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_InputVariable.InputParameters/ns2:PV_TIPO_DE_PROCESO</to>
+            </copy>
+        </assign>
+        <invoke name="SP_ConsultarPolizaXProceso" bpelx:invokeAsDetail="no" partnerLink="sp_consulta_poliza_x_proceso"
+                portType="ns1:sp_consulta_poliza_x_proceso_ptt" operation="sp_consulta_poliza_x_proceso"
+                inputVariable="SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_InputVariable"
+                outputVariable="SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_OutputVariable"/>
+        <if name="If1">
+            <documentation>
+                <![CDATA[Exito]]>
+            </documentation>
+            <condition>$SP_ConsultarPolizaXProceso_sp_consulta_poliza_x_proceso_OutputVariable.OutputParameters/ns2:PV_BAND</condition>
+            <sequence name="Sequence1">
+                <empty name="Empty"/>
+                <forEach parallel="no" counterName="ForEach1Counter" name="ForEach1">
+                    <startCounterValue>0</startCounterValue>
+                    <finalCounterValue>4</finalCounterValue>
+                    <scope name="Scope1">
+                        <sequence name="Sequence4">
+                            <if name="If_Gestion">
+                                <documentation>
+                                    <![CDATA[Emision]]>
+                                </documentation>
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:matches($inputVariable.payload,'$inputVariable.payload/')</condition>
+                                <sequence name="Sequence3">
+                                    <invoke name="CrearVoucher" partnerLink="Exp_CrearVoucher"
+                                            bpelx:method="CrearVoucher" bpelx:invokeAsDetail="no"
+                                            inputVariable="inputVariable" outputVariable="outputVariable"/>
+                                    <if name="IfAuditoria_Crear">
+                                        <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:matches($inputVariable,$inputVariable.payload/client:input)</condition>
+                                        <empty name="Empty3"/>
+                                        <else>
+                                            <empty name="Empty4"/>
+                                        </else>
+                                    </if>
+                                </sequence>
+                                <else>
+                                    <sequence name="Sequence2">
+                                        <invoke name="ModificarVoucher"
+                                                partnerLink="Exp_ModificarVoucher" bpelx:method="ModificarVoucher" inputVariable="inputVariable"
+                                                outputVariable="outputVariable" bpelx:invokeAsDetail="no"/>
+                                        <if name="IfAuditoria_Modificar">
+                                            <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:matches($inputVariable,$inputVariable.payload/client:input)</condition>
+                                            <empty name="Empty5"/>
+                                            <else>
+                                                <empty name="Empty6"/>
+                                            </else>
+                                        </if>
+                                    </sequence>
+                                </else>
+                            </if>
+                            <invoke name="Exp_ActualizarTransaccionBD"
+                                    partnerLink="Exp_ActualizarTransaccionBD" bpelx:method="ActualizarTransaccionBD" inputVariable="inputVariable"
+                                    outputVariable="inputVariable" bpelx:invokeAsDetail="no"/>
+                            <if name="IfExitoActualizarTransaccion">
+                                <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">xp20:matches($inputVariable,$inputVariable.payload/client:input)</condition>
+                                <sequence name="Sequence5">
+                                    <empty name="Emptyy"/>
+                                    <invoke name="Exp_GestionarTransaccionPremium"
+                                            partnerLink="Exp_GestionarTransaccionPremium"
+                                            bpelx:method="GestionarTransaccionPremium"
+                                            inputVariable="inputVariable" outputVariable="outputVariable"
+                                            bpelx:invokeAsDetail="no"/>
+                                </sequence>
+                                <else>
+                                    <empty name="Empty2"/>
+                                </else>
+                            </if>
+                        </sequence>
+                    </scope>
+                </forEach>
+            </sequence>
+            <else>
+                <empty name="Empty1"/>
+            </else>
+        </if>
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <invoke name="callbackClient" partnerLink="bpel_gestionarvoucher_client" portType="client:BPEL_GestionarVoucherCallback" operation="processResponse" inputVariable="outputVariable"/>
+    </sequence>
+</process>

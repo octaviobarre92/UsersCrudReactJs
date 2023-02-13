@@ -1,0 +1,28 @@
+<wsdl:definitions
+     name="jmsAuditMessage"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_CargarDocumento_V2/jmsAuditMessage"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/ServiciosIntegracionSURA/Bss_CargarDocumento_V2/jmsAuditMessage"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:imp1="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1"
+    >
+  <plt:partnerLinkType name="Audit_Message_plt" >
+    <plt:role name="Audit_Message_role" >
+      <plt:portType name="tns:Audit_Message_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.sura.com/MensajeIntegracion/DominioUtilitario/GestionDocumentalMI/V1" schemaLocation="../../ComponentesComunes/WSDL/xsd/DominioUtilitario/GestionDocumental/V1/GestionDocumentalMIV1.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="Audit_Message_msg">
+        <wsdl:part name="body" element="imp1:AlmacenarDocumentoOnBaseMsjSol"/>
+    </wsdl:message>
+    <wsdl:portType name="Audit_Message_ptt">
+        <wsdl:operation name="Audit_Message">
+            <wsdl:input message="tns:Audit_Message_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

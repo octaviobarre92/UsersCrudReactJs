@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OBService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/OBService">
+  <xs:complexType name="ArrayOfOBKeyword">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OBKeyword" nillable="true" type="tns:OBKeyword"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOBKeyword" nillable="true" type="tns:ArrayOfOBKeyword"/>
+  <xs:complexType name="OBKeyword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="kwID" type="xs:int"/>
+      <xs:element minOccurs="0" name="kwName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="kwValue" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OBKeyword" nillable="true" type="tns:OBKeyword"/>
+  <xs:complexType name="OBWSResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="docHandle" type="xs:double"/>
+      <xs:element minOccurs="0" name="sDesc" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OBWSResult" nillable="true" type="tns:OBWSResult"/>
+</xs:schema>

@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ServiceName" targetNamespace="http://TargetNamespace.com/ServiceName" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="respuesta">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="codigo" type="xsd:integer"/>
+                     <xsd:element name="componente" type="xsd:string"/>
+                     <xsd:element name="mensaje" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="informacion_poliza_renovada" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="POLIZA" type="xsd:integer"/>
+                     <xsd:element name="SUB_RAMO" type="xsd:integer"/>
+                     <xsd:element name="NUMERO_POLIZA_NVA" type="xsd:string"/>
+                     <xsd:element name="RAMO" type="xsd:integer"/>
+                     <xsd:element name="NUMERO_POLIZA_ANT" type="xsd:string"/>     
+                     <xsd:element name="IDENTIFICACION_CTR" type="xsd:string"/>     
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/RenovarPoliza" targetNamespace="http://TargetNamespace.com/RenovarPoliza" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="RqRenovarPoliza">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="OBJETO_POLIZA_CORE">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="POLIZA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="RAMO" type="xsd:string"/>
+                              <xsd:element name="SUBRAMO" type="xsd:string"/>
+                              <xsd:element name="NUMERO_DE_POLIZA" type="xsd:string"/>
+                              <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:string"/>
+                              <xsd:element name="CORE" type="xsd:string"/>
+                              <xsd:element name="TIPO_POLIZA" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_INICIAL" type="xsd:string"/>
+                              <xsd:element name="VIGENCIA_FINAL" type="xsd:string"/>
+                              <xsd:element name="ESTADO" type="xsd:string"/>
+                              <xsd:element name="PRIMA_TOTAL" type="xsd:string"/>
+                              <xsd:element name="SALDO_TOTAL" type="xsd:string"/>
+                              <xsd:element name="PERIODICIDAD" type="xsd:string"/>
+                              <xsd:element name="DIA" type="xsd:integer"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="RENOVADA">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NUMERO_DE_POLIZA_ANTERIOR" type="xsd:string"/>
+                              <xsd:element name="NUMERO_DE_POLIZA_NUEVA" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="CORREDOR" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CODIGO" type="xsd:string"/>
+                              <xsd:element name="NOMBRE_COMPLETO" type="xsd:string"/>
+                              <xsd:element name="NOMBRE" type="xsd:string"/>
+                              <xsd:element name="APELLIDO" type="xsd:string"/>
+                              <xsd:element name="IDENTIFICACION" type="xsd:string"/>
+                              <xsd:element name="TIPO" type="xsd:string"/>
+                              <xsd:element name="TELEFONO" type="xsd:string"/>
+                              <xsd:element name="CELULAR" type="xsd:string"/>
+                              <xsd:element name="EMAIL" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

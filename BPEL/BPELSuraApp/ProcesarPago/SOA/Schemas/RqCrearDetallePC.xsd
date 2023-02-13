@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/CrearDetallePC" targetNamespace="http://TargetNamespace.com/CrearDetallePC" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="RqCrearDetallePC">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="NUMERO_PC" type="xsd:string"/>
+            <xsd:element name="RAMO" type="xsd:string"/>
+            <xsd:element name="SUBRAMO" type="xsd:string"/>
+            <xsd:element name="POLIZA" type="xsd:string"/>
+            <xsd:element name="SECUENCIA" type="xsd:string"/>
+            <xsd:element name="NUMERO_DE_REFERENCIA" type="xsd:string"/>
+            <xsd:element name="FECHA_REFERENCIA" type="xsd:string"/>
+            <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

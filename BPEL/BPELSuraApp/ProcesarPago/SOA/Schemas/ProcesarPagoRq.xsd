@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/jmsProcesarPago" targetNamespace="http://TargetNamespace.com/jmsProcesarPago" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CORE" type="xsd:string"/>
+            <xsd:element name="NUMERO_POLIZA" type="xsd:string"/>
+            <xsd:element name="TIPO_POLIZA" type="xsd:string"/>
+            <xsd:element name="IDENTIFICACION_CLIENTE" type="xsd:string"/>
+            <xsd:element name="PROCESO" type="xsd:string"/>
+            <xsd:element name="REFERENCIA" type="xsd:string"/>
+            <xsd:element name="TIPO_CUENTA" type="xsd:string"/>
+            <xsd:element name="MONTO" type="xsd:string"/>
+            <xsd:element name="FECHA" type="xsd:string"/>
+            <xsd:element name="ASIGNACION" type="xsd:string"/>
+            <xsd:element name="REGISTRO_FINAL" type="xsd:string"/>
+            <xsd:element name="LOTE" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

@@ -1,0 +1,29 @@
+<wsdl:definitions
+     name="jmsConsumirRenovarPoliza"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/RenovarPoliza/jmsConsumirRenovarPoliza"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/BPELSuraApp/RenovarPoliza/jmsConsumirRenovarPoliza"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:pc="http://xmlns.oracle.com/pcbpel/"
+     xmlns:imp1="http://TargetNamespace.com/RenovarPoliza"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="RenovarPoliza_plt" >
+    <plt:role name="RenovarPoliza_role" >
+      <plt:portType name="tns:RenovarPoliza_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://TargetNamespace.com/RenovarPoliza" schemaLocation="../Schemas/RqRenovarPoliza.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="RenovarPoliza_msg">
+        <wsdl:part name="body" element="imp1:RqRenovarPoliza"/>
+    </wsdl:message>
+    <wsdl:portType name="RenovarPoliza_ptt">
+        <wsdl:operation name="RenovarPoliza">
+            <wsdl:input message="tns:RenovarPoliza_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

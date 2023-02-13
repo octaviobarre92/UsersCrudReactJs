@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://sura.com.pa/GestionarActividadDocumento/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sura.com.pa/GestionarActividadDocumento/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="GestionarActividadDocumentoFaultMsg">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="code" type="xsd:string"/>
+                        <xsd:element name="summary" type="xsd:string"/>
+                        <xsd:element name="detail" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GestionarActividadDocumentoReq">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CABECERA" type="tns:CABECERA"/>
+                        <xsd:element name="TipoReferencia" type="xsd:string"/>
+                        <xsd:element name="IdProceso" type="xsd:string"/>
+                        <xsd:element name="IdPlantillaActividad" type="xsd:string"/>
+                        <xsd:element name="IdUsuario" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="0" name="ParametrosActividad">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Parametro">
+                                        <xsd:complexType>
+                                            <xsd:sequence>
+                                                <xsd:element maxOccurs="1" name="Nombre" type="xsd:string"/>
+                                                <xsd:element maxOccurs="1" minOccurs="1" name="Valor"
+                                                     type="xsd:string"/>
+                                            </xsd:sequence>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Documentos" minOccurs="0" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+            <xsd:element name="Documento" minOccurs="0" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="IdDocumental" type="xsd:string"/>
+                     <xsd:element name="Adjunto" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Contenido" type="xsd:string"/>
+                              <xsd:element name="IdFormato" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="AtributosRelacion" minOccurs="0">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Atributo" maxOccurs="unbounded" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Nombre" minOccurs="1" type="xsd:string"/>
+                                       <xsd:element name="Valor" minOccurs="1" type="xsd:string"/>
+                                       <xsd:element name="Id" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+		 
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GestionarActividadDocumentoResp">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CABECERA" type="tns:CABECERA"/>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="STATUS" type="tns:STATUS"/>
+                        <xsd:element minOccurs="0" name="IdActividad" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="CABECERA">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="CODIGO_OPERACION" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="FECHA_TRANSACCION" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="SISTEMA_DESTINO" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="SISTEMA_ORIGEN" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="STATUS">
+                <xsd:sequence>
+                    <xsd:element name="CODIGO" type="xsd:string"/>
+                    <xsd:element name="DETALLE" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="PARAMETRO">
+                <xsd:sequence>
+                    <xsd:element name="ATRIBUTO" type="xsd:string"/>
+                    <xsd:element name="VALOR" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ADJUNTO">
+                <xsd:sequence>
+                    <xsd:element name="NOMBRE_ARCHIVO" type="xsd:string"/>
+                    <xsd:element name="TIPO" type="xsd:string"/>
+                    <xsd:element name="ARCHIVO" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>

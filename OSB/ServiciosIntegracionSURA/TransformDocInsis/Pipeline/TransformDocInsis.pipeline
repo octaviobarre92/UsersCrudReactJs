@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-ad33703.N5ec5c942.0.172b0807c8a.N7f99">
+        <con:pipeline type="request" name="request-ad33703.a6a25c6.0.172a02bf584.N7e4d">
+            <con:stage id="_StageId-ad33703.a6a25c6.0.172a02bf584.N7c70" name="Request">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="idProceso" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7c6f</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/*/*:PO_PROCID/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:assign varName="mensajeXML" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7c6e</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body/*/*</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-ad33703.a6a25c6.0.172a02bf584.N7e4c">
+            <con:stage id="_StageId-ad33703.a6a25c6.0.172a02bf584.N7d0e" name="Response">
+                <con:context/>
+                <con:actions>
+                    <con1:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a18</con2:id>
+                        <con1:case id="_BranchId-ad33703.a6a25c6.0.172a02bf584.N7a17">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'COTIZACION')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a16</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Cotizacion"/>
+                                    <con1:schemaElement xmlns:cot="http://www.sura.com/Cotizacion">cot:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.a6a25c6.0.172a02bf584.N7a15">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'CANALES')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a13</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Canales"/>
+                                    <con1:schemaElement xmlns:can="http://www.sura.com/Canales">can:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.a6a25c6.0.172a02bf584.N7a12">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'EMISION')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a11</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Emision"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.com/Emision">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.a6a25c6.0.172a02bf584.N7a10">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'RECAUDO')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a0f</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Recaudo"/>
+                                    <con1:schemaElement xmlns:rec="http://www.sura.com/Recaudos">rec:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.a6a25c6.0.172a02bf584.N7a0e">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'RECLAMOS')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7a0d</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Reclamos"/>
+                                    <con1:schemaElement xmlns:rec="http://www.sura.com/Reclamos">rec:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57fe8b.2727d3d0.0.17864e33bef.N7ffc">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'EmisionSalud')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe8b.2727d3d0.0.17864e33bef.N7ff9</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Salud_Emision"/>
+                                    <con1:schemaElement xmlns:pa="http://www.sura.ccom.pa/PA_SaludEmisionXML">pa:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57fe8b.2727d3d0.0.17864e33bef.N7ff6">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'CotizacionSalud')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe8b.2727d3d0.0.17864e33bef.N7ff3</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Salud_Cotizacion"/>
+                                    <con1:schemaElement xmlns:pa="http://www.sura.com.pa/PA_Salud_Cotizacion">pa:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57fe8b.2727d3d0.0.17864e33bef.N7fef">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'EndososSalud')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe8b.2727d3d0.0.17864e33bef.N7fec</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_Salud_Endosos"/>
+                                    <con1:schemaElement xmlns:pas="http://www.sura.com.pa/PASaludEmision">pas:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.2c96ed02.0.17b92bfc70f.N7fff">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Emision_RA')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.2c96ed02.0.17b92bfc70f.N7ff6</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Emision_RA"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.com.pa/EmisionRA">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.2c96ed02.0.17b92bfc70f.N7ffd">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Emision_RI')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.2c96ed02.0.17b92bfc70f.N7ff3</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Emision_RI"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.com.pa/Emision_RI">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.2c96ed02.0.17b92bfc70f.N7ffb">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Emision_RO')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.2c96ed02.0.17b92bfc70f.N7ff0</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Emision_RO"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.con.pa/Emision_RO">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-ad33703.2c96ed02.0.17b92bfc70f.N7ff9">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Reclamaciones')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.2c96ed02.0.17b92bfc70f.N7fed</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Reclamaciones"/>
+                                    <con1:schemaElement xmlns:rec="http://www.sura.com.pa/Reclamaciones">rec:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57bb91.N1a18cadc.0.17c00643762.N7ef9">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'ReclamosSalud')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57bb91.N1a18cadc.0.17c00643762.N7ef6</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/PA_ReclamosSalud"/>
+                                    <con1:schemaElement xmlns:rec="http://www.sura.com/Reclamos">rec:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57fe12.N2108da57.0.17c531ee1b6.N7fff">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Emision_RE')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe12.N2108da57.0.17c531ee1b6.N7ffa</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Emision_RE"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.con.pa/Emision_RE">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-N3f57fe12.N2108da57.0.17c531ee1b6.N7ffd">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">fn:compare($idProceso,'Emision_IN')=0</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:nxsdTranslation>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57fe12.N2108da57.0.17c531ee1b6.N7ff7</con2:id>
+                                    <con1:type>XML-To-Native</con1:type>
+                                    <con1:sourceExpr>
+                                        <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$mensajeXML</con2:xqueryText>
+                                    </con1:sourceExpr>
+                                    <con1:nxsd ref="TransformDocInsis/Resources/xsd/Emision_IN"/>
+                                    <con1:schemaElement xmlns:emis="http://www.sura.con.pa/Emision_IN">emis:PO_XML</con1:schemaElement>
+                                    <con1:replace-body-content/>
+                                </con1:nxsdTranslation>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default/>
+                    </con1:ifThenElse>
+                    <con1:transport-headers xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.a6a25c6.0.172a02bf584.N7d0a</con2:id>
+                        <con1:header-set>inbound-response</con1:header-set>
+                        <con1:header value="expression" name="Content-Type">
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                        </con1:header>
+                    </con1:transport-headers>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-ad33703.N5ec5c942.0.172b0807c8a.N7f99">
+            <con:stage id="_StageId-ad33703.N5ec5c942.0.172b0807c8a.N7eef" name="ErrorHandler">
+                <con:context>
+                    <con1:userNsDecl prefix="v11" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="v1" namespace="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="mensaje" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7eee</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$fault/ctx:reason/text()</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7eed</con2:id>
+                        <con1:script>var today = new Date()
+var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+process.auditoria=
+{
+"CABECERA":{
+"CODIGO_OPERACION":'TDocInsis',
+"FECHA_PROCESAMIENTO":date,
+"FECHA_TRANSACCION":date,
+"ID_TRANSACCION_OSB":"",
+"SISTEMA_DESTINO":"CCM",
+"SISTEMA_ORIGEN":"OSB",
+},
+"STATUS":{
+"CODIGO": "404",
+"COMPONENTE": "Bss_TransformarDocInsis",
+"DETALLE": process.mensaje,
+"ORIGEN": "OSB"
+}
+}</con1:script>
+                    </con1:javaScript>
+                    <con1:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7eec</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$auditoria</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57bb91.N1a18cadc.0.17c00643762.N7efb</con2:id>
+                        <con1:service ref="EnviarAuditoria_v1.0.0/EnviarAuditoria_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform/>
+                    </con1:route>
+                    <con1:assign varName="cuerpo" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7eea</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="ComponentesComunes/XSLT/ErrorGeneral"/>
+                                <con2:input>$fault</con2:input>
+                                <con2:param name="bm.tns">
+                                    <con2:path>"http://www.sura.com/MensajeIntegracion/DominioPoliza/PolizaMIN/V1"</con2:path>
+                                </con2:param>
+                                <con2:param name="operation">
+                                    <con2:path>"TransfromarDocInsis"</con2:path>
+                                </con2:param>
+                                <con2:param name="status">
+                                    <con2:path>"ERR"</con2:path>
+                                </con2:param>
+                                <con2:param name="descripcion">
+                                    <con2:path>"Error general no identificado"</con2:path>
+                                </con2:param>
+                                <con2:param name="componente">
+                                    <con2:path>"TransformarDocInsis"</con2:path>
+                                </con2:param>
+                                <con2:param name="codigoError">
+                                    <con2:path>$fault/ctx:errorCode</con2:path>
+                                </con2:param>
+                                <con2:param name="detalleError">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="mensajeError">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="location">
+                                    <con2:path>$fault/ctx:location/*:stage/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7ee9</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$cuerpo</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-ad33703.N5ec5c942.0.172b0807c8a.N7ee8</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-ad33703.a6a25c6.0.172a02bf584.N7e4d</con:request>
+                <con:response>response-ad33703.a6a25c6.0.172a02bf584.N7e4c</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
