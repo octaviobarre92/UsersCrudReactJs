@@ -1,0 +1,378 @@
+--------------------------------------------------------- EXP EMITIR POLIZA ------------------------------------------
+
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-06-16",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros",
+		"CODIGO_OPERACION": "43",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201"
+	},
+	"CORE": "P",
+	"POLIZA": {
+		"PLAN": "plan_soat",
+		"NUMERO_POLIZA": "13-06-863014-0",
+		"VIGENCIA_DESDE": "01-07-2021",
+		"VIGENCIA_HASTA": "01-07-2022",
+		"SUMA_ASEGURADA": "75000",
+		"OBSERVACION": "MC",
+		"DURACION": "1*A",
+		"USUARIO": "SURA",
+		"CLASE" : "A",
+		"CONDUCTO" : "TC",
+		"TIPO_POLIZA":"V"		
+	},
+	"INFORMACION_BANCO": {
+		"CUENTA": "e4b924c0-7616-4565-8126-46a816dac778",
+		"APLICAR_PAGO": "TRUE",
+		"AUTOAFILIAR": "TRUE",
+		"REFERENCIA_COBRO": "115502272",
+		"COBRO": "20.58"
+	},
+	"CONTRATANTE": {
+		"NUMERO_IDENTIFICACION": "8-841-1851",
+		"NOMBRE": "OSCAR",
+		"SEGUNDO_NOMBRE": "IVAN",
+		"APELLIDO": "ALVIA",
+		"SEGUNDO_APELLIDO": "PETERS",
+		"TELEFONO": "64663269",
+		"SEXO": "M",
+		"ESTADO_CIVIL": "S",
+		"FECHA_NACIMIENTO": "23-11-1990",
+		"NACIONALIDAD": "PAN",
+		"DIRECCIONES": [
+					{
+						"TIPO": "r",
+						"COD_PAIS": "PAN",
+						"COD_PROVINCIA": "08",
+						"COD_BARRIO": "SANTA ANA",
+						"CALLE": "18",
+						"URBANIZACION": "SANTA ANA",
+						"CASA": "1385",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"EMAIL": "ivanalvia34@gmail.com"
+					}
+				]
+	},
+	"ESTRUCTURA_COMERCIAL": {
+		"REFERENCIA": "542716",
+		"CODIGO_FUNCIONARIO": "50065562",
+		"SUCURSAL": "0009"
+	},
+	"OBJETO_ASEGURADO": [
+		{
+			"PERSONA_ASEGURADA": {
+				"NUMERO_IDENTIFICACION": "8-841-1851",
+				"NOMBRE": "OSCAR",
+				"SEGUNDO_NOMBRE": "IVAN",
+				"APELLIDO": "ALVIA",
+				"SEGUNDO_APELLIDO": "PETERS",
+				"SEXO": "M",
+				"ESTADO_CIVIL": "S",
+				"FECHA_NACIMIENTO": "23-11-1990",
+				"NACIONALIDAD": "PAN",
+				"CELULAR": "64663269",
+				"DIRECCIONES": [
+					{
+						"TIPO": "r",
+						"COD_PAIS": "PAN",
+						"COD_PROVINCIA": "08",
+						"COD_BARRIO": "SANTA ANA",
+						"CALLE": "18",
+						"URBANIZACION": "SANTA ANA",
+						"CASA": "1385",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"EMAIL": "ivanalvia34@gmail.com"
+					}
+				],
+				"PRINCIPAL": "SI",
+				"INFO_ACTIVIDAD_ECONOMICA": {
+					"ACTIVIDAD": "111",
+					"CARGO_PUBLICO": "N",
+					"CODIGO_INGRESO_ANUAL": "4001",
+				},
+				"BENEFICIARIO": [
+					{
+						"NOMBRE": "OSCAR IVAN",
+						"APELLIDO": "ALVIA KAKIYAME",
+						"PARENTESCO": "Padre",
+						"JERARQUIA": "P",
+						"PORCENTAJE_BENEFICIARIO": "50"
+					}
+				]
+			}
+		}
+	]
+}
+
+
+---------------------------------------------------------BSS GESTIONAR EPA --------------------------------------------
+{
+	"CORE": "P",
+	"POLIZA": {
+		"NUMERO_POLIZA": "13-06-863014-0",
+		"CONDUCTO": "TC",
+		"SUMA_ASEGURADA": "75000",
+		"TIPO_POLIZA": "V",
+		"VIGENCIA_DESDE": "01-07-2021",
+		"DURACION": "1*A",
+		"CLASE": "A",
+		"VIGENCIA_HASTA": "01-07-2022",
+		"OBSERVACION": "MC",
+		"PLAN": "51",
+		"USUARIO": "SURA"
+	},
+	"CONTRATANTE": {
+		"SEGUNDO_NOMBRE": "IVAN",
+		"APELLIDO": "ALVIA",
+		"DIRECCIONES": [
+			{
+				"COD_PROVINCIA": "08",
+				"DIRECCION": "SANTA ANA 18 1385",
+				"TIPO": "r",
+				"CASA": "1385",
+				"URBANIZACION": "SANTA ANA",
+				"COD_PAIS": "PAN",
+				"CALLE": "18",
+				"EMAIL": "ivanalvia34@gmail.com",
+				"COD_BARRIO": "SANTA ANA"
+			}
+		],
+		"SEGUNDO_APELLIDO": "PETERS",
+		"ESTADO_CIVIL": "S",
+		"NUMERO_IDENTIFICACION": "8-841-1851",
+		"TELEFONO": "64663269",
+		"NACIONALIDAD": "PAN",
+		"NOMBRE": "OSCAR",
+		"FECHA_NACIMIENTO": "23-11-1990",
+		"SEXO": "M"
+	},
+	"OBJETO_ASEGURADO": [
+		{
+			"PERSONA_ASEGURADA": {
+				"CELULAR": "64663269",
+				"NACIONALIDAD": "PAN",
+				"BENEFICIARIO": [
+					{
+						"APELLIDO": "ALVIA KAKIYAME",
+						"PORCENTAJE_BENEFICIARIO": "50",
+						"PARENTESCO": "Padre",
+						"JERARQUIA": "P",
+						"NOMBRE": "OSCAR IVAN"
+					}
+				],
+				"SEXO": "M",
+				"SEGUNDO_NOMBRE": "IVAN",
+				"INFO_ACTIVIDAD_ECONOMICA": {
+					"CODIGO_INGRESO_ANUAL": "4001",
+					"CARGO_PUBLICO": "N",
+					"ACTIVIDAD": "111"
+				},
+				"APELLIDO": "ALVIA",
+				"DIRECCIONES": [
+					{
+						"COD_PROVINCIA": "08",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"TIPO": "r",
+						"CASA": "1385",
+						"URBANIZACION": "SANTA ANA",
+						"COD_PAIS": "PAN",
+						"CALLE": "18",
+						"EMAIL": "ivanalvia34@gmail.com",
+						"COD_BARRIO": "SANTA ANA"
+					}
+				],
+				"SEGUNDO_APELLIDO": "PETERS",
+				"ESTADO_CIVIL": "S",
+				"PRINCIPAL": "SI",
+				"NUMERO_IDENTIFICACION": "8-841-1851",
+				"NOMBRE": "OSCAR",
+				"FECHA_NACIMIENTO": "23-11-1990"
+			}
+		}
+	],
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-06-16",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros",
+		"CODIGO_OPERACION": "43"
+	},
+	"INFORMACION_BANCO": {
+		"APLICAR_PAGO": "TRUE",
+		"REFERENCIA_COBRO": "115502272",
+		"AUTOAFILIAR": "TRUE",
+		"COBRO": "20.58",
+		"CUENTA": "e4b924c0-7616-4565-8126-46a816dac778"
+	}
+}
+---------------------------------------------------------BSS EMITIR POLIZA PREMIUM -------------------------------------
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-06-16",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros",
+		"CODIGO_OPERACION": "43",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201"
+	},
+	"CORE": "P",
+	"POLIZA": {
+		"PLAN": "51",
+		"NUMERO_POLIZA": "13-06-863014-0",
+		"VIGENCIA_DESDE": "01-07-2021",
+		"VIGENCIA_HASTA": "01-07-2022",
+		"SUMA_ASEGURADA": "75000",
+		"OBSERVACION": "MC",
+		"DURACION": "1*A",
+		"USUARIO": "SURA",
+		"CLASE": "A",
+		"CONDUCTO": "TC",
+		"TIPO_POLIZA": "V"
+	},
+	"INFORMACION_BANCO": {
+		"CUENTA": "e4b924c0-7616-4565-8126-46a816dac778",
+		"APLICAR_PAGO": "TRUE",
+		"AUTOAFILIAR": "TRUE",
+		"REFERENCIA_COBRO": "115502272",
+		"COBRO": "20.58"
+	},
+	"CONTRATANTE": {
+		"NUMERO_IDENTIFICACION": "8-841-1851",
+		"NOMBRE": "OSCAR",
+		"SEGUNDO_NOMBRE": "IVAN",
+		"APELLIDO": "ALVIA",
+		"SEGUNDO_APELLIDO": "PETERS",
+		"TELEFONO": "64663269",
+		"SEXO": "M",
+		"ESTADO_CIVIL": "S",
+		"FECHA_NACIMIENTO": "23-11-1990",
+		"NACIONALIDAD": "PAN",
+		"DIRECCIONES": [
+			{
+				"TIPO": "r",
+				"COD_PAIS": "PAN",
+				"COD_PROVINCIA": "08",
+				"COD_BARRIO": "SANTA ANA",
+				"CALLE": "18",
+				"URBANIZACION": "SANTA ANA",
+				"CASA": "1385",
+				"DIRECCION": "SANTA ANA 18 1385",
+				"EMAIL": "ivanalvia34@gmail.com"
+			}
+		]
+	},
+	"ESTRUCTURA_COMERCIAL": {
+		"REFERENCIA": "542716",
+		"CODIGO_FUNCIONARIO": "50065562",
+		"SUCURSAL": "0009"
+	},
+	"OBJETO_ASEGURADO": [
+		{
+			"AUTO": {
+				"TIPO_AUTO": "SEDAN",
+				"NUMERO_PLACA": "AF3094",
+				"MARCA": "KIA",
+				"MODELO": "SPORTAGE",
+				"NO_MOTOR": "2132312321",
+				"CHASIS": "41234324WRQ214324",
+				"ACTIVIDAD": "TAXI",
+				"TONELAJE": "452",
+				"NUMERO_ASIENTOS": "5",
+				"NUMERO_PUERTAS": "4",
+				"ANNIO": "2015",
+				"COLOR": "GRIS",
+				"TIPO_MOTOR": "4555",
+				"DESCRIPCION": "DFADSFASDF",
+				"ACREEDOR": "JESUS MENESES",
+				"ZONA_CIRCULACION": "PANAMA OESTE",
+				"ACCESORIOS": "LLANTA DE REPUESTO",
+				"MONTO_ASEGURADO": "15000",
+				"FORMA_PAGO": "MENSUAL"
+			}
+		}
+	]
+}
+
+---------------------------------------------------------DAT EMITIR POLIZA SOAT -----------------------------------------
+{
+	"CABECERA": {
+		"CODIGO_OPERACION": "43",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"FECHA_TRANSACCION": "2021-06-16",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros"
+	},
+	"CLIENTE": {
+		"PERSONA": [
+			{
+				"PERSONA_NATURAL": {
+					"NOMBRE": "OSCAR IVAN",
+					"PRIMER_APELLIDO": "ALVIA",
+					"SEGUNDO_APELLIDO": "PETERS",
+					"IDENTIFICACION": "8-841-1851",
+					"SEXO": "M",
+					"FECHA_DE_NACIMIENTO": "23-11-1990",
+					"ESTADO_CIVIL": "S"
+				},
+				"NACIONALIDAD": "PAN",
+				"DIRECCIONES": [
+					{
+						"CODIGO_PAIS": "PAN",
+						"CODIGO_ESTADO": "08",
+						"BARRIO": "SANTA ANA",
+						"CALLE_AVENIDA": "18",
+						"APTO_CASA": "1385",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"TIPO_DIRECCION": "r",
+						"TELEFONO": null,
+						"EMAIL": "ivanalvia34@gmail.com"
+					}
+				]
+			}
+		]
+	},
+	"POLIZAS": [
+		{
+			"OBJETO_ASEGURADO": [
+				{
+					"AUTO": {
+						"TIPO_AUTO": "SEDAN",
+						"NUMERO_PLACA": "AF3094",
+						"MARCA": "KIA",
+						"MODELO": "SPORTAGE",
+						"NO_MOTOR": "2132312321",
+						"CHASIS": "41234324WRQ214324",
+						"ACTIVIDAD": "TAXI",
+						"TONELAJE": "452",
+						"NUMERO_ASIENTOS": "5",
+						"NUMERO_PUERTAS": "4",
+						"ANNIO": "2015",
+						"COLOR": "GRIS",
+						"TIPO_MOTOR": "4555",
+						"DESCRIPCION": "DFADSFASDF",
+						"ACREEDOR": "JESUS MENESES",
+						"ZONA_CIRCULACION": "PANAMA OESTE",
+						"ACCESORIOS": "LLANTA DE REPUESTO",
+						"MONTO_ASEGURADO": "15000",
+						"FORMA_PAGO": "1"
+					}
+				}
+			],
+			"MONTO_ASEGURADO": "75000",
+			"FECHA_INICIO": "01-07-2021",
+			"FECHA_FIN": "01-07-2022",
+			"DURACION_PAGOS": "1*A",
+			"OBSERVACION": "MC",
+			"CLASE": "A",
+			"CONDUCTO": "TC",
+			"USUARIO": "SURA",
+			"PLAN": "51"
+		}
+	]
+}

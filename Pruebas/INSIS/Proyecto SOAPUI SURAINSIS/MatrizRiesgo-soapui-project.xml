@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="8402b76c-cb29-4ae0-85eb-eb49aafc3b6e" activeEnvironment="Default" name="MatrizRiesgo" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="56e61b52-64b2-4c3c-84f1-dc54863d94c7" wsaVersion="NONE" name="matrizRiesgoClienteSOAP" type="wsdl" bindingName="{http://sura.com.pa/matrizRiesgoCliente/}matrizRiesgoClienteSOAP" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/dsotillo/Documents/Insumos%20SURA%20Mocks/SERVICIOS_CORE/SERVICIOS_CORE/Matriz_Riesgo/matrizRiesgoCliente.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\dsotillo\Documents\Insumos%20SURA%20Mocks\SERVICIOS_CORE\SERVICIOS_CORE\Matriz_Riesgo\matrizRiesgoCliente.wsdl"><con:part><con:url>file:\C:\Users\dsotillo\Documents\Insumos%20SURA%20Mocks\SERVICIOS_CORE\SERVICIOS_CORE\Matriz_Riesgo\matrizRiesgoCliente.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="matrizRiesgoCliente" targetNamespace="http://sura.com.pa/matrizRiesgoCliente/" xmlns:mrc="http://sura.com.pa/matrizRiesgoCliente/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sura.com.pa/matrizRiesgoCliente/">
+      <xsd:element name="validarRiesgoCliente">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idPersona" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>idPersona: identificación de la persona. Para este campo se envia la cedula/RUC/pasaporte del mismo.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tipoID" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>tipoID: Es el tipo de Identificación de la Persona, identificado a nivel del CORE INSIS. 
+Este campo esta asociado a un catalogo de INSIS [Personas Diccionario de Datos] en donde.
+Del cual puede ser según definición:
+1- Cedula (01)
+2- Pasaporte (02)
+3- RUC (03)
+
+Nota. Se debe enviar el codigo asociado al catalgo.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codigoActividadEconomica" minOccurs="0" maxOccurs="1" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>codigoActividadEconomica: es la actividad a la que se dedica la persona (cliente o posible cliente). [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Actividad de Administración de Empresas (01)
+Actividad de Arquitectura (02)
+etc..
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Este campo esta asociado exclusivamente al tipoID "RUC/Cedula", la cual pertenece a una Persona Juridica o una Persona Natural con Aviso de Operacion</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codigoOcupacion" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>codigoOcupacion= es la ocupación a la cual se dedica la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Abogado Albañil (01)
+Alcalde (02)
+Actor (03) 
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Este campo esta asociado exclusivamente al tipoID "Cedula/Pasaporte", la cual pertenece a una Persona Natural</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codigoPais" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>codigoPais= es el pais de origen de la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Panamá (01)
+Afganistán (02)
+Albania (04)
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.
+2- Usado para todos los tipoID de Persona, llamese Cedula, RUC, Pasaporte</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codigoProvincia" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>codigoProvincia= es la provincia o estado de la Persona (cliente o posible cliente)  [OPTIONAL]
+Este campo esta asociado a un catalogo exclusivo de INSIS, que será creado en el CORE.
+
+Por ejemplo:
+Panamá (01)
+Bocas del Toro(02)
+Cocle (03)
+etc...
+
+Nota. 
+1- Se debe enviar el codigo asociado respectivamente a este catalogo.codigo de la Provincia.           			
+2- Usado para todos los tipoID de Persona, llamese Cedula, RUC, Pasaporte</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ingresosAnuales" type="xsd:double" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>ingresoAnuales: ingresosa anuales de la Persona [OPTIONAL]</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="expuestoPolitico" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>expuestoPolitico: es un valor que indica si la persona esta expuesta o no. [OPTIONAL]
+Valores
+Si
+No</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:length value="2"/>
+                  <xsd:enumeration value="Si"/>
+                  <xsd:enumeration value="No"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="familiar_expuestoPolitico" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>familiar_expuestoPolitico: si tiene un familiar vinculado a la politica. [OPTIONAL]
+Valores
+Si
+No</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:length value="2"/>
+                  <xsd:enumeration value="Si"/>
+                  <xsd:enumeration value="No"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="codigoProducto" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>codigoProducto: este valor es el codigo del Producto asociado al diccionario de datos del Product Book.
+Nota. Este es un valor contenido en el Catalogo de INSIS, ya definido por la solución. 
+
+Por ejemplo:
+[P031] PyC Fidelidad Bancaria</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="primaAnual" type="xsd:double">
+              <xsd:annotation>
+                <xsd:documentation>primaAnual: monto de la prima que desea asumir.
+Este valor puede ser 0.00</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="formaPago" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>formaPago: forma de pago registrada en el CORE INSIS. 
+Este valor es un catalogo creado en INSIS que maneja las diferentes formas de Pago.
+
+Nota. Para este valor se debe enviar el codigo registrado en el catalogo asociado al medio de pago.
+
+Por ejemplo
+	Descuento_Automático_Tarjeta_de_Credito [TC]
+	Descuento_Automático_Tarjeta_de_Credito_Debito [TD]
+	Pago_voluntario Descuento_automarico_ACH [ACH]</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarRiesgoClienteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="statusMSG">
+              <xsd:annotation>
+                <xsd:documentation>statusMSG: Este parametro permite recibir un estatus del mensaje puede ser: 
+OK - Mensaje ejecutado exitosamente 
+ERR- Mensaje con Error</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="OK"/>
+                  <xsd:enumeration value="ERR"/>
+                  <xsd:minLength value="2"/>
+                  <xsd:maxLength value="3"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="descMSG" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>descMSG: Este parametro permite obtener la descripción del mensaje de error.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="nivelRiesgo" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>nivelRiesgo: Es la respuesta correcta cuando el servicio responde que puede ser:
+Niveles
+--------
+Alto
+Medio
+Bajo</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarRiesgoClienteRequest">
+    <wsdl:part element="mrc:validarRiesgoCliente" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validarRiesgoClienteResponse">
+    <wsdl:part element="mrc:validarRiesgoClienteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="matrizRiesgoCliente">
+    <wsdl:operation name="validarRiesgoCliente">
+      <wsdl:documentation>metodo: validarRiesgoCliente
+descripcion: permite validar el nivel de Riesgo del Cliente (alto, medio, bajo</wsdl:documentation>
+      <wsdl:input message="mrc:validarRiesgoClienteRequest"/>
+      <wsdl:output message="mrc:validarRiesgoClienteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="matrizRiesgoClienteSOAP" type="mrc:matrizRiesgoCliente">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validarRiesgoCliente">
+      <soap:operation soapAction="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="matrizRiesgoCliente">
+    <wsdl:documentation>Servicio que tiene como finalidad consumir un servicio que evaluará la información de un cliente para determinar su nivel de riesgo
+(alto, medio, bajo)
+
+Proceso asociado a la validación de Riesgo de la Persona al momento de Emitir una Póliza
+Puede ser para Clientes o Futuros Clientes, de los cuales pueden ser Personas Naturales o Juridicas</wsdl:documentation>
+    <wsdl:port binding="mrc:matrizRiesgoClienteSOAP" name="matrizRiesgoClienteSOAP">
+      <wsdl:documentation>Proceso asociado a la validación de Riesgo de la Persona al momento de Emitir una Póliza
+Puede ser para Clientes o Futuros Clientes, de los cuales pueden ser Personas Naturales o Juridicas</wsdl:documentation>
+      <soap:address location="http://sura.com.pa/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:7001/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint></con:endpoints><con:operation id="94b58425-4f29-4689-a3c3-3132eb8faa75" isOneWay="false" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente" name="validarRiesgoCliente" bindingOperationName="validarRiesgoCliente" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ec7f2d12-6adb-4748-9cad-b43f2dab338c" name="Error- identificacion no valida"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:validarRiesgoCliente>
+         <idPersona>8-754-1530</idPersona>
+         <tipoID>PN</tipoID>
+         <!--Optional:-->
+         <codigoActividadEconomica>01</codigoActividadEconomica>
+         <!--Optional:-->
+         <codigoOcupacion>01</codigoOcupacion>
+         <!--Optional:-->
+         <codigoPais>PA</codigoPais>
+         <!--Optional:-->
+         <codigoProvincia>02</codigoProvincia>
+         <!--Optional:-->
+         <ingresosAnuales>3000</ingresosAnuales>
+         <!--Optional:-->
+         <expuestoPolitico>No</expuestoPolitico>
+         <!--Optional:-->
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>
+         <codigoProducto>1500</codigoProducto>
+         <primaAnual>800</primaAnual>
+         <formaPago>V</formaPago>
+      </mat:validarRiesgoCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="f25c929c-ac30-4906-98db-35e25c12e00a" name="Error- Ingresar datos incompletos"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:validarRiesgoCliente>
+         <idPersona>8-754-1530</idPersona>
+         <tipoID>PN</tipoID>
+         <!--Optional:-->
+         <codigoActividadEconomica>01</codigoActividadEconomica>
+         <!--Optional:-->
+         <codigoOcupacion>01</codigoOcupacion>
+         <!--Optional:-->
+         <codigoPais>PA</codigoPais>
+         <!--Optional:-->
+         <codigoProvincia>02</codigoProvincia>
+         <!--Optional:-->
+         <ingresosAnuales>3000</ingresosAnuales>
+         <!--Optional:-->
+         <expuestoPolitico>N</expuestoPolitico>
+         <!--Optional:-->
+         <familiar_expuestoPolitico>N</familiar_expuestoPolitico>
+         <codigoProducto>1500</codigoProducto>
+         <primaAnual>800</primaAnual>
+         <formaPago>V</formaPago>
+      </mat:validarRiesgoCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9c41b20f-c872-454b-93ad-d08bfb5483a3" name="Escenario2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:validarRiesgoCliente xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+         <idPersona>8-754-1530</idPersona>
+         <tipoID>01</tipoID>
+         <!--Optional:-->
+         <codigoActividadEconomica>48</codigoActividadEconomica>
+         <!--Optional:-->
+         <codigoOcupacion>Agricultor</codigoOcupacion>
+         <!--Optional:-->
+         <codigoPais>PA</codigoPais>
+         <!--Optional:-->
+         <codigoProvincia>109</codigoProvincia>
+         <!--Optional:-->
+         <ingresosAnuales>10000.00</ingresosAnuales>
+         <!--Optional:-->
+         <expuestoPolitico>No</expuestoPolitico>
+         <!--Optional:-->
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>
+         <codigoProducto>1300</codigoProducto>
+         <primaAnual>1000.00</primaAnual>
+         <formaPago>32</formaPago>
+      </mat:validarRiesgoCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="c73024b9-2391-4ac4-918e-0d0c5d59d876" name="Copy of Exito- ingresar datos validos"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mat:validarRiesgoCliente xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+         <idPersona>8-754-1530</idPersona>\r
+         <tipoID>02</tipoID>\r
+         <!--Optional:-->\r
+         <codigoActividadEconomica>94</codigoActividadEconomica>\r
+         <!--Optional:-->\r
+         <codigoOcupacion>94</codigoOcupacion>\r
+         <!--Optional:-->\r
+         <codigoPais>FR</codigoPais>\r
+         <!--Optional:-->\r
+         <codigoProvincia>102</codigoProvincia>\r
+         <!--Optional:-->\r
+         <ingresosAnuales>750000.00</ingresosAnuales>\r
+         <!--Optional:-->\r
+         <expuestoPolitico>No</expuestoPolitico>\r
+         <!--Optional:-->\r
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>\r
+         <codigoProducto>1600</codigoProducto>\r
+         <primaAnual>13000.00</primaAnual>\r
+         <formaPago>33</formaPago>\r
+      </mat:validarRiesgoCliente>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="5086521a-51a5-42fc-af1b-21ed9e7f7a6b" name="Copy of Exito- ingresar datos validos"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mat:validarRiesgoCliente>\r
+         <idPersona>6548793218</idPersona>\r
+         <tipoID>01</tipoID>\r
+         <!--Optional:-->\r
+         <codigoOcupacion>Abogado</codigoOcupacion>\r
+         <!--Optional:-->\r
+         <codigoPais>GB</codigoPais>\r
+         <!--Optional:-->\r
+         <ingresosAnuales>100000.00</ingresosAnuales>\r
+         <!--Optional:-->\r
+         <expuestoPolitico>No</expuestoPolitico>\r
+         <!--Optional:-->\r
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>\r
+         <codigoProducto>1300</codigoProducto>\r
+         <primaAnual>4000.00</primaAnual>\r
+         <formaPago>35</formaPago>\r
+      </mat:validarRiesgoCliente>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="8457c56f-2c6c-4572-9669-05cd5b61b9a4" name="escenario1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:validarRiesgoCliente xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+         <idPersona>65-0896-47476</idPersona>
+         <tipoID>03</tipoID>
+         <!--Optional:-->
+         <codigoActividadEconomica>94</codigoActividadEconomica>
+         
+         <!--Optional:-->
+         <codigoPais>FR</codigoPais>
+ 
+         <!--Optional:-->
+         <ingresosAnuales>750000.00</ingresosAnuales>
+         <!--Optional:-->
+         <expuestoPolitico>No</expuestoPolitico>
+         <!--Optional:-->
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>
+         <codigoProducto>1600</codigoProducto>
+         <primaAnual>13000.00</primaAnual>
+         <formaPago>33</formaPago>
+      </mat:validarRiesgoCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9c953642-5ab9-45d7-9f3c-496c8285c84b" name="Request 7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns0:ObtenerReferenciaBPMMsjSol xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:dpropro="http://xmlns.sura.com/ObjetoIntegracion/DominioProceso/Proceso/V1" xmlns:ns0="http://xmlns.sura.com/MensajeIntegracion/DominioProceso/BPMMI/V1">\r
+         <ns0:CabeceraSol>\r
+            <dcomcom:CodigoOperacion>003</dcomcom:CodigoOperacion>\r
+            <dcomcom:FechaProcesamiento>2020-06-16Z</dcomcom:FechaProcesamiento>\r
+            <dcomcom:FechaTransaccion>2020-06-16Z</dcomcom:FechaTransaccion>\r
+            <dcomcom:IdTransaccionOsb>1684c56d-b052-4503-81ae-33b08fafc295</dcomcom:IdTransaccionOsb>\r
+            <dcomcom:SistemaDestino>ONBASE</dcomcom:SistemaDestino>\r
+            <dcomcom:SistemaOrigen>OSB</dcomcom:SistemaOrigen>\r
+         </ns0:CabeceraSol>\r
+         <ns0:NumeroPoliza>FI-11002</ns0:NumeroPoliza>\r
+         <ns0:IdentificacionCliente>48-7690-80001</ns0:IdentificacionCliente>\r
+         <ns0:TipoReferencia>NO APLICA</ns0:TipoReferencia>\r
+         <ns0:IdUsuario>string</ns0:IdUsuario>\r
+      </ns0:ObtenerReferenciaBPMMsjSol>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="a4873092-ee2a-4588-8b7f-19b5da511eb1" name="Request 8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.40:8002/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mat:validarRiesgoCliente xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+
+         <idPersona>8-456-987</idPersona>\r
+         <tipoID>1</tipoID>\r
+         <!--Optional:-->\r
+         <!--codigoActividadEconomica>0</codigoActividadEconomica-->\r
+         <!--Optional:-->\r
+         <codigoOcupacion>3001</codigoOcupacion>\r
+         <!--Optional:-->\r
+         <codigoPais>PA</codigoPais>\r
+         <!--Optional:-->\r
+         <codigoProvincia>08</codigoProvincia>\r
+         
+         <!--Optional:-->\r
+         <ingresosAnuales>51000</ingresosAnuales>\r
+         <!--Optional:-->\r
+         <expuestoPolitico>Si</expuestoPolitico>\r
+         <!--Optional:-->\r
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>\r
+         <codigoProducto>1200</codigoProducto>\r
+         <primaAnual>400</primaAnual>\r
+         <formaPago>35</formaPago>\r
+      </mat:validarRiesgoCliente>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call><con:call id="d9042915-47b9-45de-a496-c04041e40db9" name="Request 9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_ValidarRiesgoCliente/ValidarRiesgoClientePS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+       <mat:validarRiesgoCliente xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+         <idPersona>8-456-987</idPersona>
+         <tipoID>1</tipoID>
+         <!--Optional:-->
+         <!--codigoActividadEconomica>0</codigoActividadEconomica-->
+         <!--Optional:-->
+         <codigoOcupacion>3001</codigoOcupacion>
+         <!--Optional:-->
+         <codigoPais>PA</codigoPais>
+         <!--Optional:-->
+         <codigoProvincia>08</codigoProvincia>
+         <!--Optional:-->
+         <ingresosAnuales>51000.00</ingresosAnuales>
+         <!--Optional:-->
+         <expuestoPolitico>Si</expuestoPolitico>
+         <!--Optional:-->
+         <familiar_expuestoPolitico>No</familiar_expuestoPolitico>
+         <codigoProducto>1200</codigoProducto>
+         <primaAnual>400</primaAnual>
+         <formaPago>35</formaPago>
+      </mat:validarRiesgoCliente>
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="8478ed4b-e57a-4157-8412-f2181ec652cd" port="8080" path="/" host="dsotilloVM" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="validarRiesgoCliente" id="942fbca4-4c9b-448c-8eb2-2801bf5400ca" interface="matrizRiesgoClienteSOAP" operation="validarRiesgoCliente"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="12527bab-7b4d-4dc6-bf72-92b01580806c" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://sura.com.pa/matrizRiesgoCliente/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:validarRiesgoClienteResponse>
+         <statusMSG>OK</statusMSG>
+         <descMSG>asd</descMSG>
+         <nivelRiesgo/>
+      </mat:validarRiesgoClienteResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sura.com.pa/matrizRiesgoCliente/validarRiesgoCliente"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,242 @@
+----------------------------------------DAT EMITIR POLIZA MC ------------------------------------------
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2020/6/19",
+		"FECHA_PROCESAMIENTO": "2020/6/19",
+		"SISTEMA_DESTINO": "PREMIUM",
+		"SISTEMA_ORIGEN": "NUBE SEGURO",
+		"CODIGO_OPERACION": "S53"
+	},
+	"CLIENTE": {
+		"PERSONA": {
+			"PERSONA_NATURAL": {
+				"IDENTIFICACION": "8-303-648",
+				"NOMBRE": "EDELMA RUDAS",
+				"PRIMER_APELLIDO": "SADASDSA",
+				"SEGUNDO_APELLIDO": "DSFSDAFSDF"
+			},
+			"TIPO_PERSONA":"N",
+			"NACIONALIDAD":"N",
+			"DIRECCIONES": [
+			{
+				"TIPO_DIRECCION": "r",
+				"CODIGO_PAIS": "PAN",
+				"CODIGO_ESTADO": "08",
+				"CODIGO_REGION": "08",
+				"NOMBRE_CIUDAD": "SANTA ANA",
+				"CALLE_AVENIDA": "18",
+				"BARRIO": "SANTA ANA",
+				"CASA": "1385",
+				"DIRECCION": "SANTA ANA 18 1385",
+				"EMAIL": "ivanalvia34@gmail.com",
+				"TELEFONO": "12321212"
+			}
+			]
+		}
+	},
+	"POLIZAS":[
+		{
+			"PROPIETARIOS": [
+				{
+					"PERSONA": {
+						"PERSONA_NATURAL": {
+							"IDENTIFICACION": "8-303-648",
+							"NOMBRE": "EDELMA RUDAS",
+							"PRIMER_APELLIDO": "SADASDSA",
+							"SEGUNDO_APELLIDO": "DSFSDAFSDF",
+							"FECHA_DE_NACIMIENTO": "01-01-2020",
+							"SEXO": "M"
+						},
+						"TIPO_PERSONA":"N",
+						"NACIONALIDAD":"N",
+						"DIRECCIONES": [
+						{
+							"TIPO_DIRECCION": "r",
+							"CODIGO_PAIS": "PAN",
+							"CODIGO_ESTADO": "08",
+							"CODIGO_REGION": "08",
+							"NOMBRE_CIUDAD": "SANTA ANA",
+							"CALLE_AVENIDA": "18",
+							"BARRIO": "SANTA ANA",
+							"CASA": "1385",
+							"DIRECCION": "SANTA ANA 18 1385",
+							"EMAIL": "ivanalvia34@gmail.com"
+						}
+						]
+					},
+					"PORCENTAJE": "50",
+					"ADMINISTRADOR_FIDUCIARIO": "N",
+					"JERARQUIA": "P",
+					"RELACION": "H"
+				}
+			],
+			"OBJETO_ASEGURADO": [
+				{
+					"PERSONA_ASEGURADA": {
+						"PERSONA": {
+							"PERSONA_NATURAL": {
+								"IDENTIFICACION": "8-303-648",
+								"NOMBRE": "EDELMA RUDAS",
+								"PRIMER_APELLIDO": "SADASDSA",
+								"SEGUNDO_APELLIDO": "DSFSDAFSDF",
+								"FECHA_DE_NACIMIENTO": "01-01-1986",
+								"SEXO": "M"
+							},
+							"TIPO_PERSONA":"N",
+							"NACIONALIDAD":"N",
+							"DIRECCIONES": [
+							{
+								"TIPO_DIRECCION": "r",
+								"CODIGO_PAIS": "PAN",
+								"CODIGO_ESTADO": "08",
+								"CODIGO_REGION": "08",
+								"NOMBRE_CIUDAD": "SANTA ANA",
+								"CALLE_AVENIDA": "18",
+								"BARRIO": "SANTA ANA",
+								"CASA": "1385",
+								"DIRECCION": "SANTA ANA 18 1385",
+								"EMAIL": "ivanalvia34@gmail.com"
+							}
+							]							
+						}
+					}
+				}
+			],
+			"FECHA_INICIO": "01-01-2020",
+			"FECHA_FIN": "01-01-2021",
+			"MONTO_ASEGURADO": "10000",
+			"DURACION_PAGOS": "1*A",
+			"OBSERVACION": "MC",
+			"CLASE": "A",
+			"CONDUCTO": "TC",
+			"USUARIO": "SURA",
+			"PLAN": "36",
+			"DESCRIPCION_UNIDAD": "ewweww"
+		}
+	]
+}
+
+--------------------------------------BSS EMITIR POLIZA PREMIUM-------------------
+
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-06-16",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros",
+		"CODIGO_OPERACION": "43",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201"
+	},
+	"CORE": "P",
+	"POLIZA": {
+		"PLAN": "plan_mc",
+		"NUMERO_POLIZA": "13-06-863014-0",
+		"VIGENCIA_DESDE": "01-07-2021",
+		"VIGENCIA_HASTA": "01-07-2022",
+		"SUMA_ASEGURADA": "75000",
+		"OBSERVACION": "MC",
+		"DURACION": "1*A",
+		"USUARIO": "SURA",
+		"CLASE" : "A",
+		"CONDUCTO" : "TC",
+		"TIPO_POLIZA":"V"
+		"FORMA_PAGO":"M"
+	},
+	"INFORMACION_BANCO": {
+		"CUENTA": "e4b924c0-7616-4565-8126-46a816dac778",
+		"APLICAR_PAGO": "TRUE",
+		"AUTOAFILIAR": "TRUE",
+		"REFERENCIA_COBRO": "115502272",		
+		"COBRO": "20.58"
+	},
+	"CONTRATANTE": {
+		"NUMERO_IDENTIFICACION": "8-841-1851",
+		"NOMBRE": "OSCAR",
+		"SEGUNDO_NOMBRE": "IVAN",
+		"APELLIDO": "ALVIA",
+		"SEGUNDO_APELLIDO": "PETERS",
+		"TELEFONO": "64663269",
+		"SEXO": "M",
+		"ESTADO_CIVIL": "S",
+		"FECHA_NACIMIENTO": "23-11-1990",
+		"NACIONALIDAD": "PAN",
+		"DIRECCIONES": [
+					{
+						"TIPO": "r",
+						"COD_PAIS": "PAN",
+						"COD_PROVINCIA": "08",
+						"COD_BARRIO": "SANTA ANA",
+						"CALLE": "18",
+						"URBANIZACION": "SANTA ANA",
+						"CASA": "1385",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"EMAIL": "ivanalvia34@gmail.com"
+					}
+				]
+	},
+	"ESTRUCTURA_COMERCIAL": {
+		"REFERENCIA": "542716",
+		"CODIGO_FUNCIONARIO": "50065562",
+		"SUCURSAL": "0009"
+	},
+	"OBJETO_ASEGURADO": [
+		{
+			"PERSONA_ASEGURADA": {
+				"NUMERO_IDENTIFICACION": "8-841-1851",
+				"NOMBRE": "OSCAR",
+				"SEGUNDO_NOMBRE": "IVAN",
+				"APELLIDO": "ALVIA",
+				"SEGUNDO_APELLIDO": "PETERS",
+				"SEXO": "M",
+				"ESTADO_CIVIL": "S",
+				"FECHA_NACIMIENTO": "23-11-1990",
+				"NACIONALIDAD": "PAN",
+				"CELULAR": "64663269",
+				"DIRECCIONES": [
+					{
+						"TIPO": "r",
+						"COD_PAIS": "PAN",
+						"COD_PROVINCIA": "08",
+						"COD_BARRIO": "SANTA ANA",
+						"CALLE": "18",
+						"URBANIZACION": "SANTA ANA",
+						"CASA": "1385",
+						"DIRECCION": "SANTA ANA 18 1385",
+						"EMAIL": "ivanalvia34@gmail.com"
+					}
+				],
+				"PRINCIPAL": "SI",
+				"OBSERVACION_UNIDAD":"esta es una prueba"
+				"INFO_ACTIVIDAD_ECONOMICA": {
+					"ACTIVIDAD": "111",
+					"CARGO_PUBLICO": "N",
+					"CODIGO_INGRESO_ANUAL": "4001",
+				},
+				"BENEFICIARIO": [
+					{
+						"NOMBRE": "OSCAR IVAN",
+						"APELLIDO": "ALVIA KAKIYAME",
+						"PARENTESCO": "Padre",
+						"JERARQUIA": "P",
+						"PORCENTAJE_BENEFICIARIO": "50"
+					}
+				]
+			}
+		}
+	]
+}
+
+----------------------------------DAT REGISTRAR BITACORA AUTOAFILIACION -----------------------------
+
+{ "CABECERA": { "FECHA_TRANSACCION": "2020/6/19", "FECHA_PROCESAMIENTO": "2020/6/19", "SISTEMA_DESTINO": "PTYDBUAT", "SISTEMA_ORIGEN": "SOMOSSSEGURO", "CODIGO_OPERACION": "S53" }, "CORE": "P", "NUMERO_POLIZA": "20-12-1254-1", "NUMERO_IDENTIFICACION": "8-303-648", "CUENTA": "MBNNN$$WEWE____----", "CODIGO_RESPUESTA":"200", "MENSAJE_RESPUESTA":"Transaccion exitosa" }
+
+----------------------------------DAT REGISTRAR BITACORA PAGO -----------------------------
+
+{ "CABECERA": { "FECHA_TRANSACCION": "2020/6/19", "FECHA_PROCESAMIENTO": "2020/6/19", "SISTEMA_DESTINO": "PTYDBUAT", "SISTEMA_ORIGEN": "SOMOSSSEGURO", "CODIGO_OPERACION": "S53" }, "ID_RECIBO": "102978012", “ESTADO_PAGO”:”false”, "MONTO": "500", "FECHA":"2021-05-04 11:24:41.680", "IDENTIFICACION":"8-761-722", "NUMERO_POLIZA":"13-02-689745-1", "RESPUESTA_APLICAP":"error en pago ", "CORE":"P" }
+
+----------------------------------BSS RENOVAR POLIZA -----------------------------
+{"CORE":"P","TIPO_POLIZA":"V","IDENTIFICACION_CTR":"8-841-1851","NUMERO_DE_POLIZA_NUEVA":"11-10-717053-0","CUENTA":"e4b924c0-7616-4565-8126-46a816dac778","AUTOAFILIACION":"true","NUMERO_DE_POLIZA_ANTERIOR":"11-10-717053-0","CABECERA":{"FECHA_TRANSACCION":"2021-06-16","ID_TRANSACCION_OSB":"c9d6b2a8-f32c-4109-a2cb-80e21f715201","FECHA_PROCESAMIENTO":"2021-06-16","SISTEMA_DESTINO":"Premium","SISTEMA_ORIGEN":"NubeSeguros","CODIGO_OPERACION":"43"}}
+
+

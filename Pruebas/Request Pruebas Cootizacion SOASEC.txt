@@ -1,0 +1,424 @@
+
+----------------------------------------------CONSULTAR COTIZACION --------------------------------------------------
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2020/6/19",
+		"FECHA_PROCESAMIENTO": "2020/6/19",
+		"SISTEMA_DESTINO": "PREMIUM",
+		"SISTEMA_ORIGEN": "NUBE SEGURO",
+		"CODIGO_OPERACION": "S53"
+	},
+	"NUMERO_COTIZACION":"601",
+	"IDENTIFICACION":"123456789",
+	"TIPO_IDENTIFICACION":"C"
+}
+
+----------------------------------------------GENERAR COTIZACION --------------------------------------------------
+
+{
+	"COTIZACIONES": [
+		{
+			"SOLICITANTES": [
+				{
+					"PERSONA": {
+						"PERSONA_NATURAL": {
+							"SEGUNDO_APELLIDO": "echenique",
+							"IDENTIFICACION": "E-8-146390",
+							"TELEFONO": "fdasfsdfads",
+							"TIPO_IDENTIFICACION": "C",
+							"PRIMER_APELLIDO": "meneses",
+							"EMAIL": "dsfasdfsd",
+							"NOMBRE": "jesus"
+						}
+					},
+					"TIPO_PERSONA": "N"
+				}
+			],
+			"COTIZACION": {
+				"CPPROD": 1000,
+				"CPPLAN": "PBBS1",
+				"TIPOSUSCRIPCION": "I",
+				"CPCUOTAS": 1
+			},
+			"RIESGOS": [
+				{
+					"SUMA_ASEGURADA": 0,
+					"NUMEROCERTIFICADO": 1,
+					"DATOS_PARTICULARES": {
+						"PARAMETRO11": "",
+						"PARAMETRO9": "",
+						"PARAMETRO10": "",
+						"PARAMETRO13": "",
+						"PARAMETRO12": "",
+						"PARAMETRO15": "",
+						"PARAMETRO14": "",
+						"PARAMETRO17": "",
+						"PARAMETRO16": "",
+						"TIPOID2": "",
+						"TIPOID1": "",
+						"PARAMETRO20": "",
+						"PARAMETRO2": "Arasema",
+						"PARAMETRO19": "",
+						"PARAMETRO1": "Jose",
+						"PARAMETRO18": "",
+						"PARAMETRO4": 33,
+						"PARAMETRO3": "29/01/1988",
+						"PARAMETRO6": "AP",
+						"PARAMETRO5": "M",
+						"NUMEROID1": "",
+						"PARAMETRO8": "",
+						"NUMEROID2": "",
+						"PARAMETRO7": ""
+					},
+					"CPUNIDAD": 1,
+					"INFORMACION_COBERTURAS": [
+						{
+							"CODCOBERTURA": "OPC",
+							"IMPUESTO": "",
+							"DEDUCIBLE": "",
+							"VALORASEGURADO": ""
+						}
+					]
+				},
+				{
+					"SUMA_ASEGURADA": 0,
+					"NUMEROCERTIFICADO": 1,
+					"DATOS_PARTICULARES": {
+						"PARAMETRO11": "",
+						"PARAMETRO9": "",
+						"PARAMETRO10": "",
+						"PARAMETRO13": "",
+						"PARAMETRO12": "",
+						"PARAMETRO15": "",
+						"PARAMETRO14": "",
+						"PARAMETRO17": "",
+						"PARAMETRO16": "",
+						"TIPOID2": "",
+						"TIPOID1": "",
+						"PARAMETRO20": "",
+						"PARAMETRO2": "perez",
+						"PARAMETRO19": "",
+						"PARAMETRO1": "antonio",
+						"PARAMETRO18": "",
+						"PARAMETRO4": 71,
+						"PARAMETRO3": "05/01/1950",
+						"PARAMETRO6": "P",
+						"PARAMETRO5": "M",
+						"NUMEROID1": "",
+						"PARAMETRO8": "",
+						"NUMEROID2": "",
+						"PARAMETRO7": ""
+					},
+					"CPUNIDAD": 2,
+					"INFORMACION_COBERTURAS": [
+						{
+							"CODCOBERTURA": "OPC",
+							"IMPUESTO": "",
+							"DEDUCIBLE": "",
+							"VALORASEGURADO": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2020/6/19",
+		"FECHA_PROCESAMIENTO": "2020/6/19",
+		"SISTEMA_DESTINO": "PREMIUM",
+		"SISTEMA_ORIGEN": "NUBE SEGURO",
+		"CODIGO_OPERACION": "S53"
+	}
+}
+
+----------------------------------------------ACTUALIZAR COTIZACION --------------------------------------------------
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2020/6/19",
+		"FECHA_PROCESAMIENTO": "2020/6/19",
+		"SISTEMA_DESTINO": "PREMIUM",
+		"SISTEMA_ORIGEN": "NUBE SEGURO",
+		"CODIGO_OPERACION": "S53"
+	},
+	"COTIZACIONES": [
+		{
+			"COTIZACION": {
+				"NOMBREPLAN": "PLAN BIENESTAR BASICO SURA 1",
+				"CPPROD": 1000,
+				"NROCOTIZACION": 126,
+				"CPPLAN": "PBBS1",
+				"RAMO": "SALUD",
+				"CPMONEDA": "PAB",
+				"TIPOSUSCRIPCION": "I",
+				"FECHACOTIZACION": "2021-07-17T02:06:57Z",
+				"STSCOTIZACION": "ACT",
+				"CODRAMO": 4,
+				"CPCUOTAS": 1
+			},
+			"SOLICITANTES": [
+				{
+					"PERSONA": {
+						"PERSONA_NATURAL": {
+							"SEGUNDO_APELLIDO": "echenique",
+							"IDENTIFICACION": "E-8-146390",
+							"TELEFONO": "fdasfsdfads",
+							"TIPO_IDENTIFICACION": "C",
+							"PRIMER_APELLIDO": "meneses",
+							"EMAIL": "dsfasdfsd",
+							"NOMBRE": "jesus"
+						}
+					},
+					"TIPO_PERSONA": "N"
+				}
+			],
+			"URLPDFCCM": "NO SE GENERO EL URL DEL PDF",
+			"INFORMACION_PRIMA": [
+				{
+					"SUBTOTAL_PRIMA": 1831.06,
+					"IMPUESTOS_PRIMA": 91.56,
+					"ADICIONALES_PRIMA": 0,
+					"TOTAL_PRIMA": 1922.62
+				}
+			],
+			"RIESGOS": [
+				{
+					"CPUNIDAD": 1,
+					"NUMEROCERTIFICADO": 1,
+					"SUMA_ASEGURADA": 0,
+					"INFORMACION_COBERTURAS": [
+						{
+							"CODCOBERTURA": "OPC",
+							"VALORASEGURADO": "",
+							"DEDUCIBLE": "",
+							"IMPUESTO": ""
+						}
+					],
+					"DATOS_PARTICULARES": {
+						"TIPOID1": "C",
+						"NUMEROID1": "8-813-152",
+						"TIPOID2": "",
+						"NUMEROID2": "",
+						"PARAMETRO1": "Jose",
+						"PARAMETRO2": "Arasema",
+						"PARAMETRO3": "29/01/1988",
+						"PARAMETRO4": 33,
+						"PARAMETRO5": "M",
+						"PARAMETRO6": "AP",
+						"PARAMETRO7": "",
+						"PARAMETRO8": "",
+						"PARAMETRO9": "",
+						"PARAMETRO10": "",
+						"PARAMETRO11": "",
+						"PARAMETRO12": "",
+						"PARAMETRO13": "",
+						"PARAMETRO14": "",
+						"PARAMETRO15": "",
+						"PARAMETRO16": "",
+						"PARAMETRO17": "",
+						"PARAMETRO18": "",
+						"PARAMETRO19": "",
+						"PARAMETRO20": ""
+					}
+				},
+				{
+					"CPUNIDAD": 2,
+					"NUMEROCERTIFICADO": 1,
+					"SUMA_ASEGURADA": 0,
+					"INFORMACION_COBERTURAS": [
+						{
+							"CODCOBERTURA": "OPC",
+							"VALORASEGURADO": "",
+							"DEDUCIBLE": "",
+							"IMPUESTO": ""
+						}
+					],
+					"DATOS_PARTICULARES": {
+						"TIPOID1": "P",
+						"NUMEROID1": "14905707",
+						"TIPOID2": "",
+						"NUMEROID2": "",
+						"PARAMETRO1": "antonio",
+						"PARAMETRO2": "perez",
+						"PARAMETRO3": "05/01/1950",
+						"PARAMETRO4": 71,
+						"PARAMETRO5": "M",
+						"PARAMETRO6": "P",
+						"PARAMETRO7": "",
+						"PARAMETRO8": "",
+						"PARAMETRO9": "",
+						"PARAMETRO10": "",
+						"PARAMETRO11": "",
+						"PARAMETRO12": "",
+						"PARAMETRO13": "",
+						"PARAMETRO14": "",
+						"PARAMETRO15": "",
+						"PARAMETRO16": "",
+						"PARAMETRO17": "",
+						"PARAMETRO18": "",
+						"PARAMETRO19": "",
+						"PARAMETRO20": ""
+					}
+				}
+			]
+		}
+	]
+}
+
+----------------------------------------------CONSULTAR PRIMA --------------------------------------------------
+
+
+{
+   "CABECERA":{
+      "FECHA_TRANSACCION":"2020/6/19",
+      "FECHA_PROCESAMIENTO":"2020/6/19",
+      "SISTEMA_DESTINO":"PREMIUM",
+      "SISTEMA_ORIGEN":"NUBE SEGURO",
+      "CODIGO_OPERACION":"S53"
+   },
+   "COTIZACIONES":[
+      {
+         "COTIZACION":{
+            "CPPROD":1000,
+            "CPPLAN":"PBBS1"
+         },
+         "SOLICITANTES":
+		 {
+               "PERSONA":{
+                  "PERSONA_NATURAL":{
+                     "NOMBRE":"",
+                     "PRIMER_APELLIDO":"",
+                     "EMAIL":"",
+                     "TELEFONO":"",
+                     "TIPO_IDENTIFICACION":"",
+                     "IDENTIFICACION":""
+                  },
+                  "PERSONA_JURIDICA":{
+                     "RAZONSOCIAL":""
+                  }
+               }
+            },
+		 "RIESGOS":[
+            {
+               "NUMEROCERTIFICADO":1,
+			   "SUMA_ASEGURADA": 0,
+               "DATOS_PARTICULARES":[
+                  {
+					 "TIPOID1": "",
+					 "NUMEROID1": "",
+					 "TIPOID2": "",
+					 "PARAMETROS":[{
+						"PARAMETRO":{
+							"ATRIBUTO":"",
+							"VALOR":""
+						}
+					 }]
+                  }
+               ],
+               "CPUNIDAD":1               
+            }
+         ]
+      }
+   ]
+}
+
+----------------------------------------------GENERAR POLIZA POR COTIZACION ----------------------------------------
+
+
+
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	"CLIENTE": {
+		"PERSONA": [
+			{
+				"PERSONA_NATURAL": {
+					"NOMBRE": "jesus",
+					"PRIMER_APELLIDO": "meneses",
+					"SEGUNDO_APELLIDO": "martinez",
+					"IDENTIFICACION": "E-8-146391",
+					"SEXO": "1",
+					"FECHA_DE_NACIMIENTO": "1988-01-29",
+					"IDIOMA": "ESP",
+					"PAIS_RESIDENCIA": "PA"
+				},
+				"PERSONA_JURIDICA": {
+					"RAZONSOCIAL": "soaint",
+					"ID_CLIENTE": "DV9234234932409",
+					"PERIODO_FISCAL": "2021",
+					"TIPO_PERSONA_JURIDICA": "A"
+				},
+				"DIRECCIONES": [
+				{
+					"NOMBRE_PAIS": "PANAMA",
+					"CODIGO_PAIS": "PA",
+					"NOMBRE_ESTADO": "PANAMA",
+					"CODIGO_ESTADO": "08",
+					"NOMBRE_REGION": "PANAMA",
+					"CODIGO_REGION": "0804",
+					"NOMBRE_CIUDAD": "PEDREGAL",
+					"CODIGO_CIUDAD": "80416",
+					"BARRIO": "URBANIZACION",
+					"CALLE_AVENIDA": "VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO": "string",
+					"EDIFICIO": "string",
+					"PISO": "string",
+					"ENTRADA": "string",
+					"DIRECCION": "JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION": "W",
+					"ES_CORRESPONDENCIA": "N",
+					"ES_FACTURACION": "Y",
+					"APTO_CASA": "string",
+					"ES_PRINCIPAL": "Y",
+					"OBSERVACION": "MIGRADO",
+					"TELEFONO": "string",
+					"FAX": "string",
+					"EMAIL": "string"
+				}
+				],
+				"CONTACTOS": [
+					{
+						"TIPO": "EMAIL",
+						"VALOR": "prueba@prueba.com",
+						"ES_PRINCIPAL": "Y",
+						"OBSERVACION": "MIGRADO",
+						"IDIOMA": "ESP"
+					}
+				]		
+			}
+		],
+	},	
+	"POLIZAS": [
+		{
+			"NUMERO_COTIZACION": "jesus",
+			"MONTO_ASEGURADO": "12",
+			"OFICINA_SUBSCRIPCION": "D",
+			"OFICINA_EMISION": "1",
+			"TIPO_COTIZACION": "D",
+			"FECHA_INICIO": "2021-08-31T12:00:00",
+			"FECHA_FIN": "2021-08-31T12:00:00",
+			"FECHA_RENOVACION": "2021-08-31T12:00:00",
+			"DURACION_PAGOS": "2",
+			"OBSERVACION_COTIZACION": "2",
+			"TIPO_DURACION": "PA",
+			"CONDICIONES_APROBACION": {
+				"LIMITE": "PA",
+			},			
+		}
+	],
+	"CONDICIONES": [
+		{
+			"CODIGO_AGENTE": "30000",
+			"CUOTAS": "PA"			
+		}
+	]
+}
+
+

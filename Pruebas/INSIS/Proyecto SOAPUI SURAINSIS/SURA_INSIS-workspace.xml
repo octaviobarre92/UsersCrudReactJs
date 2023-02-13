@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="SURA_INSIS" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:project name="BPM">C:/Users/user/Documents/REPOSITORIOS/SURA_INTEGRACION_INSIS/Pruebas/Proyecto SOAPUI SURAINSIS/BPM-soapui-project.xml</con:project>
+  <con:project name="SAP">C:/Users/user/Documents/REPOSITORIOS/SURA_INTEGRACION_INSIS/Pruebas/Proyecto SOAPUI SURAINSIS/SAP-soapui-project.xml</con:project>
+  <con:project name="MatrizRiesgo">C:/Users/user/Documents/REPOSITORIOS/SURA_INTEGRACION_INSIS/Pruebas/Proyecto SOAPUI SURAINSIS/MatrizRiesgo-soapui-project.xml</con:project>
+  <con:project name="ECM">C:/Users/user/Documents/ECM-soapui-project.xml</con:project>
+  <con:project name="Pago">C:/Users/user/Documents/Pago-soapui-project.xml</con:project>
+  <con:collectInfoForSupport>false</con:collectInfoForSupport>
+</con:soapui-workspace>

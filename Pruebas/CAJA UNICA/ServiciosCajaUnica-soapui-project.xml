@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="49fde7f1-543b-48fc-a4f2-fad18cb1313b" activeEnvironment="Default" name="ServiciosCajaUnica" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="aba62af8-5ff3-485c-8e12-c87f1e273917" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.243.13.40:8001" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://10.243.13.40:8001</con:endpoint></con:endpoints><con:resource name="GestionarCliente" path="/GestionarCliente/ConsultarCliente" id="aee468c6-fbbc-4a89-93e6-f01929f276db"><con:settings/><con:parameters/><con:method name="ConsultarCliente" id="373fc570-1bfc-4ff0-a59b-dfd0be207c5b" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:con1="http://10.243.13.40/GestionarCliente/ConsultarCliente">con1:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://10.243.13.40/GestionarCliente/ConsultarCliente">con1:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Identificacion" id="66ae943d-315f-4c40-9021-c8faf1ee157e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"IDENTIFICACION":"8-108-184",
+"CORE":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarCliente/ConsultarCliente</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Apellido" id="5446a5cb-bced-4e5b-96f7-b9c13562c073" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"APELLIDO":"DE SOUSA"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarCliente/ConsultarCliente</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Nombre" id="ac249767-1235-4244-9139-818ecfe8d626" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NOMBRE":"ALEXANDRA"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarCliente/ConsultarCliente</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="CodigoCore" id="c0a4488a-2363-4481-b0b2-4b030c07e1fe" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CORE":"8-108-184",
+"CORE":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarCliente/ConsultarCliente</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sin Datos" id="372b3553-2fea-4dda-9414-de0ca11e0b25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}</con:request><con:originalUri>http://10.243.13.40/GestionarCliente/ConsultarCliente</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GestionarPoliza" path="/GestionarPoliza/ConsultarPoliza" id="b9416f05-d325-4d2d-8cab-82dfede8c68a"><con:settings/><con:parameters/><con:method name="ConsultarPoliza" id="ec19b0a8-8993-41b5-9ce3-b98c569f420f" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://10.243.13.40/GestionarPoliza/ConsultarPoliza">con1:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="NumeroPoliza" id="c64bc0cb-1533-4b01-abf8-959e09d47eaa" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"100000039868"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/ConsultarPoliza</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="CodigoCliente" id="af544117-755c-4d60-a01e-4f2e91727859" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CLIENTE":"6020004630",
+"CORE":"I"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/ConsultarPoliza</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sin Datos" id="7d031cc3-4d12-463e-857d-b465b6e1a290" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/ConsultarPoliza</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GestionarReclamo" path="/GestionarReclamo/ConsultarReclamo" id="0b43537a-d414-4526-9b40-a7d1511563a1"><con:settings/><con:parameters/><con:method name="ConsultarReclamo" id="838540ac-067d-4901-b0a8-90f4181b853b" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ges="http://10.243.13.40/GestionarReclamo">ges:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="NumeroPoliza" id="1bfe774d-7aed-4f77-8100-646131942afc" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02-01-523764-3"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarReclamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NumeroReclamo" id="ac6ff3ec-43a8-4da0-8ed5-90a6c3319c7f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_RECLAMO":"2017-5-146871"
+}
+</con:request><con:originalUri>http://10.243.13.40/GestionarReclamo/ConsultarReclamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sin Datos" id="99f6ae6d-46b9-477c-82c8-467ef46923c4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+</con:request><con:originalUri>http://10.243.13.40/GestionarReclamo/ConsultarReclamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GestionarObjetoAsegurado" path="/GestionarObjetoAseg/ConsultarObjetoAseg" id="db6a3b6e-e5db-4a10-ade3-2f53efd86b92"><con:settings/><con:parameters/><con:method name="ConsultarObjetoAsegurado" id="aa377227-b1bc-4097-9823-7f08143d4e2b" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://10.243.13.40/GestionarObjetoAseg/ConsultarObjetoAseg">con1:Response</con:element></con:representation><con:request name="NumeroPoliza" id="97d6fdea-6ea5-4a5e-b254-ed0f65201159" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02-01-523764-3"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarObjetoAseg/ConsultarObjetoAseg</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Objeto" id="9c95fa4e-e6e5-4b51-a850-fb3db8b963aa" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_OBJETO":"AE3749",
+"BUSCAR_POR":"PLACA"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarObjetoAseg/ConsultarObjetoAseg</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sin Datos" id="8c97fc76-5822-4b21-b5eb-39cc240fe478" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+</con:request><con:originalUri>http://10.243.13.40/GestionarObjetoAseg/ConsultarObjetoAseg</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GestionarPrestamo" path="/GestionarPrestamo/ConsultarPrestamo" id="f1766b50-0f38-4906-b262-ed5301448952"><con:settings/><con:parameters/><con:method name="ConsultarPrestamo" id="affd8c3b-cfde-4c1b-abd1-c08a497f4154" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ges="http://10.243.13.40/GestionarPrestamo">ges:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="NumeroPoliza" id="5dc594a1-dbd9-4745-96b7-5ee5518c1b99" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"20-02-825-0"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPrestamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NumeroPrestamo" id="01d66297-5d5f-493d-a864-72b3f050220b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_PRESTAMO":"53"
+}
+</con:request><con:originalUri>http://10.243.13.40/GestionarPrestamo/ConsultarPrestamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="SinDatos" id="f61ac118-f30e-4ba8-b8eb-ab1b0d928b03" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+</con:request><con:originalUri>http://10.243.13.40/GestionarPrestamo/ConsultarPrestamo</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GestionarTransaccionesCajaUnica" path="/GestionarTransaccionesCajaUnica/ConsultarDatos" id="026413e9-89fe-407c-a3f6-f6edcc1b5329"><con:settings/><con:parameters/><con:method name="ConsultarDatos" id="1cfc1bf3-b25c-422b-8f70-765b66ef1000" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cer="http://10.243.13.40/GestionarTransaccionesCajaUnica/CerrarCaja">cer:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="NumeroPoliza" id="e6a8c257-895a-4a20-8d24-f1a0f041e7e4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"VALOR":"TR-10075",
+"BUSCAR_POR":"POLIZA",
+"CORE":"I"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/CerrarCaja</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="ObjetoAsegurado" id="75de4b98-4ed8-4aba-974d-f6125c89b4f1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"VALOR":"AE3749",
+"BUSCAR_POR":"PLACA",
+"CORE":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/ConsultarDatos</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Cliente" id="e79897d2-c6ca-4aa0-a82b-5e7ba7e38f8c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"VALOR":"8-463-825",
+"BUSCAR_POR":"IDENTIFICACION"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/ConsultarDatos</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Reclamo" id="dca86882-8ead-4696-bdaa-e2f5ffaa7693" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"VALOR":"2017-5-146871",
+"BUSCAR_POR":"RECLAMO",
+"CORE":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/ConsultarDatos</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Cliente 2" id="1bbc5a14-3dca-4742-be06-cf53d336307a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"BUSCAR_POR":"IDENTIFICACION",
+"VALOR":"1232121",
+"CORE":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/ConsultarDatos</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="AplicarPago" path="/GestionarPoliza/AplicarPago" id="301525f4-1d9d-4d4f-8994-05d7057e9a24"><con:settings/><con:parameters/><con:method name="Aplicar Pago" id="6d8d3c47-bf5c-416f-8830-d9bb4cf14b02" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:apl="http://10.243.13.40/GestionarPoliza/AplicarPago">apl:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="AplicarPagoNatural" id="aadc3dd2-b654-4238-905d-389a87384f4a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"704070211196",
+"CORE":"N",
+"IDENTIFICACION_CLIENTE":"1232121",
+"PROCESO":"PLACA",
+"MONTO":50,
+"TIPO_POLIZA":"V",
+"REFERENCIA":"244555",
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"MARBELLA",
+"FECHA":"2020-01-01",
+"TIPO_PAGO":"P"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/AplicarPago</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="AplicarPagoPremium" id="559d26a3-43a4-46ed-bd8a-3649868a57ac" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"20-07-380391-0",
+"FECHA":"07-23-2020",
+"CORE":"P",
+"PROCESO":"01",
+"MONTO":20,
+"SUCURSAL":"308008000",
+"NUMREFER":"PAGOS POR CAJA UNICA",
+"NUM_LOTE":"PANAMA_PRIMA_08",
+"NUMERO_CAJA":"03"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/AplicarPago</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="AplicarPagoInsis" id="5d4d62bf-0e70-4158-98e9-e872f1bd13ca" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"CORE":"I",
+"PROCESO":"01",
+"MONTO":10,
+"SUCURSAL":"308008000",
+"NUMREFER":"5678901237",
+"USUARIO":"CAJERO_01",
+"REFERENCIA":"20700007164",
+"NUM_LOTE":"PANAMA_PRIMA_03",
+"NUMERO_CAJA":"03",
+"NUMERO_POLIZA":"TR-10129"
+}</con:request><con:originalUri>http://10.243.13.40/GestionarPoliza/AplicarPago</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="AplicarPagoOtrosIngresos" id="a5e9abc5-2683-43f4-a04e-6fb7e47b5a20" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"TR-10129",
+"CORE":"N",
+"IDENTIFICACION_CLIENTE":"1232121",
+"PROCESO":"PLACA",
+"MONTO":50,
+"REFERENCIA":"244555",
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"MARBELLA",
+"FECHA":"2020-01-01"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="CerrarCaja" path="/GestionarTransaccionesCajaUnica/CerrarCaja" id="ee5c1cff-9702-4dc5-9580-7df29cc26eea"><con:settings/><con:parameters/><con:method name="CerrarCaja" id="3ad3c3cf-9b5b-4cfd-8b1a-21794fe7db2e" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html; charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cer="http://10.243.13.40/CerrarCaja">cer:Response</con:element></con:representation><con:request name="CerrarCaja" id="62427f19-f257-4b19-b1e1-e93f6bc25214" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_SUCURSAL":"308008000",
+"NUMERO_LOTE":"PANAMA_PRIMA_03"
+}</con:request><con:originalUri>http://10.243.13.40/CerrarCaja</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sin Datos" id="fefa9602-f6ad-4814-a719-b94e45461cf9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.243.13.40:8001</con:endpoint><con:request>{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}</con:request><con:originalUri>http://10.243.13.40/GestionarTransaccionesCajaUnica/CerrarCaja</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

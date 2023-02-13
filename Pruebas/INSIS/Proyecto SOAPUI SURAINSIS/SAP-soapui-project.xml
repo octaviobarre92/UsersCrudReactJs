@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a5f56e60-fefb-421e-8841-1b7df4bcd116" activeEnvironment="Default" name="SAP" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9137feb8-75a9-4aef-b695-1fef4a2865b9" wsaVersion="NONE" name="SAPBindingSOAP" type="wsdl" bindingName="{http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1}SAPBindingSOAP" soapVersion="1_1" anonymous="optional" definition="file:/C:/Repositorios/SURA_INSIS/Desarrollo/Esquemas/BG_ESB_XML_Esquemas/SURA_OSB_XML_Esquemas/WSDL/SAP.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Repositorios/SURA_INSIS/Desarrollo/Esquemas/BG_ESB_XML_Esquemas/SURA_OSB_XML_Esquemas/WSDL/SAP.wsdl"><con:part><con:url>file:/C:/Repositorios/SURA_INSIS/Desarrollo/Esquemas/BG_ESB_XML_Esquemas/SURA_OSB_XML_Esquemas/WSDL/SAP.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SAPSIV1" targetNamespace="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:msapsap="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="SAPBindingSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" schemaLocation="xsd/DominioSAP/SAP/V1/SAPMIV1.xsd"></xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AsignarEgresosMsjSol">
+    <wsdl:part element="msapsap:AsignarEgresosMsjSol" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AsignarEgresosMsjResp">
+    <wsdl:part element="msapsap:AsignarEgresosMsjResp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AnularEgresosMsjSol">
+    <wsdl:part element="msapsap:AnularEgresosMsjSol" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AnularEgresosMsjResp">
+    <wsdl:part element="msapsap:AnularEgresosMsjResp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SAPPortTypeSOAP">
+    <wsdl:operation name="AsignarEgresos">
+      <wsdl:input message="tns:AsignarEgresosMsjSol" name="AsignarEgresosRq"/>
+      <wsdl:output message="tns:AsignarEgresosMsjResp" name="AsignarEgresosRs"/>
+    </wsdl:operation>
+    <wsdl:operation name="AnularEgresos">
+      <wsdl:input message="tns:AnularEgresosMsjSol" name="AnularEgresosRq"/>
+      <wsdl:output message="tns:AnularEgresosMsjResp" name="AnularEgresosRs"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SAPBindingSOAP" type="tns:SAPPortTypeSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AsignarEgresos">
+      <soap:operation style="document"/>
+      <wsdl:input name="AsignarEgresosRq">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AsignarEgresosRs">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnularEgresos">
+      <soap:operation style="document"/>
+      <wsdl:input name="AnularEgresosRq">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AnularEgresosRs">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SAPSIV1">
+    <wsdl:port binding="tns:SAPBindingSOAP" name="SAPPortSOAP">
+      <soap:address location="http://xmlns.sura.com/DominioSAP/SAP/V1/SAPPortSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\C:\Repositorios\SURA_INSIS\Desarrollo\Esquemas\BG_ESB_XML_Esquemas\SURA_OSB_XML_Esquemas\WSDL\xsd\DominioSAP\SAP\V1\SAPMIV1.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" version="1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:msapsap="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:dsapsap="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">
+  <xsd:import schemaLocation="SAPOIV1.xsd" namespace="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1"/>
+  <xsd:import schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd" namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1"/>
+  <xsd:import namespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" schemaLocation="../../../DominioComun/Comun/V1/ComunOENV1.xsd"/>
+  <xsd:complexType name="MensajeEntradaBase">
+    <xsd:annotation>
+      <xsd:documentation>Contiene la informacion del mensaje de entrada
+				base.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CabeceraSol" type="dcomcom:CabeceraSolTipo">
+        <xsd:annotation>
+          <xsd:documentation>Contiene los datos especficos de transaccin
+						para
+						la cabecera de la solicitud.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MensajeSalidaBase">
+    <xsd:annotation>
+      <xsd:documentation>Contiene la informacion correspondiente al mensaje
+				de salida base.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CabeceraResp" type="dcomcom:CabeceraRespTipo">
+        <xsd:annotation>
+          <xsd:documentation>Entidad que contiene los datos especficos de
+						transaccin para la cabecera de la solicitud.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AsignarEgresosMsjSol" type="msapsap:AsignarEgresosMsjSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Cedula o pasaporte de la persona.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AsignarEgresosMsjSolTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeEntradaBase">
+        <xsd:sequence>
+          <xsd:element name="ReferenciaPago" type="dsapsap:ReferenciaPagoSAP" maxOccurs="1" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Numero de cedula o pasaporte del cliente</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AsignarEgresosMsjResp" type="msapsap:AsignarEgresosMsjRespTipo"/>
+  <xsd:complexType name="AsignarEgresosMsjRespTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeSalidaBase">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularEgresosMsjSol" type="msapsap:AnularEgresosMsjSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Cedula o pasaporte de la persona.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AnularEgresosMsjSolTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeEntradaBase">
+        <xsd:sequence>
+          <xsd:element name="ReferenciaPago" type="dsapsap:ReferenciaPagoSAP" maxOccurs="1" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Numero de cedula o pasaporte del cliente</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularEgresosMsjResp" type="msapsap:AnularEgresosMsjRespTipo"/>
+  <xsd:complexType name="AnularEgresosMsjRespTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeSalidaBase">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularOrdenPagoMsjSol" type="msapsap:AnularOrdenPagoMsjSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Cedula o pasaporte de la persona.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AnularOrdenPagoMsjSolTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeEntradaBase">
+        <xsd:sequence>
+          <xsd:element name="IdReferenciaSAP" type="xsd:string" maxOccurs="1" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Numero de Referencia SAP</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularOrdenPagoMsjResp" type="msapsap:AnularOrdenPagoMsjRespTipo"/>
+  <xsd:complexType name="AnularOrdenPagoMsjRespTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeSalidaBase">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularReferenciaPagoMsjSol" type="msapsap:AnularReferenciaPagoMsjSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Cedula o pasaporte de la persona.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AnularReferenciaPagoMsjSolTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeEntradaBase">
+        <xsd:sequence>
+          <xsd:element name="IdReferenciaPago" type="xsd:string" maxOccurs="1" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Id de Referencia del Pago.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnularReferenciaPagoMsjResp" type="msapsap:AnularReferenciaPagoMsjRespTipo"/>
+  <xsd:complexType name="AnularReferenciaPagoMsjRespTipo">
+    <xsd:complexContent>
+      <xsd:extension base="msapsap:MensajeSalidaBase">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\C:\Repositorios\SURA_INSIS\Desarrollo\Esquemas\BG_ESB_XML_Esquemas\SURA_OSB_XML_Esquemas\WSDL\xsd\DominioSAP\SAP\V1\SAPOIV1.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1" version="1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dsapsap="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">
+  <xsd:complexType name="ReferenciaPagoSAP">
+    <xsd:annotation>
+      <xsd:documentation>Id del numero de documento al cual se</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="IdReferenciaSAP" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Elemento que hace referencia al Id de pago
+						generado por SAP.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="IdReferenciaPago" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Elemento que indica el id de referencia de pago.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MetodoPago" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Elementp que hace referencia al metodo de pago.
+						Valores permitidos C y T.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="FechaRegistro" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Fecha de la transaccion</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NumeroDocumento" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Id del documento al cual se desea aplicar una
+						accion.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\C:\Repositorios\SURA_INSIS\Desarrollo\Esquemas\BG_ESB_XML_Esquemas\SURA_OSB_XML_Esquemas\WSDL\xsd\DominioComun\Comun\V1\ComunOENV1.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" version="1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dcomcom="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1">
+  <xsd:annotation>
+    <xsd:documentation>Esquema donde se definen las entidades genricas.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="EstadoTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene la informacion basica del
+				Estado.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="dcomcom:EstadoGeneralTipo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CodigoRegistro" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>Cdigo del Registro ejecutado.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EstadosDetalle" type="dcomcom:EstadosDetalleTipo"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="RegistroTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene la informacin bsica de un
+				registro de auditora y control.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:all>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CodigoFuncionario" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Identificado nico del funcionario (empleado del
+						banco).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CodigoVerificado" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Identificador nico de verificacin.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FechaModificacion" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Fecha de la ultima modificacion del registro.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FechaRegistro" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Fecha de Registro.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FechaVerificacion" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Fecha de verificacin.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="NombreFuncionario" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Indica el nombre del funcionario.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="RevisarCliente" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Revision de Cliente.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Vigencia" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Vigencia del registro.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EstadoDetalleTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene el detalle del estado de la
+				ejecucin.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Codigo" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Cdigo del detalle del estado.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Descripcion" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Descripcin del detalle del estado de la
+						respuesta.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EstadoGeneralTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene el estado resumido de la
+				ejecucin de la operacin.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Status" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Cdigo del estado General.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Descripcion" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Descripcin del estado general de la respuesta.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Componente" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Nombre de la aplicacin.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Severidad" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Severidad general del estado de ejecucin</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TipoEstado" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tipo de estado.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CabeceraSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene los datos especficos de
+				transaccin para la cabecera de la solicitud.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:all>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CodigoOperacion" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Codigo Operacion de la Transaccion</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="FechaProcesamiento" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Fecha Procesamiento.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="FechaTransaccion" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Fecha Transaccion de la Operacion</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="IdTransaccionOsb" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Numero de transaccion del bus.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SistemaDestino" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Sistema destino de la peticion</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SistemaOrigen" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Sistema Origen de la peticion.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:element name="CabeceraCanalesSol" type="dcomcom:CabeceraCanalesSolTipo"/>
+  <xsd:complexType name="CabeceraCanalesSolTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene los datos especficos de
+				transaccin para la cabecera de la solicitud para los canales</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Aplicacion" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Canal" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Fecha" type="xsd:dateTime"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Nodo" type="xsd:int"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SesionBG" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DireccionIp" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OrigenSolicitud" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EstadosDetalleTipo" type="dcomcom:EstadosDetalleTipo"/>
+  <xsd:complexType name="EstadosDetalleTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene el o los detalles del estado
+				de la ejecucin.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="EstadoDetalle" type="dcomcom:EstadoDetalleTipo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CabeceraRespTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene los datos especficos de
+				transaccin para la cabecera de la respuesta.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:all>
+      <xsd:element maxOccurs="1" minOccurs="1" name="EstadoGeneral" type="dcomcom:EstadoGeneralTipo"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="EstadosPorRegistro" type="dcomcom:EstadosTipo"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EstadosTipo">
+    <xsd:annotation>
+      <xsd:documentation>Entidad que contiene el Estado de la ejecucin de
+				la operacin.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Estado" type="dcomcom:EstadoTipo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BeneficiarioTipo">
+    <xsd:sequence>
+      <xsd:element name="Email" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      <xsd:element name="Nombre" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      <xsd:element name="Alias" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      <xsd:element name="TipoIdentificacion" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Elemento que indica el tipoIdentificacion del
+						cliente</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NumeroIdentificacion" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Elemento que indica el Numero de identificacion
+						del cliente.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:7001/Exp_AnularEgresos/ProxyService/Exp_AnularEgresosPS</con:endpoint><con:endpoint>http://localhost:7001/Exp_AsignarEgreso/ProxyService/Exp_AsignarEgresoPS</con:endpoint><con:endpoint>http://xmlns.sura.com/DominioSAP/SAP/V1/SAPPortSOAP</con:endpoint></con:endpoints><con:operation id="7f79447e-d3e4-4661-9d56-e103d2b57593" isOneWay="false" action="" name="AnularEgresos" bindingOperationName="AnularEgresos" type="Request-Response" outputName="AnularEgresosRs" inputName="AnularEgresosRq" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62399e60-f01d-4923-8bd8-11566084dc95" name="Error- Ingresar Nro de documento invalido"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_AnularEgresos/ProxyService/Exp_AnularEgresosPS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:v11="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:v12="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:AnularEgresosMsjSol>\r
+         <!--Optional:-->\r
+        <v1:CabeceraSol>
+            <!--You may enter the following 6 items in any order-->
+            <v11:CodigoOperacion>1</v11:CodigoOperacion>
+            <v11:FechaProcesamiento>2020-01-01</v11:FechaProcesamiento>
+            <v11:FechaTransaccion>2020-01-01</v11:FechaTransaccion>
+            <v11:IdTransaccionOsb>?</v11:IdTransaccionOsb>
+            <!--Optional:-->
+            <v11:SistemaDestino>?</v11:SistemaDestino>
+            <!--Optional:-->
+            <v11:SistemaOrigen>?</v11:SistemaOrigen>
+         </v1:CabeceraSol>
+
+         <!--Optional:-->\r
+         <v1:ReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaSAP>1</v12:IdReferenciaSAP>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaPago>1</v12:IdReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:MetodoPago>C</v12:MetodoPago>\r
+            <!--Optional:-->\r
+            <v12:FechaRegistro>2020-01-01</v12:FechaRegistro>\r
+            <!--Optional:-->\r
+            <v12:NumeroDocumento>1</v12:NumeroDocumento>\r
+         </v1:ReferenciaPago>\r
+      </v1:AnularEgresosMsjSol>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1/SAPPortTypeSOAP/AnularEgresosRq"/><con:wsrmConfig version="1.2"/></con:call><con:call id="349f6d03-0f21-4ad6-94a7-13df6c2406ac" name="Error- Ingresar datos incompletos"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/Exp_AnularEgresos/ProxyService/Exp_AnularEgresosPS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:v11="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:v12="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:AnularEgresosMsjSol>\r
+         <!--Optional:-->\r
+         <v1:CabeceraSol>\r
+            <!--You may enter the following 6 items in any order-->\r
+            <v11:CodigoOperacion>?</v11:CodigoOperacion>\r
+            <v11:FechaProcesamiento>?</v11:FechaProcesamiento>\r
+            <v11:FechaTransaccion>?</v11:FechaTransaccion>\r
+            <!--Optional:-->\r
+            <v11:IdTransaccionOsb>?</v11:IdTransaccionOsb>\r
+            <!--Optional:-->\r
+            <v11:SistemaDestino>?</v11:SistemaDestino>\r
+            <!--Optional:-->\r
+            <v11:SistemaOrigen>?</v11:SistemaOrigen>\r
+         </v1:CabeceraSol>\r
+         <!--Optional:-->\r
+         <v1:ReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaSAP>?</v12:IdReferenciaSAP>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaPago>?</v12:IdReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:MetodoPago>?</v12:MetodoPago>\r
+            <!--Optional:-->\r
+            <v12:FechaRegistro>?</v12:FechaRegistro>\r
+            <!--Optional:-->\r
+            <v12:NumeroDocumento>?</v12:NumeroDocumento>\r
+         </v1:ReferenciaPago>\r
+      </v1:AnularEgresosMsjSol>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1/SAPPortTypeSOAP/AnularEgresosRq"/><con:wsrmConfig version="1.2"/></con:call><con:call id="74b936e3-c589-4846-aeb8-986d44182826" name="Exito- ingresar datos validos"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://xmlns.sura.com/DominioSAP/SAP/V1/SAPPortSOAP</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:v11="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:v12="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:AnularEgresosMsjSol>\r
+         <!--Optional:-->\r
+         <v1:CabeceraSol>\r
+            <!--You may enter the following 6 items in any order-->\r
+            <v11:CodigoOperacion>?</v11:CodigoOperacion>\r
+            <v11:FechaProcesamiento>?</v11:FechaProcesamiento>\r
+            <v11:FechaTransaccion>?</v11:FechaTransaccion>\r
+            <!--Optional:-->\r
+            <v11:IdTransaccionOsb>?</v11:IdTransaccionOsb>\r
+            <!--Optional:-->\r
+            <v11:SistemaDestino>?</v11:SistemaDestino>\r
+            <!--Optional:-->\r
+            <v11:SistemaOrigen>?</v11:SistemaOrigen>\r
+         </v1:CabeceraSol>\r
+         <!--Optional:-->\r
+         <v1:ReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaSAP>?</v12:IdReferenciaSAP>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaPago>?</v12:IdReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:MetodoPago>?</v12:MetodoPago>\r
+            <!--Optional:-->\r
+            <v12:FechaRegistro>?</v12:FechaRegistro>\r
+            <!--Optional:-->\r
+            <v12:NumeroDocumento>?</v12:NumeroDocumento>\r
+         </v1:ReferenciaPago>\r
+      </v1:AnularEgresosMsjSol>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1/SAPPortTypeSOAP/AnularEgresosRq"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="168c7bcd-6b91-42e9-b9f7-b8e6964cc7c0" isOneWay="false" action="" name="AsignarEgresos" bindingOperationName="AsignarEgresos" type="Request-Response" outputName="AsignarEgresosRs" inputName="AsignarEgresosRq" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5cea4423-b6b4-4d26-8a80-7c97a715813d" name="Error- ID de referencia pago invalido"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.30:8002/Exp_AsignarEgreso/ProxyService/Exp_AsignarEgresoPS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:v11="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:v12="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:AsignarEgresosMsjSol>
+         <!--Optional:-->
+         <v1:CabeceraSol>
+            <!--You may enter the following 6 items in any order-->
+            <v11:CodigoOperacion>1</v11:CodigoOperacion>
+            <v11:FechaProcesamiento>2020-01-01</v11:FechaProcesamiento>
+            <v11:FechaTransaccion>2020-01-01</v11:FechaTransaccion>
+            <!--Optional:-->
+            <v11:IdTransaccionOsb>?</v11:IdTransaccionOsb>
+            <!--Optional:-->
+            <v11:SistemaDestino>SAP</v11:SistemaDestino>
+            <!--Optional:-->
+            <v11:SistemaOrigen>INSIS</v11:SistemaOrigen>
+         </v1:CabeceraSol>
+         <!--Optional:-->
+         <v1:ReferenciaPago>
+            <!--Optional:-->
+            <v12:IdReferenciaSAP>aaaaa</v12:IdReferenciaSAP>
+            <!--Optional:-->
+            <v12:IdReferenciaPago>NumRefPago</v12:IdReferenciaPago>
+            <!--Optional:-->
+            <v12:MetodoPago>C</v12:MetodoPago>
+            <!--Optional:-->
+            <v12:FechaRegistro>2019-11-01</v12:FechaRegistro>
+            <!--Optional:-->
+            <v12:NumeroDocumento>NumDoc</v12:NumeroDocumento>
+         </v1:ReferenciaPago>
+      </v1:AsignarEgresosMsjSol>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1/SAPPortTypeSOAP/AsignarEgresosRq"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6531336f-ff59-4816-b243-3d57f650387f" name="Exito- ingresar datos validos"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.243.13.30:8002/Exp_AsignarEgreso/ProxyService/Exp_AsignarEgresoPS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://xmlns.sura.com/MensajeIntegracion/DominioSAP/SAPMI/V1" xmlns:v11="http://xmlns.sura.com/ObjetoEmpresarial/DominioComun/Comun/V1" xmlns:v12="http://xmlns.sura.com/ObjetoIntegracion/DominioSAP/SAP/V1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:AsignarEgresosMsjSol>\r
+         <!--Optional:-->\r
+         <v1:CabeceraSol>\r
+            <!--You may enter the following 6 items in any order-->\r
+            <v11:CodigoOperacion>1</v11:CodigoOperacion>\r
+            <v11:FechaProcesamiento>2020-01-01</v11:FechaProcesamiento>\r
+            <v11:FechaTransaccion>2020-01-01</v11:FechaTransaccion>\r
+            <!--Optional:-->\r
+            <v11:IdTransaccionOsb>?</v11:IdTransaccionOsb>\r
+            <!--Optional:-->\r
+            <v11:SistemaDestino>SAP</v11:SistemaDestino>\r
+            <!--Optional:-->\r
+            <v11:SistemaOrigen>INSIS</v11:SistemaOrigen>\r
+         </v1:CabeceraSol>\r
+         <!--Optional:-->\r
+         <v1:ReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaSAP>100000010</v12:IdReferenciaSAP>\r
+            <!--Optional:-->\r
+            <v12:IdReferenciaPago>NumRefPago</v12:IdReferenciaPago>\r
+            <!--Optional:-->\r
+            <v12:MetodoPago>C</v12:MetodoPago>\r
+            <!--Optional:-->\r
+            <v12:FechaRegistro>2019-11-01</v12:FechaRegistro>\r
+            <!--Optional:-->\r
+            <v12:NumeroDocumento>NumDoc</v12:NumeroDocumento>\r
+         </v1:ReferenciaPago>\r
+      </v1:AsignarEgresosMsjSol>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.sura.com/ServicioIntegracion/DominioSAP/SAP/V1/SAPPortTypeSOAP/AsignarEgresosRq"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

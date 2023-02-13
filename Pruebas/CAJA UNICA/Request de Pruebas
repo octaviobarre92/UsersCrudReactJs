@@ -1,0 +1,1301 @@
+Consultar Poliza Insis por codigo cliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CLIENTE":"6020007229"
+}
+
+
+
+
+Consultar Poliza Insis por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"TR-10169"
+}
+
+
+Consultar Poliza Insis sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Cliente MUD por Apellido
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"APELLIDO":"MENESES"
+}
+
+Consultar Cliente MUD por Nombre
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NOMBRE":"DORIS ARGELIS"
+}
+
+Consultar Cliente MUD por Identificacion
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"IDENTIFICACION":"8-365-25"
+}
+
+Consultar Cliente MUD por Numero Maestro
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"MASTERID":"187571"
+}
+459618
+
+Consultar Cliente MUD sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Cliente INSIS por Apellido
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"APELLIDO":"Taylor"
+}
+
+Consultar Cliente INSIS por Nombre
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NOMBRE":"John"
+}
+
+Consultar Cliente INSIS por Identificacion
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"IDENTIFICACION":"5704046269"
+}
+
+Consultar Cliente INSIS por Codigo Cliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CORE":"6020002052"
+}
+
+Consultar Cliente INSIS sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Cliente NATURAL por Apellido
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"APELLIDO":"SAAVEDRA"
+}
+
+Consultar Cliente NATURAL por Nombre
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NOMBRE":"JAVIER"
+}
+
+Consultar Cliente NATURAL por Identificacion
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"IDENTIFICACION":"8-761-722"
+}
+
+Consultar Cliente NATURAL por Codigocliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CORE":"271390"
+}
+
+Consultar Cliente NATURAL sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Consultar Cliente PREMIUM por Apellido
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"APELLIDO":"DE SOUSA"
+}
+
+Consultar Cliente PREMIUM por Nombre
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NOMBRE":"GEORGE"
+}
+
+Consultar Cliente PREMIUM por Identificacion
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"IDENTIFICACION":"8-108-184"
+}
+
+Consultar Cliente PREMIUM por Codigocliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CORE":"271390"
+}
+
+Consultar Cliente PREMIUM sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Poliza Natural Vida por Poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"32",
+"FECHA_PROCESAMIENTO":"2020-06-17",
+"FECHA_TRANSACCION":"2020-06-17",
+"ID_TRANSACCION_OSB":"45",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"POLIZA":"081300010998"
+}
+
+Consultar Poliza Natural Vida por Codigo Cliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"32",
+"FECHA_PROCESAMIENTO":"2020-06-17",
+"FECHA_TRANSACCION":"2020-06-17",
+"ID_TRANSACCION_OSB":"45",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"CODIGO_CLIENTE":"0000001586"
+}
+
+Consultar Poliza Natural Vida sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Consultar Poliza Natural Dano por Poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"32",
+"FECHA_PROCESAMIENTO":"2020-06-17",
+"FECHA_TRANSACCION":"2020-06-17",
+"ID_TRANSACCION_OSB":"45",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"POLIZA":"0100030301808160"
+}
+
+Consultar Poliza Natural Dano por Codigo Cliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"32",
+"FECHA_PROCESAMIENTO":"2020-06-17",
+"FECHA_TRANSACCION":"2020-06-17",
+"ID_TRANSACCION_OSB":"45",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB",
+},
+"CODIGO_CLIENTE":"0000008025"
+}
+
+Consultar Poliza Natural Dano sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Poliza Premium por codigo cliente
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CLIENTE":"3-887-133"
+}
+
+
+Consultar Poliza Premium por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"02583508481"
+}
+
+
+Consultar Poliza Premium sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Consultar Objeto Asegurado Insis por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"TR-10140"
+}
+
+Consultar Objeto Asegurado Insis por objeto
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"OBJETO":"AN6313",
+"BUSCAR_POR":"PLACA"
+}
+
+Consultar Objeto Asegurado Insis sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Reclamo Insis por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"100000041975/1"
+}
+
+
+Consultar Reclamo Insis por referencia
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"REFERENCIA":"2340001044"
+}
+
+
+Consultar Reclamo Insis por reclamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"RECLAMO":"MARTINEZ"
+}
+
+
+Consultar Reclamo Insis sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Prestamo Natural Nro Prestamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_PRESTAMO":"10"
+}
+
+
+Consultar Prestamo Natural Poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"2005090018470"
+}
+
+
+Consultar Prestamo Natural sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Prestamo Insis Nro Prestamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_PRESTAMO":"1"
+}
+
+
+Consultar Prestamo Insis Poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"TR-10129"
+}
+
+
+Consultar Prestamo Insis sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Consultar Objeto Asegurado Natural por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"0400040302934099"
+}
+
+Consultar Objeto Asegurado Natural por objeto
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"OBJETO":"AN6313",
+"BUSCAR_POR":"PLACA"
+}
+
+Consultar Objeto Asegurado Natural sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Reclamo Natural por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"0400040303320228"
+}
+
+
+Consultar Reclamo Natural por referencia
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"REFERENCIA":"1236961"
+}
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"REFERENCIA":"1230209"
+}
+
+
+Consultar Reclamo Natural por reclamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"RECLAMO":"0400109292"
+}
+
+
+Consultar Reclamo Natural sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Consultar Objeto Asegurado Premium por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"02-01-64344-0"
+}
+
+Consultar Objeto Asegurado Premium por objeto
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"OBJETO":"357997",
+"BUSCAR_POR":"PLACA"
+}
+
+Consultar Objeto Asegurado Premium sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Reclamo Premium por poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"02-01-523764-3"
+}
+
+Consultar Reclamo Premium por reclamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"RECLAMO":"2017-2-1453481",
+"REFERENCIA":"1"
+}
+
+
+Consultar Reclamo Premium sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Prestamo Premium Nro Prestamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_PRESTAMO":"53"
+}
+
+
+Consultar Prestamo Premium Poliza
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"POLIZA":"20-02-825-0"
+}
+
+
+Consultar Prestamo Premium sin datos
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aplicar Pago INSIS
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"TR-10129",
+"CORE":"I",
+"PROCESO":"1",
+"MONTO":50,
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"MARBELLA",
+"NUMREFER":"5678901234"
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+Aplicar Pago PREMIUM
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"02-58-350848-1",
+"CORE":"P",
+"PROCESO":"PLACA",
+"SUB_REFERENCIA":"25441222",
+"MONTO":50,
+"REFERENCIA":"244555",
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"MARBELLA",
+"NUMREFER":"5678901234",
+"NUM_LOTE":"456",
+"SALVAMENTO":"45",
+"NUMERO_CAJA":"2"
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Aplicar Pago NATURAL
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"TR-10129",
+"CORE":"N",
+"IDENTIFICACION_CLIENTE":"1232121",
+"PROCESO":"PLACA",
+"MONTO":50,
+"REFERENCIA":"244555",
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"MARBELLA",
+"FECHA":"2020-01-01"
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Buscar Datos SAP NATURAL
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"CAJA_UNICA"
+},
+"NUMERO_POLIZA":"0303031853138",
+"CORE":"N",
+"RAMO":"04",
+"TIPO_POLIZA":"D",
+"SUB_REFERENCIA":"11",
+"PROCESO":"PAGO A POLIZA",
+"MONTO":"-100",
+"REFERENCIA":"51914451",
+"USUARIO":"CAJERO_01",
+"SUCURSAL":"CASA_MATRIZ",
+"FECHA":"2020-03-18",
+"NUMREFER":"XXXW123456",
+"OBSERVACION":"11",
+"IDENTIFICACION_CLIENTE":"YC415208"
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Aplicar Pago Otros Ingresos
+
+
+{
+"DATOS_SAP":  
+{
+"tercero":  
+{
+"nmApartadoAereo":  	null	,
+"cdClaveCtrlCtaBan":  	null	,
+"dsSegundoNombre":  	null	,
+"cdIndicadorEntrada":  	null	,
+"cdRegion":  	null	,
+"cdPoblacion":  	null	,
+"dsPrimerApellido":  	null	,
+"dsPrimerNombre":  	null	,
+"cdPais":  	null	,
+"nmTelefonoMovil":  	null	,
+"cdIdioma":  	null	,
+"cdTipoNif":  	null	,
+"dsDireccion2":  	null	,
+"cdBancoCtaBan":  	null	,
+"dsSegundoApellido":  	null	,
+"cdGrupoCuentas":  	null	,
+"nmFax":  	null	,
+"cdTitularCtaBan":  	null	,
+"dsEmail":  	null	,
+"nmTelefono":  	null	,
+"nmIdentifFiscal":  	null	,
+"dsPersonaJuridica":  	null	,
+"cdPaisBancoCtaBan":  	null	,
+"cdSucursal":  	null	,
+"nmCuentaBancaria":  	null	,
+"cdConceptoBusqueda":  	null	,
+"dsDireccion":  	null
+},
+"posiciones":  
+[
+{
+"cdClaveReferencia2":  	"04"	,
+"cdClaveReferencia3":  	null	,
+"cdTipoIdNit":  	null	,
+"cdClaveCtrlCtaBan":  	null	,
+"ptImporte":  	"100"	,
+"cdClaveReferencia1":  	"0303031853138"	,
+"feExpedicion":  	"2020/7/17"	,
+"cdIndicadorImpuestos":  	null	,
+"nmPolizaLider":  	null	,
+"cdViaPago":  	null	,
+"feBase":  	"2020-03-18"	,
+"poDescuento":  	null	,
+"cdCondicionPago":  	null	,
+"cdParametro8":  	null	,
+"cdParametro9":  	"REC"	,
+"ptImporteDescuento":  	null	,
+"cdParametro10":  	"PAR"	,
+"cdDivision":  	"CASA_MATRIZ"	,
+"cdBancoCtaBan":  	null	,
+"cdTercero":  	null	,
+"cdNIT":  	null	,
+"cdIndicadorRetencion":  	null	,
+"cdTitularCtaBan":  	null	,
+"cdTipoIdTercero":  	null	,
+"cdTipoCuenta":  	"GL"	,
+"nmCertificadoLider":  	null	,
+"cdParametro2":  	"2"	,
+"cdParametro3":  	"N"	,
+"cdParametro1":  	"3000"	,
+"snCalcularImpuestos":  	null	,
+"ptRetencion":  	null	,
+"cdParametro6":  	"N"	,
+"ptBaseRetencion":  	null	,
+"cdParametro7":  	null	,
+"cdAsignacion":  	"CAJERO_01"	,
+"cdParametro4":  	"N"	,
+"cdParametro5":  	null	,
+"cdPaisBancoCtaBan":  	null	,
+"dsNombre":  	null	,
+"cdTipoRetencion":  	null	,
+"nmCuentaBancaria":  	null	,
+"nmDiasDescuento":  	null	,
+"cdBloqueoBago":  	null	,
+"dsTextoPosicion":  	"PAGO A POLIZA"	,
+"feValor":  	"2020-03-18"	,
+"feVencimiento":  	"2020/7/17"	,
+"ptBaseDescuento":  	null
+},
+{
+"cdClaveReferencia2":  	"04"	,
+"cdClaveReferencia3":  	null	,
+"cdTipoIdNit":  	null	,
+"cdClaveCtrlCtaBan":  	null	,
+"ptImporte":  	"100"	,
+"cdClaveReferencia1":  	"0303031853138"	,
+"feExpedicion":  	"2020/7/17"	,
+"cdIndicadorImpuestos":  	null	,
+"nmPolizaLider":  	null	,
+"cdViaPago":  	null	,
+"feBase":  	"2020-03-18"	,
+"poDescuento":  	null	,
+"cdCondicionPago":  	null	,
+"cdParametro8":  	null	,
+"cdParametro9":  	"REC"	,
+"ptImporteDescuento":  	null	,
+"cdParametro10":  	"CON"	,
+"cdDivision":  	"CASA_MATRIZ"	,
+"cdBancoCtaBan":  	null	,
+"cdTercero":  	null	,
+"cdNIT":  	null	,
+"cdIndicadorRetencion":  	null	,
+"cdTitularCtaBan":  	null	,
+"cdTipoIdTercero":  	null	,
+"cdTipoCuenta":  	"GL"	,
+"nmCertificadoLider":  	null	,
+"cdParametro2":  	"2"	,
+"cdParametro3":  	"N"	,
+"cdParametro1":  	"3000"	,
+"snCalcularImpuestos":  	null	,
+"ptRetencion":  	null	,
+"cdParametro6":  	"N"	,
+"ptBaseRetencion":  	null	,
+"cdParametro7":  	null	,
+"cdAsignacion":  	"CAJERO_01"	,
+"cdParametro4":  	"N"	,
+"cdParametro5":  	null	,
+"cdPaisBancoCtaBan":  	null	,
+"dsNombre":  	null	,
+"cdTipoRetencion":  	null	,
+"nmCuentaBancaria":  	null	,
+"nmDiasDescuento":  	null	,
+"cdBloqueoBago":  	null	,
+"dsTextoPosicion":  	"PAGO A POLIZA"	,
+"feValor":  	"2020-03-18"	,
+"feVencimiento":  	"2020/7/17"	,
+"ptBaseDescuento":  	null
+}
+],
+"encabezado":  
+{
+"cdReferencia":  	"XXXW123456"	,
+"feContabilizacion":  	"2020/7/17"	,
+"cdSociedad":  	"3000"	,
+"feDocumento":  	"2020-03-18"	,
+"cdClaseDocumento":  	"DZ"	,
+"cdMoneda":  	"PAB"
+},
+"conversionContable":  
+{
+"cdTipoOperacion":  	"GL"	,
+"cdCanal":  	"REC"	,
+"nmAplicacion":  	"NAT"	,
+"cdFuente":  	"BYT"
+}
+},
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2020/7/17"	,
+"CODIGO_TIPO_PAGO":  	"01"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultar Cliente BSS
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"CODIGO_CORE":"6020002052"
+}
+
+Consultar Poliza BSS
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02583508481",
+"CORE":"P",
+"TIPO_POLIZA":"V"
+}
+
+Consultar Prestamo BSS
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02583508481"
+}
+
+
+Consultar Reclamo BSS
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02583508481"
+}
+
+Consultar Objeto Asegurado BSS
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"NUMERO_POLIZA":"02583508481"
+}
+---------------------------------------------------------------------------------------------------------------------------
+Consultar Datos BSS
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"BUSCAR_POR":"POLIZA",
+"VALOR":"02-01-523764-3",
+"CORE":"P",
+"TIPO_POLIZA":"V"
+}
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"BUSCAR_POR":"IDENTIFICACION",
+"VALOR":"P",
+"CORE":"1232121",
+"TIPO_POLIZA":"PLACA"
+}
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"BUSCAR_POR":"PLACA",
+"VALOR":"P",
+"CORE":"1232121",
+"TIPO_POLIZA":"PLACA"
+}
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"BUSCAR_POR":"RECLAMO",
+"VALOR":"P",
+"CORE":"1232121",
+"TIPO_POLIZA":"PLACA"
+}

@@ -1,0 +1,90 @@
+-----------------------------------------------------------PREMIUM CLIENTE NATURAL MASTER NATURAL-----------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-626354-0",
+   "TIPO_POLIZA":"V",
+   "IDENTIFICACION":"4-745-1424"   
+}
+
+-----------------------------------------------------------PREMIUM CLIENTE NATURAL PREMIUM NATURAL-----------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-626354-0",
+   "TIPO_POLIZA":"V",
+   "IDENTIFICACION":"8-238-1257"
+}
+-----------------------------------------------------------PREMIUM CLIENTE JURIDICO PREMIUM NATURAL-----------------------------------------------------
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"04-02-236317-0",
+   "TIPO_POLIZA":"V",
+   "IDENTIFICACION":"18039PD"
+}
+
+-----------------------------------------------------------PREMIUM CLIENTE JURIDICO MASTER NATURAL-----------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-631076-0",
+   "TIPO_POLIZA":"V",
+   "IDENTIFICACION":"180484-1-392038"
+}
+
+--------------------------------------------------------------NATURAL DANO CLIENTE NATURAL MASTER------------------------------------------------------
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"0100030300001539",
+   "TIPO_POLIZA":"D",
+   "IDENTIFICACION":"6-61-122"
+}
+
+---------------------------------------------------------------NATURAL VIDA --------------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"1997020004287",
+   "TIPO_POLIZA":"V",
+   "IDENTIFICACION":"6-61-122"
+}

@@ -1,0 +1,4723 @@
+--------------------------------------------CREAR PROVEEDOR(21) INSIS----------------------------------------------------
+{
+   "CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+   "PERSONA":{
+      "IDENTIFICACION":"232132",
+	 }
+}	 
+
+--------------------------------------------CREAR ROL PERSONA INSIS----------------------------------------------------
+{
+"IDENTIFICACION":  	"4-722-942"	,
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2020-06-28"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2020-06-28"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+},
+"ROL":  	"21"
+}
+
+
+
+{
+"IDENTIFICACION":  	"E-8-146390"	,
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2020-06-28"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2020-06-28"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+},
+"ROL":  	"1"
+}
+
+--------------------------------------------CREAR PERSONA INSIS----------------------------------------------------
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	"PERSONA":
+	{
+		"PERSONA_NATURAL":
+		{
+			"NOMBRE":"jesus",
+			"PRIMER_APELLIDO":"meneses",
+			"SEGUNDO_APELLIDO":"martinez",
+			"IDENTIFICACION":"E-8-146391",
+			"SEXO":"1",
+			"FECHA_DE_NACIMIENTO":"1988-01-29",
+			"IDIOMA":"ESP",
+			"PAIS_RESIDENCIA":"PA"
+		},
+		"PERSONA_JURIDICA":
+		{
+			"RAZONSOCIAL":"soaint",
+			"ID_CLIENTE":"DV9234234932409",
+			"PERIODO_FISCAL":"2021",
+			"TIPO_PERSONA_JURIDICA":"A"
+		},
+		"TIPO_PERSONA":"N",
+		"NACIONALIDAD":"pa",
+		"INDUSTRIA":"desarrollo",
+		"FECHA_REGISTRO":"2020-12-01T12:00:00",
+		"OBSERVACION":"ninguna",
+		"PREGUNTAS":[
+		{
+			"CODIGO":"P_TRIBUT",
+			"RESPUESTA":"PA"
+		},
+		{
+			"CODIGO":"P_PYMESJ",
+			"RESPUESTA":"2"
+		},
+		{
+			"CODIGO":"P_CEMPLEADOSN",
+			"RESPUESTA":"1"
+		},
+		{
+			"CODIGO":"P_OPERACION",
+			"RESPUESTA":"N/A"
+		}],
+		"DIGITO_VERIFICADOR":"0",
+		"TIPO_IDENTIFICACION":"3",
+		"FECHA_VENCIMIENTO_ID":"2020-12-01",
+		"FECHA_OPERACION":"2020-12-01"
+	},
+	"DIRECCIONES":[
+	{
+		"NOMBRE_PAIS":"PANAMA",
+		"CODIGO_PAIS":"PA",
+		"NOMBRE_ESTADO":"PANAMA",
+		"CODIGO_ESTADO":"08",
+		"NOMBRE_REGION":"PANAMA",
+		"CODIGO_REGION":"0804",
+		"NOMBRE_CIUDAD":"JUAN DIAZ",
+		"CODIGO_CIUDAD":"080410",
+		"BARRIO":"URBANIZACION",
+		"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+		"CALLE_AVENIDA_NRO":"string",
+		"EDIFICIO":"string",
+		"PISO":"string",
+		"ENTRADA":"string",
+		"APTO_CASA":"string", 
+		"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+		"TIPO_DIRECCION":"Y",
+		"ES_CORRESPONDENCIA":"N",
+		"ES_FACTURACION":"Y",
+		"ES_PRINCIPAL":"Y",
+		"OBSERVACION":"MIGRADO",
+		"TELEFONO":"string",
+		"FAX":"string",
+		"EMAIL":"string"
+	}],
+	"CONTACTOS":
+	[{
+		"TIPO":"EMAIL",
+		"VALOR":"prueba@prueba.com",
+		"ES_PRINCIPAL":"Y",
+		"OBSERVACION":"MIGRADO",
+		"IDIOMA":"ESP"
+	}],    
+	"DATOS_BANCARIOS":[
+	{
+		"NUMERO_CUENTA":"0412154232",
+		"BANCO_NOMBRE":"NOMBRE1",
+		"ES_PRINCIPAL":"Y",
+		"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+		"IDENTIFICADOR_CUENTA":"1",
+		"ESTADO":"1",
+		"MONEDA":"PAB"
+	}]
+}
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	"PERSONA":
+	{
+		"PERSONA_NATURAL":
+		{
+			"NOMBRE":"jesus",
+			"PRIMER_APELLIDO":"meneses",
+			"SEGUNDO_APELLIDO":"martinez",
+			"IDENTIFICACION":"E-8-146390",
+			"SEXO":"1",
+			"FECHA_DE_NACIMIENTO":"1988-01-29",
+			"IDIOMA":"ESP",
+			"PAIS_RESIDENCIA":"PA"
+		},
+		"TIPO_PERSONA":"N",
+		"NACIONALIDAD":"pa",
+		"INDUSTRIA":"desarrollo",
+		"FECHA_REGISTRO":"2020-12-01T12:00:00",
+		"OBSERVACION":"ninguna",
+		"PREGUNTAS":[
+		{
+			"CODIGO":"P_TRIBUT",
+			"RESPUESTA":"PA"
+		},
+		{
+			"CODIGO":"P_PYMESJ",
+			"RESPUESTA":"2"
+		},
+		{
+			"CODIGO":"P_CEMPLEADOSN",
+			"RESPUESTA":"1"
+		},
+		{
+			"CODIGO":"P_OPERACION",
+			"RESPUESTA":"N/A"
+		}]
+	},
+	"DIRECCIONES":[
+	{
+		"NOMBRE_PAIS":"PANAMA",
+		"CODIGO_PAIS":"PA",
+		"NOMBRE_ESTADO":"PANAMA",
+		"CODIGO_ESTADO":"08",
+		"NOMBRE_REGION":"PANAMA",
+		"CODIGO_REGION":"0804",
+		"NOMBRE_CIUDAD":"JUAN DIAZ",
+		"CODIGO_CIUDAD":"080410",
+		"BARRIO":"URBANIZACION",
+		"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+		"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+		"TIPO_DIRECCION":"H",
+		"ES_CORRESPONDENCIA":"N",
+		"ES_FACTURACION":"N",
+		"ES_PRINCIPAL":"N",
+		"OBSERVACION":"MIGRADO"
+	}],
+	"CONTACTOS":
+	[{
+		"TIPO":"EMAIL",
+		"VALOR":"prueba@prueba.com",
+		"ES_PRINCIPAL":"Y",
+		"OBSERVACION":"MIGRADO",
+		"IDIOMA":"ESP"
+	}],    
+	"DATOS_BANCARIOS":[
+	{
+		"NUMERO_CUENTA":"0412154232",
+		"BANCO_NOMBRE":"NOMBRE1",
+		"ES_PRINCIPAL":"Y",
+		"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+		"IDENTIFICADOR_CUENTA":"1",
+		"ESTADO":"1",
+		"MONEDA":"PAB"
+	}]
+}
+
+
+--------------------------------------------BSS CONSULTAR EGRESO----------------------------------------------------
+
+{
+   "CABECERA":{
+	  "CODIGO_OPERACION":"E01",
+	  "FECHA_PROCESAMIENTO":"2020-06-28",
+	  "FECHA_TRANSACCION":"2020-06-28",
+	  "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+	  "SISTEMA_DESTINO":"OSB",
+	  "SISTEMA_ORIGEN":"OSB"
+   },
+   "TIPO_EGRESO":"EGR",
+   "IDENTIFICACION":"20554-119-186092",
+   "FECHA_DESDE":"2020-08-04",
+   "CORE":"P"
+}
+
+--NATURAL
+{
+	"FECHA_DESDE":  	"2019-12-14"	,
+	"TIPO_EGRESO":  	"K"	,
+	"REFERENCIA":  	"0500000580"	,
+	"IDENTIFICACION":  	"55304478"	,
+	"TIPO_IDENTIFICACION":  	"13"	,
+	"CORE":"P",
+	"CABECERA":  
+	{
+		"FECHA_TRANSACCION":  	"2021/1/28"	,
+		"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+		"FECHA_PROCESAMIENTO":  	"2020-06-28"	,
+		"SISTEMA_DESTINO":  	"OSB"	,
+		"SISTEMA_ORIGEN":  	"OSB"	,
+		"CODIGO_OPERACION":  	"E01"
+	}
+}
+
+--------------------------------------------CONSULTAR EGRESO PREMIUM----------------------------------------------------
+
+{
+   "CABECERA":{
+	  "CODIGO_OPERACION":"E01",
+	  "FECHA_PROCESAMIENTO":"2020-06-28",
+	  "FECHA_TRANSACCION":"2020-06-28",
+	  "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+	  "SISTEMA_DESTINO":"OSB",
+	  "SISTEMA_ORIGEN":"OSB"
+   },
+   "TIPO_EGRESO":"EGR",
+   "IDENTIFICACION":"20554-119-186092",
+   "FECHA_DESDE":"2020-08-04"
+}
+
+
+--------------------------------------------CONSULTAR EGRESO SAP----------------------------------------------------
+
+{
+	"FECHA_DESDE":  	"2019-12-14"	,
+	"TIPO_EGRESO":  	"K"	,
+	"REFERENCIA":  	"0500000580"	,
+	"IDENTIFICACION":  	"55304478"	,
+	"TIPO_IDENTIFICACION":  	"QC"	,
+	"CABECERA":  
+	{
+		"FECHA_TRANSACCION":  	"2021/1/28"	,
+		"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+		"FECHA_PROCESAMIENTO":  	"2020-06-28"	,
+		"SISTEMA_DESTINO":  	"OSB"	,
+		"SISTEMA_ORIGEN":  	"OSB"	,
+		"CODIGO_OPERACION":  	"E01"
+	}
+}
+
+132.145.163.213
+--------------------------------------------ACTUALIZAR ESTATUS RECLAMO----------------------------------------------------
+
+{
+   "CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+   "RECLAMO":{
+   "NO_RECLAMO":"8-832-2128",
+   "ID_RECLAMO":"34",
+   "STATUS":"8-832-2128",
+   "ID_PROVEEDOR":"23"
+}
+}
+
+--------------------------------------------ACTUALIZAR RECLAMO----------------------------------------------------
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+   "RECLAMO":{
+      "TARJETA_ID":"1",
+      "RECLAMO_ID":"1",
+      "RECLAMO_NO":"1",
+      "RECLAMO_STARTED":"2020-06-28T12:12:12",
+      "RECLAMO_TYPE":"1",
+      "NUMERO_DE_POLIZA":"1",
+      "FECHA_MUERTE":"2020-06-28T12:12:12",
+      "EVENTO_PAIS":"1",
+      "EVENTO_FECHA":"2020-06-28T12:12:12",
+      "EVENTO_HORA":"2020-06-28T12:12:12",
+      "EVENTO_TIPO":"1",
+      "SUCURSAL_ID":"1",
+      "FECHA_REGISTRO":"2020-06-28T12:12:12",
+      "SOLICITUD":[{
+         "FECHA_ADMISION":"2020-06-28T12:12:12",
+         "HORA_ADMISION":"2020-06-28T12:12:12",
+         "TIPO_RECLAMO":"1",
+         "FECHA_ALTA":"2020-06-28T12:12:12",
+         "FECHA_ESPERADA_ADMISION":"2020-06-28T12:12:12",
+         "DETALLE":"1",
+         "FACTURA_MONTO":"1",
+         "FACTURA_MONEDA":"1",
+         "FACTURA_FECHA":"2020-06-28T12:12:12",
+         "FACTURA_NO":"1",
+         "BENEFICIARIO":[
+            {
+               "FECHA_CITA":"2020-06-28T12:12:12",
+               "PORCENTAJE":"1",
+               "MAN_ID":"1",
+               "DETALLE":"1",
+               "BENEFICIARIO_ROL":"1",
+               "FECHA_REGISTRO":"2020-06-28T12:12:12",
+               "REPORTE_FECHA":"2020-06-28T12:12:12",
+               "REPORTE_NO":"1"
+            }
+         ],
+         "DIAGNOSTICO_PRIMARIO_GRUPO_ID":"1",
+         "DIAGNOSTICO_PRIMARIO_ID":"1",
+         "PROVEEDOR_CONTRATO_ID":"1",
+         "PROVEEDOR_ID":"1",
+         "PROVEEDOR_RED":"1",
+         "SOLICITUD_FECHA":"2020-06-28T12:12:12",
+         "SOLICITUD_TIPO":"1",
+         "SERVICIO":[
+            {
+               "MONEDA_MANUAL":"1",
+               "DOCTOR_ID":"1",
+               "DOCTOR_NOMBRE":"1",
+               "TRATAMIENTO":{
+				   "TRATAMIENTO_DIAS":"1",
+				   "TRATAMIENTO_DOSIS":"1",
+				   "TRATAMIENTO_PRESCRIPCION_ORIGINAL":"1",
+				   "TRATAMIENTO_CANTIDAD_PAQUETES":"1",
+				   "TRATAMIENTO_CANTIDAD_PAQUETES_ID":"1",
+				   "TRATAMIENTO_UNIDADES_POR_PAQUETE":"1",
+				   "TRATAMIENTO_PRESCRIPCION":"1",
+				   "TRATAMIENTO_FUERZA":"1",
+				   "TRATAMIENTO_FUERZA_ID":"1",
+				   "TRATAMIENTO_UNIDAD_MEDIDA":"1",
+				   "TRATAMIENTO_UNIDAD_MEDIDA_ID":"1"
+			   },
+			   "DETALLE":"1",
+               "NOTAS":"1",
+               "MONTO_TOTAL":"1",
+               "MONEDA":"1",
+               "PRECIO":"1",
+               "CANTIDAD":"1",
+               "CODIGO":"1",
+               "FECHA_INICIO":"2020-06-28T12:12:12",
+               "FECHA_FINALIZACION":"2020-06-28T12:12:12",
+               "CODIGO_AGRUPACION":"1",
+               "LUGAR":"1",
+               "TIPO":"1",
+               "SUBTIPO":"1",
+               "DIENTE_NUMERO":"1",
+               "SEGMENTO_DENTAL_ID":"1",
+               "SUPERFICIE_DENTAL_ID":"1"
+            }
+         ],
+         "SERVICIO_LUGAR":"1",
+         "CLIENTE_TIPO":"1",
+         "IDENTIFICACION_CLIENTE":"1"
+      }],
+      "STAFF_ID":"1"
+   }
+}
+
+-------------------------APLICAR PAGO EGRESOS SAP-------------------------------------------
+
+{
+	"CABECERA": {
+		"CODIGO_OPERACION": "E01",
+		"FECHA_PROCESAMIENTO": "2021-01-04",
+		"FECHA_TRANSACCION": "2021-01-04",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "CAJA_UNICA"
+	},
+	"CORE": "N",
+	"NUMERO_POLIZA": "",
+	"TIPO_POLIZA": "",
+	"PROCESO": "02",
+	"REFERENCIA": "0500000547",
+	"SUB-REFERENCIA": "E1",
+	"TIPO_CUENTA": "T",
+	"MONTO": 2.00,
+	"FECHA": "2021-01-04",
+	"IDENTIFICACION_CLIENTE": "4-201-2101",
+	"NUM_LOTE": "01",
+	"ESTADO_PAGO": "A",
+	"TOTAL_REGISTRO": "",
+	"USUARIO": "CAJERO_01",
+	"NUMERO_CAJA": "01",
+	"SUCURSAL": "308008000",
+	"NUMREFER": "R01311",
+	"TIPO_IDENTIFICACION":"QC",
+	"OBSERVACION": "Test de Pago1311",
+	"DETALLE_PAGO": {
+		"EFECTIVO": "2.00",
+		"CHEQUE": [
+			{
+				"BANCO_CH": "",
+				"NUM_CHEQUE_CH": "",
+				"MONTO_CH": "",
+				"NUM_CUENTA_CH": "",
+				"BENEFICIARIO_CH": ""
+			}
+		],
+		"TARJETA": [
+			{
+				"TIPO_TC": "",
+				"NUM_CUENTA": "",
+				"CODIGO_BANCO": "",
+				"MONTO_TC": ""
+			}
+		],
+		"OTROS_MEDIOS": ""
+	}
+}
+
+------------------------------------------------------------------------CREAR AUTORIZACION SAM -------------------------------------------------------------
+
+{
+	"NUMERO_POLIZA": "5605",
+	"IDENTIFICACION": "126",
+	"CODIGO_PROVEEDOR": "257316049614172310225332182864339068846",
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-01-04",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"FECHA_PROCESAMIENTO": "2021-01-04",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "CAJA_UNICA",
+		"CODIGO_OPERACION": "E01"
+	},
+	"SERVICIO": [
+		{
+			"COMENTARIO": "prueba",
+			"CODIGO_SERVICIO": "GSS5",
+			"TIPO_SERVICIO": "1011",
+			"DIAGNOSTICO": [
+				{
+					"CPT_ID": "46606",
+					"ICD_ID": "R100",
+					"TERAPIA": [
+						{
+							"MONTO": "30",
+							"DESCRIPCION": "TAFISIC",
+							"CANTIDAD": "3"
+						}
+					],
+					"LABORATORIO": [
+						{
+							"DESCRIPCION": "lab"
+						}
+					],
+					"EXAMENES": [
+						{
+							"DESCRIPCION": "exa"
+						}
+					],
+					"MEDICAMENTOS": [
+						{
+							"DOSIS": "3 ml",
+							"GENERICO": "",
+							"DESCRIPCION": "med"
+						}
+					]
+				}
+			]
+		}
+	]
+}
+------------------------------------------------------------------------MODIFICAR AUTORIZACION SAM -------------------------------------------------------------
+
+{
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-01-04",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"FECHA_PROCESAMIENTO": "2021-01-04",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "CAJA_UNICA",
+		"CODIGO_OPERACION": "E01"
+	},
+    "CODIGO_PREAUTORIZACION": "1030",
+    "SERVICIO": [
+		{
+			"COMENTARIO": "prueba",
+			"CODIGO_SERVICIO": "GSS5",
+			"TIPO_SERVICIO": "1011",
+			"DIAGNOSTICO": [
+				{
+					"CPT_ID": "46606",
+					"ICD_ID": "R100",
+					"TERAPIA": [
+						{
+							"MONTO": "30",
+							"DESCRIPCION": "TAFISIC",
+							"CANTIDAD": "3"
+						}
+					],
+					"LABORATORIO": [
+						{
+							"DESCRIPCION": "lab"
+						}
+					],
+					"EXAMENES": [
+						{
+							"DESCRIPCION": "exa"
+						}
+					],
+					"MEDICAMENTOS": [
+						{
+							"DOSIS": "3 ml",
+							"GENERICO": "",
+							"DESCRIPCION": "med"
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+------------------------------------------------------------------------CREAR PROVEEDOR SAM -------------------------------------------------------------
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	"PERSONA":
+	{
+		"NOMBRE":"jesus",
+		"PRIMER_APELLIDO":"meneses",
+		"SEGUNDO_APELLIDO":"martinez",
+		"IDENTIFICACION":"E-8-146390",
+		"SEXO":"1",
+		"FECHA_DE_NACIMIENTO":"1988-01-29",
+		"RAZONSOCIAL":"soaint",
+		"NOMBRECOMERCIAL":"soaint",		
+		"IDIOMA":"ESP",
+		"PAIS_RESIDENCIA":"PA",
+		"TIPO_IDENTIFICACION":"N",
+		"DIGITOVERIFICADOR":"DV9234234932409",
+		"REGISTRO_SANITARIO":"2021",
+		"FECHA_REGISTRO":"2020-12-01T12:00:00",
+		"CLASIFICACION":"A",
+		"ESTADOCIVIL":"pa",
+		"ESTATUS":"desarrollo",
+		"FECHALISTANEGRA":"2020-12-01T12:00:00",
+		"CODIGOLISTANEGRA":"ninguna",
+		"EMAILS":[
+		{
+			"CORREO":"P_TRIBUT"
+		},
+		{
+			"CORREO":"P_PYMESJ"
+		},
+		{
+			"CORREO":"P_PYMESJ"
+		}],	
+		"RED": [
+      {
+        "ID_RED": "",
+        "DESCRIPCION": ""
+      }
+    ],
+	"ESPECIALIDADES": [
+      {
+        "COD_ESPE": "",
+        "CP_ESPE": "",
+        "COD_SUBESPE": "",
+        "DESCSUBESPE": ""
+      }
+    ],
+	"DIRECCIONES":[
+	{
+		"NOMBRE_PAIS":"PANAMA",
+		"CODIGO_PAIS":"PA",
+		"NOMBRE_ESTADO":"PANAMA",
+		"PROVINCIA":"08",
+		"DISTRITO":"0804",
+		"CORREGIMIENTO":"080410",
+		"BARRIO":"URBANIZACION",
+		"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+		"CALLE_AVENIDA_NRO":"string",
+		"EDIFICIO":"string",
+		"PISO":"string",
+		"ENTRADA":"string",
+		"APTO_CASA":"string", 
+		"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+		"TIPO_DIRECCION":"Y",
+		"CODIGO_COMPANIA":"N",
+		"ES_FACTURACION":"Y",
+		"ES_PRINCIPAL":"Y",
+		"OBSERVACION":"MIGRADO",
+		"TELEFONO":"string",
+		"CODIGO_OFICINA":"string",
+		"EMAIL":"string"
+	},
+	{
+		"NOMBRE_PAIS":"PANAMA2",
+		"CODIGO_PAIS":"PA",
+		"NOMBRE_ESTADO":"PANAMA2",
+		"PROVINCIA":"08",
+		"DISTRITO":"0804",
+		"CORREGIMIENTO":"080410",
+		"BARRIO":"URBANIZACION",
+		"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO 222",
+		"CALLE_AVENIDA_NRO":"string",
+		"EDIFICIO":"string",
+		"PISO":"string",
+		"ENTRADA":"string",
+		"APTO_CASA":"string", 
+		"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO 222",
+		"TIPO_DIRECCION":"Y",
+		"CODIGO_COMPANIA":"N",
+		"ES_FACTURACION":"Y",
+		"ES_PRINCIPAL":"Y",
+		"OBSERVACION":"MIGRADO",
+		"TELEFONO":"string",
+		"CODIGO_OFICINA":"string",
+		"EMAIL":"string"
+	}]
+}
+}
+
+------------------------------------------------------------------------REGISTRAR RECLAMO HLT -------------------------------------------------------------
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	  "RECLAMO":{
+	  "ID_TARJETA":"string",
+	  "CODIGO_TARJETA":"string",
+	  "NUMERO_POLIZA":"string",
+      "NO_RECLAMO":"string",
+	  "CODIGO_PRODUCTO":"string",
+	  "FECHA_REGISTRO":"string",
+	  "TIPO_RECLAMO":"string",
+	  "CAUSA_RECLAMO":"string",
+	  "TIPO_EVENTO":"string",
+	  "FECHA_EVENTO":"string",
+	  "HORA_EVENTO":"string",
+	  "CONCEPTO_RECLAMO":"string",
+	  "CODIGO_PAIS_EVENTO":"string",
+	  "LUGAR_EVENTO":"string",
+	  "INFORMACION_ASEGURADORA":"string",
+	  "NO_RECLAMO_ASEGURADORA":"string",
+	  "FECHA_MUERTE":"string",
+	  "COMENTARIO_RECLAMO":"string"
+	  },
+	  "SOLICITUD":
+	  {
+		"CODIGO_PROVEEDOR":"string",
+		"CODIGO_RED":"string",
+		"TIPO_SOLICITUD":"string",
+		"FECHA_SOLICITUD":"string",
+		"CODIGO_DIAGNOSTICO_PRIMARIO":"string",
+		"CODIGO_GRUPO_DIAGNOSTICO_PRIMARIO":"string",
+		"MONTO_FACTURA":"string",
+		"MONEDA_FACTURA":"string",
+		"NUMERO_FACTURA":"string",
+		"FECHA_FACTURA":"string",
+		"LUGAR_SERVICIO":"string",
+		"FECHA_ADMISION":"string",
+		"HORA_ADMISION":"string",
+		"FECHA_ALTA":"string",
+		"HORA_ALTA":"string",
+		"FECHA_ESTIMADA_ADMISION":"string",
+		"OBSERVACION":"string",
+		"PARTICIPANTES":
+		[{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+		   "RELACION":{
+				"IDENTIFICACION":"string",
+				"TIPO_PERSONA":"string",
+				"CODIGO_RELACION":"string",
+				"NOMBRE_RELACION":"string",
+				"FECHA_INICIO":"string",
+				"HORA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"HORA_FIN":"string"
+		   },
+		   "FECHA_OPERACION":"string",
+		   "NUMERO_REPORTE":"string",
+		   "FECHA_REPORTE":"string",
+		   "PORCENTAJE_REPORTE":"string",
+		   "PERSONA_ROL":"string"
+		}],
+		"SERVICIO":
+		[{
+			"TIPO_ACTIVIDAD":"string",
+			"CODIGO_ACTIVIDAD":"string",
+			"FECHA_INICIO_SERVICIO":"string",
+			"HORA_INICIO_SERVICIO":"string",
+			"FECHA_FIN_SERVICIO":"string",
+			"HORA_FIN_SERVICIO":"string",
+			"TRATAMIENTO":"string",
+			"CANTIDAD_SERVICIO":"string",
+			"PRECIO_SERVICIO":"string",
+			"MONTO_SERVICIO":"string",
+			"MONEDA_SERVICIO":"string",
+			"CUOTA_PACIENTE":"string",
+			"CANTIDAD_CONFIRMADO":"string",
+			"PRECIO_CONFIRMADO":"string",
+			"MONTO_CONFIRMADO":"string",
+			"MONEDA_CONFIRMADO":"string",
+			"CONTROL":"string",
+			"OBSERVACION":"string",
+			"DESCRIPCION":"string",
+			"LUGAR_SERVICIO":"string",
+			"CODIGO_PORTADA":"string"
+		}]
+	  }
+}
+
+------------------------------------------------------------------------REGISTRAR RECLAMO -------------------------------------------------------------
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+        "RECLAMO":{
+			"ID_TARJETA":"string",
+			"CODIGO_TARJETA":"string",
+			"NUMERO_POLIZA":"string",
+			"NO_RECLAMO":"string",
+			"CODIGO_PRODUCTO":"string",
+			"FECHA_REGISTRO":"string",
+			"TIPO_RECLAMO":"string",
+			"CAUSA_RECLAMO":"string",
+			"TIPO_EVENTO":"string",
+			"FECHA_EVENTO":"string",
+			"HORA_EVENTO":"string",
+			"CONCEPTO_RECLAMO":"string",
+			"CODIGO_PAIS_EVENTO":"string",
+			"LUGAR_EVENTO":"string",
+			"INFORMACION_ASEGURADORA":"string",
+			"NO_RECLAMO_ASEGURADORA":"string",
+			"FECHA_MUERTE":"string",
+			"COMENTARIO_RECLAMO":"string"
+		},
+		"DIRECCION_SINIESTRO":
+		{
+			"NOMBRE_PAIS":"PANAMA",
+			"CODIGO_PAIS":"PA",
+			"NOMBRE_ESTADO":"PANAMA",
+			"CODIGO_ESTADO":"08",
+			"NOMBRE_REGION":"PANAMA",
+			"CODIGO_REGION":"0804",
+			"NOMBRE_CIUDAD":"JUAN DIAZ",
+			"CODIGO_CIUDAD":"080410",
+			"BARRIO":"URBANIZACION",
+			"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+			"CALLE_AVENIDA_NRO":"string",
+			"EDIFICIO":"string",
+			"PISO":"string",
+			"ENTRADA":"string",
+			"APTO_CASA":"string", 
+			"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+			"TIPO_DIRECCION":"Y",
+			"ES_CORRESPONDENCIA":"N",
+			"ES_FACTURACION":"Y",
+			"ES_PRINCIPAL":"Y",
+			"OBSERVACION":"MIGRADO",
+			"TELEFONO":"string",
+			"FAX":"string",
+			"EMAIL":"string"	
+		},
+        "PARTICIPANTES":
+		[{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+		   "RELACION":{
+				"IDENTIFICACION":"string",
+				"TIPO_PERSONA":"string",
+				"CODIGO_RELACION":"string",
+				"NOMBRE_RELACION":"string",
+				"FECHA_INICIO":"string",
+				"HORA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"HORA_FIN":"string"
+		   },
+		   "DATOS_BANCARIOS_RECLAMO":{
+				"NUMERO_CUENTA":"0412154232",
+				"BANCO_NOMBRE":"NOMBRE1",
+				"ES_PRINCIPAL":"Y",
+				"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+				"IDENTIFICADOR_CUENTA":"1",
+				"ESTADO":"1",
+				"MONEDA":"PAB"
+		   },
+		   "FECHA_OPERACION":"string",
+		   "NUMERO_REPORTE":"string",
+		   "FECHA_REPORTE":"string",
+		   "PORCENTAJE_REPORTE":"string",
+		   "PERSONA_ROL":"string"
+		}],
+        "SOLICITUDES":[{
+			"SOLICITANTE":{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+	  "FECHA_SOLICITUD":"string",
+	  "MONTO_SOLICITUD":"string",
+	  "MONEDA_SOLICITUD":"string",
+	  "TIPO_SOLICITUD":"string",
+	  "OBJETO":
+	  {
+		"SECUENCIA_OBJETO":"string",
+		"CODIGO_OBJETO":"string",
+		"MONTO_OBJETO":"string",
+		"MONEDA_OBJETO":"string",    
+		"CONDUCTOR":{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+			"NRO_LICENCIA":"string",
+			"EXPERIENCIA":"string",
+			"EDAD":"string"
+		}
+	  },
+	  "DIRECCION_SOLICITUD":
+	  [{
+			"NOMBRE_PAIS":"PANAMA",
+			"CODIGO_PAIS":"PA",
+			"NOMBRE_ESTADO":"PANAMA",
+			"CODIGO_ESTADO":"08",
+			"NOMBRE_REGION":"PANAMA",
+			"CODIGO_REGION":"0804",
+			"NOMBRE_CIUDAD":"JUAN DIAZ",
+			"CODIGO_CIUDAD":"080410",
+			"BARRIO":"URBANIZACION",
+			"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+			"CALLE_AVENIDA_NRO":"string",
+			"EDIFICIO":"string",
+			"PISO":"string",
+			"ENTRADA":"string",
+			"APTO_CASA":"string", 
+			"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+			"TIPO_DIRECCION":"Y",
+			"ES_CORRESPONDENCIA":"N",
+			"ES_FACTURACION":"Y",
+			"ES_PRINCIPAL":"Y",
+			"OBSERVACION":"MIGRADO",
+			"TELEFONO":"string",
+			"FAX":"string",
+			"EMAIL":"string"
+		}],
+	  "PARTICIPANTES":
+		[{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+		   "RELACION":{
+				"IDENTIFICACION":"string",
+				"TIPO_PERSONA":"string",
+				"CODIGO_RELACION":"string",
+				"NOMBRE_RELACION":"string",
+				"FECHA_INICIO":"string",
+				"HORA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"HORA_FIN":"string"
+		   },
+		   "FECHA_OPERACION":"string",
+		   "NUMERO_REPORTE":"string",
+		   "FECHA_REPORTE":"string",
+		   "PORCENTAJE_REPORTE":"string",
+		   "PERSONA_ROL":"string"
+		}],
+	  "PREGUNTAS":
+	  [{
+			"CODIGO":"P_TRIBUT",
+			"RESPUESTA":"PA"
+		},
+		{
+			"CODIGO":"P_PYMESJ",
+			"RESPUESTA":"2"
+		},
+		{
+			"CODIGO":"P_CEMPLEADOSN",
+			"RESPUESTA":"1"
+		},
+		{
+			"CODIGO":"P_OPERACION",
+			"RESPUESTA":"N/A"
+		}],
+	  "CULPABLE":
+	  {
+		"PERSONA":
+		{
+			"PERSONA_NATURAL":
+			{
+				"NOMBRE":"jesus",
+				"PRIMER_APELLIDO":"meneses",
+				"SEGUNDO_APELLIDO":"martinez",
+				"IDENTIFICACION":"E-8-146390",
+				"SEXO":"1",
+				"FECHA_DE_NACIMIENTO":"1988-01-29",
+				"IDIOMA":"ESP",
+				"PAIS_RESIDENCIA":"PA"
+			},
+			"PERSONA_JURIDICA":
+			{
+				"RAZONSOCIAL":"soaint",
+				"ID_CLIENTE":"DV9234234932409",
+				"PERIODO_FISCAL":"2021",
+				"TIPO_PERSONA_JURIDICA":"A"
+			},
+			"TIPO_PERSONA":"N",
+			"NACIONALIDAD":"pa",
+			"INDUSTRIA":"desarrollo",
+			"FECHA_REGISTRO":"2020-12-01T12:00:00",
+			"OBSERVACION":"ninguna",
+			"PREGUNTAS":[
+			{
+				"CODIGO":"P_TRIBUT",
+				"RESPUESTA":"PA"
+			},
+			{
+				"CODIGO":"P_PYMESJ",
+				"RESPUESTA":"2"
+			},
+			{
+				"CODIGO":"P_CEMPLEADOSN",
+				"RESPUESTA":"1"
+			},
+			{
+				"CODIGO":"P_OPERACION",
+				"RESPUESTA":"N/A"
+			}],
+			"DIGITO_VERIFICADOR":"0",
+			"TIPO_IDENTIFICACION":"3",
+			"FECHA_VENCIMIENTO_ID":"2020-12-01",
+			"FECHA_OPERACION":"2020-12-01",
+			"DIRECCIONES":[
+			{
+				"NOMBRE_PAIS":"PANAMA",
+				"CODIGO_PAIS":"PA",
+				"NOMBRE_ESTADO":"PANAMA",
+				"CODIGO_ESTADO":"08",
+				"NOMBRE_REGION":"PANAMA",
+				"CODIGO_REGION":"0804",
+				"NOMBRE_CIUDAD":"JUAN DIAZ",
+				"CODIGO_CIUDAD":"080410",
+				"BARRIO":"URBANIZACION",
+				"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+				"CALLE_AVENIDA_NRO":"string",
+				"EDIFICIO":"string",
+				"PISO":"string",
+				"ENTRADA":"string",
+				"APTO_CASA":"string", 
+				"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+				"TIPO_DIRECCION":"Y",
+				"ES_CORRESPONDENCIA":"N",
+				"ES_FACTURACION":"Y",
+				"ES_PRINCIPAL":"Y",
+				"OBSERVACION":"MIGRADO",
+				"TELEFONO":"string",
+				"FAX":"string",
+				"EMAIL":"string"
+			}],
+			"CONTACTOS":
+			[{
+				"TIPO":"EMAIL",
+				"VALOR":"prueba@prueba.com",
+				"ES_PRINCIPAL":"Y",
+				"OBSERVACION":"MIGRADO",
+				"IDIOMA":"ESP"
+			}],    
+			"DATOS_BANCARIOS":[
+			{
+				"NUMERO_CUENTA":"0412154232",
+				"BANCO_NOMBRE":"NOMBRE1",
+				"ES_PRINCIPAL":"Y",
+				"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+				"IDENTIFICADOR_CUENTA":"1",
+				"ESTADO":"1",
+				"MONEDA":"PAB"
+			}]
+	   },
+		"NUMERO_POLIZA_CULPABLE":"string",
+		"RAZON_CULPABLE":"string",
+		"ASEGURADORA_CULPABLE":"string"
+	  },
+	  "BENEFICIARIOS":
+	  {
+		"IDENTIFICACION_BENEFICIARIO":"string",
+		"TIPO_PERSONA":"string",
+		"NOMBRE":"string",
+		"TIPO_BENEFICIARIO":"string",
+		"ESTADO_BENEFICIARIO":"string",
+		"MONTO_BENEFICIARIO":"string",
+		"MONTO_SOLICITUD_BENEFICIARIO":"string",
+		"PLAZO_PAGO":"string",
+		"MONEDA":"string",
+		"FECHA_INICIO_BENEFICIARIO":"string",
+		"DURACION_BENEFICIARIO":"string",
+		"EDAD_BENEFICIARIO":"string",
+		"SEXO_BENEFICIARIO":"string",
+		"FECHA_MUERTE_BENEFICIARIO":"string",
+		"TIEMPO_GARANTIA_BENEFICIARIO":"string",
+		"DIA_PAGO_BENEFICIARIO":"string",
+		"MODO_PAGO_BENEFICIARIO":"string",
+		"FECHA_INICIO":"string",	  
+		"HORA_INICIO":"string", 
+		"FECHA_FIN":"string", 
+		"HORA_FIN":"string"
+	  }
+}]
+}
+--------------------------------------------CONSULTAR ESPECIALIDADES MEDICAS----------------------------------------------------
+{
+   "CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+   "CODIGO_ESPECIALIDAD":"ALERT",
+   "CODIGO_GRUPO":""
+}
+
+{
+	"CODIGO_GRUPO": "ALER",
+	"CODIGO_ESPECIALIDAD": "ALER6",
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021-06-16",
+		"ID_TRANSACCION_OSB": "c9d6b2a8-f32c-4109-a2cb-80e21f715201",
+		"FECHA_PROCESAMIENTO": "2021-06-16",
+		"SISTEMA_DESTINO": "Premium",
+		"SISTEMA_ORIGEN": "NubeSeguros",
+		"CODIGO_OPERACION": "43"
+	}
+}	 
+
+
+--------------------------------------------CONSULTAR CARNET----------------------------------------------------
+{
+   "CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+   "CORE":"I",
+   "NUMERO_DE_POLIZA":"100000003896",
+   "IDENTIFICACION":"CL1234"
+}	 
+
+----------------------------------------------CREAR POLIZA ------------------------------------------------------------
+
+{	
+	"CLIENTE":
+	{
+		"PERSONA":
+		{
+			"PERSONA_NATURAL":
+			{
+				"NOMBRE":"jesus",
+				"PRIMER_APELLIDO":"meneses",
+				"SEGUNDO_APELLIDO":"martinez",
+				"IDENTIFICACION":"E-8-146390",
+				"SEXO":"1",
+				"FECHA_DE_NACIMIENTO":"1988-01-29",
+				"IDIOMA":"ESP",
+				"PAIS_RESIDENCIA":"PA"
+			},
+			"PERSONA_JURIDICA":
+			{
+				"RAZONSOCIAL":"soaint",
+				"ID_CLIENTE":"DV9234234932409",
+				"PERIODO_FISCAL":"2021",
+				"TIPO_PERSONA_JURIDICA":"A"
+			},
+			"TIPO_PERSONA":"N",
+			"NACIONALIDAD":"pa",
+			"INDUSTRIA":"desarrollo",
+			"FECHA_REGISTRO":"2020-12-01T12:00:00",
+			"OBSERVACION":"ninguna",
+			"PREGUNTAS":[
+			{
+				"CODIGO":"P_TRIBUT",
+				"RESPUESTA":"PA"
+			},
+			{
+				"CODIGO":"P_PYMESJ",
+				"RESPUESTA":"2"
+			},
+			{
+				"CODIGO":"P_CEMPLEADOSN",
+				"RESPUESTA":"1"
+			},
+			{
+				"CODIGO":"P_OPERACION",
+				"RESPUESTA":"N/A"
+			}],
+			"DIGITO_VERIFICADOR":"0",
+			"TIPO_IDENTIFICACION":"3",
+			"FECHA_VENCIMIENTO_ID":"2020-12-01",
+			"FECHA_OPERACION":"2020-12-01",
+			"DIRECCIONES":[
+			{
+				"NOMBRE_PAIS":"PANAMA",
+				"CODIGO_PAIS":"PA",
+				"NOMBRE_ESTADO":"PANAMA",
+				"CODIGO_ESTADO":"08",
+				"NOMBRE_REGION":"PANAMA",
+				"CODIGO_REGION":"0804",
+				"NOMBRE_CIUDAD":"JUAN DIAZ",
+				"CODIGO_CIUDAD":"080410",
+				"BARRIO":"URBANIZACION",
+				"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+				"CALLE_AVENIDA_NRO":"string",
+				"EDIFICIO":"string",
+				"PISO":"string",
+				"ENTRADA":"string",
+				"APTO_CASA":"string", 
+				"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+				"TIPO_DIRECCION":"Y",
+				"ES_CORRESPONDENCIA":"N",
+				"ES_FACTURACION":"Y",
+				"ES_PRINCIPAL":"Y",
+				"OBSERVACION":"MIGRADO",
+				"TELEFONO":"string",
+				"FAX":"string",
+				"EMAIL":"string"
+			}],
+			"CONTACTOS":
+			[{
+				"TIPO":"EMAIL",
+				"VALOR":"prueba@prueba.com",
+				"ES_PRINCIPAL":"Y",
+				"OBSERVACION":"MIGRADO",
+				"IDIOMA":"ESP"
+			}],    
+			"DATOS_BANCARIOS":[
+			{
+				"NUMERO_CUENTA":"0412154232",
+				"BANCO_NOMBRE":"NOMBRE1",
+				"ES_PRINCIPAL":"Y",
+				"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+				"IDENTIFICADOR_CUENTA":"1",
+				"ESTADO":"1",
+				"MONEDA":"PAB"
+			}]
+	   },
+		"STATUS_IC_CORPORATIVO":"string",
+		"TIPO_CLIENTE":"string",
+		"STATUS_EMPLEADO":"string",
+		"IC_STATUS":"string",
+		"STATUS_OFICIAL":"string",
+		"RENTABILIDAD":"string",
+		"CALIFICACION_RIESGO":"string",
+		"SEGMENTO":"string",
+		"ID_CLIENTE":"string"
+	},
+	"POLIZAS":
+	{
+		"NUMERO_COTIZACION":"string",
+		"TIPO_COTIZACION":"string",
+		"OBSERVACION_COTIZACION":"string",
+		"TIPO_PARTICIPACION":"string",
+		"NUMERO_POLIZA_MAESTRA":"string",
+		"PROPIETARIOS":[{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+		   },
+		   "FECHA_INICIO":"string",
+           "FECHA_FIN":"string",
+           "PORCENTAJE":"string"
+		}],
+		"OBJETO_ASEGURADO":
+		{
+			"ACCIDENTE":
+			{
+				"PERSONA":
+				{
+					"PERSONA_NATURAL":
+					{
+						"NOMBRE":"jesus",
+						"PRIMER_APELLIDO":"meneses",
+						"SEGUNDO_APELLIDO":"martinez",
+						"IDENTIFICACION":"E-8-146390",
+						"SEXO":"1",
+						"FECHA_DE_NACIMIENTO":"1988-01-29",
+						"IDIOMA":"ESP",
+						"PAIS_RESIDENCIA":"PA"
+					},
+					"PERSONA_JURIDICA":
+					{
+						"RAZONSOCIAL":"soaint",
+						"ID_CLIENTE":"DV9234234932409",
+						"PERIODO_FISCAL":"2021",
+						"TIPO_PERSONA_JURIDICA":"A"
+					},
+					"TIPO_PERSONA":"N",
+					"NACIONALIDAD":"pa",
+					"INDUSTRIA":"desarrollo",
+					"FECHA_REGISTRO":"2020-12-01T12:00:00",
+					"OBSERVACION":"ninguna",
+					"PREGUNTAS":[
+					{
+						"CODIGO":"P_TRIBUT",
+						"RESPUESTA":"PA"
+					},
+					{
+						"CODIGO":"P_PYMESJ",
+						"RESPUESTA":"2"
+					},
+					{
+						"CODIGO":"P_CEMPLEADOSN",
+						"RESPUESTA":"1"
+					},
+					{
+						"CODIGO":"P_OPERACION",
+						"RESPUESTA":"N/A"
+					}],
+					"DIGITO_VERIFICADOR":"0",
+					"TIPO_IDENTIFICACION":"3",
+					"FECHA_VENCIMIENTO_ID":"2020-12-01",
+					"FECHA_OPERACION":"2020-12-01",
+					"DIRECCIONES":[
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					}],
+					"CONTACTOS":
+					[{
+						"TIPO":"EMAIL",
+						"VALOR":"prueba@prueba.com",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"IDIOMA":"ESP"
+					}],    
+					"DATOS_BANCARIOS":[
+					{
+						"NUMERO_CUENTA":"0412154232",
+						"BANCO_NOMBRE":"NOMBRE1",
+						"ES_PRINCIPAL":"Y",
+						"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+						"IDENTIFICADOR_CUENTA":"1",
+						"ESTADO":"1",
+						"MONEDA":"PAB"
+					}]
+			   },
+				"EDAD":"string",
+				"TIPO_ACCIDENTE":"string",
+				"SUBTIPO_ACCIDENTE":"string",
+				"ESTATUS_EVALUACION_MEDICA":"string",
+				"DETALLE_EVALUACION_MEDICA":"string",
+				"SEXO":"string",
+				"IDENTIFICACION_REPRESENTANTE":"string",
+				"RELACION_FAMILIAR":"string",
+			},
+			"EQUIPO":
+			{
+				"IDENTIFICADOR_EQUIPO":"string",
+				"TIPO_EQUIPO":"string",
+				"SUBTIPO_EQUIPO":"string",
+				"MODELO":"string",
+				"SERIAL":"string",
+				"VALOR_EQUIPO":"string",
+				"MONEDA":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"CULTIVO":
+			{
+				"TIPO_CULTIVO":"string",
+				"SUBTIPO_CULTIVO":"string",
+				"AREA":"string",
+				"REGION":"string",
+				"RIESGO":"string",
+				"IDENTIFICACION_CULTIVO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"ANIMALES":
+			{
+				"TIPO_ANIMALES":"string",
+				"SUBTIPO_ANIMALES":"string",
+				"RAZA":"string",
+				"NOMBRE":"string",
+				"CARACTERISTICAS":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"AUTO":
+			{
+				"TIPO_AUTO":"string",
+				"SUBTIPO_AUTO":"string",
+				"NUMERO_PLACA":"string",
+				"MARCA":"string",
+				"MODELO":"string",
+				"NO_MOTOR":"string",
+				"CHASIS":"string",
+				"ACTIVIDAD":"string",
+				"TONELAJE":"string",
+				"NUMERO_ASIENTOS":"string",
+				"NUMERO_PUERTAS":"string",
+				"TIPO_PINTURA":"string",
+				"ANNIO":"string",
+				"CANTIDAD_ANNIO":"string",
+				"COLOR":"string",
+				"REGISTRO":"string",
+				"CABALLOS_FUERZA":"string",
+				"TONELAJE_CARGA":"string",
+				"TIPO_MOTOR":"string",
+				"TIPO_COMBUSTIBLE":"string",
+				"TIPO_CONDUCTOR":"string",
+				"TIPO_CARROCERIA":"string",
+				"COLOR_VENTANAS":"string",
+				"DESCRIPCION":"string",
+				"EQUIPO_SUPLEMENTARIO":
+				{
+					"IDENTIFICADOR_PADRE":"string",
+					"EQUIPO":"string"
+				},
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			},
+			"CARGA":
+			{
+				"TIPO_CARGA":"string",
+				"SUBTIPO_CARGA":"string",
+				"POLITICAS_CARGA":"string",
+				"DESCRIPCION":"string",
+				"TIPO_EMBALAJE":"string",
+				"IDENTIFICADOR_CAJA":"string",
+				"IDENTIFICADOR_TERRITORIO":"string",
+				"PAIS_ORIGEN":"string",
+				"PAIS_DESTINO":"string",
+				"VIA":"string",
+				"DESTINO":"string",
+				"TIPO_TRANSPORTE":"string",
+				"TIPO_VEHICULO":"string",
+				"NUMERO_ENVIO":"string",       
+				"FECHA_ENVIO":"string",
+				"DESCRIPCION_MERCANCIA":"string",
+				"DISTANCIA":"string",
+				"AGENTE_MEDIADOR":"string",
+				"MEDIO_TRANSPORTE":"string",
+				"IDENTIFICADOR_RIESGO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"GRUPO":
+			{
+				"TIPO_GRUPO":"string",
+				"SUBTIPO_GRUPO":"string",
+				"DESCRIPCION":"string",
+				"RIESGO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			},
+			"RESPONSABILIDAD":
+			{
+				"TIPO_RESPONSABILIDAD":"string",
+				"SUBTIPO_RESPONSABILIDAD":"string",
+				"DESCRIPCION":"string",
+				"RIESGO":"string",
+				"DIRECCION":
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				},
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"OBJETO_PERDIDO":
+			{
+				"DESCRIPCION":"string",
+				"NOTAS":"string",
+				"DIRECCION":
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				},
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"PERSONA_ASEGURADA":
+			{
+				"PERSONA":
+				{
+					"PERSONA_NATURAL":
+					{
+						"NOMBRE":"jesus",
+						"PRIMER_APELLIDO":"meneses",
+						"SEGUNDO_APELLIDO":"martinez",
+						"IDENTIFICACION":"E-8-146390",
+						"SEXO":"1",
+						"FECHA_DE_NACIMIENTO":"1988-01-29",
+						"IDIOMA":"ESP",
+						"PAIS_RESIDENCIA":"PA"
+					},
+					"PERSONA_JURIDICA":
+					{
+						"RAZONSOCIAL":"soaint",
+						"ID_CLIENTE":"DV9234234932409",
+						"PERIODO_FISCAL":"2021",
+						"TIPO_PERSONA_JURIDICA":"A"
+					},
+					"TIPO_PERSONA":"N",
+					"NACIONALIDAD":"pa",
+					"INDUSTRIA":"desarrollo",
+					"FECHA_REGISTRO":"2020-12-01T12:00:00",
+					"OBSERVACION":"ninguna",
+					"PREGUNTAS":[
+					{
+						"CODIGO":"P_TRIBUT",
+						"RESPUESTA":"PA"
+					},
+					{
+						"CODIGO":"P_PYMESJ",
+						"RESPUESTA":"2"
+					},
+					{
+						"CODIGO":"P_CEMPLEADOSN",
+						"RESPUESTA":"1"
+					},
+					{
+						"CODIGO":"P_OPERACION",
+						"RESPUESTA":"N/A"
+					}],
+					"DIGITO_VERIFICADOR":"0",
+					"TIPO_IDENTIFICACION":"3",
+					"FECHA_VENCIMIENTO_ID":"2020-12-01",
+					"FECHA_OPERACION":"2020-12-01",
+					"DIRECCIONES":[
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					}],
+					"CONTACTOS":
+					[{
+						"TIPO":"EMAIL",
+						"VALOR":"prueba@prueba.com",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"IDIOMA":"ESP"
+					}],    
+					"DATOS_BANCARIOS":[
+					{
+						"NUMERO_CUENTA":"0412154232",
+						"BANCO_NOMBRE":"NOMBRE1",
+						"ES_PRINCIPAL":"Y",
+						"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+						"IDENTIFICADOR_CUENTA":"1",
+						"ESTADO":"1",
+						"MONEDA":"PAB"
+					}]
+			   },
+			   "ROL":"string",
+			   "RIESGO":"string",
+			   "CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"AVION":
+			{
+				"FABRICANTE":"string",
+				"TIPO_AVION":"string",
+				"SUBTIPO_AVION":"string",
+				"NRO_REGISTRO":"string",
+				"NRO_PRODUCTO":"string",
+				"ANIO":"string",
+				"PESO":"string",
+				"NRO_ASIENTOS":"string",
+				"HISTORIAL_VUELO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			},
+			"PROPIEDAD":
+			{
+				"NOMBRE":"string",
+				"TIPO_PROPIEDAD":"string",
+				"SUBTIPO_PROPIEDAD":"string",
+				"DIRECCION":
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				},
+				"RIESGO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}	
+			},
+			"CONSTRUCCION":
+			{
+				"AREA":"string",
+				"TIPO_CONSTRUCCION":"string",
+				"SUBTIPO_CONSTRUCCION":"string",
+				"DIRECCION":
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				},
+				"DESCRIPCION":"string",
+				"RIESGO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			},
+			"EMBARCACION":
+			{
+				"NOMBRE":"string",
+				"TIPO_EMBARCACION":"string",
+				"SUBTIPO_EMBARCACION":"string",
+				"CLASE_EMBARCACION":"string",
+				"NRO_REGISTRO":"string",
+				"PUERTO_REGISTRO":"string",
+				"ARQUEO_BRUTO":"string",
+				"ARQUEO_NETO":"string",
+				"CLASE_PROPIETARIO":"string",
+				"LARGO":"string",
+				"ALTO":"string",
+				"ANCHO":"string",
+				"VADEO":"string",
+				"PESO_MUERTO":"string",
+				"REGION":"string",
+				"ASEGURADORA_ANTERIOR":"string",
+				"NRO_PASAJEROS":"string",
+				"NRO_TRIPULACION":"string",
+				"FECHA_MANTENIMIENTO":"string",
+				"MOTOR":"string",
+				"INFORMACION_PRODUCCION":"string",
+				"ANIO_PRODUCCION":"string",
+				"FABRICANTE":"string",
+				"EQUIPO_SUPLEMENTARIO":
+				{
+					"IDENTIFICADOR_PADRE":"string",
+					"EQUIPO":"string"
+				},
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			},
+			"TREN":
+			{
+				"NOMBRE":"string",
+				"TIPO_EMBARCACION":"string",
+				"SUBTIPO_EMBARCACION":"string",
+				"NRO_REGISTRO":"string",
+				"CREDITO":
+				{
+					"IDENTIFICADOR_CREDITO":"string",
+					"MONTO":"string",
+					"FECHA":"string",
+					"FECHA_FINALIZACION":"string",
+					"TASA_INTERES":"string",
+					"NUMERO_PAGOS":"string"
+				}
+			}
+		},
+		"MONTO_ASEGURADO":"string",
+		"MONEDA":"string",
+		"VALOR_ACTUAL":"string",
+		"MONEDA_VALOR_ACTUAL":"string",
+		"FECHA_INICIO":"string",
+		"FECHA_FIN":"string",
+		"DURACION_PAGOS":"string",
+		"TIPO_DURACION":"string",
+		"RIESGO":"string",
+		"OBJETO_SUPLEMENTARIO":
+		{
+			"DESCRIPCION":"string",
+			"OBJETO_ASEGURADO":
+			{
+				"ACCIDENTE":
+				{
+					"PERSONA":
+					{
+						"PERSONA_NATURAL":
+						{
+							"NOMBRE":"jesus",
+							"PRIMER_APELLIDO":"meneses",
+							"SEGUNDO_APELLIDO":"martinez",
+							"IDENTIFICACION":"E-8-146390",
+							"SEXO":"1",
+							"FECHA_DE_NACIMIENTO":"1988-01-29",
+							"IDIOMA":"ESP",
+							"PAIS_RESIDENCIA":"PA"
+						},
+						"PERSONA_JURIDICA":
+						{
+							"RAZONSOCIAL":"soaint",
+							"ID_CLIENTE":"DV9234234932409",
+							"PERIODO_FISCAL":"2021",
+							"TIPO_PERSONA_JURIDICA":"A"
+						},
+						"TIPO_PERSONA":"N",
+						"NACIONALIDAD":"pa",
+						"INDUSTRIA":"desarrollo",
+						"FECHA_REGISTRO":"2020-12-01T12:00:00",
+						"OBSERVACION":"ninguna",
+						"PREGUNTAS":[
+						{
+							"CODIGO":"P_TRIBUT",
+							"RESPUESTA":"PA"
+						},
+						{
+							"CODIGO":"P_PYMESJ",
+							"RESPUESTA":"2"
+						},
+						{
+							"CODIGO":"P_CEMPLEADOSN",
+							"RESPUESTA":"1"
+						},
+						{
+							"CODIGO":"P_OPERACION",
+							"RESPUESTA":"N/A"
+						}],
+						"DIGITO_VERIFICADOR":"0",
+						"TIPO_IDENTIFICACION":"3",
+						"FECHA_VENCIMIENTO_ID":"2020-12-01",
+						"FECHA_OPERACION":"2020-12-01",
+						"DIRECCIONES":[
+						{
+							"NOMBRE_PAIS":"PANAMA",
+							"CODIGO_PAIS":"PA",
+							"NOMBRE_ESTADO":"PANAMA",
+							"CODIGO_ESTADO":"08",
+							"NOMBRE_REGION":"PANAMA",
+							"CODIGO_REGION":"0804",
+							"NOMBRE_CIUDAD":"JUAN DIAZ",
+							"CODIGO_CIUDAD":"080410",
+							"BARRIO":"URBANIZACION",
+							"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+							"CALLE_AVENIDA_NRO":"string",
+							"EDIFICIO":"string",
+							"PISO":"string",
+							"ENTRADA":"string",
+							"APTO_CASA":"string", 
+							"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+							"TIPO_DIRECCION":"Y",
+							"ES_CORRESPONDENCIA":"N",
+							"ES_FACTURACION":"Y",
+							"ES_PRINCIPAL":"Y",
+							"OBSERVACION":"MIGRADO",
+							"TELEFONO":"string",
+							"FAX":"string",
+							"EMAIL":"string"
+						}],
+						"CONTACTOS":
+						[{
+							"TIPO":"EMAIL",
+							"VALOR":"prueba@prueba.com",
+							"ES_PRINCIPAL":"Y",
+							"OBSERVACION":"MIGRADO",
+							"IDIOMA":"ESP"
+						}],    
+						"DATOS_BANCARIOS":[
+						{
+							"NUMERO_CUENTA":"0412154232",
+							"BANCO_NOMBRE":"NOMBRE1",
+							"ES_PRINCIPAL":"Y",
+							"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+							"IDENTIFICADOR_CUENTA":"1",
+							"ESTADO":"1",
+							"MONEDA":"PAB"
+						}]
+				   },
+					"EDAD":"string",
+					"TIPO_ACCIDENTE":"string",
+					"SUBTIPO_ACCIDENTE":"string",
+					"ESTATUS_EVALUACION_MEDICA":"string",
+					"DETALLE_EVALUACION_MEDICA":"string",
+					"SEXO":"string",
+					"IDENTIFICACION_REPRESENTANTE":"string",
+					"RELACION_FAMILIAR":"string",
+				},
+				"EQUIPO":
+				{
+					"IDENTIFICADOR_EQUIPO":"string",
+					"TIPO_EQUIPO":"string",
+					"SUBTIPO_EQUIPO":"string",
+					"MODELO":"string",
+					"SERIAL":"string",
+					"VALOR_EQUIPO":"string",
+					"MONEDA":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"CULTIVO":
+				{
+					"TIPO_CULTIVO":"string",
+					"SUBTIPO_CULTIVO":"string",
+					"AREA":"string",
+					"REGION":"string",
+					"RIESGO":"string",
+					"IDENTIFICACION_CULTIVO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"ANIMALES":
+				{
+					"TIPO_ANIMALES":"string",
+					"SUBTIPO_ANIMALES":"string",
+					"RAZA":"string",
+					"NOMBRE":"string",
+					"CARACTERISTICAS":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"AUTO":
+				{
+					"TIPO_AUTO":"string",
+					"SUBTIPO_AUTO":"string",
+					"NUMERO_PLACA":"string",
+					"MARCA":"string",
+					"MODELO":"string",
+					"NO_MOTOR":"string",
+					"CHASIS":"string",
+					"ACTIVIDAD":"string",
+					"TONELAJE":"string",
+					"NUMERO_ASIENTOS":"string",
+					"NUMERO_PUERTAS":"string",
+					"TIPO_PINTURA":"string",
+					"ANNIO":"string",
+					"CANTIDAD_ANNIO":"string",
+					"COLOR":"string",
+					"REGISTRO":"string",
+					"CABALLOS_FUERZA":"string",
+					"TONELAJE_CARGA":"string",
+					"TIPO_MOTOR":"string",
+					"TIPO_COMBUSTIBLE":"string",
+					"TIPO_CONDUCTOR":"string",
+					"TIPO_CARROCERIA":"string",
+					"COLOR_VENTANAS":"string",
+					"DESCRIPCION":"string",
+					"EQUIPO_SUPLEMENTARIO":
+					{
+						"IDENTIFICADOR_PADRE":"string",
+						"EQUIPO":"string"
+					},
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				},
+				"CARGA":
+				{
+					"TIPO_CARGA":"string",
+					"SUBTIPO_CARGA":"string",
+					"POLITICAS_CARGA":"string",
+					"DESCRIPCION":"string",
+					"TIPO_EMBALAJE":"string",
+					"IDENTIFICADOR_CAJA":"string",
+					"IDENTIFICADOR_TERRITORIO":"string",
+					"PAIS_ORIGEN":"string",
+					"PAIS_DESTINO":"string",
+					"VIA":"string",
+					"DESTINO":"string",
+					"TIPO_TRANSPORTE":"string",
+					"TIPO_VEHICULO":"string",
+					"NUMERO_ENVIO":"string",       
+					"FECHA_ENVIO":"string",
+					"DESCRIPCION_MERCANCIA":"string",
+					"DISTANCIA":"string",
+					"AGENTE_MEDIADOR":"string",
+					"MEDIO_TRANSPORTE":"string",
+					"IDENTIFICADOR_RIESGO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"GRUPO":
+				{
+					"TIPO_GRUPO":"string",
+					"SUBTIPO_GRUPO":"string",
+					"DESCRIPCION":"string",
+					"RIESGO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				},
+				"RESPONSABILIDAD":
+				{
+					"TIPO_RESPONSABILIDAD":"string",
+					"SUBTIPO_RESPONSABILIDAD":"string",
+					"DESCRIPCION":"string",
+					"RIESGO":"string",
+					"DIRECCION":
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					},
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"OBJETO_PERDIDO":
+				{
+					"DESCRIPCION":"string",
+					"NOTAS":"string",
+					"DIRECCION":
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					},
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"PERSONA_ASEGURADA":
+				{
+					"PERSONA":
+					{
+						"PERSONA_NATURAL":
+						{
+							"NOMBRE":"jesus",
+							"PRIMER_APELLIDO":"meneses",
+							"SEGUNDO_APELLIDO":"martinez",
+							"IDENTIFICACION":"E-8-146390",
+							"SEXO":"1",
+							"FECHA_DE_NACIMIENTO":"1988-01-29",
+							"IDIOMA":"ESP",
+							"PAIS_RESIDENCIA":"PA"
+						},
+						"PERSONA_JURIDICA":
+						{
+							"RAZONSOCIAL":"soaint",
+							"ID_CLIENTE":"DV9234234932409",
+							"PERIODO_FISCAL":"2021",
+							"TIPO_PERSONA_JURIDICA":"A"
+						},
+						"TIPO_PERSONA":"N",
+						"NACIONALIDAD":"pa",
+						"INDUSTRIA":"desarrollo",
+						"FECHA_REGISTRO":"2020-12-01T12:00:00",
+						"OBSERVACION":"ninguna",
+						"PREGUNTAS":[
+						{
+							"CODIGO":"P_TRIBUT",
+							"RESPUESTA":"PA"
+						},
+						{
+							"CODIGO":"P_PYMESJ",
+							"RESPUESTA":"2"
+						},
+						{
+							"CODIGO":"P_CEMPLEADOSN",
+							"RESPUESTA":"1"
+						},
+						{
+							"CODIGO":"P_OPERACION",
+							"RESPUESTA":"N/A"
+						}],
+						"DIGITO_VERIFICADOR":"0",
+						"TIPO_IDENTIFICACION":"3",
+						"FECHA_VENCIMIENTO_ID":"2020-12-01",
+						"FECHA_OPERACION":"2020-12-01",
+						"DIRECCIONES":[
+						{
+							"NOMBRE_PAIS":"PANAMA",
+							"CODIGO_PAIS":"PA",
+							"NOMBRE_ESTADO":"PANAMA",
+							"CODIGO_ESTADO":"08",
+							"NOMBRE_REGION":"PANAMA",
+							"CODIGO_REGION":"0804",
+							"NOMBRE_CIUDAD":"JUAN DIAZ",
+							"CODIGO_CIUDAD":"080410",
+							"BARRIO":"URBANIZACION",
+							"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+							"CALLE_AVENIDA_NRO":"string",
+							"EDIFICIO":"string",
+							"PISO":"string",
+							"ENTRADA":"string",
+							"APTO_CASA":"string", 
+							"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+							"TIPO_DIRECCION":"Y",
+							"ES_CORRESPONDENCIA":"N",
+							"ES_FACTURACION":"Y",
+							"ES_PRINCIPAL":"Y",
+							"OBSERVACION":"MIGRADO",
+							"TELEFONO":"string",
+							"FAX":"string",
+							"EMAIL":"string"
+						}],
+						"CONTACTOS":
+						[{
+							"TIPO":"EMAIL",
+							"VALOR":"prueba@prueba.com",
+							"ES_PRINCIPAL":"Y",
+							"OBSERVACION":"MIGRADO",
+							"IDIOMA":"ESP"
+						}],    
+						"DATOS_BANCARIOS":[
+						{
+							"NUMERO_CUENTA":"0412154232",
+							"BANCO_NOMBRE":"NOMBRE1",
+							"ES_PRINCIPAL":"Y",
+							"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+							"IDENTIFICADOR_CUENTA":"1",
+							"ESTADO":"1",
+							"MONEDA":"PAB"
+						}]
+				   },
+				   "ROL":"string",
+				   "RIESGO":"string",
+				   "CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"AVION":
+				{
+					"FABRICANTE":"string",
+					"TIPO_AVION":"string",
+					"SUBTIPO_AVION":"string",
+					"NRO_REGISTRO":"string",
+					"NRO_PRODUCTO":"string",
+					"ANIO":"string",
+					"PESO":"string",
+					"NRO_ASIENTOS":"string",
+					"HISTORIAL_VUELO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				},
+				"PROPIEDAD":
+				{
+					"NOMBRE":"string",
+					"TIPO_PROPIEDAD":"string",
+					"SUBTIPO_PROPIEDAD":"string",
+					"DIRECCION":
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					},
+					"RIESGO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}	
+				},
+				"CONSTRUCCION":
+				{
+					"AREA":"string",
+					"TIPO_CONSTRUCCION":"string",
+					"SUBTIPO_CONSTRUCCION":"string",
+					"DIRECCION":
+					{
+						"NOMBRE_PAIS":"PANAMA",
+						"CODIGO_PAIS":"PA",
+						"NOMBRE_ESTADO":"PANAMA",
+						"CODIGO_ESTADO":"08",
+						"NOMBRE_REGION":"PANAMA",
+						"CODIGO_REGION":"0804",
+						"NOMBRE_CIUDAD":"JUAN DIAZ",
+						"CODIGO_CIUDAD":"080410",
+						"BARRIO":"URBANIZACION",
+						"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+						"CALLE_AVENIDA_NRO":"string",
+						"EDIFICIO":"string",
+						"PISO":"string",
+						"ENTRADA":"string",
+						"APTO_CASA":"string", 
+						"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+						"TIPO_DIRECCION":"Y",
+						"ES_CORRESPONDENCIA":"N",
+						"ES_FACTURACION":"Y",
+						"ES_PRINCIPAL":"Y",
+						"OBSERVACION":"MIGRADO",
+						"TELEFONO":"string",
+						"FAX":"string",
+						"EMAIL":"string"
+					},
+					"DESCRIPCION":"string",
+					"RIESGO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				},
+				"EMBARCACION":
+				{
+					"NOMBRE":"string",
+					"TIPO_EMBARCACION":"string",
+					"SUBTIPO_EMBARCACION":"string",
+					"CLASE_EMBARCACION":"string",
+					"NRO_REGISTRO":"string",
+					"PUERTO_REGISTRO":"string",
+					"ARQUEO_BRUTO":"string",
+					"ARQUEO_NETO":"string",
+					"CLASE_PROPIETARIO":"string",
+					"LARGO":"string",
+					"ALTO":"string",
+					"ANCHO":"string",
+					"VADEO":"string",
+					"PESO_MUERTO":"string",
+					"REGION":"string",
+					"ASEGURADORA_ANTERIOR":"string",
+					"NRO_PASAJEROS":"string",
+					"NRO_TRIPULACION":"string",
+					"FECHA_MANTENIMIENTO":"string",
+					"MOTOR":"string",
+					"INFORMACION_PRODUCCION":"string",
+					"ANIO_PRODUCCION":"string",
+					"FABRICANTE":"string",
+					"EQUIPO_SUPLEMENTARIO":
+					{
+						"IDENTIFICADOR_PADRE":"string",
+						"EQUIPO":"string"
+					},
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				},
+				"TREN":
+				{
+					"NOMBRE":"string",
+					"TIPO_EMBARCACION":"string",
+					"SUBTIPO_EMBARCACION":"string",
+					"NRO_REGISTRO":"string",
+					"CREDITO":
+					{
+						"IDENTIFICADOR_CREDITO":"string",
+						"MONTO":"string",
+						"FECHA":"string",
+						"FECHA_FINALIZACION":"string",
+						"TASA_INTERES":"string",
+						"NUMERO_PAGOS":"string"
+					}
+				}
+			},
+			"FECHA_INICIO":"string",
+			"MONTO":"string",      
+		},		
+		"PAQUETE_COBERTURA":
+		{
+			"NOMBRE_PAQUETE":"string",
+			"IDENTIFICADOR_PAQUETE":"string",
+			"COBERTURA":
+			{
+				"CODIGO":"string",
+				"NUMERO_OBJETOS":"string",
+				"MONTO":"string",
+				"MONEDA":"string",
+				"FECHA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"ESTADO":"string",
+				"MONTO_PRIMA_COBERTURA":"string",
+				"RIESGOS":
+				{
+					"TIPO_RIESGO":"string",
+					"TIPO_FRANQUICIA":"string",
+					"DIMENSION_FRANQUICIA":"string",
+					"MONTO_FRANQUICIA":"string",
+					"MONEDA_FRANQUICIA":"string",
+					"MINIMO_FRANQUICIA":"string",
+					"MAXIMO_FRANQUICIA":"string",
+					"LIMITE":
+					{
+						"TIPO_PERDIDA":"string",
+						"TIPO_LIMITE":"string",
+						"MONTO_LIMITE":"string",
+						"MONEDA_LIMITE":"string",
+						"DIMENSION_LIMITE":"string"
+					},
+					"TERRITORIO":
+					{
+						"CODIGO_TERRITORIO":"string",
+						"CODIGO_PAIS":"string",
+						"FECHA_INICIO":"string",
+						"HORA_INICIO":"string",
+						"FECHA_FIN":"string",
+						"HORA_FIN":"string"
+					}	
+				},
+				"CONTRIBUCIONES":[
+				{
+					"IDENTIFICADOR_PLAN":"string",
+					"IDENTIFICADOR_POLIZA":"string",
+					"IDENTIFICADOR_CUENTA":"string",
+					"IDENTIFICADOR_ANEXO":"string",
+					"TIPO_CUENTA_PAGO":"string",
+					"MONTO":"string",
+					"MONEDA":"string",
+					"PERIODO":"string",
+					"FECHA_VENCIMIENTO":"string"
+				}],
+				"ENDOSOS":[
+				{
+					"CODIGO_ENDOSO":"string",
+					"SUBTIPO_ENDOSO":"string",
+					"DESCRIPCION":"string",
+					"FECHA_INICIO":"string",
+					"HORA_INICIO":"string",
+					"FECHA_FIN":"string",
+					"HORA_FIN":"string"
+				}],
+				"TERRITORIOS":[
+				{
+					"CODIGO_TERRITORIO":"string",
+					"CODIGO_PAIS":"string",
+					"FECHA_INICIO":"string",
+					"HORA_INICIO":"string",
+					"FECHA_FIN":"string",
+					"HORA_FIN":"string"
+				}],		
+				"DESCUENTOS":[
+				{
+					"TIPO_DESCUENTO":"string",
+					"VALOR":"string",
+					"TARIFA":"string"
+				}],
+				"IMDEMNIZACIONES":[
+				{
+					"TIPO_FRANQUICIA":"string",
+					"DIMENSION_FRANQUICIA":"string",
+					"VALOR_FRANQUICIA":"string",
+					"MINIMO_FRANQUICIA":"string",
+					"MAXIMO_FRANQUICIA":"string",
+					"MONEDA":"string",
+					"IDENTIFICADOR_RECLAMO":"string",
+					"PORCENTAJE":"string"
+				}],
+				"IMPUESTOS":[
+				{
+					"TIPO_IMPUESTO":"string",
+					"TASA":"string",
+					"MONTO":"string"     
+				}],		
+				"LIMITES":[
+				{
+					"TIPO_PERDIDA":"string",
+					"TIPO_LIMITE":"string",
+					"MONTO_LIMITE":"string",
+					"MONEDA_LIMITE":"string",
+					"DIMENSION_LIMITE":"string"
+				}]
+			}	
+		},
+		"COBERTURAS":[
+		{
+			"CODIGO":"string",
+			"NUMERO_OBJETOS":"string",
+			"MONTO":"string",
+			"MONEDA":"string",
+			"FECHA_INICIO":"string",
+			"FECHA_FIN":"string",
+			"ESTADO":"string",
+			"MONTO_PRIMA_COBERTURA":"string",
+			"RIESGOS":
+			{
+				"TIPO_RIESGO":"string",
+				"TIPO_FRANQUICIA":"string",
+				"DIMENSION_FRANQUICIA":"string",
+				"MONTO_FRANQUICIA":"string",
+				"MONEDA_FRANQUICIA":"string",
+				"MINIMO_FRANQUICIA":"string",
+				"MAXIMO_FRANQUICIA":"string",
+				"LIMITE":
+				{
+					"TIPO_PERDIDA":"string",
+					"TIPO_LIMITE":"string",
+					"MONTO_LIMITE":"string",
+					"MONEDA_LIMITE":"string",
+					"DIMENSION_LIMITE":"string"
+				},
+				"TERRITORIO":
+				{
+					"CODIGO_TERRITORIO":"string",
+					"CODIGO_PAIS":"string",
+					"FECHA_INICIO":"string",
+					"HORA_INICIO":"string",
+					"FECHA_FIN":"string",
+					"HORA_FIN":"string"
+				}	
+			},
+			"CONTRIBUCIONES":[
+			{
+				"IDENTIFICADOR_PLAN":"string",
+				"IDENTIFICADOR_POLIZA":"string",
+				"IDENTIFICADOR_CUENTA":"string",
+				"IDENTIFICADOR_ANEXO":"string",
+				"TIPO_CUENTA_PAGO":"string",
+				"MONTO":"string",
+				"MONEDA":"string",
+				"PERIODO":"string",
+				"FECHA_VENCIMIENTO":"string"
+			}],
+			"ENDOSOS":[
+			{
+				"CODIGO_ENDOSO":"string",
+				"SUBTIPO_ENDOSO":"string",
+				"DESCRIPCION":"string",
+				"FECHA_INICIO":"string",
+				"HORA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"HORA_FIN":"string"
+			}],
+			"TERRITORIOS":[
+			{
+				"CODIGO_TERRITORIO":"string",
+				"CODIGO_PAIS":"string",
+				"FECHA_INICIO":"string",
+				"HORA_INICIO":"string",
+				"FECHA_FIN":"string",
+				"HORA_FIN":"string"
+			}],		
+			"DESCUENTOS":[
+			{
+				"TIPO_DESCUENTO":"string",
+				"VALOR":"string",
+				"TARIFA":"string"
+			}],
+			"IMDEMNIZACIONES":[
+			{
+				"TIPO_FRANQUICIA":"string",
+				"DIMENSION_FRANQUICIA":"string",
+				"VALOR_FRANQUICIA":"string",
+				"MINIMO_FRANQUICIA":"string",
+				"MAXIMO_FRANQUICIA":"string",
+				"MONEDA":"string",
+				"IDENTIFICADOR_RECLAMO":"string",
+				"PORCENTAJE":"string"
+			}],
+			"IMPUESTOS":[
+			{
+				"TIPO_IMPUESTO":"string",
+				"TASA":"string",
+				"MONTO":"string"     
+			}],		
+			"LIMITES":[
+			{
+				"TIPO_PERDIDA":"string",
+				"TIPO_LIMITE":"string",
+				"MONTO_LIMITE":"string",
+				"MONEDA_LIMITE":"string",
+				"DIMENSION_LIMITE":"string"
+			}]
+		}],
+		"DESCUENTOS":[
+		{
+			"TIPO_DESCUENTO":"string",
+			"VALOR":"string",
+			"TARIFA":"string"
+		}],
+		"LIMITES":[
+		{
+				"TIPO_PERDIDA":"string",
+				"TIPO_LIMITE":"string",
+				"MONTO_LIMITE":"string",
+				"MONEDA_LIMITE":"string",
+				"DIMENSION_LIMITE":"string"
+		}],
+		"CONDUCTORES":
+		[{
+			"PERSONA":
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+			},
+			"NRO_LICENCIA":"string",
+			"EXPERIENCIA":"string",
+			"EDAD":"string"
+		}],
+		"TERRITORIOS":[
+		{
+			"CODIGO_TERRITORIO":"string",
+			"CODIGO_PAIS":"string",
+			"FECHA_INICIO":"string",
+			"HORA_INICIO":"string",
+			"FECHA_FIN":"string",
+			"HORA_FIN":"string"
+		}],
+		"PARTICIPANTES":
+		{
+			"PERSONA":[
+			{
+				"PERSONA_NATURAL":
+				{
+					"NOMBRE":"jesus",
+					"PRIMER_APELLIDO":"meneses",
+					"SEGUNDO_APELLIDO":"martinez",
+					"IDENTIFICACION":"E-8-146390",
+					"SEXO":"1",
+					"FECHA_DE_NACIMIENTO":"1988-01-29",
+					"IDIOMA":"ESP",
+					"PAIS_RESIDENCIA":"PA"
+				},
+				"PERSONA_JURIDICA":
+				{
+					"RAZONSOCIAL":"soaint",
+					"ID_CLIENTE":"DV9234234932409",
+					"PERIODO_FISCAL":"2021",
+					"TIPO_PERSONA_JURIDICA":"A"
+				},
+				"TIPO_PERSONA":"N",
+				"NACIONALIDAD":"pa",
+				"INDUSTRIA":"desarrollo",
+				"FECHA_REGISTRO":"2020-12-01T12:00:00",
+				"OBSERVACION":"ninguna",
+				"PREGUNTAS":[
+				{
+					"CODIGO":"P_TRIBUT",
+					"RESPUESTA":"PA"
+				},
+				{
+					"CODIGO":"P_PYMESJ",
+					"RESPUESTA":"2"
+				},
+				{
+					"CODIGO":"P_CEMPLEADOSN",
+					"RESPUESTA":"1"
+				},
+				{
+					"CODIGO":"P_OPERACION",
+					"RESPUESTA":"N/A"
+				}],
+				"DIGITO_VERIFICADOR":"0",
+				"TIPO_IDENTIFICACION":"3",
+				"FECHA_VENCIMIENTO_ID":"2020-12-01",
+				"FECHA_OPERACION":"2020-12-01",
+				"DIRECCIONES":[
+				{
+					"NOMBRE_PAIS":"PANAMA",
+					"CODIGO_PAIS":"PA",
+					"NOMBRE_ESTADO":"PANAMA",
+					"CODIGO_ESTADO":"08",
+					"NOMBRE_REGION":"PANAMA",
+					"CODIGO_REGION":"0804",
+					"NOMBRE_CIUDAD":"JUAN DIAZ",
+					"CODIGO_CIUDAD":"080410",
+					"BARRIO":"URBANIZACION",
+					"CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO":"string",
+					"EDIFICIO":"string",
+					"PISO":"string",
+					"ENTRADA":"string",
+					"APTO_CASA":"string", 
+					"DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION":"Y",
+					"ES_CORRESPONDENCIA":"N",
+					"ES_FACTURACION":"Y",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"TELEFONO":"string",
+					"FAX":"string",
+					"EMAIL":"string"
+				}],
+				"CONTACTOS":
+				[{
+					"TIPO":"EMAIL",
+					"VALOR":"prueba@prueba.com",
+					"ES_PRINCIPAL":"Y",
+					"OBSERVACION":"MIGRADO",
+					"IDIOMA":"ESP"
+				}],    
+				"DATOS_BANCARIOS":[
+				{
+					"NUMERO_CUENTA":"0412154232",
+					"BANCO_NOMBRE":"NOMBRE1",
+					"ES_PRINCIPAL":"Y",
+					"IDENTIFICADOR_BANCO":"BANCO GENERAL",
+					"IDENTIFICADOR_CUENTA":"1",
+					"ESTADO":"1",
+					"MONEDA":"PAB"
+				}]
+			}],
+			"RELACION":"string",
+			"ESTATUS":"string",
+			"IDIOMA":"string",
+			"FECHA_REPORTE":"string",
+			"PORCENTAJE_REPORTE":"string",
+			"PERSONA_ROL":"string"
+		}
+	}
+}
+
+----------------------------------------------CREAR RECLAMO HLT ---------------------------------
+
+
+
+{
+"OPCION_RECLAMO":"HLT",
+"RECLAMO":  
+{
+"HORA_EVENTO":  	"12:45:00"	,
+"ID_TARJETA":  	"11400000000356"	,
+"CODIGO_PRODUCTO":  	"01"	,
+"FECHA_REGISTRO":  	"2021-01-01"	,
+"TIPO_EVENTO":  	"24"	,
+"CODIGO_PAIS_EVENTO":  	"PA"	,
+"CAUSA_RECLAMO":  	"23"	,
+"CODIGO_TARJETA":  	"21424"	,
+"NUMERO_POLIZA":  	"100000003487"	,
+"FECHA_EVENTO":  	"2020-01-01"	,
+"COMENTARIO_RECLAMO":  	"este es el comentario"	,
+"LUGAR_EVENTO":  	"su casa"	,
+"INFORMACION_ASEGURADORA":  	"assa"	,
+"FECHA_MUERTE":  	"2021-01-02"	,
+"CONCEPTO_RECLAMO":  	"concepto"	,
+"NO_RECLAMO_ASEGURADORA":  	"2321312"
+},
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021-05-04"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+}
+}
+
+
+-----------------------------------------BSS CONFIRMAR POLIZA -----------------------------------------
+
+
+{
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021-05-04"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+},
+"NUMERO_DE_POLIZA":"100000005434",
+"PASO_EJECUCION":"1"
+}
+
+
+-----------------------------------------DAT CONVERTIR COTIZACION SOLICITUD -----------------------------------------
+
+
+{
+"NUMERO_DE_POLIZA":  	"100000005449"	,
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021/6/29"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+}
+}
+
+<soapenv:Body 	xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<ConvertQuotationToApplicationRs 	xmlns="http://www.fadata.bg/Insurance_Messages/v3.0/xml/">
+<PolicyID>100000005448</PolicyID>
+<PolicyNo>C-100000005448</PolicyNo>
+<ReturningMessage>
+Quotation successfully converted to Application!
+</ReturningMessage>
+</ConvertQuotationToApplicationRs>
+</soapenv:Body>
+
+
+
+-----------------------------------------DAT CONFIRMAR SOLICITUD POLIZA -----------------------------------------
+
+
+{
+"NUMERO_DE_POLIZA":  	"100000005450"	,
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021/6/29"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+}
+}
+
+
+
+
+-----------------------------------------DAT CONVERTIR SOLICITUD POLIZA -----------------------------------------
+
+
+{
+"NUMERO_DE_POLIZA":  	"100000005450"	,
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021/6/29"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+}
+}
+
+-----------------------------------------DAT CONSULTAR RECLAMO ----------------------------------------------
+
+
+{
+"CABECERA":  
+{
+"FECHA_TRANSACCION":  	"2021-05-04"	,
+"ID_TRANSACCION_OSB":  	"sv324234dfcvhgge3212aqqwe223432"	,
+"FECHA_PROCESAMIENTO":  	"2021-05-04"	,
+"SISTEMA_DESTINO":  	"OSB"	,
+"SISTEMA_ORIGEN":  	"OSB"	,
+"CODIGO_OPERACION":  	"E01"
+},
+"NUM_SINIESTRO":"14000000000466"
+}
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"REFERENCIA":"2020-12-21-000000139"
+}
+
+
+Consultar Reclamo Insis por reclamo
+
+{
+"CABECERA":{
+"CODIGO_OPERACION":"E01",
+"FECHA_PROCESAMIENTO":"2020-06-28",
+"FECHA_TRANSACCION":"2020-06-28",
+"ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+"SISTEMA_DESTINO":"OSB",
+"SISTEMA_ORIGEN":"OSB"
+},
+"RECLAMO":"2020-12-21-000000139"
+}
+
+------------------------------------------------CREAR POLIZA---------------------------------------------------
+
+{
+	"CABECERA":{
+      "CODIGO_OPERACION":"E01",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "FECHA_TRANSACCION":"2020-06-28",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB"
+   },
+	"CLIENTE": {
+		"PERSONA": [
+			{
+				"PERSONA_NATURAL": {
+					"NOMBRE": "jesus",
+					"PRIMER_APELLIDO": "meneses",
+					"SEGUNDO_APELLIDO": "martinez",
+					"IDENTIFICACION": "E-8-146391",
+					"SEXO": "1",
+					"FECHA_DE_NACIMIENTO": "1988-01-29",
+					"IDIOMA": "ESP",
+					"PAIS_RESIDENCIA": "PA"
+				},
+				"PERSONA_JURIDICA": {
+					"RAZONSOCIAL": "soaint",
+					"ID_CLIENTE": "DV9234234932409",
+					"PERIODO_FISCAL": "2021",
+					"TIPO_PERSONA_JURIDICA": "A"
+				},
+				"TIPO_PERSONA": "N",
+				"NACIONALIDAD": "pa",
+				"INDUSTRIA": "desarrollo",
+				"FECHA_REGISTRO": "2020-12-01T12:00:00",
+				"OBSERVACION": "ninguna",
+				"PREGUNTAS": [
+					{
+						"CODIGO": "P_TRIBUT",
+						"RESPUESTA": "PA"
+					},
+					{
+						"CODIGO": "P_PYMESJ",
+						"RESPUESTA": "2"
+					},
+					{
+						"CODIGO": "P_CEMPLEADOSN",
+						"RESPUESTA": "1"
+					},
+					{
+						"CODIGO": "P_OPERACION",
+						"RESPUESTA": "N/A"
+					}
+				],
+				"DIGITO_VERIFICADOR": "0",
+				"TIPO_IDENTIFICACION": "3",
+				"FECHA_VENCIMIENTO_ID": "2020-12-01",
+				"FECHA_OPERACION": "2020-12-01",
+				"DIRECCIONES": [
+				{
+					"NOMBRE_PAIS": "PANAMA",
+					"CODIGO_PAIS": "PA",
+					"NOMBRE_ESTADO": "PANAMA",
+					"CODIGO_ESTADO": "08",
+					"NOMBRE_REGION": "PANAMA",
+					"CODIGO_REGION": "0804",
+					"NOMBRE_CIUDAD": "PEDREGAL",
+					"CODIGO_CIUDAD": "80416",
+					"BARRIO": "URBANIZACION",
+					"CALLE_AVENIDA": "VIA JOSE AGUSTIN ARANGO",
+					"CALLE_AVENIDA_NRO": "string",
+					"EDIFICIO": "string",
+					"PISO": "string",
+					"ENTRADA": "string",
+					"DIRECCION": "JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+					"TIPO_DIRECCION": "W",
+					"ES_CORRESPONDENCIA": "N",
+					"ES_FACTURACION": "Y",
+					"APTO_CASA": "string",
+					"ES_PRINCIPAL": "Y",
+					"OBSERVACION": "MIGRADO",
+					"TELEFONO": "string",
+					"FAX": "string",
+					"EMAIL": "string"
+				}
+				],
+				"CONTACTOS": [
+					{
+						"TIPO": "EMAIL",
+						"VALOR": "prueba@prueba.com",
+						"ES_PRINCIPAL": "Y",
+						"OBSERVACION": "MIGRADO",
+						"IDIOMA": "ESP"
+					}
+				],
+				"RELACION_PERSONAL": [
+					{
+						"IDENTIFICACION": "E-8-146390",
+						"TIPO_PERSONA": "2",
+						"CODIGO_RELACION": "45",
+						"NOMBRE_RELACION": "ESPOSA"
+					}
+				]			
+			}
+		],
+	},	
+	"POLIZAS": [
+		{
+			"NUMERO_COTIZACION": "jesus",
+			"OBJETO_ASEGURADO": [
+				{
+					"TIPO_OBJETO":"1021",
+					"ACCIDENTE": {
+						"PERSONA": {
+							"PERSONA_NATURAL": {
+								"NOMBRE": "jesus",
+								"PRIMER_APELLIDO": "meneses",
+								"SEGUNDO_APELLIDO": "martinez",
+								"IDENTIFICACION": "E-8-146391",
+								"SEXO": "1",
+								"FECHA_DE_NACIMIENTO": "1988-01-29",
+								"IDIOMA": "ESP",
+								"PAIS_RESIDENCIA": "PA"
+							},
+							"PERSONA_JURIDICA": {
+								"RAZONSOCIAL": "soaint",
+								"ID_CLIENTE": "DV9234234932409",
+								"PERIODO_FISCAL": "2021",
+								"TIPO_PERSONA_JURIDICA": "A"
+							},
+							"TIPO_PERSONA": "N",
+							"NACIONALIDAD": "pa",
+							"INDUSTRIA": "desarrollo",
+							"FECHA_REGISTRO": "2020-12-01T12:00:00",
+							"OBSERVACION": "ninguna",
+							"PREGUNTAS": [
+								{
+									"CODIGO": "P_TRIBUT",
+									"RESPUESTA": "PA"
+								},
+								{
+									"CODIGO": "P_PYMESJ",
+									"RESPUESTA": "2"
+								},
+								{
+									"CODIGO": "P_CEMPLEADOSN",
+									"RESPUESTA": "1"
+								},
+								{
+									"CODIGO": "P_OPERACION",
+									"RESPUESTA": "N/A"
+								}
+							],
+							"DIGITO_VERIFICADOR": "0",
+							"TIPO_IDENTIFICACION": "3",
+							"FECHA_VENCIMIENTO_ID": "2020-12-01",
+							"FECHA_OPERACION": "2020-12-01"
+						},
+						"EDAD": "12",
+						"TIPO_ACCIDENTE": "desarrollo",
+						"SUBTIPO_ACCIDENTE": "desarrollo",
+						"ESTATUS_EVALUACION_MEDICA": "desarrollo",
+						"DETALLE_EVALUACION_MEDICA": "desarrollo",
+						"SEXO": "1",
+						"IDENTIFICACION_REPRESENTANTE": "desarrollo",
+						"RELACION_FAMILIAR": "2"
+					}
+				}
+			],
+			"MONTO_ASEGURADO": "12",
+			"MONEDA": "D",
+			"VALOR_ACTUAL": "1",
+			"MONEDA_VALOR_ACTUAL": "D",
+			"FECHA_INICIO": "2021-08-31T12:00:00",
+			"FECHA_FIN": "2021-08-31T12:00:00",
+			"DURACION_PAGOS": "2",
+			"TIPO_DURACION": "PA",
+			"COBERTURAS": [
+				{
+					"CODIGO": "martinez",
+					"NUMERO_OBJETOS": "34",
+					"ANEXO_ID": "34",
+					"MONTO": "1",
+					"MONEDA": "1988-01-29",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00",
+					"ESTADO": "PA",
+					"MONTO_PRIMA_COBERTURA": "23",
+					"MONTO_PAGO_PRIMA_COBERTURA": "12",
+					"MONTO_PENDIENTE_PRIMA_COBERTURA": "12",
+					"MONTO_EXCESO_PRIMA_COBERTURA": "23",
+					"MONTO_PROXIMO_PRIMA_COBERTURA": "43",
+					"TIPO_PRIMA": "PA",
+					"RIESGOS": [
+						{
+							"TIPO_RIESGO": "PA",
+							"TIPO_FRANQUICIA": "PA",
+							"DIMENSION_FRANQUICIA": "V",
+							"MONTO_FRANQUICIA": "2",
+							"MONEDA_FRANQUICIA": "1",
+							"MINIMO_FRANQUICIA": "23",
+							"MAXIMO_FRANQUICIA": "23",
+							"LIMITE": [
+								{
+									"TIPO_PERDIDA": "PA",
+									"TIPO_LIMITE": "PA",
+									"MONTO_LIMITE": "1",
+									"MONEDA_LIMITE": "1",
+									"DIMENSION_LIMITE": "V"
+								}
+							],
+							"TERRITORIO": [
+								{
+									"CODIGO_TERRITORIO": "PA",
+									"CODIGO_PAIS": "PA",
+									"FECHA_INICIO": "2021-08-31",
+									"HORA_INICIO": "12:00:00",
+									"FECHA_FIN": "2021-08-31",
+									"HORA_FIN": "12:00:00"
+								}
+							]
+						}
+					],
+					"CONTRIBUCIONES": [
+						{
+							"IDENTIFICADOR_PLAN": "1",
+							"IDENTIFICADOR_POLIZA": "2",
+							"IDENTIFICADOR_CUENTA": "3",
+							"IDENTIFICADOR_ANEXO": "4",
+							"TIPO_CUENTA_PAGO": "PA",
+							"MONTO": "23",
+							"MONEDA": "PA",
+							"PERIODO": "2",
+							"FECHA_VENCIMIENTO": "2021-08-31",
+							"TIPO_CUENTA_FRAC": "PA"
+						}
+					],
+					"ENDOSOS": [
+						{
+							"CODIGO_ENDOSO": "PA",
+							"TIPO_ENDOSO": "PA",
+							"SUBTIPO_ENDOSO": "PA",
+							"ORDEN_ENDOSO": "1",
+							"DESCRIPCION": "PA",
+							"FECHA_INICIO": "2021-08-31",
+							"HORA_INICIO": "12:00:00",
+							"FECHA_FIN": "2021-08-31",
+							"HORA_FIN": "12:00:00"
+						}
+					],
+					"TERRITORIOS": [
+						{
+							"CODIGO_TERRITORIO": "PA",
+							"CODIGO_PAIS": "PA",
+							"FECHA_INICIO": "2021-08-31",
+							"HORA_INICIO": "12:00:00",
+							"FECHA_FIN": "2021-08-31",
+							"HORA_FIN": "12:00:00"
+						}
+					],
+					"DESCUENTOS": [
+						{
+							"TIPO_DESCUENTO": "PA",
+							"VALOR": "2",
+							"ES_ACUMULATIVO": "PA",
+							"ES_APLICADO": "PA",
+							"TARIFA": "PA",
+							"PORCENTAJE": "2",
+							"ORDEN": "2"
+						}
+					],
+					"INDEMNIZACIONES": [
+						{
+							"TIPO_FRANQUICIA": "PA",
+							"DIMENSION_FRANQUICIA": "V",
+							"VALOR_FRANQUICIA": "2",
+							"MINIMO_FRANQUICIA": "3",
+							"MAXIMO_FRANQUICIA": "4",
+							"MONEDA": "PA",
+							"IDENTIFICADOR_RECLAMO": "PA",
+							"PORCENTAJE": "2"
+						}
+					],
+					"IMPUESTOS": [
+						{
+							"TIPO_IMPUESTO": "PA",
+							"REGLA_CALCULO": "PA",
+							"TASA": "2",
+							"MONTO": "1",
+							"ES_INCLUIDO": "Y",
+							"ES_APLICADO": "Y",
+							"ES_MANUAL": "Y"
+						}
+					],
+					"LIMITES": [
+						{
+							"TIPO_PERDIDA": "PA",
+							"TIPO_LIMITE": "PA",
+							"MONTO_LIMITE": "2",
+							"MONEDA_LIMITE": "PA",
+							"DIMENSION_LIMITE": "V"
+						}
+					]
+				}
+			],
+			"DOCUMENTOS": [
+				{
+					"CODIGO_DOCUMENTO": "PA",
+					"NOMBRE_DOCUMENTO": "PA",
+					"FECHA": "2020-08-31",
+					"DESCRIPCION": "PA",
+					"FECHA_RECEPCION": "2020-08-31",
+					"ESTATUS": "2",
+					"OBSERVACIONES": "PA"
+				}
+			],
+			"PREGUNTAS": [
+				{
+					"CODIGO": "P_TRIBUT",
+					"RESPUESTA": "PA"
+				},
+				{
+					"CODIGO": "P_PYMESJ",
+					"RESPUESTA": "2"
+				},
+				{
+					"CODIGO": "P_CEMPLEADOSN",
+					"RESPUESTA": "1"
+				},
+				{
+					"CODIGO": "P_OPERACION",
+					"RESPUESTA": "N/A"
+				}
+			],
+			"TIPO_COTIZACION": "PA",
+			"OBSERVACION_COTIZACION": "PA",
+			"CONDICIONES_APROBACION": [
+				{
+					"RED_CODIGO": "PA",
+					"LIMITE": "4",
+					"MONEDA": "PA"
+				}
+			],
+			"PROVEEDORES": [
+				{
+					"CODIGO_PROVEEDOR": "15210000006160",
+					"DESCRIPCION": "PA",
+					"CODIGO_POLIZA": "3",
+					"CODIGO_PRODUCTO": "PA",
+					"CONTRATO_NUMERO": "PA",
+					"CONTRATO_ID": "23",
+					"ID_PROVEEDOR": "3",
+					"ID_GRUPO": "2",
+					"CODIGO_AREA_GEOGRAFICA": "PA",
+					"CODIGO_COBERTURA": "PA",
+					"TIPO_PAQUETE": "PA",
+					"TIPO_ASIENTO": "PA",
+					"COBERTURA_RED": "PA",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			]
+		}
+	],
+	"CONDICIONES": [
+		{
+			"CODIGO_AGENTE": "30000",
+			"CODIGO_PRODUCTO": "PA",
+			"FORMA_PAGO": "PA",
+			"RENOVACION": "PA",
+			"ENDOSOS": [
+				{
+					"CODIGO_ENDOSO": "PA",
+					"TIPO_ENDOSO": "PA",
+					"SUBTIPO_ENDOSO": "PA",
+					"ORDEN_ENDOSO": "3",
+					"DESCRIPCION": "PA",
+					"FECHA_INICIO": "2021-08-31",
+					"HORA_INICIO": "12:00:00",
+					"FECHA_FIN": "2021-08-31",
+					"HORA_FIN": "12:00:00"
+				}
+			],
+			"DESCUENTOS": [
+				{
+					"TIPO_DESCUENTO": "PA",
+					"VALOR": "2",
+					"ES_ACUMULATIVO": "PA",
+					"ES_APLICADO": "PA",
+					"TARIFA": "PA",
+					"PORCENTAJE": "3",
+					"ORDEN": "2"
+				}
+			],
+			"DOCUMENTOS": [
+				{
+					"CODIGO_DOCUMENTO": "PA",
+					"NOMBRE_DOCUMENTO": "PA",
+					"FECHA": "2021-08-31",
+					"DESCRIPCION": "PA",
+					"FECHA_RECEPCION": "2021-08-31",
+					"ESTATUS": "2",
+					"OBSERVACIONES": "PA"
+				}
+			],
+			"PREGUNTAS": [
+				{
+					"CODIGO": "P_TRIBUT",
+					"RESPUESTA": "PA"
+				},
+				{
+					"CODIGO": "P_PYMESJ",
+					"RESPUESTA": "2"
+				},
+				{
+					"CODIGO": "P_CEMPLEADOSN",
+					"RESPUESTA": "1"
+				},
+				{
+					"CODIGO": "P_OPERACION",
+					"RESPUESTA": "N/A"
+				}
+			],
+			"IMPUESTOS": [
+				{
+					"TIPO_IMPUESTO": "PA",
+					"REGLA_CALCULO": "PA",
+					"TASA": "3",
+					"MONTO": "32",
+					"ES_INCLUIDO": "Y",
+					"ES_APLICADO": "Y",
+					"ES_MANUAL": "Y"
+				}
+			],
+			"PARTICIPANTES": [
+				{
+					"PERSONA": [
+						{
+							"PERSONA_NATURAL": {
+								"NOMBRE": "jesus",
+								"PRIMER_APELLIDO": "meneses",
+								"SEGUNDO_APELLIDO": "martinez",
+								"IDENTIFICACION": "E-8-146391",
+								"SEXO": "1",
+								"FECHA_DE_NACIMIENTO": "1988-01-29",
+								"IDIOMA": "ESP",
+								"PAIS_RESIDENCIA": "PA"
+							},
+							"PERSONA_JURIDICA": {
+								"RAZONSOCIAL": "soaint",
+								"ID_CLIENTE": "DV9234234932409",
+								"PERIODO_FISCAL": "2021",
+								"TIPO_PERSONA_JURIDICA": "A"
+							},
+							"TIPO_PERSONA": "N",
+							"NACIONALIDAD": "pa",
+							"INDUSTRIA": "desarrollo",
+							"FECHA_REGISTRO": "2020-12-01T12:00:00",
+							"OBSERVACION": "ninguna",
+							"PREGUNTAS": [
+								{
+									"CODIGO": "P_TRIBUT",
+									"RESPUESTA": "PA"
+								},
+								{
+									"CODIGO": "P_PYMESJ",
+									"RESPUESTA": "2"
+								},
+								{
+									"CODIGO": "P_CEMPLEADOSN",
+									"RESPUESTA": "1"
+								},
+								{
+									"CODIGO": "P_OPERACION",
+									"RESPUESTA": "N/A"
+								}
+							],
+							"DIGITO_VERIFICADOR": "0",
+							"TIPO_IDENTIFICACION": "3",
+							"FECHA_VENCIMIENTO_ID": "2020-12-01",
+							"FECHA_OPERACION": "2020-12-01"
+						}
+					],
+					"RELACION": "PA",
+					"ESTATUS": "PA",
+					"IDIOMA": "PA",
+					"DIRECCIONES_POLIZA": [
+						{
+							"NOMBRE_PAIS": "PANAMA",
+							"CODIGO_PAIS": "PA",
+							"NOMBRE_ESTADO": "PANAMA",
+							"CODIGO_ESTADO": "08",
+							"NOMBRE_REGION": "PANAMA",
+							"CODIGO_REGION": "0804",
+							"NOMBRE_CIUDAD": "PEDREGAL",
+							"CODIGO_CIUDAD": "80416",
+							"BARRIO": "URBANIZACION",
+							"CALLE_AVENIDA": "VIA JOSE AGUSTIN ARANGO",
+							"CALLE_AVENIDA_NRO": "string",
+							"EDIFICIO": "string",
+							"PISO": "string",
+							"ENTRADA": "string",
+							"DIRECCION": "JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+							"TIPO_DIRECCION": "W",
+							"ES_CORRESPONDENCIA": "N",
+							"ES_FACTURACION": "Y",
+							"APTO_CASA": "string",
+							"ES_PRINCIPAL": "Y",
+							"OBSERVACION": "MIGRADO",
+							"TELEFONO": "string",
+							"FAX": "string",
+							"EMAIL": "string"
+						}
+					],
+					"CONTACTOS_POLIZA": [
+						{
+							"TIPO": "EMAIL",
+							"VALOR": "prueba@prueba.com",
+							"ES_PRINCIPAL": "Y",
+							"OBSERVACION": "MIGRADO",
+							"IDIOMA": "ESP"
+						}
+					]
+				}
+			],
+			"AGENTES": [
+				{
+					"CODIGO_AGENTE": "30000",
+					"ROL_AGENTE": "string",
+					"DIRECCIONES_POLIZA": [
+						{
+							"NOMBRE_PAIS": "PANAMA",
+							"CODIGO_PAIS": "PA",
+							"NOMBRE_ESTADO": "PANAMA",
+							"CODIGO_ESTADO": "08",
+							"NOMBRE_REGION": "PANAMA",
+							"CODIGO_REGION": "0804",
+							"NOMBRE_CIUDAD": "PEDREGAL",
+							"CODIGO_CIUDAD": "80416",
+							"BARRIO": "URBANIZACION",
+							"CALLE_AVENIDA": "VIA JOSE AGUSTIN ARANGO",
+							"CALLE_AVENIDA_NRO": "string",
+							"EDIFICIO": "string",
+							"PISO": "string",
+							"ENTRADA": "string",
+							"DIRECCION": "JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+							"TIPO_DIRECCION": "W",
+							"ES_CORRESPONDENCIA": "N",
+							"ES_FACTURACION": "Y",
+							"APTO_CASA": "string",
+							"ES_PRINCIPAL": "Y",
+							"OBSERVACION": "MIGRADO",
+							"TELEFONO": "string",
+							"FAX": "string",
+							"EMAIL": "string"
+						}
+					],
+					"CONTACTOS_POLIZA": [
+						{
+							"TIPO": "EMAIL",
+							"VALOR": "prueba@prueba.com",
+							"ES_PRINCIPAL": "Y",
+							"OBSERVACION": "MIGRADO",
+							"IDIOMA": "ESP"
+						}
+					]
+				}
+			],
+			"FACTURACION": [
+				{
+					"MODO_PAGO": "2",
+					"DIA_PAGO": "3",
+					"FORMA_PAGO": "string",
+					"PLAZO_PAGO": "string",
+					"FECHA_INICIO": "2021-08-31",
+					"HORA_INICIO": "12:00:00",
+					"FECHA_FIN": "2021-08-31",
+					"HORA_FIN": "12:00:00"
+				}
+			],
+			"CONDICION_RENOVACION": {
+				"MODO_RENOVACION": "string",
+				"FECHA_RENOVACION": "2021-08-31"
+			},
+			"AREA_GEOGRAFICAS": [
+				{
+					"CODIGO_AREA_POLIZA": "1",
+					"CODIGO_AREA_GEOGRAFICA": "string",
+					"CODIGO_PRODUCTO": "string",
+					"CODIGO_OBJETO_ASEGURADO": "2",
+					"CODIGO_COBERTURA": "string",
+					"CODIGO_PAQUETE": "string",
+					"TIPO_COBERTURA": "string",
+					"TIPO_RECLAMO": "string",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			],
+			"DIAGNOSTICOS": [
+				{
+					"CODIGO_DIAGNOSTICO": "string",
+					"CODIGO_POLIZA": "2",
+					"CODIGO_PRODUCTO": "string",
+					"ID_DIAGNOSTICO": "4",
+					"ID_GRUPO": "3",
+					"CODIGO_AREA_GEOGRAFICA": "string",
+					"CODIGO_PROVEEDOR": "2",
+					"ID_PROVEEDOR": "2",
+					"TIPO_COBERTURA": "string",
+					"TIPO_RECLAMO": "string",
+					"TIPO_ASIENTO": "string",
+					"COBERTURA_RED": "string",
+					"LIMITE": "2",
+					"MONEDA": "string",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			],
+			"TRATAMIENTOS_MEDICOS": [
+				{
+					"CODIGO_TRATAMIENTO": "2",
+					"CODIGO_POLIZA": "3",
+					"CODIGO_PRODUCTO": "string",
+					"ID_TRATAMIENTO": "2",
+					"ID_GRUPO": "2",
+					"CODIGO_AREA_GEOGRAFICA": "2",
+					"CODIGO_PROVEEDOR": "string",
+					"ID_PROVEEDOR": "2",
+					"TIPO_COBERTURA": "string",
+					"TIPO_RECLAMO": "string",
+					"TIPO_ASIENTO": "string",
+					"COBERTURA_RED": "string",
+					"LIMITE_TRATAMIENTO": "2",
+					"MONEDA": "string",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			],
+			"SERVICIOS": [
+				{
+					"CODIGO_SERVICIO": "string",
+					"CODIGO_POLIZA": "3",
+					"CODIGO_PRODUCTO": "string",
+					"ID_SERVICIO": "2",
+					"ID_GRUPO": "2",
+					"CODIGO_AREA_GEOGRAFICA": "string",
+					"CODIGO_PROVEEDOR": "2",
+					"ID_PROVEEDOR": "2",
+					"TIPO_COBERTURA": "string",
+					"TIPO_RECLAMO": "string",
+					"TIPO_ASIENTO": "string",
+					"COBERTURA_RED": "string",
+					"MONTO_SERVICIO": "22",
+					"MONEDA": "string",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			],
+			"REDES": [
+				{
+					"CODIGO_RED": "2",
+					"CODIGO_POLIZA": "2",
+					"CODIGO_PRODUCTO": "2",
+					"ID_RED": "2",
+					"ID_GRUPO": "2",
+					"CODIGO_AREA_GEOGRAFICA": "string",
+					"CODIGO_PROVEEDOR": "string",
+					"CODIGO_COBERTURA": "string",
+					"ID_PROVEEDOR": "string",
+					"TIPO_PAQUETE": "string",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			],
+			"PROVEEDORES": [
+				{
+					"CODIGO_PROVEEDOR": "15210000006160",
+					"DESCRIPCION": "PA",
+					"CODIGO_POLIZA": "2",
+					"CODIGO_PRODUCTO": "PA",
+					"CONTRATO_NUMERO": "PA",
+					"CONTRATO_ID": "3",
+					"ID_PROVEEDOR": "2",
+					"ID_GRUPO": "2",
+					"CODIGO_AREA_GEOGRAFICA": "PA",
+					"CODIGO_COBERTURA": "PA",
+					"TIPO_PAQUETE": "PA",
+					"TIPO_ASIENTO": "2",
+					"COBERTURA_RED": "PA",
+					"FECHA_INICIO": "2021-08-31T12:00:00",
+					"FECHA_FIN": "2021-08-31T12:00:00"
+				}
+			]
+		}
+	]
+}
+
+------------------------------------------ACTUALIZAR REGLAS X POLIZA --------------------------
+
+{
+	"ID_POLIZA":"100000010340",
+	"CONDICIONES_POLIZA": [
+		{
+			"CODIGO_COBERTURA": "MED",
+			"VALORES_CONDICION_POLIZA": null,
+			"ANEXO_ID": "0",
+			"ASEGURADO_ID": "3080013682",
+			"POLIZA_ID": "100000010340",
+			"ID_CONDICION": "77700000017603",
+			"REGLA_CFGID": 66700000000663,
+			"HORA_FIN": "12:00:00",
+			"ATRIBUTOS_CONDICION_POLIZA": {
+				"ATRIBUTO_CONDICION_POLIZA": [
+					{
+						"ORDEN_ATRIBUTO": 1,
+						"REGLA_VALOR": 20,
+						"TIPO_DEFINICION": "NUMERIC",
+						"MONEDA": "PAB",
+						"TIPO_VALOR": "A",
+						"ID_CONDICION": "77700000017603",
+						"VALOR_DIM": "P"
+					},
+					{
+						"ORDEN_ATRIBUTO": 2,
+						"TIPO_DEFINICION": "SERVICE",
+						"CODIGO_ATRIBUTO": "1020",
+						"ID_CONDICION": "77700000017603"
+					}
+				]
+			},
+			"FECHA_INICIO": "2021-08-07",
+			"HORA_INICIO": "12:00:00",
+			"FECHA_FIN": "2022-08-07",
+			"ESTATUS": "PRODUCT"
+		},
+		{
+			"CODIGO_COBERTURA": "MED",
+			"VALORES_CONDICION_POLIZA": null,
+			"ANEXO_ID": "0",
+			"ASEGURADO_ID": "3080013682",
+			"POLIZA_ID": "100000010340",
+			"ID_CONDICION": "77700000017602",
+			"REGLA_CFGID": 66700000000662,
+			"HORA_FIN": "12:00:00",
+			"ATRIBUTOS_CONDICION_POLIZA": {
+				"ATRIBUTO_CONDICION_POLIZA": [
+					{
+						"ORDEN_ATRIBUTO": 1,
+						"REGLA_VALOR": 20,
+						"TIPO_DEFINICION": "NUMERIC",
+						"MONEDA": "PAB",
+						"TIPO_VALOR": "A",
+						"ID_CONDICION": "77700000017602",
+						"VALOR_DIM": "P"
+					},
+					{
+						"ORDEN_ATRIBUTO": 2,
+						"TIPO_DEFINICION": "SERVICE",
+						"CODIGO_ATRIBUTO": "1019",
+						"ID_CONDICION": "77700000017602"
+					}
+				]
+			},
+			"FECHA_INICIO": "2021-08-07",
+			"HORA_INICIO": "12:00:00",
+			"FECHA_FIN": "2022-08-07",
+			"ESTATUS": "PRODUCT"
+		},
+		{
+			"CODIGO_COBERTURA": "MED",
+			"VALORES_CONDICION_POLIZA": null,
+			"ANEXO_ID": "0",
+			"ASEGURADO_ID": "3080013682",
+			"POLIZA_ID": "100000010340",
+			"ID_CONDICION": "77700000017601",
+			"REGLA_CFGID": 66700000000527,
+			"HORA_FIN": "12:00:00",
+			"ATRIBUTOS_CONDICION_POLIZA": null,
+			"FECHA_INICIO": "2021-08-07",
+			"HORA_INICIO": "12:00:00",
+			"FECHA_FIN": "2022-08-07",
+			"ESTATUS": "PRODUCT"
+		},
+		{
+			"CODIGO_COBERTURA": "MED",
+			"VALORES_CONDICION_POLIZA": null,
+			"ANEXO_ID": "0",
+			"ASEGURADO_ID": "3080013682",
+			"POLIZA_ID": "100000010340",
+			"ID_CONDICION": "77700000017600",
+			"REGLA_CFGID": 66700000000526,
+			"HORA_FIN": "12:00:00",
+			"ATRIBUTOS_CONDICION_POLIZA": {
+				"ATRIBUTO_CONDICION_POLIZA": [
+					{
+						"ORDEN_ATRIBUTO": 1,
+						"REGLA_VALOR": 5,
+						"TIPO_DEFINICION": "NUMERIC",
+						"MONEDA": "PAB",
+						"TIPO_VALOR": "A",
+						"ID_CONDICION": "77700000017600",
+						"VALOR_DIM": "V"
+					},
+					{
+						"ORDEN_ATRIBUTO": 2,
+						"TIPO_DEFINICION": "SERVICE",
+						"CODIGO_ATRIBUTO": "1018",
+						"ID_CONDICION": "77700000017600"
+					}
+				]
+			},
+			"FECHA_INICIO": "2021-08-07",
+			"HORA_INICIO": "12:00:00",
+			"FECHA_FIN": "2022-08-07",
+			"ESTATUS": "PRODUCT"
+		}
+	],
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021/9/29",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"FECHA_PROCESAMIENTO": "2020-06-28",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "OSB",
+		"CODIGO_OPERACION": "E01"
+	}
+}
+
+
+------------------------------------------CONSULTAR REGLAS X POLIZA --------------------------
+
+{
+	"ID_POLIZA":"100000010340",
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021/9/29",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"FECHA_PROCESAMIENTO": "2020-06-28",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "OSB",
+		"CODIGO_OPERACION": "E01"
+	}
+}
+
+------------------------------------------CALCULAR PREMIUM --------------------------
+
+{
+	"ID_POLIZA":"100000010340",
+	"CABECERA": {
+		"FECHA_TRANSACCION": "2021/9/29",
+		"ID_TRANSACCION_OSB": "sv324234dfcvhgge3212aqqwe223432",
+		"FECHA_PROCESAMIENTO": "2020-06-28",
+		"SISTEMA_DESTINO": "OSB",
+		"SISTEMA_ORIGEN": "OSB",
+		"CODIGO_OPERACION": "E01"
+	}
+}
+
+------------------------------------------CREAR CLIENTE INSIS --------------------------
+{
+   "CABECERA":{
+      "FECHA_TRANSACCION":"2021/9/29",
+      "ID_TRANSACCION_OSB":"sv324234dfcvhgge3212aqqwe223432",
+      "FECHA_PROCESAMIENTO":"2020-06-28",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"OSB",
+      "CODIGO_OPERACION":"E01"
+   },
+   "ASEGURADOS":[
+      {
+         "PERSONA":{
+            "PERSONA_NATURAL":{
+               "NOMBRE":"jesus",
+               "PRIMER_APELLIDO":"meneses",
+               "SEGUNDO_APELLIDO":"martinez",
+               "IDENTIFICACION":"E-8-146393",
+               "SEXO":"1",
+               "FECHA_DE_NACIMIENTO":"1988-01-29",
+               "IDIOMA":"ESP",
+               "PAIS_RESIDENCIA":"PA"
+            },
+            "TIPO_PERSONA":"N",
+            "NACIONALIDAD":"pa",
+            "INDUSTRIA":"desarrollo",
+            "FECHA_REGISTRO":"2020-12-01T12:00:00",
+            "OBSERVACION":"ninguna",
+            "PREGUNTAS":[
+               {
+                  "CODIGO":"P_TRIBUT",
+                  "RESPUESTA":"PA"
+               },
+               {
+                  "CODIGO":"P_PYMESJ",
+                  "RESPUESTA":"2"
+               },
+               {
+                  "CODIGO":"P_CEMPLEADOSN",
+                  "RESPUESTA":"1"
+               },
+               {
+                  "CODIGO":"P_OPERACION",
+                  "RESPUESTA":"N/A"
+               }
+            ],
+            "DIGITO_VERIFICADOR":"0",
+            "TIPO_IDENTIFICACION":"3",
+            "FECHA_VENCIMIENTO_ID":"2020-12-01",
+            "FECHA_OPERACION":"2020-12-01",
+            "DIRECCIONES":[
+               {
+                  "NOMBRE_PAIS":"PANAMA",
+                  "CODIGO_PAIS":"PA",
+                  "NOMBRE_ESTADO":"PANAMA",
+                  "CODIGO_ESTADO":"08",
+                  "NOMBRE_REGION":"PANAMA",
+                  "CODIGO_REGION":"0804",
+                  "NOMBRE_CIUDAD":"PEDREGAL",
+                  "CODIGO_CIUDAD":"80416",
+                  "BARRIO":"URBANIZACION",
+                  "CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+                  "CALLE_AVENIDA_NRO":"string",
+                  "EDIFICIO":"string",
+                  "PISO":"string",
+                  "ENTRADA":"string",
+                  "DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+                  "TIPO_DIRECCION":"W",
+                  "ES_CORRESPONDENCIA":"N",
+                  "ES_FACTURACION":"Y",
+                  "APTO_CASA":"string",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "TELEFONO":"string",
+                  "FAX":"string",
+                  "EMAIL":"string"
+               }
+            ],
+            "CONTACTOS":[
+               {
+                  "TIPO":"EMAIL",
+                  "VALOR":"prueba@prueba.com",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "IDIOMA":"ESP"
+               }
+            ],
+            "RELACION_PERSONAL":[
+               {
+                  "IDENTIFICACION":"E-8-146390",
+                  "TIPO_PERSONA":"2",
+                  "CODIGO_RELACION":"45",
+                  "NOMBRE_RELACION":"ESPOSA"
+               }
+            ]
+         }
+      },
+	  {
+         "PERSONA":{
+            "PERSONA_NATURAL":{
+               "NOMBRE":"jorlette",
+               "PRIMER_APELLIDO":"meneses2",
+               "SEGUNDO_APELLIDO":"martinez2",
+               "IDENTIFICACION":"E-8-146395",
+               "SEXO":"1",
+               "FECHA_DE_NACIMIENTO":"1988-01-29",
+               "IDIOMA":"ESP",
+               "PAIS_RESIDENCIA":"PA"
+            },
+            "TIPO_PERSONA":"N",
+            "NACIONALIDAD":"pa",
+            "INDUSTRIA":"desarrollo",
+            "FECHA_REGISTRO":"2020-12-01T12:00:00",
+            "OBSERVACION":"ninguna",
+            "PREGUNTAS":[
+               {
+                  "CODIGO":"P_TRIBUT",
+                  "RESPUESTA":"PA"
+               },
+               {
+                  "CODIGO":"P_PYMESJ",
+                  "RESPUESTA":"2"
+               },
+               {
+                  "CODIGO":"P_CEMPLEADOSN",
+                  "RESPUESTA":"1"
+               },
+               {
+                  "CODIGO":"P_OPERACION",
+                  "RESPUESTA":"N/A"
+               }
+            ],
+            "DIGITO_VERIFICADOR":"0",
+            "TIPO_IDENTIFICACION":"3",
+            "FECHA_VENCIMIENTO_ID":"2020-12-01",
+            "FECHA_OPERACION":"2020-12-01",
+            "DIRECCIONES":[
+               {
+                  "NOMBRE_PAIS":"PANAMA",
+                  "CODIGO_PAIS":"PA",
+                  "NOMBRE_ESTADO":"PANAMA",
+                  "CODIGO_ESTADO":"08",
+                  "NOMBRE_REGION":"PANAMA",
+                  "CODIGO_REGION":"0804",
+                  "NOMBRE_CIUDAD":"PEDREGAL",
+                  "CODIGO_CIUDAD":"80416",
+                  "BARRIO":"URBANIZACION",
+                  "CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+                  "CALLE_AVENIDA_NRO":"string",
+                  "EDIFICIO":"string",
+                  "PISO":"string",
+                  "ENTRADA":"string",
+                  "DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+                  "TIPO_DIRECCION":"W",
+                  "ES_CORRESPONDENCIA":"N",
+                  "ES_FACTURACION":"Y",
+                  "APTO_CASA":"string",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "TELEFONO":"string",
+                  "FAX":"string",
+                  "EMAIL":"string"
+               }
+            ],
+            "CONTACTOS":[
+               {
+                  "TIPO":"EMAIL",
+                  "VALOR":"prueba@prueba.com",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "IDIOMA":"ESP"
+               }
+            ],
+            "RELACION_PERSONAL":[
+               {
+                  "IDENTIFICACION":"E-8-146390",
+                  "TIPO_PERSONA":"2",
+                  "CODIGO_RELACION":"45",
+                  "NOMBRE_RELACION":"ESPOSA"
+               }
+            ]
+         }
+      },
+	  {
+         "PERSONA":{
+            "PERSONA_NATURAL":{
+               "NOMBRE":"astrid",
+               "PRIMER_APELLIDO":"meneses3",
+               "SEGUNDO_APELLIDO":"martinez3",
+               "IDENTIFICACION":"E-8-146397",
+               "SEXO":"1",
+               "FECHA_DE_NACIMIENTO":"1988-01-29",
+               "IDIOMA":"ESP",
+               "PAIS_RESIDENCIA":"PA"
+            },
+            "TIPO_PERSONA":"N",
+            "NACIONALIDAD":"pa",
+            "INDUSTRIA":"desarrollo",
+            "FECHA_REGISTRO":"2020-12-01T12:00:00",
+            "OBSERVACION":"ninguna",
+            "PREGUNTAS":[
+               {
+                  "CODIGO":"P_TRIBUT",
+                  "RESPUESTA":"PA"
+               },
+               {
+                  "CODIGO":"P_PYMESJ",
+                  "RESPUESTA":"2"
+               },
+               {
+                  "CODIGO":"P_CEMPLEADOSN",
+                  "RESPUESTA":"1"
+               },
+               {
+                  "CODIGO":"P_OPERACION",
+                  "RESPUESTA":"N/A"
+               }
+            ],
+            "DIGITO_VERIFICADOR":"0",
+            "TIPO_IDENTIFICACION":"3",
+            "FECHA_VENCIMIENTO_ID":"2020-12-01",
+            "FECHA_OPERACION":"2020-12-01",
+            "DIRECCIONES":[
+               {
+                  "NOMBRE_PAIS":"PANAMA",
+                  "CODIGO_PAIS":"PA",
+                  "NOMBRE_ESTADO":"PANAMA",
+                  "CODIGO_ESTADO":"08",
+                  "NOMBRE_REGION":"PANAMA",
+                  "CODIGO_REGION":"0804",
+                  "NOMBRE_CIUDAD":"PEDREGAL",
+                  "CODIGO_CIUDAD":"80416",
+                  "BARRIO":"URBANIZACION",
+                  "CALLE_AVENIDA":"VIA JOSE AGUSTIN ARANGO",
+                  "CALLE_AVENIDA_NRO":"string",
+                  "EDIFICIO":"string",
+                  "PISO":"string",
+                  "ENTRADA":"string",
+                  "DIRECCION":"JUAN DIAZ URB. VIA JOSE AGUSTIN ARANGO",
+                  "TIPO_DIRECCION":"W",
+                  "ES_CORRESPONDENCIA":"N",
+                  "ES_FACTURACION":"Y",
+                  "APTO_CASA":"string",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "TELEFONO":"string",
+                  "FAX":"string",
+                  "EMAIL":"string"
+               }
+            ],
+            "CONTACTOS":[
+               {
+                  "TIPO":"EMAIL",
+                  "VALOR":"prueba@prueba.com",
+                  "ES_PRINCIPAL":"Y",
+                  "OBSERVACION":"MIGRADO",
+                  "IDIOMA":"ESP"
+               }
+            ],
+            "RELACION_PERSONAL":[
+               {
+                  "IDENTIFICACION":"E-8-146390",
+                  "TIPO_PERSONA":"2",
+                  "CODIGO_RELACION":"45",
+                  "NOMBRE_RELACION":"ESPOSA"
+               }
+            ]
+         }
+      }
+   ]
+}

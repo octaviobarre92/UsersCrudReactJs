@@ -1,0 +1,121 @@
+-----------------------------------------------------------PREMIUM-----------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-626354-0",
+   "TIPO_POLIZA":"V"
+}
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-626354-0",
+   "TIPO_POLIZA":"V"
+}
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"04-02-236317-0",
+   "TIPO_POLIZA":"V"
+}
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"P",
+   "NUMERO_POLIZA":"13-04-631076-0",
+   "TIPO_POLIZA":"V"
+}
+
+--------------------------------------------------------------NATURAL DANO -----------------------------------------------------------
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"0100030300001539",
+   "TIPO_POLIZA":"D"
+}
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"0100030300166779",
+   "TIPO_POLIZA":"D"
+}
+
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"0100030300175409",
+   "TIPO_POLIZA":"D"
+}
+
+
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"0100030300199419",
+   "TIPO_POLIZA":"D"
+}
+---------------------------------------------------------------NATURAL VIDA --------------------------------------------------------
+{ 
+   "CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+   "CORE":"N",
+   "NUMERO_POLIZA":"2001020008998",
+   "TIPO_POLIZA":"V"
+}

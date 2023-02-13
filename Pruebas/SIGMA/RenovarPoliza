@@ -1,0 +1,27 @@
+--------------------------------------------------------------NATURAL -------------------------------------------
+{
+	"CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+	"CORE":"N"
+}
+
+
+--------------------------------------------------------------PREMIUM -------------------------------------------
+{
+	"CABECERA":{ 
+      "CODIGO_OPERACION":"E8",
+      "FECHA_PROCESAMIENTO":"2020/01/10",
+      "FECHA_TRANSACCION":"2020/01/10",
+      "SISTEMA_DESTINO":"OSB",
+      "SISTEMA_ORIGEN":"SIGMA"
+   },
+	"CORE":"P"
+}
+
+
+-
