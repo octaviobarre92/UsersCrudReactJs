@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ServiceName" targetNamespace="http://TargetNamespace.com/ServiceName" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="PO_XML">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="CONTROL">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FORMAT" type="xsd:string"/>
+                     <xsd:element name="COUNTRY" type="xsd:string"/>
+                     <xsd:element name="BUSINESS" type="xsd:string"/>
+                     <xsd:element name="PROCESS" type="xsd:string"/>
+                     <xsd:element name="CANAL" type="xsd:string"/>
+                     <xsd:element name="CAPITALSOCIAL" type="xsd:string"/>
+                     <xsd:element name="CLAVECOMAPP" type="xsd:string"/>
+                     <xsd:element name="CODIGOAPP" type="xsd:string"/>
+                     <xsd:element name="CODIGOACTIVIDADECONOMICA" type="xsd:string"/>
+                     <xsd:element name="COMPANIA" type="xsd:string"/>
+                     <xsd:element name="COMPORTAMIENTO" type="xsd:string"/>
+                     <xsd:element name="COMUNICACION">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="CLAVEDOC" type="xsd:string"/>
+                              <xsd:element name="DOCNAME" type="xsd:string"/>
+                              <xsd:element name="IDDOCUMENTO" type="xsd:string"/>
+                              <xsd:element name="TIPODOCUMENTO" type="xsd:string"/>
+                              <xsd:element name="VIA" maxOccurs="unbounded">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="VIANOMBRE" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD1" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD2" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD3" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD4" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD5" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD6" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD7" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD8" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD9" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD10" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD11" type="xsd:string"/>
+                                       <xsd:element name="PROPIEDAD12" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="CONTROL01" type="xsd:string"/>
+                     <xsd:element name="CONTROL02" type="xsd:string"/>
+                     <xsd:element name="CONTROL03" type="xsd:string"/>
+                     <xsd:element name="DISPOSITIVO" type="xsd:string"/>
+                     <xsd:element name="ESTRATO" type="xsd:string"/>
+                     <xsd:element name="GENERO" type="xsd:string"/>
+                     <xsd:element name="GRUPOVALOR" type="xsd:string"/>
+                     <xsd:element name="IDCOMAPP" type="xsd:string"/>
+                     <xsd:element name="IDFORMATO" type="xsd:string"/>
+                     <xsd:element name="MOMENTOVIDA" type="xsd:string"/>
+                     <xsd:element name="NUMEROIDCLIENTE" type="xsd:string"/>
+                     <xsd:element name="OFICINA" type="xsd:string"/>
+                     <xsd:element name="OPERACION" type="xsd:string"/>
+                     <xsd:element name="PAIS" type="xsd:string"/>
+                     <xsd:element name="PROCESO" type="xsd:string"/>
+                     <xsd:element name="SECTORECONOMICO" type="xsd:string"/>
+                     <xsd:element name="SEGMENTO" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOCTRL01" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOCTRL02" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOCTRL03" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOCTRL04" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOCTRL05" type="xsd:string"/>
+                     <xsd:element name="SEGMENTOVALOR" type="xsd:string"/>
+                     <xsd:element name="SOLUCION" type="xsd:string"/>
+                     <xsd:element name="TAMANOEMPRESA" type="xsd:string"/>
+                     <xsd:element name="TIPOIDCLIENTE" type="xsd:string"/>
+                     <xsd:element name="USUARIO" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CORRELATIONID" type="xsd:string"/>
+            <xsd:element name="DATA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="PLAN" type="xsd:string"/>
+                     <xsd:element name="NUMEROPOLIZA" type="xsd:string"/>
+                     <xsd:element name="NUMEROLICENCIA" type="xsd:string"/>
+                     <xsd:element name="DIRECCIONSUCURSAL" type="xsd:string"/>
+                     <xsd:element name="TELEFONOSUCURSAL" type="xsd:string"/>
+                     <xsd:element name="ESTADOLICENCIA" type="xsd:string"/>
+                     <xsd:element name="TIPOBLOQUEO" type="xsd:string"/>
+                     <xsd:element name="BLOQUEO" type="xsd:string"/>
+                     <xsd:element name="NOMBRECORREDOR" type="xsd:string"/>
+                     <xsd:element name="CLIENTE">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="NOMBRECOMPLETO" type="xsd:string"/>
+                              <xsd:element name="TIPOPERSONA" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ENDPOINT" type="xsd:string"/>
+            <xsd:element name="IDCOMMUNICATION" type="xsd:string"/>
+            <xsd:element name="JOBIDCCM" type="xsd:string"/>
+            <xsd:element name="PROCESSCODE" type="xsd:string"/>
+            <xsd:element name="ROUTINGKEY" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

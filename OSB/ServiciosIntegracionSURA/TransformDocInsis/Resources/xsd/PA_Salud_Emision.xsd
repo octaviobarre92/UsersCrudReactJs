@@ -1,0 +1,304 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sura.com.pa/SaludEmision" targetNamespace="http://www.sura.com.pa/SaludEmision" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+   <xsd:element name="PO_XML">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="Document" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Control">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Canal" type="xsd:string"/>
+                              <xsd:element name="CapitalSocial" type="xsd:string"/>
+                              <xsd:element name="Ciudad" type="xsd:string"/>
+                              <xsd:element name="ClaveComAPP" type="xsd:string"/>
+                              <xsd:element name="CodigoAPP" type="xsd:integer"/>
+                              <xsd:element name="CodigoActividadEconomica" type="xsd:string"/>
+                              <xsd:element name="Compania" type="xsd:string"/>
+                              <xsd:element name="Comportamiento" type="xsd:string"/>
+                              <xsd:element name="Comunicacion">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Entry" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="ClaveDoc" type="xsd:string"/>
+                                                <xsd:element name="DocName" type="xsd:string"/>
+                                                <xsd:element name="IdDocumento" type="xsd:string"/>
+                                                <xsd:element name="TipoDocumento" type="xsd:string"/>
+                                                <xsd:element name="Via">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="Entry" maxOccurs="unbounded">
+                                                            <xsd:complexType>
+                                                               <xsd:sequence>
+                                                                  <xsd:element name="ViaNombre" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad1" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad2" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad3" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad4" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad5" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad6" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad7" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad8" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad9" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad10" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad11" type="xsd:string"/>
+                                                                  <xsd:element name="Propiedad12" type="xsd:string"/>
+                                                               </xsd:sequence>
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Control01" type="xsd:string"/>
+                              <xsd:element name="Control02" type="xsd:string"/>
+                              <xsd:element name="Control03" type="xsd:string"/>
+                              <xsd:element name="Dispositivo" type="xsd:string"/>
+                              <xsd:element name="Estrato" type="xsd:string"/>
+                              <xsd:element name="Genero" type="xsd:string"/>
+                              <xsd:element name="GrupoValor" type="xsd:string"/>
+                              <xsd:element name="IDComAPP" type="xsd:string"/>
+                              <xsd:element name="IDFormato" type="xsd:string"/>
+                              <xsd:element name="MomentoVida" type="xsd:string"/>
+                              <xsd:element name="NumeroIDCliente" type="xsd:string"/>
+                              <xsd:element name="Oficina" type="xsd:string"/>
+                              <xsd:element name="Operacion" type="xsd:string"/>
+                              <xsd:element name="Pais" type="xsd:string"/>
+                              <xsd:element name="Proceso" type="xsd:string"/>
+                              <xsd:element name="SectorEconomico" type="xsd:string"/>
+                              <xsd:element name="Segmento" type="xsd:string"/>
+                              <xsd:element name="SegmentoCtrl01" type="xsd:string"/>
+                              <xsd:element name="SegmentoCtrl02" type="xsd:string"/>
+                              <xsd:element name="SegmentoCtrl03" type="xsd:string"/>
+                              <xsd:element name="SegmentoCtrl04" type="xsd:string"/>
+                              <xsd:element name="SegmentoCtrl05" type="xsd:string"/>
+                              <xsd:element name="SegmentoValor" type="xsd:string"/>
+                              <xsd:element name="Solucion" type="xsd:string"/>
+                              <xsd:element name="TamanoEmpresa" type="xsd:string"/>
+                              <xsd:element name="TipoIDCliente" type="xsd:string"/>
+                              <xsd:element name="Usuario" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="CorrelationID" type="xsd:string"/>
+                     <xsd:element name="Data">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="InformacionPoliza">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="plan" type="xsd:string"/>
+                                       <xsd:element name="numeroPoliza" type="xsd:string"/>
+                                       <xsd:element name="fechaEmision" type="xsd:string"/>
+                                       <xsd:element name="vigenciaInicial" type="xsd:string"/>
+                                       <xsd:element name="vigenciaFinal" type="xsd:string"/>
+                                       <xsd:element name="vigenciaExtendida" type="xsd:string"/>
+                                       <xsd:element name="vigenciaInicialEndoso" type="xsd:string"/>
+                                       <xsd:element name="vigenciaFinalEndoso" type="xsd:string"/>
+                                       <xsd:element name="diasVigencia" type="xsd:string"/>
+                                       <xsd:element name="nombreGerenteArea" type="xsd:string"/>
+                                       <xsd:element name="cargoGerenteArea" type="xsd:string"/>
+                                       <xsd:element name="codigoRamo" type="xsd:string"/>
+                                       <xsd:element name="ramo" type="xsd:string"/>
+                                       <xsd:element name="codigoSubramo" type="xsd:string"/>
+                                       <xsd:element name="subramo" type="xsd:string"/>
+                                       <xsd:element name="codigoSucursal" type="xsd:string"/>
+                                       <xsd:element name="nombreSucursal" type="xsd:string"/>
+                                       <xsd:element name="observaciones" type="xsd:string"/>
+                                       <xsd:element name="linkEvaluacion" type="xsd:string"/>
+                                       <xsd:element name="nombreColectivo" type="xsd:string"/>
+                                       <xsd:element name="numeroCotizacion" type="xsd:string"/>
+                                       <xsd:element name="usuarioSistema" type="xsd:string"/>
+                                       <xsd:element name="fechaCotizacion" type="xsd:string"/>
+                                       <xsd:element name="estadoPoliza" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Solicitante">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="nombreCompleto" type="xsd:string"/>
+                                       <xsd:element name="numeroIdentificacion" type="xsd:string"/>
+                                       <xsd:element name="nombreCorredor" type="xsd:string"/>
+                                       <xsd:element name="ciudadSolicitante" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Contratante">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="nombreCompleto" type="xsd:string"/>
+                                       <xsd:element name="numeroIdentificacion" type="xsd:string"/>
+                                       <xsd:element name="telefono" type="xsd:string"/>
+                                       <xsd:element name="correoElectronico" type="xsd:string"/>
+                                       <xsd:element name="direccion" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="AseguradoPrincipal">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="idAsegurado" type="xsd:string"/>
+                                       <xsd:element name="nombreCompleto" type="xsd:string"/>
+                                       <xsd:element name="numeroIdentificacion" type="xsd:string"/>
+                                       <xsd:element name="telefono" type="xsd:string"/>
+                                       <xsd:element name="correoElectronico" type="xsd:string"/>
+                                       <xsd:element name="direccion" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Asegurados" maxOccurs="unbounded">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="idAsegurado" type="xsd:string"/>
+                                       <xsd:element name="nombreCompleto" type="xsd:string"/>
+                                       <xsd:element name="numeroIdentificacion" type="xsd:string"/>
+                                       <xsd:element name="sexo" type="xsd:string"/>
+                                       <xsd:element name="fechaNacimiento" type="xsd:string"/>
+                                       <xsd:element name="edad" type="xsd:string"/>
+                                       <xsd:element name="parentesco" type="xsd:string"/>
+                                       <xsd:element name="limiteAsegurado" type="xsd:string"/>
+                                       <xsd:element name="primaPorPeriodo" type="xsd:string"/>
+                                       <xsd:element name="aseguradoPrincipal" type="xsd:string"/>
+                                       <xsd:element name="aplicaRecargo" type="xsd:string"/>
+                                       <xsd:element name="CoberturasOpcionales" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="codigoCobertura" type="xsd:string"/>
+                                                <xsd:element name="nombreCobertura" type="xsd:string"/>
+                                                <xsd:element name="primaAnual" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="PrimaPorPeriodoCO" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="primaPorPeriodo" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="Exclusiones" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="aseguradoExcluido" type="xsd:string"/>
+                                                <xsd:element name="descripcionExclusion" type="xsd:string"/>
+                                                <xsd:element name="tipoExclusion" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="PrimaPorRecargo" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="descripcionRecargo" type="xsd:string"/>
+                                                <xsd:element name="porcentajeRecargo" type="xsd:string"/>
+                                                <xsd:element name="primaRecargo" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="Aplazamientos" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="causaAplazamiento" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="CopagoCoaseguro" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="montoCopago" type="xsd:string"/>
+                                                <xsd:element name="porcCoaseguro" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="CausaDeclinacion" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="descripcionCausa" type="xsd:string"/>
+                                                <xsd:element name="usuarioDeclinacion" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="SolicitudPendiente" maxOccurs="unbounded">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="descripcionExamen" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="InformacionPrimaAnual">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="subtotal" type="xsd:string"/>
+                                       <xsd:element name="recargos" type="xsd:string"/>
+                                       <xsd:element name="descuentos" type="xsd:string"/>
+                                       <xsd:element name="porcentajeImpuesto" type="xsd:string"/>
+                                       <xsd:element name="impuesto" type="xsd:string"/>
+                                       <xsd:element name="totalPago" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="InformacionPago">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="primaPorPeriodo" type="xsd:string"/>
+                                       <xsd:element name="fechaPagoPrima" type="xsd:string"/>
+                                       <xsd:element name="formaPagoPrima" type="xsd:string"/>
+                                       <xsd:element name="frecuenciaPagoPrima" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Coaseguro">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="tipo" type="xsd:string"/>
+                                       <xsd:element name="aseguradora" type="xsd:string"/>
+                                       <xsd:element name="porcentajeParticipacion" type="xsd:string"/>
+                                       <xsd:element name="distribucionSumaAsegurada" type="xsd:string"/>
+                                       <xsd:element name="sumaAsegurada" type="xsd:string"/>
+                                       <xsd:element name="prima" type="xsd:string"/>
+                                       <xsd:element name="nombreCompaniaLider" type="xsd:string"/>
+                                       <xsd:element name="polizaLider" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="IntermediariosCorredores" maxOccurs="unbounded">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="canal" type="xsd:string"/>
+                                       <xsd:element name="numeroLicencia" type="xsd:string"/>
+                                       <xsd:element name="nombreCorredor" type="xsd:string"/>
+                                       <xsd:element name="porcentajeParticipacion" type="xsd:string"/>
+                                       <xsd:element name="correoElectronico" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="EndPoint" type="xsd:string"/>
+                     <xsd:element name="IdCommunication" type="xsd:string"/>
+                     <xsd:element name="JobIdCcm" type="xsd:string"/>
+                     <xsd:element name="ProcessCode" type="xsd:string"/>
+                     <xsd:element name="RoutingKey" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>
