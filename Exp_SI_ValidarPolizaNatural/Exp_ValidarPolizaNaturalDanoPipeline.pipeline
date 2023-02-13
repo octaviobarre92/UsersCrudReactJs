@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="Exp_SI_ValidarPolizaNatural/WSDL/consultarPolizaDano"/>
+            <con:binding>
+                <con:name>consultarPolizaDanoSOAP</con:name>
+                <con:namespace>http://sura.com.pa/validarPolizaDanoSOAP/</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-af03c45.669b2a08.0.17b4005fe49.N7f35">
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7d95" name="Inicializacion">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://sura.com.pa/validarPolizaDanoSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                    <con1:userNsDecl prefix="exp" namespace="http://sura.com.pa/expoServiceSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:assign varName="RqConsultarPoliza" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7d94</con2:id>
+                        <con1:expr>
+                            <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="Exp_SI_ValidarPolizaNatural/xslt/InputParams_to_RestServ"/>
+                                <con2:input>$body</con2:input>
+                                <con2:param name="tipoBusqueda">
+                                    <con2:path>$body/val:consultarPolizaDano/TIPO_BUSQUEDA/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="valor">
+                                    <con2:path>$body/val:consultarPolizaDano/VALOR/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="fechaTransaccion">
+                                    <con2:path>$body/val:consultarPolizaDano/CABECERA/FECHA_TRANSACCION/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="codigoOperacion">
+                                    <con2:path>$body/val:consultarPolizaDano/CABECERA/CODIGO_OPERACION/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="idTransaccionOSB">
+                                    <con2:path>$body/val:consultarPolizaDano/CABECERA/ID_TRANSACCION_OSB/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="sistemaOrigen">
+                                    <con2:path>$body/val:consultarPolizaDano/CABECERA/SISTEMA_ORIGEN/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="sistemaDestino">
+                                    <con2:path>$body/val:consultarPolizaDano/CABECERA/SISTEMA_DESTINO/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7cf6" name="TransformacionJson">
+                <con:context>
+                    <con1:userNsDecl prefix="exp" namespace="http://sura.com.pa/expoServiceSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:nxsdTranslation xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7cf5</con2:id>
+                        <con1:type>XML-To-Native</con1:type>
+                        <con1:sourceExpr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$RqConsultarPoliza</con2:xqueryText>
+                        </con1:sourceExpr>
+                        <con1:nxsd ref="Exp_SI_ValidarPolizaNatural/XSD/consultarPolizaDano"/>
+                        <con2:schemaElement xmlns:con1="http://TargetNamespace.com/consultarPolizaDano" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">con1:PolizaDano</con2:schemaElement>
+                        <con1:assign-variable>RsConsultarPoliza</con1:assign-variable>
+                    </con1:nxsdTranslation>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7cf4</con2:id>
+                        <con1:service ref="TrasformTextToJson/TransformTextToJson" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:request>
+                            <con1:payload wrapped="false">RsConsultarPoliza</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">ConsultarPolizaJson</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7cf3</con2:id>
+                                <con1:header-set>outbound-request</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7c78" name="ConsultaPolizaNatDano" errorHandler="error-af03c45.669b2a08.0.17b4005fe49.N7c74">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7c77</con2:id>
+                        <con1:service ref="SI_ValidarPolizaNatural/ProxyService/SI_ValidarPolizaNatural" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:request>
+                            <con1:payload wrapped="false">ConsultarPolizaJson</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="false">RtaConsultarPolizaAtomico</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:transport-headers>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7c76</con2:id>
+                                <con1:header-set>outbound-request</con1:header-set>
+                                <con1:header value="expression" name="Content-Type">
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">'application/json'</con2:xqueryText>
+                                </con1:header>
+                            </con1:transport-headers>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:javaScript>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7c75</con2:id>
+                                <con1:script>if(process.RtaConsultarPolizaAtomico.STATUS.CODIGO = 200){
+
+  if(process.RtaConsultarPolizaAtomico.POLIZA_VALIDA.POLIZAVALIDA){
+		process.condicionRespuesta=process.RtaConsultarPolizaAtomico.POLIZA_VALIDA.POLIZAVALIDA;
+                process.polizaNum=process.RtaConsultarPolizaAtomico.POLIZA_VALIDA.NUMERO_DE_POLIZA_SAP;
+                process.codigo=process.RtaConsultarPolizaAtomico.STATUS.CODIGO;
+                process.componente=process.RtaConsultarPolizaAtomico.STATUS.COMPONENTE;
+                process.detalle=process.RtaConsultarPolizaAtomico.STATUS.DETALLE;
+                process.origen=process.RtaConsultarPolizaAtomico.STATUS.ORIGEN;
+                process.resumen= process.RtaConsultarPolizaAtomico.STATUS.COMPONENTE;
+                process.fechaTransaccion= process.RtaConsultarPolizaAtomico.CABECERA.FECHA_TRANSACCION;
+                process.idTransaccionOSB= process.RtaConsultarPolizaAtomico.CABECERA.ID_TRANSACCION_OSB;
+                process.sistemaDestino= process.RtaConsultarPolizaAtomico.CABECERA.SISTEMA_DESTINO;
+                process.sistemaOrigen= process.RtaConsultarPolizaAtomico.CABECERA.SISTEMA_ORIGEN;
+                process.codigoOperacion= process.RtaConsultarPolizaAtomico.CABECERA.CODIGO_OPERACION;
+                process.exito=true;
+	}else{
+		process.condicionRespuesta = false;
+                process.exito=false;
+                }
+}else{
+  process.exito=false
+}</con1:script>
+                            </con1:javaScript>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7be4" name="Verificación Respuesta">
+                <con:context/>
+                <con:actions>
+                    <con1:ifThenElse xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7be3</con2:id>
+                        <con1:case id="_BranchId-af03c45.669b2a08.0.17b4005fe49.N7be2">
+                            <con1:condition>
+                                <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$exito</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:ifThenElse>
+                                    <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7be1</con2:id>
+                                    <con1:case id="_BranchId-af03c45.669b2a08.0.17b4005fe49.N7be0">
+                                        <con1:condition>
+                                            <con2:xqueryConditionExpr xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                                <con2:compExpr operator=">=">
+                                                    <con2:leftPath>$condicionRespuesta</con2:leftPath>
+                                                    <con2:rightPath>fn:true()</con2:rightPath>
+                                                </con2:compExpr>
+                                            </con2:xqueryConditionExpr>
+                                        </con1:condition>
+                                        <con1:actions>
+                                            <con1:assign varName="WSDLResponse">
+                                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7bdf</con2:id>
+                                                <con1:expr>
+                                                    <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                                        <con2:resource ref="Exp_SI_ValidarPolizaNatural/xslt/RestServTOWSDLResponse"/>
+                                                        <con2:input>$body</con2:input>
+                                                        <con2:param name="polizaValida">
+                                                            <con2:path>$condicionRespuesta</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="numPoliza">
+                                                            <con2:path>$polizaNum</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="codigo">
+                                                            <con2:path>$codigo</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="detalle">
+                                                            <con2:path>$detalle</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="componente">
+                                                            <con2:path>$componente</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="origen">
+                                                            <con2:path>$origen</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="fechaTransaccion">
+                                                            <con2:path>$fechaTransaccion</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="idTransaccionOSB">
+                                                            <con2:path>$idTransaccionOSB</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="sistemaDestino">
+                                                            <con2:path>$sistemaDestino</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="sistemaOrigen">
+                                                            <con2:path>$sistemaOrigen</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="codigoOperacion">
+                                                            <con2:path>$codigoOperacion</con2:path>
+                                                        </con2:param>
+                                                    </con2:xsltTransform>
+                                                </con1:expr>
+                                            </con1:assign>
+                                        </con1:actions>
+                                    </con1:case>
+                                    <con1:default>
+                                        <con1:assign varName="WSDLResponse">
+                                            <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7bde</con2:id>
+                                            <con1:expr>
+                                                <con2:xsltTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                                    <con2:resource ref="Exp_SI_ValidarPolizaNatural/xslt/RestServTOWSDLResponse"/>
+                                                    <con2:input>$body</con2:input>
+                                                    <con2:param name="polizaValida">
+                                                        <con2:path>$polizaValida</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="numPoliza">
+                                                        <con2:path>$numPoliza</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="codigo">
+                                                        <con2:path>$codigo</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="detalle">
+                                                        <con2:path>$detalle</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="componente">
+                                                        <con2:path>$componente</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="origen">
+                                                        <con2:path>$origen</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="fechaTransaccion">
+                                                        <con2:path>$fechaTransaccion</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="idTransaccionOSB">
+                                                        <con2:path>$idTransaccionOSB</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="sistemaDestino">
+                                                        <con2:path>$sistemaDestino</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="sistemaOrigen">
+                                                        <con2:path>$sistemaOrigen</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="codigoOperacion">
+                                                        <con2:path>$codigoOperacion</con2:path>
+                                                    </con2:param>
+                                                </con2:xsltTransform>
+                                            </con1:expr>
+                                        </con1:assign>
+                                        <con1:assign varName="error">
+                                            <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7bdd</con2:id>
+                                            <con1:expr>
+                                                <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                                    <con2:resource ref="Exp_SI_ValidarPolizaNatural/xslt/RestServ_to_FaultMsg"/>
+                                                    <con2:param name="codigo">
+                                                        <con2:path>$codigo</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="resumen">
+                                                        <con2:path>$resumen</con2:path>
+                                                    </con2:param>
+                                                    <con2:param name="detalle">
+                                                        <con2:path>$detalle</con2:path>
+                                                    </con2:param>
+                                                </con2:xqueryTransform>
+                                            </con1:expr>
+                                        </con1:assign>
+                                    </con1:default>
+                                </con1:ifThenElse>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default/>
+                    </con1:ifThenElse>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7bdc</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$WSDLResponse</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-af03c45.669b2a08.0.17b4005fe49.N7f34">
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7f32" name="Stage1">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-af03c45.669b2a08.0.17b4005fe49.N7c74">
+            <con:stage id="_StageId-af03c45.669b2a08.0.17b4005fe49.N7c73" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="exp" namespace="http://sura.com.pa/expoServiceSOAP/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:javaScript xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7c72</con2:id>
+                        <con1:script>process.codigo= process.RtaConsultarPolizaAtomico.STATUS.CODIGO;
+process.resumen= process.RtaConsultarPolizaAtomico.STATUS.COMPONENTE;
+process.detalle= process.RtaConsultarPolizaAtomico.STATUS.DETALLE;</con1:script>
+                    </con1:javaScript>
+                    <con1:assign varName="error" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-af03c45.669b2a08.0.17b4005fe49.N7c71</con2:id>
+                        <con1:expr>
+                            <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="Exp_SI_ValidarPolizaNatural/xslt/RestServ_to_FaultMsg"/>
+                                <con2:param name="codigo">
+                                    <con2:path>$codigo</con2:path>
+                                </con2:param>
+                                <con2:param name="resumen">
+                                    <con2:path>$resumen</con2:path>
+                                </con2:param>
+                                <con2:param name="detalle">
+                                    <con2:path>$detalle</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-af03c45.669b2a08.0.17b4005fe49.N7f35</con:request>
+                <con:response>response-af03c45.669b2a08.0.17b4005fe49.N7f34</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

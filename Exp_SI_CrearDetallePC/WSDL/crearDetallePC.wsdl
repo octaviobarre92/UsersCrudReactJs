@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ccm="http://sura.com.pa/expoServiceSOAP/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="expoServiceSOAP" targetNamespace="http://sura.com.pa/expoServiceSOAP/">
+ <wsdl:import namespace="http://schemas.oracle.com/bpel/extension"
+                location="RuntimeFault.wsdl"/>
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://sura.com.pa/expoServiceSOAP/"> 
+     <xsd:element name="crearDetallePCFaultMsg">
+     <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="code" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Codigo Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="summary" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Resumen Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="detail" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Detalle Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+      <xsd:element name="crearDetallePC">
+        <xsd:complexType>
+          <xsd:sequence>
+          <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          	<xsd:element name="RAMO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Ramo poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="SUBRAMO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				SubRamo poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="POLIZA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="SECUENCIA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Secuencia poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="NUMERO_DE_REFERENCIA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero de Referencia
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="FECHA_REFERENCIA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Fecha de Referencia
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="FECHA_TRANSAC" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Fecha de Transaccion
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="MONTO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Monto
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                 <xsd:element name="ESTADO_PAGO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Estado Pago
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="TOTAL_REGISTRO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Total Registro
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="OBSERVACION" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Observacion
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="crearDetallePCResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:integer"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="crearDetallePCRequest">
+    <wsdl:part element="ccm:crearDetallePC" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="crearDetallePCResponse">
+    <wsdl:part element="ccm:crearDetallePCResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="crearDetallePCFault">
+    <wsdl:part name="parameters" element="ccm:crearDetallePCFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="expoServiceSOAP">
+    <wsdl:operation name="crearDetallePC">
+      <wsdl:input message="ccm:crearDetallePCRequest"/>
+      <wsdl:output message="ccm:crearDetallePCResponse"/>
+      <wsdl:fault name="crearDetallePCFaultMsg" message="ccm:crearDetallePCFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="crearDetallePCSOAP" type="ccm:expoServiceSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="crearDetallePC">
+      <soap:operation soapAction="http://sura.com.pa/expoServiceSOAP/crearDetallePC"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="crearDetallePCFaultMsg">
+        <soap:fault name="crearDetallePCFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="expoServiceSOAP">
+    <wsdl:documentation>Permite aplicar un pago en el core Premium</wsdl:documentation>
+    <wsdl:port binding="ccm:crearDetallePCSOAP" name="crearDetallePCSOAP">
+      <soap:address location="http://ptyosbdesa.sura.com.pa:17014/Exp_SI_CrearDetallePC"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ccm="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="expoRegistrarPagoBitacoraSOAP" targetNamespace="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/">
+ <wsdl:import namespace="http://schemas.oracle.com/bpel/extension"
+                location="RuntimeFault.wsdl"/>
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/"> 
+     <xsd:element name="registrarPagoBitacoraFaultMsg">
+     <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="code" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Codigo Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="summary" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Resumen Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="detail" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Detalle Error
+          			</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+      <xsd:element name="registrarPagoBitacora">
+        <xsd:complexType>
+          <xsd:sequence>
+          <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          	<xsd:element name="ID_RECIBO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				ID Recibo
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="ESTADO_PAGO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Estado pago
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="MONTO" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Monto
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="FECHA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Fecha
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="IDENTIFICACION" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Identificacion
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="NUMERO_POLIZA" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Numero poliza
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="RESPUESTA_APLICAP" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Respuesta aplica pago
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+                <xsd:element name="CORE" type="xsd:string">
+          		<xsd:annotation>
+          			<xsd:documentation>
+          				Core
+					</xsd:documentation>
+          		</xsd:annotation>
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="registrarPagoBitacoraResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                <xsd:element name="STATUS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DETALLE" type="xsd:string"/>
+                     <xsd:element name="CODIGO" type="xsd:integer"/>
+                     <xsd:element name="COMPONENTE" type="xsd:string"/>
+                     <xsd:element name="ORIGEN" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CABECERA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="FECHA_TRANSACCION" type="xsd:string"/>
+                     <xsd:element name="ID_TRANSACCION_OSB" type="xsd:string"/>
+                     <xsd:element name="FECHA_PROCESAMIENTO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_DESTINO" type="xsd:string"/>
+                     <xsd:element name="SISTEMA_ORIGEN" type="xsd:string"/>
+                     <xsd:element name="CODIGO_OPERACION" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="registrarPagoBitacoraRequest">
+    <wsdl:part element="ccm:registrarPagoBitacora" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="registrarPagoBitacoraResponse">
+    <wsdl:part element="ccm:registrarPagoBitacoraResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="registrarPagoBitacoraFault">
+    <wsdl:part name="parameters" element="ccm:registrarPagoBitacoraFaultMsg"/>
+  </wsdl:message>
+  <wsdl:portType name="expoRegistrarPagoBitacoraSOAP">
+    <wsdl:operation name="registrarPagoBitacora">
+      <wsdl:input message="ccm:registrarPagoBitacoraRequest"/>
+      <wsdl:output message="ccm:registrarPagoBitacoraResponse"/>
+      <wsdl:fault name="registrarPagoBitacoraFaultMsg" message="ccm:registrarPagoBitacoraFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="registrarPagoBitacoraSOAP" type="ccm:expoRegistrarPagoBitacoraSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registrarPagoBitacora">
+      <soap:operation soapAction="http://sura.com.pa/expoRegistrarPagoBitacoraSOAP/registrarPagoBitacora"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="registrarPagoBitacoraFaultMsg">
+        <soap:fault name="registrarPagoBitacoraFaultMsg" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="expoRegistrarPagoBitacoraSOAP">
+    <wsdl:documentation>Permite registrar un pago en la bitacora</wsdl:documentation>
+    <wsdl:port binding="ccm:registrarPagoBitacoraSOAP" name="registrarPagoBitacoraSOAP">
+      <soap:address location="http://ptyosbdesa.sura.com.pa:17014/Exp_RegistrarBitacoraPago"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
