@@ -1,4 +1,4 @@
-  # Code challenge para aspirantes full stack javascript TODO1
+  # Code challengesss para aspirantes full stack javascript TODO1
 
   El objetivo del presente repositorio es para validar los conocimientos del aspirante mediante una prueba progresiva en cuanto dificultad se refiere.
 
